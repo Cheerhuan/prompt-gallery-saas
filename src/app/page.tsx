@@ -81,7 +81,7 @@ export default function LandingPage() {
         {isLoading ? (
           <GallerySkeleton />
         ) : (
-          <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
+          <div className=\"columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4\">
             {MOCK_DATA.map((item) => (
               <PromptCard key={item.id} id={item.id} image={item.image} title={item.title} tags={item.tags} />
             ))}
