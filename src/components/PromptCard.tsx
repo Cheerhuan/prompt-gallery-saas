@@ -1,16 +1,21 @@
 import React from 'react';
+import Link from 'next/link';
 import { useI18n } from '@/components/I18nProvider';
 
 interface PromptCardProps {
+  id: string | number;
   image: string;
   title: string;
   tags: string[];
 }
 
-export const PromptCard = ({ image, title, tags }: PromptCardProps) => {
+export const PromptCard = ({ id, image, title, tags }: PromptCardProps) => {
   const { t } = useI18n();
   return (
-    <div className="group relative break-inside-avoid mb-4 rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 hover:border-zinc-600 transition-all duration-300 cursor-pointer">
+    <Link 
+      href={`/prompt/${id}`} 
+      className="group relative block break-inside-avoid mb-4 rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 hover:border-zinc-600 transition-all duration-300 cursor-pointer"
+    >
       <div className="relative aspect-[3/4] overflow-hidden">
         <img 
           src={image} 
@@ -28,6 +33,6 @@ export const PromptCard = ({ image, title, tags }: PromptCardProps) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };

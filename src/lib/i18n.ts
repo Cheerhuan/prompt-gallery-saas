@@ -187,12 +187,13 @@ export const translations = {
         models: '新模型搶先體驗',
       }
     },
-    scores: {
-      realism: '寫實度',
-      creative: '創造力',
-      complexity: '複雜度',
-    }
-  }
-};
+    admin: {
+      uploadTitle: '上傳新提示詞',
+      titleLabel: '標題',
+      promptLabel: '完整提示詞',
+      imageLabel: '圖片 URL',
+      tagsLabel: '標籤 (用逗號隔開)',
+      submit: '發佈到圖庫',
+    },
 
 export type Locale = 'en' | 'zh';
