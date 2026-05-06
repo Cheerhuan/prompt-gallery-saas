@@ -1,10 +1,23 @@
 import React from 'react';
-import { parsePrompt, promptBreakdown } from '@/lib/prompt-parser';
+import { parsePrompt, promptBreakdown, PromptBreakdown } from '@/lib/prompt-parser';
 
 interface PageProps {
   params: {
     id: string;
   };
+}
+
+// This is required for 'output: export' to work with dynamic routes
+export async function generateStaticParams() {
+  // In a real app, this would fetch all IDs from Supabase
+  return [
+    { id: '1' },
+    { id: '2' },
+    { id: '3' },
+    { id: '4' },
+    { id: '5' },
+    { id: '6' },
+  ];
 }
 
 export default function DetailPage({ params }: PageProps) {
@@ -17,7 +30,7 @@ export default function DetailPage({ params }: PageProps) {
     params: { steps: 30, cfg: 7.5, seed: 4294967295 }
   };
 
-  const breakdown = parsePrompt(mockPrompt.full_prompt);
+  const breakdown: PromptBreakdown = parsePrompt(mockPrompt.full_prompt);
 
   return (
     <div className="min-h-screen bg-black text-white p-4 md:p-8">
@@ -27,12 +40,10 @@ export default function DetailPage({ params }: PageProps) {
         </a>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Left: Image Preview */}
           <div className="rounded-2xl overflow-hidden bg-zinc-900 border border-zinc-800">
             <img src={mockPrompt.image} alt={mockPrompt.title} className="w-full h-auto object-cover" />
           </div>
           
-          {/* Right: Details & Prompt */}
           <div className="flex flex-col gap-8">
             <div>
               <h1 className="text-4xl font-bold">{mockPrompt.title}</h1>

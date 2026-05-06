@@ -19,7 +19,9 @@ export const SUBSCRIPTION_TIERS = {
   }
 };
 
-export const checkFeatureAccess = (userTier, feature) => {
+export type UserTier = 'free' | 'pro' | 'enterprise';
+
+export const checkFeatureAccess = (userTier: UserTier, feature: string): boolean => {
   // Simplified gating logic
   if (userTier === 'enterprise') return true;
   if (userTier === 'pro') return true;
