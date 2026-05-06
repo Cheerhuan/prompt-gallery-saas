@@ -15,7 +15,7 @@ export const I18nProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     // Detect browser language
-    const browserLang = navigator.language || (navigator.browserLanguage as string);
+    const browserLang = navigator.language || (navigator as any).browserLanguage;
     if (browserLang.startsWith('zh')) {
       setLocale('zh');
     } else {

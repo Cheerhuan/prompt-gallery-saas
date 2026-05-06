@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import { SaaSNavbar } from '@/components/SaaSNavbar';
 import { PromptPlayground } from '@/components/PromptPlayground';
