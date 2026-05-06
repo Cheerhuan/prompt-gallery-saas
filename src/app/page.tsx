@@ -1,9 +1,8 @@
-"use client";
-
 import React, { useState, useEffect } from 'react';
 import { SaaSNavbar } from '@/components/SaaSNavbar';
 import { PromptCard } from '@/components/PromptCard';
 import { GallerySkeleton } from '@/components/Skeleton';
+import { useI18n } from '@/components/I18nProvider';
 
 const MOCK_DATA = [
   { id: 1, title: 'Cyberpunk Neon City', tags: ['Cyberpunk', 'Neon', 'Cityscape'], image: 'https://images.unsplash.com/photo-1605142859616-f3775c782do?q=80&w=1000&auto=format&fit=crop', views: 1200, saves: 450 },
@@ -15,6 +14,7 @@ const MOCK_DATA = [
 ];
 
 export default function LandingPage() {
+  const { t } = useI18n();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -29,20 +29,20 @@ export default function LandingPage() {
       <section className="pt-32 pb-20 px-4 text-center max-w-4xl mx-auto">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-xs text-zinc-400 mb-6">
           <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse" />
-          v2.0 Now Live: Prompt Playground
+          {t('hero.badge')}
         </div>
         <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 bg-gradient-to-b from-white to-zinc-500 bg-clip-text text-transparent">
-          Master the Art of AI Prompting
+          {t('hero.title')}
         </h1>
         <p className="text-lg text-zinc-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-          Stop guessing. Start engineering. Explore a curated gallery of high-conversion prompts and refine them in our professional playground.
+          {t('hero.subtitle')}
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <button className="w-full sm:w-auto px-8 py-4 bg-white text-black rounded-full font-bold hover:bg-zinc-200 transition-all transform hover:scale-105">
-            Start Exploring Free
+            {t('hero.ctaPrimary')}
           </button>
           <button className="w-full sm:w-auto px-8 py-4 bg-zinc-900 text-white rounded-full font-bold border border-zinc-800 hover:bg-zinc-800 transition-all">
-            View Pricing
+            {t('hero.ctaSecondary')}
           </button>
         </div>
       </section>
@@ -52,22 +52,25 @@ export default function LandingPage() {
           <div className="relative w-full md:w-96">
             <input 
               type="text" 
-              placeholder="Search prompts, styles, or models..." 
+              placeholder={t('gallery.searchPlaceholder')} 
               className="w-full pl-10 pr-4 py-2 bg-black border border-zinc-800 rounded-xl text-sm focus:ring-2 focus:ring-indigo-500 outline-none transition-all"
             />
             <span className="absolute left-3 top-2.5 text-zinc-500">🔍</span>
           </div>
           <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0">
-            {['All', 'Cinematic', 'Anime', 'Realistic', 'Product', 'Portrait'].map(filter => (
-              <button key={filter} className="px-4 py-1.5 rounded-full text-xs font-medium bg-zinc-800 text-zinc-400 hover:bg-white hover:text-black transition-all whitespace-nowrap">
-                {filter}
+            {Object.entries(translations.en.gallery.filters).map(([key, value]) => (
+              <button 
+                key={key} 
+                className="px-4 py-1.5 rounded-full text-xs font-medium bg-zinc-800 text-zinc-400 hover:bg-white hover:text-black transition-all whitespace-nowrap"
+              >
+                {t(`gallery.filters.${key}`)}
               </button>
             ))}
             <div className="w-px h-4 bg-zinc-800 mx-2" />
             <select className="bg-black border border-zinc-800 text-xs rounded-full px-3 py-1.5 outline-none text-zinc-400">
-              <option>Trending</option>
-              <option>Newest</option>
-              <option>Most Saved</option>
+              <option>{t('gallery.sortTrending')}</option>
+              <option>{t('gallery.sortNewest')}</option>
+              <option>{t('gallery.sortSaved')}</option>
             </select>
           </div>
         </div>
@@ -87,3 +90,5 @@ export default function LandingPage() {
     </div>
   );
 }
+
+import { translations } from '@/lib/i18n';
