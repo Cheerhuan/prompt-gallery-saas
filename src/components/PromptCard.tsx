@@ -1,7 +1,13 @@
 import React from 'react';
 import { useI18n } from '@/components/I18nProvider';
 
-export const PromptCard = ({ image, title, tags }) => {
+interface PromptCardProps {
+  image: string;
+  title: string;
+  tags: string[];
+}
+
+export const PromptCard = ({ image, title, tags }: PromptCardProps) => {
   const { t } = useI18n();
   return (
     <div className="group relative break-inside-avoid mb-4 rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 hover:border-zinc-600 transition-all duration-300 cursor-pointer">

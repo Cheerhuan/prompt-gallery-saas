@@ -1,3 +1,4 @@
+'use client';
 import React, { useState, useEffect } from 'react';
 import { SaaSNavbar } from '@/components/SaaSNavbar';
 import { PromptCard } from '@/components/PromptCard';
