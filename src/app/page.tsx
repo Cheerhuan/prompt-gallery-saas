@@ -1,33 +1,87 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { SaaSNavbar } from '@/components/SaaSNavbar';
 import { PromptCard } from '@/components/PromptCard';
+import { GallerySkeleton } from '@/components/Skeleton';
 
 const MOCK_DATA = [
-  { id: 1, title: 'Cyberpunk Neon City', tags: ['Cyberpunk', 'Neon', 'Cityscape'], image: 'https://images.unsplash.com/photo-1605142859616-f3775c78235d?q=80&w=1000&auto=format&fit=crop' },
-  { id: 2, title: 'Ethereal Forest', tags: ['Fantasy', 'Nature', 'Magical'], image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000&auto=format&fit=crop' },
-  { id: 3, title: 'Abstract Geometry', tags: ['Abstract', 'Modern', 'Digital'], image: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1000&auto=format&fit=crop' },
-  { id: 4, title: 'Futuristic Portrait', tags: ['Sci-fi', 'Portrait', 'Cyborg'], image: 'https://images.unsplash.com/photo-1531746020798-e6953c6ed76e?q=80&w=1000&auto=format&fit=crop' },
-  { id: 5, title: 'Ancient ruins', tags: ['History', 'Epic', 'Architecture'], image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1000&auto=format&fit=crop' },
-  { id: 6, title: 'Cosmic Nebula', tags: ['Space', 'Galaxy', 'Astronomy'], image: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=1000&auto=format&fit=crop' },
+  { id: 1, title: 'Cyberpunk Neon City', tags: ['Cyberpunk', 'Neon', 'Cityscape'], image: 'https://images.unsplash.com/photo-1605142859616-f3775c782do?q=80&w=1000&auto=format&fit=crop', views: 1200, saves: 450 },
+  { id: 2, title: 'Ethereal Forest', tags: ['Fantasy', 'Nature', 'Magical'], image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000&auto=format&fit=crop', views: 800, saves: 210 },
+  { id: 3, title: 'Abstract Geometry', tags: ['Abstract', 'Modern', 'Digital'], image: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1000&auto=format&fit=crop', views: 2500, saves: 890 },
+  { id: 4, title: 'Futuristic Portrait', tags: ['Sci-fi', 'Portrait', 'Cyborg'], image: 'https://images.unsplash.com/photo-1531746020798-e6953c6ed76e?q=80&w=1000&auto=format&fit=crop', views: 1800, saves: 600 },
+  { id: 5, title: 'Ancient ruins', tags: ['History', 'Epic', 'Architecture'], image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1000&auto=format&fit=crop', views: 600, saves: 120 },
+  { id: 6, title: 'Cosmic Nebula', tags: ['Space', 'Galaxy', 'Astronomy'], image: 'https://images.unsplash.com/photo-1462331940025-496dfbc7564?q=80&w=1000&auto=format&fit=crop', views: 3100, saves: 1100 },
 ];
 
-export default function GalleryPage() {
-  return (
-    <div className="min-h-screen bg-black text-white p-4 md:p-8">
-      <header className="max-w-7xl mx-auto mb-12 flex justify-between items-center">
-        <div>
-          <h1 className="text-4xl font-bold tracking-tighter">PROMPT GALLERY</h1>
-          <p className="text-zinc-500 mt-2">Explore the art of AI prompting.</p>
-        </div>
-        <button className="bg-white text-black px-6 py-2 rounded-full font-medium hover:bg-zinc-200 transition-colors">
-          Upload Prompt
-        </button>
-      </header>
+export default function LandingPage() {
+  const [isLoading, setIsLoading] = useState(true);
 
-      <div className="max-w-7xl mx-auto columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
-        {MOCK_DATA.map((item) => (
-          <PromptCard key={item.id} image={item.image} title={item.title} tags={item.tags} />
-        ))}
-      </div>
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 1200); // Simulate API load
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-black text-white font-sans">
+      <SaaSNavbar />
+      
+      <section className="pt-32 pb-20 px-4 text-center max-w-4xl mx-auto">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-xs text-zinc-400 mb-6">
+          <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse" />
+          v2.0 Now Live: Prompt Playground
+        </div>
+        <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 bg-gradient-to-b from-white to-zinc-500 bg-clip-text text-transparent">
+          Master the Art of AI Prompting
+        </h1>
+        <p className="text-lg text-zinc-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+          Stop guessing. Start engineering. Explore a curated gallery of high-conversion prompts and refine them in our professional playground.
+        </p>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <button className="w-full sm:w-auto px-8 py-4 bg-white text-black rounded-full font-bold hover:bg-zinc-200 transition-all transform hover:scale-105">
+            Start Exploring Free
+          </button>
+          <button className="w-full sm:w-auto px-8 py-4 bg-zinc-900 text-white rounded-full font-bold border border-zinc-800 hover:bg-zinc-800 transition-all">
+            View Pricing
+          </button>
+        </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-4 mb-12">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 p-2 rounded-2xl bg-zinc-900/50 border border-zinc-800 backdrop-blur-sm">
+          <div className="relative w-full md:w-96">
+            <input 
+              type="text" 
+              placeholder="Search prompts, styles, or models..." 
+              className="w-full pl-10 pr-4 py-2 bg-black border border-zinc-800 rounded-xl text-sm focus:ring-2 focus:ring-indigo-500 outline-none transition-all"
+            />
+            <span className="absolute left-3 top-2.5 text-zinc-500">🔍</span>
+          </div>
+          <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0">
+            {['All', 'Cinematic', 'Anime', 'Realistic', 'Product', 'Portrait'].map(filter => (
+              <button key={filter} className="px-4 py-1.5 rounded-full text-xs font-medium bg-zinc-800 text-zinc-400 hover:bg-white hover:text-black transition-all whitespace-nowrap">
+                {filter}
+              </button>
+            ))}
+            <div className="w-px h-4 bg-zinc-800 mx-2" />
+            <select className="bg-black border border-zinc-800 text-xs rounded-full px-3 py-1.5 outline-none text-zinc-400">
+              <option>Trending</option>
+              <option>Newest</option>
+              <option>Most Saved</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-4 pb-20">
+        {isLoading ? (
+          <GallerySkeleton />
+        ) : (
+          <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
+            {MOCK_DATA.map((item) => (
+              <PromptCard key={item.id} image={item.image} title={item.title} tags={item.tags} />
+            ))}
+          </div>
+        )}
+      </section>
     </div>
   );
 }
