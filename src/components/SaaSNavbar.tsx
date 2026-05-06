@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import Link from 'next/link';
 import { useI18n } from '@/components/I18nProvider';
