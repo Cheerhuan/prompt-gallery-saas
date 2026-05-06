@@ -1,3 +1,6 @@
+import React from 'react';
+import { useI18n } from '@/components/I18nProvider';
+
 export const translations = {
   en: {
     nav: {
@@ -94,6 +97,14 @@ export const translations = {
       realism: 'Realism',
       creative: 'Creative',
       complexity: 'Complexity',
+    },
+    admin: {
+      uploadTitle: 'Upload New Prompt',
+      titleLabel: 'Title',
+      promptLabel: 'Full Prompt',
+      imageLabel: 'Image URL',
+      tagsLabel: 'Tags (separated by commas)',
+      submit: 'Publish to Gallery',
     }
   },
   zh: {
@@ -187,6 +198,11 @@ export const translations = {
         models: '新模型搶先體驗',
       }
     },
+    scores: {
+      realism: '寫實度',
+      creative: '創造力',
+      complexity: '複雜度',
+    },
     admin: {
       uploadTitle: '上傳新提示詞',
       titleLabel: '標題',
@@ -194,6 +210,8 @@ export const translations = {
       imageLabel: '圖片 URL',
       tagsLabel: '標籤 (用逗號隔開)',
       submit: '發佈到圖庫',
-    },
+    }
+  }
+};
 
 export type Locale = 'en' | 'zh';

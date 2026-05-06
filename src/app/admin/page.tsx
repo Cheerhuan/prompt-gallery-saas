@@ -1,7 +1,9 @@
+'use client';
 import React from 'react';
 import { useI18n } from '@/components/I18nProvider';
+import { AdminUpload } from '@/components/AdminUpload';
 
-export const AdminPanel = () => {
+export default function AdminPanel() {
   const { t } = useI18n();
   
   return (
@@ -24,6 +26,4 @@ export const AdminPanel = () => {
       </div>
     </div>
   );
-};
-
-import { AdminUpload } from '@/components/AdminUpload';
+}
