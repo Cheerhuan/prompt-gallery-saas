@@ -1,99 +1,112 @@
 import React from 'react';
-import { parsePrompt, promptBreakdown, PromptBreakdown } from '@/lib/prompt-parser';
+import { SaaSNavbar } from '@/components/SaaSNavbar';
+import { PromptPlayground } from '@/components/PromptPlayground';
+import { FeatureGate } from '@/components/FeatureGate';
 
-interface PageProps {
-  params: {
-    id: string;
-  };
-}
-
-// This is required for 'output: export' to work with dynamic routes
-export async function generateStaticParams() {
-  // In a real app, this would fetch all IDs from Supabase
-  return [
-    { id: '1' },
-    { id: '2' },
-    { id: '3' },
-    { id: '4' },
-    { id: '5' },
-    { id: '6' },
-  ];
-}
-
-export default function DetailPage({ params }: PageProps) {
+export default function DetailPage({ params }: { params: { id: string } }) {
+  const userTier = 'free'; // Mock user state
+  
   const mockPrompt = {
     title: 'Cyberpunk Neon City',
     image: 'https://images.unsplash.com/photo-16051428596d?q=80&w=1000&auto=format&fit=crop',
     full_prompt: 'A futuristic neon city with flying cars, rainy streets, cinematic lighting, 8k resolution, cyberpunk style, wide angle lens',
-    negative_prompt: 'blurry, distorted, low quality, watermarks',
     model: 'SDXL 1.0',
-    params: { steps: 30, cfg: 7.5, seed: 4294967295 }
   };
 
-  const breakdown: PromptBreakdown = parsePrompt(mockPrompt.full_prompt);
-
   return (
-    <div className="min-h-screen bg-black text-white p-4 md:p-8">
-      <div className="max-w-6xl mx-auto">
-        <a href="/" className="text-zinc-500 hover:text-white transition-colors mb-8 inline-block">
-          ← Back to Gallery
-        </a>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="rounded-2xl overflow-hidden bg-zinc-900 border border-zinc-800">
-            <img src={mockPrompt.image} alt={mockPrompt.title} className="w-full h-auto object-cover" />
-          </div>
-          
-          <div className="flex flex-col gap-8">
-            <div>
-              <h1 className="text-4xl font-bold">{mockPrompt.title}</h1>
-              <div className="flex gap-2 mt-4">
-                <span className="px-3 py-1 rounded-full bg-zinc-800 text-xs font-medium border border-zinc-700">
-                  {mockPrompt.model}
-                </span>
-              </div>
+    <div className="min-h-screen bg-black text-white">
+      <SaaSNavbar userTier={userTier} />
+      
+      <main className="pt-24 pb-20 px-4 max-w-7xl mx-auto">
+        {/* Sticky Top CTA Bar */}
+        <div className="fixed top-16 left-0 right-0 z-40 bg-black/80 backdrop-blur-md border-b border-zinc-800 px-4 py-3 hidden md:block">
+          <div className="max-w-7xl mx-auto flex justify-between items-center">
+            <div className="flex items-center gap-4">
+              <span className="text-sm font-medium text-zinc-400">Prompt ID: {params.id}</span>
+              <div className="w-px h-4 bg-zinc-800" />
+              <span className="text-sm font-medium text-indigo-400">Model: {mockPrompt.model}</span>
             </div>
-            
-            <div className="space-y-6">
-              <section>
-                <label className="text-zinc-500 text-sm uppercase tracking-widest mb-2 block">Full Prompt</label>
-                <div className="relative group">
-                  <div className="p-4 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-300 leading-relaxed">
-                    {mockPrompt.full_prompt}
-                  </div>
-                  <button className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity bg-white text-black text-xs px-3 py-1 rounded-md font-medium">
-                    Copy
-                  </button>
-                </div>
-              </section>
-
-              <section>
-                <label className="text-zinc-500 text-sm uppercase tracking-widest mb-2 block">Structure Breakdown</label>
-                <div className="grid grid-cols-1 gap-3">
-                  {promptBreakdown.map(({ label, key }) => (
-                    <div key={key} className="flex items-center gap-4 p-3 rounded-lg bg-zinc-900/50 border border-zinc-800">
-                      <span className="text-zinc-500 text-xs w-20">{label}</span>
-                      <input 
-                        className="bg-transparent border-none focus:ring-0 text-zinc-300 text-sm w-full" 
-                        defaultValue={breakdown[key]}
-                      />
-                    </div>
-                  ))}
-                </div>
-              </section>
-
-              <section className="flex gap-4">
-                <button className="flex-1 bg-white text-black py-3 rounded-xl font-bold hover:bg-zinc-200 transition-colors">
-                  Generate Similar
-                </button>
-                <button className="px-6 py-3 rounded-xl border border-zinc-800 hover:bg-zinc-900 transition-colors">
-                  Save to Favorites
-                </button>
-              </section>
+            <div className="flex items-center gap-3">
+              <button className="px-4 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs font-medium hover:bg-zinc-800 transition-colors">
+                Copy Prompt
+              </button>
+              <button className="px-4 py-1.5 rounded-lg bg-white text-black text-xs font-bold hover:bg-zinc-200 transition-colors">
+                Generate Similar
+              </button>
             </div>
           </div>
         </div>
-      </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-8">
+          {/* Left: Image Visuals (7 cols) */}
+          <div className="lg:col-span-7 space-y-6">
+            <div className="relative group rounded-3xl overflow-hidden bg-zinc-900 border border-zinc-800 aspect-[4/5]">
+              <img src={mockPrompt.image} alt={mockPrompt.title} className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
+                <div className="flex gap-3">
+                  <button className="px-4 py-2 bg-white text-black rounded-full text-xs font-bold">Save to Collection</button>
+                  <button className="px-4 py-2 bg-black/50 backdrop-blur-md text-white rounded-full text-xs font-medium border border-white/20">Share</button>
+                </div>
+              </div>
+            </div>
+            
+            {/* Before/After - Now Gated for Pro */}
+            <FeatureGate isProRequired={true} userTier={userTier}>
+              <div className="p-6 rounded-3xl bg-zinc-900/50 border border-zinc-800">
+                <h3 className="text-sm font-medium text-zinc-400 mb-4 uppercase tracking-widest">Prompt Evolution</h3>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <span className="text-[10px] text-zinc-500 uppercase">Original</span>
+                    <div className="aspect-square rounded-xl bg-zinc-800 overflow-hidden">
+                      <img src="https://images.unsplash.com/photo-1514565131-f777f29557d1?q=80&w=400&auto=format&fit=crop" className="w-full h-full object-cover opacity-50" />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <span className="text-[10px] text-indigo-400 uppercase">Refined</span>
+                    <div className="aspect-square rounded-xl bg-zinc-900 border-2 border-indigo-500 overflow-hidden">
+                      <img src={mockPrompt.image} className="w-full h-full object-cover" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </FeatureGate>
+          </div>
+
+          {/* Right: The Playground (5 cols) */}
+          <div className="lg:col-span-5 space-y-8">
+            <div>
+              <h1 className="text-4xl font-bold tracking-tighter mb-2">{mockPrompt.title}</h1>
+              <p className="text-zinc-500 text-sm">Engineered for high-fidelity cinematic realism.</p>
+            </div>
+
+            <div className="p-8 rounded-3xl bg-zinc-900 border border-zinc-800 shadow-2xl">
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-lg font-semibold">Prompt Playground</h2>
+                <span className="text-[10px] px-2 py-1 rounded-md bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 font-mono">v2.0 Beta</span>
+              </div>
+              
+              {/* Playground gated for a specific part or fully for pro */}
+              <PromptPlayground initialPrompt={mockPrompt.full_prompt} />
+            </div>
+
+            {/* Prompt Score - Now Gated for Pro */}
+            <FeatureGate isProRequired={true} userTier={userTier}>
+              <div className="grid grid-cols-3 gap-4">
+                {[
+                  { label: 'Realism', score: 98, color: 'text-emerald-400' },
+                  { label: 'Creative', score: 82, color: 'text-indigo-400' },
+                  { label: 'Complexity', score: 75, color: 'text-amber-400' },
+                ].map(stat => (
+                  <div key={stat.label} className="p-4 rounded-2xl bg-zinc-900 border border-zinc-800 text-center">
+                    <div className={`text-xl font-bold ${stat.color}`}>{stat.score}%</div>
+                    <div className="text-[10px] text-zinc-500 uppercase tracking-tighter">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            </FeatureGate>
+          </div>
+        </div>
+      </main>
     </div>
   );
 }
