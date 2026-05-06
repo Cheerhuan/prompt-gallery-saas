@@ -1,7 +1,13 @@
 import React from 'react';
 import { parsePrompt, promptBreakdown } from '@/lib/prompt-parser';
 
-export default function DetailPage({ params }) {
+interface PageProps {
+  params: {
+    id: string;
+  };
+}
+
+export default function DetailPage({ params }: PageProps) {
   const mockPrompt = {
     title: 'Cyberpunk Neon City',
     image: 'https://images.unsplash.com/photo-16051428596d?q=80&w=1000&auto=format&fit=crop',
