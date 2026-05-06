@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from 'react';
 
 interface EditorField {
@@ -37,7 +39,6 @@ export const PromptPlayground = ({ initialPrompt }: { initialPrompt: string }) =
 
   return (
     <div className="flex flex-col gap-6">
-      {/* Prompt Construction Area */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {FIELDS.map(field => (
           <div key={field.key} className="group">
@@ -55,7 +56,6 @@ export const PromptPlayground = ({ initialPrompt }: { initialPrompt: string }) =
         ))}
       </div>
 
-      {/* Resulting Prompt Readout */}
       <div className="p-4 rounded-xl bg-indigo-500/5 border border-indigo-500/20 backdrop-blur-sm">
         <div className="flex justify-between items-center mb-2">
           <span className="text-indigo-400 text-[10px] uppercase font-bold tracking-tighter">Compiled Prompt</span>
@@ -66,7 +66,6 @@ export const PromptPlayground = ({ initialPrompt }: { initialPrompt: string }) =
         </p>
       </div>
 
-      {/* Action Button */}
       <button 
         onClick={handleRegenerate}
         disabled={isGenerating}
