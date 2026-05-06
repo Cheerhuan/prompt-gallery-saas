@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from 'react';
 import { useI18n } from '@/components/I18nProvider';
 
