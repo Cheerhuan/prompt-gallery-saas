@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
-export const FeatureGate = ({ children, isProRequired = true, userTier = 'free' }) => {
+interface FeatureGateProps {
+  children: ReactNode;
+  isProRequired?: boolean;
+  userTier?: string;
+}
+
+export const FeatureGate = ({ children, isProRequired = true, userTier = 'free' }: FeatureGateProps) => {
   const isLocked = isProRequired && userTier === 'free';
 
   return (
