@@ -4,22 +4,25 @@ import { SaaSNavbar } from '@/components/SaaSNavbar';
 import { PromptCard } from '@/components/PromptCard';
 import { GallerySkeleton } from '@/components/Skeleton';
 import { useI18n } from '@/components/I18nProvider';
-
-const MOCK_DATA = [
-  { id: 2, title: 'Ethereal Forest', tags: ['Fantasy', 'Nature', 'Magical'], image: 'https://drive.google.com/uc?id=1WN6tx6zQQbkvBtM0QTT5Uww2LMnwITdP&export=download', views: 800, saves: 210 },
-  { id: 3, title: 'Abstract Geometry', tags: ['Abstract', 'Modern', 'Digital'], image: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1000&auto=format&fit=crop', views: 2500, saves: 890 },
-  { id: 4, title: 'Futuristic Portrait', tags: ['Sci-fi', 'Portrait', 'Cyborg'], image: 'https://images.unsplash.com/photo-1531746020798-e6953c6ed76e?q=80&w=1000&auto=format&fit=crop', views: 1800, saves: 600 },
-  { id: 6, title: 'Cosmic Nebula', tags: ['Space', 'Galaxy', 'Astronomy'], image: 'https://images.unsplash.com/photo-1462331940025-496dfbc7564?q=80&w=1000&auto=format&fit=crop', views: 3100, saves: 1100 },
-];
+import promptsData from '@/data/prompts.json';
+import { translations } from '@/lib/i18n';
 
 export default function LandingPage() {
   const { t } = useI18n();
   const [isLoading, setIsLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [activeFilter, setActiveFilter] = useState('all');
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 1200);
     return () => clearTimeout(timer);
   }, []);
+
+  const filteredPrompts = promptsData.filter(prompt => {
+    const matchesSearch = prompt.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                          prompt.full_prompt.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesSearch;
+  });
 
   return (
     <div className="min-h-screen bg-black text-white font-sans">
@@ -53,6 +56,8 @@ export default function LandingPage() {
               type="text" 
               placeholder={t('gallery.searchPlaceholder')} 
               className="w-full pl-10 pr-4 py-2 bg-black border border-zinc-800 rounded-xl text-sm focus:ring-2 focus:ring-indigo-500 outline-none transition-all"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
             />
             <span className="absolute left-3 top-2.5 text-zinc-500">🔍</span>
           </div>
@@ -60,7 +65,8 @@ export default function LandingPage() {
             {Object.entries(translations.en.gallery.filters).map(([key, value]) => (
               <button 
                 key={key} 
-                className="px-4 py-1.5 rounded-full text-xs font-medium bg-zinc-800 text-zinc-400 hover:bg-white hover:text-black transition-all whitespace-nowrap"
+                onClick={() => setActiveFilter(key)}
+                className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all whitespace-nowrap ${activeFilter === key ? 'bg-white text-black' : 'bg-zinc-800 text-zinc-400 hover:bg-zinc-700'}`}
               >
                 {t(`gallery.filters.${key}`)}
               </button>
@@ -80,8 +86,14 @@ export default function LandingPage() {
           <GallerySkeleton />
         ) : (
           <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
-            {MOCK_DATA.map((item) => (
-              <PromptCard key={item.id} id={item.id} image={item.image} title={item.title} tags={item.tags} />
+            {filteredPrompts.map((item) => (
+              <PromptCard 
+                key={item.id} 
+                id={item.id} 
+                image={item.image} 
+                title={item.title} 
+                tags={['AI Art', 'Trending']} 
+              />
             ))}
           </div>
         )}
@@ -89,5 +101,3 @@ export default function LandingPage() {
     </div>
   );
 }
-
-import { translations } from '@/lib/i18n';
