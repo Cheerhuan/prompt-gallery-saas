@@ -9,21 +9,21 @@
   {
     "id": "2",
     "title": "進擊的巨人 艾連 (Attack on Titan - Eren)",
-    "image": "https://images.unsplash.com/photo-1541562232579-87ce3771c895?q=80&w=2070&auto=format&fit=crop",
+    "image": "https://images.unsplash.com/photo-1578632292335-df37b639f2cf?q=80&w=2070&auto=format&fit=crop",
     "full_prompt": "「進擊的巨人 艾連」美式厚塗插畫，角色側臉半身特寫，人物視覺還原角色設定，視線朝左，極簡米白背景，大量留白，右側構圖，乾淨高級感，柔和電影級光影，邊緣光，高對比但低飽和配色，角色主色點綴，幾何切面感上色，細緻皮膚與髮絲，商業海報排版，大標題字體設計。9:16直板。",
     "model": "SDXL 1.0"
   },
   {
     "id": "3",
     "title": "未來主義參數化建築 (Parametric Architecture)",
-    "image": "https://images.unsplash.com/photo-1487958449943-2429578bd6d0?q=80&w=2070&auto=format&fit=crop",
+    "image": "https://images.unsplash.com/photo-1493397212122-23ef8ba6a646?q=80&w=2070&auto=format&fit=crop",
     "full_prompt": "Futuristic parametric skyscraper inspired by Zaha Hadid, fluid organic curves, iridescent glass facade, sunset lighting, wide angle architectural photography, high contrast, hyper-realistic, 8k, detailed steel structure, cloud reflection on glass. | 受札哈·哈迪德啟發的未來主義參數化摩天大樓，流動的有機曲線，彩虹色玻璃幕牆，日落光影，廣角建築攝影，高對比，超寫實，8k，細緻的鋼結構，玻璃上的雲朵反射。",
     "model": "DALL-E 3"
   },
   {
     "id": "4",
     "title": "奢華產品攝影 (Luxury Product Shot)",
-    "image": "https://images.unsplash.com/photo-1583467851659-27777371779b?q=80&w=1974&auto=format&fit=crop",
+    "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1974&auto=format&fit=crop",
     "full_prompt": "High-end luxury perfume bottle on a floating mirror surface, surrounding by liquid splashes and floating gold flakes, soft studio lighting, caustic light effects, deep navy background, macro photography, extreme sharpness, professional color grading. | 高端奢華香水瓶置於漂浮的鏡面之上，周圍環繞著液體飛濺與漂浮的金箔，柔和的攝影棚光影，焦散光效，深藍色背景，微距攝影，極致銳利，專業調色。",
     "model": "Midjourney v6"
   },
