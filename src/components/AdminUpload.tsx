@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import { useI18n } from '@/components/I18nProvider';
+import { getGoogleDriveDirectLink } from '@/lib/googleDrive';
 
 interface AdminUploadProps {
   onUpload: (data: any) => void;
@@ -18,7 +19,11 @@ export const AdminUpload = ({ onUpload }: AdminUploadProps) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const tagsArray = formData.tags.split(',').map(tag => tag.trim());
-    onUpload({ ...formData, tags: tagsArray });
+    
+    // Industrial-grade transformation: Convert GDrive links/IDs to Direct Links
+    const finalImage = getGoogleDriveDirectLink(formData.image);
+    
+    onUpload({ ...formData, image: finalImage, tags: tagsArray });
     setFormData({ title: '', prompt: '', image: '', tags: '' });
   };
 
@@ -52,7 +57,7 @@ export const AdminUpload = ({ onUpload }: AdminUploadProps) => {
             value={formData.image}
             onChange={(e) => setFormData({...formData, image: e.target.value})}
             className="w-full px-4 py-2 bg-black border border-zinc-800 rounded-xl text-sm focus:ring-2 focus:ring-indigo-500 outline-none"
-            placeholder="https://..."
+            placeholder="URL or Google Drive File ID"
             required
           />
         </div>
