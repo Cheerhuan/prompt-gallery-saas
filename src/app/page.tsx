@@ -21,8 +21,17 @@ export default function LandingPage() {
   const filteredPrompts = promptsData.filter(prompt => {
     const matchesSearch = prompt.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
                           prompt.full_prompt.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesSearch;
+    const matchesFilter = activeFilter === 'all' || 
+                          prompt.title.toLowerCase().includes(activeFilter.toLowerCase());
+    return matchesSearch && matchesFilter;
   });
+
+  const scrollToGallery = () => {
+    const element = document.getElementById('gallery-section');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <div className="min-h-screen bg-black text-white font-sans">
@@ -40,16 +49,22 @@ export default function LandingPage() {
           {t('hero.subtitle')}
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button className="w-full sm:w-auto px-8 py-4 bg-white text-black rounded-full font-bold hover:bg-zinc-200 transition-all transform hover:scale-105">
+          <button 
+            onClick={scrollToGallery}
+            className="w-full sm:w-auto px-8 py-4 bg-white text-black rounded-full font-bold hover:bg-zinc-200 transition-all transform hover:scale-105"
+          >
             {t('hero.ctaPrimary')}
           </button>
-          <button className="w-full sm:w-auto px-8 py-4 bg-zinc-900 text-white rounded-full font-bold border border-zinc-800 hover:bg-zinc-800 transition-all">
+          <a 
+            href="/pricing"
+            className="w-full sm:w-auto px-8 py-4 bg-zinc-900 text-white rounded-full font-bold border border-zinc-800 hover:bg-zinc-800 transition-all text-center"
+          >
             {t('hero.ctaSecondary')}
-          </button>
+          </a>
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-4 mb-12">
+      <section id="gallery-section" className="max-w-7xl mx-auto px-4 mb-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 p-2 rounded-2xl bg-zinc-900/50 border border-zinc-800 backdrop-blur-sm">
           <div className="relative w-full md:w-96">
             <input 

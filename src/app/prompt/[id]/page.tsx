@@ -10,7 +10,6 @@ export default function DetailPage({ params }: { params: { id: string } }) {
   const { t } = useI18n();
   const userTier = 'free'; 
   
-  // 動態匹配數據
   const prompt = promptsData.find(p => p.id === params.id);
 
   if (!prompt) {
@@ -51,9 +50,8 @@ export default function DetailPage({ params }: { params: { id: string } }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-8">
           <div className="lg:col-span-7 space-y-6">
             <div className="relative group rounded-3xl overflow-hidden bg-zinc-900 border border-zinc-800 aspect-[4/5]">
-              {/* 使用 iframe 預覽以提高 Google Drive 穩定性 */}
               <iframe
-                src={`https://drive.google.com/file/d/${prompt.image.split('id=')[1]?.split('&')[0]}/preview`}
+                src={`https://drive.google.com/file/d/${prompt.image.split('id=')[1]?.split('&')[0]}/preview`} 
                 width="100%" height="100%" allow="autoplay" loading="lazy"
                 className="w-full h-full object-cover border-none"
               ></iframe>
@@ -71,8 +69,8 @@ export default function DetailPage({ params }: { params: { id: string } }) {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <span className="text-[10px] text-zinc-500 uppercase">{t('detail.original')}</span>
-                    <div className="aspect-square rounded-xl bg-zinc-800 overflow-hidden">
-                      <img src="https://images.unsplash.com/photo-1514565131-f777f29557d1?q=80&w=400&auto=format&fit=crop" className="w-full h-full object-cover opacity-50" />
+                    <div className="aspect-square rounded-xl bg-zinc-800 overflow-hidden flex items-center justify-center">
+                      <span className="text-zinc-600 text-[10px]">No Original Version Available</span>
                     </div>
                   </div>
                   <div className="space-y-2">
@@ -106,11 +104,11 @@ export default function DetailPage({ params }: { params: { id: string } }) {
                 {[
                   { label: 'realism', score: 98, color: 'text-emerald-400' },
                   { label: 'creative', score: 82, color: 'text-indigo-400' },
-                  { label: 'complexity', score: 75, color: 'text-amber-400' },
+                  { label: 'complexity', score: 75, color: 'text-zinc-500' },
                 ].map(stat => (
                   <div key={stat.label} className="p-4 rounded-2xl bg-zinc-900 border border-zinc-800 text-center">
-<div className={`text-xl font-bold ${stat.color}`}>{stat.score}%</div>
-<div className="text-[10px] text-zinc-500 uppercase tracking-tighter">{t('scores.' + stat.label)}</div>
+                    <div className={`text-xl font-bold ${stat.color}`}>{stat.score}%</div>
+                    <div className="text-[10px] text-zinc-500 uppercase tracking-tighter">{t('scores.' + stat.label)}</div>
                   </div>
                 ))}
               </div>
