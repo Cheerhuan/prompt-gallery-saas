@@ -18,11 +18,11 @@ const FIELDS: EditorField[] = [
 
 export const PromptPlayground = ({ initialPrompt }: { initialPrompt: string }) => {
   const [fields, setFields] = useState({
-    subject: 'A futuristic neon city',
-    style: 'Cyberpunk, Cinematic',
-    lighting: 'Volumetric neon glow',
-    camera: 'Wide angle, 8k',
-    mood: 'Mysterious, Rainy',
+    subject: initialPrompt ? initialPrompt.split('，')[0] : 'A futuristic neon city',
+    style: initialPrompt ? initialPrompt.split('，')[1] || '' : 'Cyberpunk, Cinematic',
+    lighting: initialPrompt ? initialPrompt.split('，')[2] || '' : 'Volumetric neon glow',
+    camera: initialPrompt ? initialPrompt.split('，')[3] || '' : 'Wide angle, 8k',
+    mood: initialPrompt ? initialPrompt.split('，')[4] || '' : 'Mysterious, Rainy',
   });
   const [isGenerating, setIsGenerating] = useState(false);
 
