@@ -10,9 +10,9 @@ export default function DetailPage({ params }: { params: { id: string } }) {
   const userTier = 'free'; 
   
   const mockPrompt = {
-    title: 'Cyberpunk Neon City',
-    image: 'https://images.unsplash.com/photo-16051428596d?q=80&w=1000&auto=format&fit=crop',
-    full_prompt: 'A futuristic neon city with flying cars, rainy streets, cinematic lighting, 8k resolution, cyberpunk style, wide angle lens',
+    title: '進擊的巨人 艾連',
+    image: 'https://drive.google.com/uc?id=1WN6tx6zQQbkvBtM0QTT5Uww2LMnwITdP&export=download',
+    full_prompt: '「進擊的巨人 艾連」美式厚塗插畫，角色側臉半身特寫，人物視覺還原角色設定，視線朝左，極簡米白背景，大量留白，右側構圖，乾淨高級感，柔和電影級光影，邊緣光，高對比但低飽和配色，角色主色點綴，幾何切面感上色，細緻皮膚與髮絲，商業海報排版，大標題字體設計。9:16直板。',
     model: 'SDXL 1.0',
   };
 
