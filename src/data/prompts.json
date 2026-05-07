@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "title": "Ethereal Forest",
+    "image": "https://drive.google.com/uc?id=EXAMPLE_ID_1&export=download",
+    "full_prompt": "A mystical forest with glowing flora, ethereal atmosphere, cinematic lighting, 8k resolution.",
+    "model": "Midjourney v6"
+  },
+  {
+    "id": "2",
+    "title": "進擊的巨人 艾連",
+    "image": "https://drive.google.com/uc?id=1WN6tx6zQQbkvBtM0QTT5Uww2LMnwITdP&export=download",
+    "full_prompt": "「進擊的巨人 艾連」美式厚塗插畫，角色側臉半身特寫，人物視覺還原角色設定，視線朝左，極簡米白背景，大量留白，右側構圖，乾淨高級感，柔和電影級光影，邊緣光，高對比但低飽和配色，角色主色點綴，幾何切面感上色，細緻皮膚與髮絲，商業海報排版，大標題字體設計。9:16直板。",
+    "model": "SDXL 1.0"
+  },
+  {
+    "id": "3",
+    "title": "Cyberpunk Cityscape",
+    "image": "https://drive.google.com/uc?id=EXAMPLE_ID_3&export=download",
+    "full_prompt": "Hyper-realistic cyberpunk city, neon lights, rainy streets, futuristic architecture, deep blue and magenta palette.",
+    "model": "DALL-E 3"
+  }
+]

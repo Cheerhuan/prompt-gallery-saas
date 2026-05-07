@@ -4,19 +4,26 @@ import { SaaSNavbar } from '@/components/SaaSNavbar';
 import { PromptPlayground } from '@/components/PromptPlayground';
 import { FeatureGate } from '@/components/FeatureGate';
 import { useI18n } from '@/components/I18nProvider';
-
-
+import promptsData from '@/data/prompts.json';
 
 export default function DetailPage({ params }: { params: { id: string } }) {
   const { t } = useI18n();
   const userTier = 'free'; 
   
-  const mockPrompt = {
-    title: '進擊的巨人 艾連',
-    image: 'https://drive.google.com/uc?id=1WN6tx6zQQbkvBtM0QTT5Uww2LMnwITdP&export=download',
-    full_prompt: '「進擊的巨人 艾連」美式厚塗插畫，角色側臉半身特寫，人物視覺還原角色設定，視線朝左，極簡米白背景，大量留白，右側構圖，乾淨高級感，柔和電影級光影，邊緣光，高對比但低飽和配色，角色主色點綴，幾何切面感上色，細緻皮膚與髮絲，商業海報排版，大標題字體設計。9:16直板。',
-    model: 'SDXL 1.0',
-  };
+  // 動態匹配數據
+  const prompt = promptsData.find(p => p.id === params.id);
+
+  if (!prompt) {
+    return (
+      <div className="min-h-screen bg-black text-white flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold mb-4">404</h1>
+          <p className="text-zinc-500">Prompt not found. Please check the ID.</p>
+          <a href="/" className="mt-6 inline-block px-6 py-2 bg-white text-black rounded-full font-bold">Back to Home</a>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -28,7 +35,7 @@ export default function DetailPage({ params }: { params: { id: string } }) {
             <div className="flex items-center gap-4">
               <span className="text-sm font-medium text-zinc-400">{t('detail.promptId')}: {params.id}</span>
               <div className="w-px h-4 bg-zinc-800" />
-              <span className="text-sm font-medium text-indigo-400">{t('detail.model')}: {mockPrompt.model}</span>
+              <span className="text-sm font-medium text-indigo-400">{t('detail.model')}: {prompt.model}</span>
             </div>
             <div className="flex items-center gap-3">
               <button className="px-4 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs font-medium hover:bg-zinc-800 transition-colors">
@@ -44,8 +51,9 @@ export default function DetailPage({ params }: { params: { id: string } }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-8">
           <div className="lg:col-span-7 space-y-6">
             <div className="relative group rounded-3xl overflow-hidden bg-zinc-900 border border-zinc-800 aspect-[4/5]">
+              {/* 使用 iframe 預覽以提高 Google Drive 穩定性 */}
               <iframe
-                src="https://drive.google.com/file/d/1WN6tx6zQQbkvBtM0QTT5Uww2LMnwITdP/preview"
+                src={`https://drive.google.com/file/d/${prompt.image.split('id=')[1]?.split('&')[0]}/preview`}
                 width="100%" height="100%" allow="autoplay" loading="lazy"
                 className="w-full h-full object-cover border-none"
               ></iframe>
@@ -70,7 +78,7 @@ export default function DetailPage({ params }: { params: { id: string } }) {
                   <div className="space-y-2">
                     <span className="text-[10px] text-indigo-400 uppercase">{t('detail.refined')}</span>
                     <div className="aspect-square rounded-xl bg-zinc-900 border-2 border-indigo-500 overflow-hidden">
-                      <img src={mockPrompt.image} className="w-full h-full object-cover" />
+                      <img src={prompt.image} className="w-full h-full object-cover" />
                     </div>
                   </div>
                 </div>
@@ -80,7 +88,7 @@ export default function DetailPage({ params }: { params: { id: string } }) {
 
           <div className="lg:col-span-5 space-y-8">
             <div>
-              <h1 className="text-4xl font-bold tracking-tighter mb-2">{mockPrompt.title}</h1>
+              <h1 className="text-4xl font-bold tracking-tighter mb-2">{prompt.title}</h1>
               <p className="text-zinc-500 text-sm">{t('detail.titleSubtitle')}</p>
             </div>
 
@@ -90,7 +98,7 @@ export default function DetailPage({ params }: { params: { id: string } }) {
                 <span className="text-[10px] px-2 py-1 rounded-md bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 font-mono">{t('detail.playgroundBeta')}</span>
               </div>
               
-              <PromptPlayground initialPrompt={mockPrompt.full_prompt} />
+              <PromptPlayground initialPrompt={prompt.full_prompt} />
             </div>
 
             <FeatureGate isProRequired={true} userTier={userTier}>
@@ -101,8 +109,8 @@ export default function DetailPage({ params }: { params: { id: string } }) {
                   { label: 'complexity', score: 75, color: 'text-amber-400' },
                 ].map(stat => (
                   <div key={stat.label} className="p-4 rounded-2xl bg-zinc-900 border border-zinc-800 text-center">
-                    <div className={`text-xl font-bold ${stat.color}`}>{stat.score}%</div>
-                    <div className="text-[10px] text-zinc-500 uppercase tracking-tighter">{t('scores.' + stat.label)}</div>
+<div className={`text-xl font-bold ${stat.color}`}>{stat.score}%</div>
+<div className="text-[10px] text-zinc-500 uppercase tracking-tighter">{t('scores.' + stat.label)}</div>
                   </div>
                 ))}
               </div>
