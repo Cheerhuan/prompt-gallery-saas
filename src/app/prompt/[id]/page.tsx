@@ -5,6 +5,8 @@ import { PromptPlayground } from '@/components/PromptPlayground';
 import { FeatureGate } from '@/components/FeatureGate';
 import { useI18n } from '@/components/I18nProvider';
 
+
+
 export default function DetailPage({ params }: { params: { id: string } }) {
   const { t } = useI18n();
   const userTier = 'free'; 
@@ -42,7 +44,11 @@ export default function DetailPage({ params }: { params: { id: string } }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-8">
           <div className="lg:col-span-7 space-y-6">
             <div className="relative group rounded-3xl overflow-hidden bg-zinc-900 border border-zinc-800 aspect-[4/5]">
-              <img src={mockPrompt.image} alt={mockPrompt.title} className="w-full h-full object-cover" />
+              <iframe
+                src="https://drive.google.com/file/d/1WN6tx6zQQbkvBtM0QTT5Uww2LMnwITdP/preview"
+                width="100%" height="100%" allow="autoplay" loading="lazy"
+                className="w-full h-full object-cover border-none"
+              ></iframe>
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
                 <div className="flex gap-3">
                   <button className="px-4 py-2 bg-white text-black rounded-full text-xs font-bold">{t('detail.saveCollection')}</button>
