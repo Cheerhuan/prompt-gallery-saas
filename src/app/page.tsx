@@ -21,8 +21,11 @@ export default function LandingPage() {
   const filteredPrompts = promptsData.filter(prompt => {
     const matchesSearch = prompt.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
                           prompt.full_prompt.toLowerCase().includes(searchQuery.toLowerCase());
+    
     const matchesFilter = activeFilter === 'all' || 
-                          prompt.title.toLowerCase().includes(activeFilter.toLowerCase());
+                          prompt.title.toLowerCase().includes(activeFilter.toLowerCase()) ||
+                          prompt.full_prompt.toLowerCase().includes(activeFilter.toLowerCase());
+                          
     return matchesSearch && matchesFilter;
   });
 
