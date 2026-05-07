@@ -6,7 +6,7 @@ import { GallerySkeleton } from '@/components/Skeleton';
 import { useI18n } from '@/components/I18nProvider';
 
 const MOCK_DATA = [
-  { id: 2, title: 'Ethereal Forest', tags: ['Fantasy', 'Nature', 'Magical'], image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000&auto=format&fit=crop', views: 800, saves: 210 },
+  { id: 2, title: 'Ethereal Forest', tags: ['Fantasy', 'Nature', 'Magical'], image: 'https://lh3.googleusercontent.com/d/1WN6tx6zQQbkvBtM0QTT5Uww2LMnwITdP', views: 800, saves: 210 },
   { id: 3, title: 'Abstract Geometry', tags: ['Abstract', 'Modern', 'Digital'], image: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1000&auto=format&fit=crop', views: 2500, saves: 890 },
   { id: 4, title: 'Futuristic Portrait', tags: ['Sci-fi', 'Portrait', 'Cyborg'], image: 'https://images.unsplash.com/photo-1531746020798-e6953c6ed76e?q=80&w=1000&auto=format&fit=crop', views: 1800, saves: 600 },
   { id: 6, title: 'Cosmic Nebula', tags: ['Space', 'Galaxy', 'Astronomy'], image: 'https://images.unsplash.com/photo-1462331940025-496dfbc7564?q=80&w=1000&auto=format&fit=crop', views: 3100, saves: 1100 },
