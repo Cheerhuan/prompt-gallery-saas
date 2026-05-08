@@ -10,7 +10,7 @@ interface PromptEntry {
   id: string; title: string; image: string; full_prompt: string; model: string;
   _version?: string; _source?: string; _case_id?: string;
 }
-type TabKey = 'overview' | 'upload' | 'evoimport' | 'ghimport';
+type TabKey = 'overview' | 'upload' | 'evoimport' | 'ghimport' | 'mobile';
 
 // ── Shell command generator ──
 function genScript(body: string, commitMsg: string): string {
@@ -273,6 +273,7 @@ export default function AdminPanel() {
     { key: 'upload', label: '✏️ New Prompt' },
     { key: 'evoimport', label: '📥 EvoLinkAI' },
     { key: 'ghimport', label: '📥 GitHub Import' },
+    { key: 'mobile', label: '📱 Mobile' },
   ];
 
   return (
@@ -493,6 +494,103 @@ export default function AdminPanel() {
                   </div>
                 </>
               )}
+            </div>
+          </div>
+        )}
+
+        {/* ══════ TAB 5: MOBILE ══════ */}
+        {activeTab === 'mobile' && (
+          <div className="max-w-2xl mx-auto space-y-6">
+            <div className="p-6 rounded-2xl bg-zinc-900 border border-zinc-800">
+              <h3 className="text-lg font-bold mb-4">📱 Mobile — Add Prompts from Your Phone</h3>
+              <p className="text-zinc-400 text-sm mb-6">No Terminal needed. Works on any phone browser.</p>
+
+              <div className="space-y-6">
+                {/* Method 1: GitHub Actions (recommended) */}
+                <div className="p-5 rounded-xl bg-indigo-500/5 border border-indigo-500/20">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-lg">🚀</span>
+                    <span className="text-sm font-bold text-indigo-300">Method 1: GitHub Actions Form</span>
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300">Recommended</span>
+                  </div>
+                  <ol className="text-sm text-zinc-300 space-y-2 ml-4 list-decimal">
+                    <li>Open this link on your phone:</li>
+                    <li>
+                      <a href="https://github.com/Cheerhuan/prompt-gallery-saas/actions/workflows/mobile-add.yml"
+                        target="_blank"
+                        className="text-indigo-400 underline break-all">
+                        github.com/Cheerhuan/prompt-gallery-saas/actions/workflows/mobile-add.yml
+                      </a>
+                    </li>
+                    <li>Tap <strong className="text-white">Run workflow</strong> (dropdown on right)</li>
+                    <li>Fill in:
+                      <ul className="ml-4 mt-1 space-y-0.5 text-zinc-400">
+                        <li><strong className="text-zinc-200">Title</strong> — e.g. Neon Cyberpunk Portrait</li>
+                        <li><strong className="text-zinc-200">Prompt</strong> — paste the full prompt text</li>
+                        <li><strong className="text-zinc-200">Model</strong> — optional, defaults to GPT-Image-2</li>
+                        <li><strong className="text-zinc-200">Image URL</strong> — optional, paste a Pexels/GitHub raw URL</li>
+                      </ul>
+                    </li>
+                    <li>Tap <strong className="text-white">Run workflow</strong> (green button)</li>
+                    <li>Done! Wait ~2 min for deploy.</li>
+                  </ol>
+                </div>
+
+                {/* Method 2: GitHub Web Edit */}
+                <div className="p-5 rounded-xl bg-zinc-800/30 border border-zinc-700/50">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-lg">🌐</span>
+                    <span className="text-sm font-bold text-zinc-300">Method 2: Edit JSON Directly on GitHub</span>
+                  </div>
+                  <ol className="text-sm text-zinc-300 space-y-2 ml-4 list-decimal">
+                    <li>Open prompts.json on your phone:</li>
+                    <li>
+                      <a href="https://github.com/Cheerhuan/prompt-gallery-saas/blob/main/src/data/prompts.json"
+                        target="_blank"
+                        className="text-indigo-400 underline break-all">
+                        github.com/Cheerhuan/prompt-gallery-saas/blob/main/src/data/prompts.json
+                      </a>
+                    </li>
+                    <li>Tap the <strong className="text-white">✏️ (pencil)</strong> icon in the top-right</li>
+                    <li>Scroll to the bottom, add a new entry before the closing <code className="text-emerald-400 bg-emerald-500/10 px-1 rounded">]</code>:
+                      <pre className="text-[10px] text-zinc-400 bg-black rounded-lg p-3 mt-2 overflow-x-auto">{`  {
+    "id": "26",
+    "title": "Your Prompt Title",
+    "image": "https://images.pexels.com/...",
+    "full_prompt": "Your complete prompt text here...",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09",
+    "_source": "mobile-edit"
+  }`}</pre>
+                    </li>
+                    <li>Make sure the entry before it has a <code className="text-zinc-400">,</code> (comma)</li>
+                    <li>Scroll down, tap <strong className="text-white">Commit changes</strong></li>
+                    <li>Done! Wait ~2 min for deploy.</li>
+                  </ol>
+                </div>
+
+                {/* Method 3: Upload image via GitHub */}
+                <div className="p-5 rounded-xl bg-zinc-800/30 border border-zinc-700/50">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-lg">🖼️</span>
+                    <span className="text-sm font-bold text-zinc-300">Upload Images from Phone</span>
+                  </div>
+                  <ol className="text-sm text-zinc-300 space-y-2 ml-4 list-decimal">
+                    <li>Open the uploads folder:</li>
+                    <li>
+                      <a href="https://github.com/Cheerhuan/prompt-gallery-saas/tree/main/public/images/uploads"
+                        target="_blank"
+                        className="text-indigo-400 underline break-all">
+                        github.com/Cheerhuan/prompt-gallery-saas/tree/main/public/images/uploads
+                      </a>
+                    </li>
+                    <li>Tap <strong className="text-white">Add file</strong> → <strong className="text-white">Upload files</strong></li>
+                    <li>Select the image from your phone gallery</li>
+                    <li>Tap <strong className="text-white">Commit changes</strong></li>
+                    <li>Now use that path: <code className="text-emerald-400 bg-emerald-500/10 px-1 rounded">/images/uploads/your-image.jpg</code></li>
+                  </ol>
+                </div>
+              </div>
             </div>
           </div>
         )}
