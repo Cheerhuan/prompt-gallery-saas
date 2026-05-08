@@ -129,7 +129,7 @@ export const translations = {
     },
     admin: {
       pageTitle: 'Admin Dashboard',
-      pageDesc: 'Manage your prompt gallery and assets.',
+      pageDesc: 'Manage your prompt gallery and assets — add, edit, delete, or import prompts.',
       exportBtn: 'Export JSON',
       uploadTitle: 'Upload New Prompt',
       titleLabel: 'Title',
@@ -139,7 +139,7 @@ export const translations = {
       submit: 'Publish to Gallery',
       imagePlaceholder: 'URL or Google Drive File ID',
       tagPlaceholder: 'Tag1, Tag2, Tag3',
-    }
+    },
   },
   zh: {
     nav: {
