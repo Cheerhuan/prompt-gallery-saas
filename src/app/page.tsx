@@ -268,7 +268,7 @@ export default function LandingPage() {
                   <span className="text-[10px] text-zinc-500 font-mono">#{quickViewPrompt.id}</span>
                 </div>
                 <h2 className="text-xl font-bold tracking-tight mb-4 line-clamp-2">{quickViewPrompt.title}</h2>
-                <p className="text-sm text-zinc-400 leading-relaxed line-clamp-6 mb-4">
+                <p className="text-sm text-zinc-400 leading-relaxed line-clamp-8 mb-4">
                   {quickViewPrompt.full_prompt}
                 </p>
                 <span className="text-[10px] text-zinc-500 font-mono">Model: {quickViewPrompt.model || 'GPT-Image-2'}</span>
