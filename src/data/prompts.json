@@ -2,7 +2,7 @@
   {
     "id": "1",
     "title": "Case #1: 霓虹賽博朋克人像 (Neon Cyberpunk Portrait)",
-    "image": "https://images.unsplash.com/photo-1575936123452-b67c3203c357?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.pexels.com/photos/36324277/pexels-photo-36324277.jpeg?auto=compress&cs=tinysrgb&w=800",
     "full_prompt": "Hyper-realistic cinematic portrait of a cyberpunk female character, neon facial implants, glowing circuitry, rainy Tokyo street background, volumetric fog, shot on 85mm lens, f/1.8, extreme detail on skin pores and raindrops, magenta and teal color palette, 8k resolution, unreal engine 5 render. | 超寫實電影感賽博朋克女性人像，面部霓虹植入物，發光電路，雨後東京街道背景，體積霧，85mm 鏡頭拍攝，f/1.8 光圈，極致的皮膚毛孔與雨滴細節，品紅與青色調，8k 分辨率，Unreal Engine 5 渲染。",
     "model": "Midjourney v6",
     "_version": "2026-05-09-v3",
@@ -19,7 +19,7 @@
   {
     "id": "3",
     "title": "Case #3: 未來主義參數化建築 (Parametric Architecture)",
-    "image": "https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.pexels.com/photos/3850943/pexels-photo-3850943.jpeg?auto=compress&cs=tinysrgb&w=800",
     "full_prompt": "Futuristic parametric skyscraper inspired by Zaha Hadid, fluid organic curves, iridescent glass facade, sunset lighting, wide angle architectural photography, high contrast, hyper-realistic, 8k, detailed steel structure, cloud reflection on glass. | 受札哈·哈迪德啟發的未來主義參數化摩天大樓，流動的有機曲線，彩虹色玻璃幕牆，日落光影，廣角建築攝影，高對比，超寫實，8k，細緻的鋼結構，玻璃上的雲朵反射。",
     "model": "DALL-E 3",
     "_version": "2026-05-09-v3",
@@ -28,7 +28,7 @@
   {
     "id": "4",
     "title": "Case #4: 奢華產品攝影 (Luxury Product Shot)",
-    "image": "https://images.unsplash.com/photo-1583394838336-acd977736f90?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.pexels.com/photos/16722477/pexels-photo-16722477.jpeg?auto=compress&cs=tinysrgb&w=800",
     "full_prompt": "High-end luxury perfume bottle on a floating mirror surface, surrounding by liquid splashes and floating gold flakes, soft studio lighting, caustic light effects, deep navy background, macro photography, extreme sharpness, professional color grading. | 高端奢華香水瓶置於漂浮的鏡面之上，周圍環繞著液體飛濺與漂浮的金箔，柔和的攝影棚光影，焦散光效，深藍色背景，微距攝影，極致銳利，專業調色。",
     "model": "Midjourney v6",
     "_version": "2026-05-09-v3",
@@ -37,7 +37,7 @@
   {
     "id": "5",
     "title": "Case #5: 以太漂浮島嶼 (Ethereal Floating Islands)",
-    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg?auto=compress&cs=tinysrgb&w=800",
     "full_prompt": "Epic fantasy landscape of floating islands with cascading waterfalls, ancient ruins, glowing crystals, soft pastel sky, ethereal lighting, wide shot, digital art, highly detailed, cinematic composition, 8k, dreamy atmosphere. | 壯麗的奇幻景觀，漂浮島嶼伴隨層疊的瀑布，古代遺跡，發光水晶，柔和的馬卡龍色天空，以太光影，廣角鏡頭，數字藝術，極致細節，電影級構圖，8k，夢幻氛圍。",
     "model": "SDXL 1.0",
     "_version": "2026-05-09-v3",
@@ -46,7 +46,7 @@
   {
     "id": "6",
     "title": "Case #6: 微觀有機世界 (Microscopic Organic World)",
-    "image": "https://images.unsplash.com/photo-1559757175-5700dde675bc?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg?auto=compress&cs=tinysrgb&w=800",
     "full_prompt": "Abstract microscopic view of organic cells and iridescent membranes, bioluminescent fluid, deep sea alien biology, electron microscope style, vivid neon colors, shallow depth of field, hyper-detailed textures, 8k. | 有機細胞與彩虹色薄膜的抽象微觀視角，生物發光流體，深海外星生物學，電子顯微鏡風格，鮮豔的霓虹色，淺景深，極致細節紋理，8k。",
     "model": "Midjourney v6",
     "_version": "2026-05-09-v3",
@@ -55,7 +55,7 @@
   {
     "id": "7",
     "title": "Case #7: 雨夜東京街拍 (Rainy Tokyo Street)",
-    "image": "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.pexels.com/photos/31118383/pexels-photo-31118383.jpeg?auto=compress&cs=tinysrgb&w=800",
     "full_prompt": "Candid street photography of Tokyo at night under rain, reflections of neon signs on wet asphalt, cinematic moody lighting, shot on Fujifilm X-T4, 35mm lens, high ISO grain, deep blacks, urban loneliness aesthetic. | 雨夜東京的隨拍街頭攝影，濕漉漉的瀝青路面反射著霓虹燈招牌，電影般的憂鬱光影，富士 X-T4 拍攝，35mm 鏡頭，高 ISO 顆粒感，深黑色調，都市孤獨美學。",
     "model": "DALL-E 3",
     "_version": "2026-05-09-v3",
@@ -64,7 +64,7 @@
   {
     "id": "8",
     "title": "Case #8: 極簡 3D 抽象渲染 (Minimalist 3D Abstract)",
-    "image": "https://images.unsplash.com/photo-1550684376-efcbd6e3f031?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.pexels.com/photos/13946142/pexels-photo-13946142.jpeg?auto=compress&cs=tinysrgb&w=800",
     "full_prompt": "Minimalist 3D composition of floating iridescent glass spheres and satin ribbons, pastel gradient background, soft global illumination, Octane Render, high-end product design aesthetic, clean composition, 4k, smooth surfaces. | 極簡 3D 組成，漂浮的彩虹色玻璃球與緞面絲帶，馬卡龍漸層背景，柔和的全域光照，Octane Render 渲染，高端產品設計美學，乾淨的構圖，4k，平滑表面。",
     "model": "Midjourney v6",
     "_version": "2026-05-09-v3",
@@ -73,7 +73,7 @@
   {
     "id": "9",
     "title": "Case #9: 暗黑幻想概念圖 (Dark Fantasy Concept)",
-    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.pexels.com/photos/16358333/pexels-photo-16358333.jpeg?auto=compress&cs=tinysrgb&w=800",
     "full_prompt": "Eldritch gothic cathedral in a void, colossal obsidian statues, swirling dark nebula, dramatic chiaroscuro lighting, H.R. Giger style, intricate architectural details, ominous atmosphere, cinematic scale, 8k. | 虛空中巨大的哥特式大教堂，巨大的黑曜石雕像，盤旋的暗色星雲，戲劇性的明暗對比光影，H.R. Giger 風格，複雜的建築細節，壓抑的氛圍，電影級比例，8k。",
     "model": "SDXL 1.0",
     "_version": "2026-05-09-v3",
@@ -82,7 +82,7 @@
   {
     "id": "10",
     "title": "Case #10: 星際探索視覺 (Interstellar Exploration)",
-    "image": "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.pexels.com/photos/1169754/pexels-photo-1169754.jpeg?auto=compress&cs=tinysrgb&w=800",
     "full_prompt": "Cinematic view of a massive black hole with a glowing accretion disk, warped spacetime, interstellar gas clouds, deep cosmic purple and gold tones, Hubble telescope style, hyper-realistic, awe-inspiring scale, 8k resolution. | 巨大的黑洞及其發光吸積盤的電影級視角，扭曲的時空，星際氣體雲，深邃的宇宙紫色與金色調，哈勃望遠鏡風格，超寫實，令人敬畏的比例，8k 分辨率。",
     "model": "Midjourney v6",
     "_version": "2026-05-09-v3",
@@ -91,7 +91,7 @@
   {
     "id": "11",
     "title": "Trending #YDDI-1",
-    "image": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.pexels.com/photos/333850/pexels-photo-333850.jpeg?auto=compress&cs=tinysrgb&w=800",
     "full_prompt": "A futuristic metropolis with holographic advertisements at twilight, Cinematic, Volumetric, Golden Hour, 35mm, f/1.8, Epic, Moody, 8k, highly detailed | A futuristic metropolis with holographic advertisements at twilight，Cinematic風格，Volumetric, Golden Hour光影，35mm, f/1.8鏡頭，Epic, Moody氛圍，8k，極致細節",
     "model": "SDXL 1.0",
     "_version": "2026-05-08-trending",
@@ -100,7 +100,7 @@
   {
     "id": "12",
     "title": "Trending #YDDI-2",
-    "image": "https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.pexels.com/photos/29248709/pexels-photo-29248709.jpeg?auto=compress&cs=tinysrgb&w=800",
     "full_prompt": "A post-apocalyptic city reclaimed by nature with bioluminescent vines, Photorealistic, Natural, HDR, 50mm, f/2.8, Authentic, Raw, 8k, highly detailed | A post-apocalyptic city reclaimed by nature with bioluminescent vines，Photorealistic風格，Natural, HDR光影，50mm, f/2.8鏡頭，Authentic, Raw氛圍，8k，極致細節",
     "model": "SDXL 1.0",
     "_version": "2026-05-08-trending",
@@ -109,7 +109,7 @@
   {
     "id": "13",
     "title": "Trending #YDDI-3",
-    "image": "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.pexels.com/photos/31971484/pexels-photo-31971484.jpeg?auto=compress&cs=tinysrgb&w=800",
     "full_prompt": "A cyberpunk samurai on a rain-soaked rooftop overlooking neon city, Fantasy, Ethereal, Magical Glow, Panoramic, Deep Focus, Dreamy, Mystical, 8k, highly detailed | A cyberpunk samurai on a rain-soaked rooftop overlooking neon city，Fantasy風格，Ethereal, Magical Glow光影，Panoramic, Deep Focus鏡頭，Dreamy, Mystical氛圍，8k，極致細節",
     "model": "SDXL 1.0",
     "_version": "2026-05-08-trending",
@@ -118,7 +118,7 @@
   {
     "id": "14",
     "title": "Trending #YDDI-4",
-    "image": "https://images.unsplash.com/photo-1505144808419-1957a94ca61e?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.pexels.com/photos/29253522/pexels-photo-29253522.jpeg?auto=compress&cs=tinysrgb&w=800",
     "full_prompt": "A colossal dragon coiled around a crystalline mountain peak under aurora, Anime, Cel Shaded, Soft, Close-up, Portrait, Whimsical, Dramatic, 8k, highly detailed | A colossal dragon coiled around a crystalline mountain peak under aurora，Anime風格，Cel Shaded, Soft光影，Close-up, Portrait鏡頭，Whimsical, Dramatic氛圍，8k，極致細節",
     "model": "SDXL 1.0",
     "_version": "2026-05-08-trending",
@@ -127,7 +127,7 @@
   {
     "id": "15",
     "title": "Trending #YDDI-5",
-    "image": "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.pexels.com/photos/167684/pexels-photo-167684.jpeg?auto=compress&cs=tinysrgb&w=800",
     "full_prompt": "An ancient forest spirit emerging from glowing moss-covered ruins, Cyberpunk, Neon Glow, Volumetric Fog, Wide Angle, 8K, Gritty, Futuristic, 8k, highly detailed | An ancient forest spirit emerging from glowing moss-covered ruins，Cyberpunk風格，Neon Glow, Volumetric Fog光影，Wide Angle, 8K鏡頭，Gritty, Futuristic氛圍，8k，極致細節",
     "model": "SDXL 1.0",
     "_version": "2026-05-08-trending",
