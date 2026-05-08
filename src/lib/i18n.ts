@@ -104,6 +104,16 @@ export const translations = {
       creative: 'Creative',
       complexity: 'Complexity',
     },
+    explore: {
+      title: 'Explore Prompts',
+      subtitle: 'Discover curated prompts from our community.',
+      empty: 'No prompts found for this filter.',
+    },
+    trending: {
+      title: 'Trending Prompts',
+      subtitle: 'The most popular prompts this week.',
+      empty: 'No trending prompts right now.',
+    },
     featureGate: {
       proTitle: 'Pro Feature',
       proDesc: 'Upgrade to unlock advanced tools',
@@ -224,6 +234,16 @@ export const translations = {
       realism: '寫實度',
       creative: '創造力',
       complexity: '複雜度',
+    },
+    explore: {
+      title: '探索提示詞',
+      subtitle: '發現社群精選的提示詞庫。',
+      empty: '此篩選條件下無提示詞。',
+    },
+    trending: {
+      title: '熱門提示詞',
+      subtitle: '本週最受歡迎的提示詞。',
+      empty: '目前無熱門提示詞。',
     },
     featureGate: {
       proTitle: 'Pro 功能',
