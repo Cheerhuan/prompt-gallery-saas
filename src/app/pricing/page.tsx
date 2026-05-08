@@ -74,7 +74,7 @@ export default function PricingPage() {
                     <span className="text-indigo-400">✓</span>
                     <span className="text-zinc-300">
                       {featureKey === 'credits'
-                        ? `${plan.key === 'free' ? '10' : plan.key === 'pro' ? '100' : 'Unlimited'} ${t(`pricing.features.${featureKey}`)}`
+                        ? `${plan.key === 'free' ? '10' : plan.key === 'pro' ? '100' : t('pricing.unlimited')} ${t(`pricing.features.${featureKey}`)}`
                         : t(`pricing.features.${featureKey}`)}
                     </span>
                   </div>

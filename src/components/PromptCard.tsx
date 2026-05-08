@@ -8,10 +8,9 @@ interface PromptCardProps {
 }
 
 export const PromptCard = ({ id, image, title, tags }: PromptCardProps) => {
-  const [imgSrc, setImgSrc] = useState(image);
-
-  // Industrial-grade fallback image: a high-quality abstract dark texture
   const FALLBACK_IMAGE = 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop';
+  const [imgSrc, setImgSrc] = useState(image || '');
+  const [imgError, setImgError] = useState(!image);
 
   return (
     <Link 
@@ -20,9 +19,9 @@ export const PromptCard = ({ id, image, title, tags }: PromptCardProps) => {
     >
       <div className="relative aspect-[3/4] overflow-hidden bg-zinc-800">
         <img 
-          src={imgSrc} 
+          src={imgError ? FALLBACK_IMAGE : imgSrc} 
           alt="" 
-          onError={() => setImgSrc(FALLBACK_IMAGE)}
+          onError={() => { if (!imgError) setImgError(true); }}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           loading="lazy"
         />

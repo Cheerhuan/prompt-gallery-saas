@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { SaaSNavbar } from '@/components/SaaSNavbar';
 import { PromptCard } from '@/components/PromptCard';
 import { GallerySkeleton } from '@/components/Skeleton';
@@ -61,12 +62,12 @@ export default function LandingPage() {
           >
             {t('hero.ctaPrimary')}
           </button>
-          <a 
+          <Link
             href="/pricing"
-            className="w-full sm:w-auto px-10 py-4 bg-zinc-900 text-white rounded-full font-bold border border-zinc-800 hover:bg-zinc-800 transition-all text-center active:scale-95"
+            className="w-full sm:w-auto px-8 py-4 bg-zinc-900 text-white rounded-full font-bold border border-zinc-800 hover:bg-zinc-800 transition-all text-center"
           >
             {t('hero.ctaSecondary')}
-          </a>
+          </Link>
         </div>
       </section>
 

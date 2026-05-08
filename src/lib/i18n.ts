@@ -72,6 +72,7 @@ export const translations = {
       title: 'Unlock Your Creative Potential',
       subtitle: 'Choose the plan that fits your workflow. Scale your AI art production with professional tools.',
       monthLabel: '/month',
+      unlimited: 'Unlimited',
       free: {
         name: 'Free',
         desc: 'Perfect for beginners exploring AI art.',
@@ -203,6 +204,7 @@ export const translations = {
       title: '釋放您的創造潛能',
       subtitle: '選擇最適合您工作流的方案。使用專業工具提升 AI 藝術生產力。',
       monthLabel: '/月',
+      unlimited: '無限',
       free: {
         name: '免費版',
         desc: '適合剛開始探索 AI 藝術的初學者。',
