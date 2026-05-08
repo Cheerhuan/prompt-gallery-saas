@@ -28,9 +28,9 @@ export const PromptCard = ({ id, image, title, tags }: PromptCardProps) => {
         href={`/prompt/${id}`} 
         className="relative block rounded-2xl overflow-hidden bg-zinc-900 border border-zinc-800 hover:border-zinc-600 transition-all duration-500 cursor-pointer shadow-2xl"
       >
-        <div className="relative overflow-hidden bg-zinc-800">
+        <div className="relative overflow-hidden bg-zinc-800 min-h-[250px]">
           <img 
-            src={imgSrc} 
+            src={imgSrc || FALLBACK_IMAGE} 
             alt={title} 
             onError={() => setImgSrc(FALLBACK_IMAGE)}
             className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"

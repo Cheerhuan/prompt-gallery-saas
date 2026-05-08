@@ -43,16 +43,15 @@ export default function LandingPage() {
       <section className="pt-40 pb-24 px-4 text-center max-w-5xl mx-auto">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-[10px] uppercase tracking-widest text-zinc-400 mb-8 animate-fade-in">
           <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse" />
-          The Curator's Archive v1.0
+          {t('hero.badge')}
         </div>
         
         <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-8 bg-gradient-to-b from-white to-zinc-500 bg-clip-text text-transparent leading-[1.1]">
-          The Prompt <br /> Architect's Archive
+          {t('hero.title')}
         </h1>
         
         <p className="text-xl text-zinc-400 mb-12 max-w-2xl mx-auto leading-relaxed font-light">
-          A curated collection of high-fidelity AI generative prompts, <br className="hidden md:block" /> 
-          engineered for industrial precision and cinematic output.
+          {t('hero.subtitle')}
         </p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
