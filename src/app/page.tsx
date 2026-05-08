@@ -19,8 +19,10 @@ export default function LandingPage() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Only show prompts that have an example image
-  const promptsWithImages = promptsData.filter(p => p.image && p.image.trim() !== '');
+  // Only show prompts that have an example image — 最新的在前
+  const promptsWithImages = promptsData
+    .filter(p => p.image && p.image.trim() !== '')
+    .reverse();
 
   const filteredPrompts = promptsWithImages.filter(prompt => {
     const matchesSearch = prompt.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
