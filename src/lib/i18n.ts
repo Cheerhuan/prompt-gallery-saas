@@ -26,6 +26,10 @@ export const translations = {
       comingSoon: 'Gallery Coming Soon',
       comingSoonDesc: 'We&apos;re curating high-quality example prompts with reference images. Check back soon for the full collection.',
       empty: 'No prompts match your search.',
+      stats: '{count} prompts · 7 styles · Updated daily',
+      loadMore: 'Load More',
+      loading: 'Loading...',
+      editorsPick: "Editor's Pick",
       filters: {
         all: 'All',
         cinematic: 'Cinematic',
@@ -161,6 +165,10 @@ export const translations = {
       comingSoon: '圖庫即將上線',
       comingSoonDesc: '我們正在策劃附帶參考圖片的優質提示詞範例。敬請期待完整圖庫。',
       empty: '沒有符合搜索條件的提示詞。',
+      stats: '{count} 個提示詞 · 7 種風格 · 每日更新',
+      loadMore: '載入更多',
+      loading: '載入中...',
+      editorsPick: '編輯精選',
       filters: {
         all: '全部',
         cinematic: '電影感',
