@@ -22,8 +22,8 @@ export const SaaSNavbar = ({ userTier = 'free' }) => {
           </Link>
           
           <div className="hidden md:flex items-center gap-6 text-sm text-zinc-400">
-            <Link href="/" className="hover:text-white transition-colors">{t('nav.explore')}</Link>
-            <Link href="/" className="hover:text-white transition-colors">{t('nav.trending')}</Link>
+            <Link href="/explore" className="hover:text-white transition-colors">{t('nav.explore')}</Link>
+            <Link href="/trending" className="hover:text-white transition-colors">{t('nav.trending')}</Link>
             <Link href="/pricing" className="hover:text-white transition-colors">{t('nav.pricing')}</Link>
           </div>
         </div>
