@@ -3,7 +3,7 @@ import DetailPage from '@/app/prompt/[id]/page';
 
 export async function generateStaticParams() {
   // Generate all 25 prompt detail pages
-  const ids = Array.from({ length: 25 }, (_, i) => String(i + 1));
+  const ids = Array.from({ length: 26 }, (_, i) => String(i + 1));
   return ids.map(id => ({ id }));
 }
 
