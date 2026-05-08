@@ -28,7 +28,7 @@
   {
     "id": "4",
     "title": "Case #4: 奢華產品攝影 (Luxury Product Shot)",
-    "image": "https://images.unsplash.com/photo-1548593911-43c3e076af08?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.unsplash.com/photo-1583394838336-acd977736f90?q=80&w=800&auto=format&fit=crop",
     "full_prompt": "High-end luxury perfume bottle on a floating mirror surface, surrounding by liquid splashes and floating gold flakes, soft studio lighting, caustic light effects, deep navy background, macro photography, extreme sharpness, professional color grading. | 高端奢華香水瓶置於漂浮的鏡面之上，周圍環繞著液體飛濺與漂浮的金箔，柔和的攝影棚光影，焦散光效，深藍色背景，微距攝影，極致銳利，專業調色。",
     "model": "Midjourney v6",
     "_version": "2026-05-09-v3",
@@ -37,7 +37,7 @@
   {
     "id": "5",
     "title": "Case #5: 以太漂浮島嶼 (Ethereal Floating Islands)",
-    "image": "https://images.unsplash.com/photo-1548593911-43c3e076af08?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=800&auto=format&fit=crop",
     "full_prompt": "Epic fantasy landscape of floating islands with cascading waterfalls, ancient ruins, glowing crystals, soft pastel sky, ethereal lighting, wide shot, digital art, highly detailed, cinematic composition, 8k, dreamy atmosphere. | 壯麗的奇幻景觀，漂浮島嶼伴隨層疊的瀑布，古代遺跡，發光水晶，柔和的馬卡龍色天空，以太光影，廣角鏡頭，數字藝術，極致細節，電影級構圖，8k，夢幻氛圍。",
     "model": "SDXL 1.0",
     "_version": "2026-05-09-v3",
@@ -91,7 +91,7 @@
   {
     "id": "11",
     "title": "Trending #YDDI-1",
-    "image": "https://images.unsplash.com/photo-1548593911-43c3e076af08?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=800&auto=format&fit=crop",
     "full_prompt": "A futuristic metropolis with holographic advertisements at twilight, Cinematic, Volumetric, Golden Hour, 35mm, f/1.8, Epic, Moody, 8k, highly detailed | A futuristic metropolis with holographic advertisements at twilight，Cinematic風格，Volumetric, Golden Hour光影，35mm, f/1.8鏡頭，Epic, Moody氛圍，8k，極致細節",
     "model": "SDXL 1.0",
     "_version": "2026-05-08-trending",
@@ -127,7 +127,7 @@
   {
     "id": "15",
     "title": "Trending #YDDI-5",
-    "image": "https://images.unsplash.com/photo-1548593911-43c3e076af08?q=80&w=800&auto=format&fit=crop",
+    "image": "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=800&auto=format&fit=crop",
     "full_prompt": "An ancient forest spirit emerging from glowing moss-covered ruins, Cyberpunk, Neon Glow, Volumetric Fog, Wide Angle, 8K, Gritty, Futuristic, 8k, highly detailed | An ancient forest spirit emerging from glowing moss-covered ruins，Cyberpunk風格，Neon Glow, Volumetric Fog光影，Wide Angle, 8K鏡頭，Gritty, Futuristic氛圍，8k，極致細節",
     "model": "SDXL 1.0",
     "_version": "2026-05-08-trending",
