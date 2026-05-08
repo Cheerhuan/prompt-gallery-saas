@@ -26,6 +26,41 @@ Options:
   process.exit(0);
 }
 
+function deduplicate(newEntries, existing) {
+  const existingPrompts = new Set(
+    existing.map(e => e.full_prompt?.trim()?.toLowerCase() || '')
+  );
+  const existingTitles = new Set(
+    existing.map(e => e.title?.trim()?.toLowerCase() || '')
+  );
+
+  const unique = [];
+  const seenInBatch = new Set();
+
+  for (const entry of newEntries) {
+    const promptKey = (entry.full_prompt || '').trim().toLowerCase();
+    const titleKey = (entry.title || '').trim().toLowerCase();
+
+    if (promptKey && existingPrompts.has(promptKey)) {
+      console.log(`  🔁 Skip (existing prompt): ${(entry.title || '').slice(0, 40)}`);
+      continue;
+    }
+    if (titleKey && existingTitles.has(titleKey)) {
+      console.log(`  🔁 Skip (existing title): ${(entry.title || '').slice(0, 40)}`);
+      continue;
+    }
+    if (promptKey && seenInBatch.has(promptKey)) {
+      console.log(`  🔁 Skip (batch dup): ${(entry.title || '').slice(0, 40)}`);
+      continue;
+    }
+
+    seenInBatch.add(promptKey);
+    unique.push(entry);
+  }
+
+  return unique;
+}
+
 function main() {
   const args = process.argv.slice(2);
   if (args.includes('--help')) usage();
@@ -74,13 +109,21 @@ function main() {
     process.exit(1);
   }
 
+  // Deduplicate
+  const unique = deduplicate(newEntries, existing);
+
+  if (unique.length === 0) {
+    console.log('\n✅ All entries already exist. Nothing to merge.');
+    process.exit(0);
+  }
+
   // Find max existing ID
-  const maxId = existing.reduce((max: number, p: any) => Math.max(max, parseInt(p.id, 10) || 0), 0);
+  const maxId = existing.reduce((max, p) => Math.max(max, parseInt(p.id, 10) || 0), 0);
 
   // Assign sequential IDs and merge
   const merged = [
     ...existing,
-    ...newEntries.map((e: any, i: number) => ({
+    ...unique.map((e, i) => ({
       ...e,
       id: String(maxId + i + 1),
       _version: new Date().toISOString().slice(0, 10) + '-merged',
@@ -90,21 +133,21 @@ function main() {
   if (dryRun) {
     console.log(`\n📊 Merge Preview:
   Existing entries: ${existing.length}
-  New entries:      ${newEntries.length}
-  Total:            ${merged.length}
-`);
-    console.log(JSON.stringify(newEntries, null, 2));
+  Duplicates removed: ${newEntries.length - unique.length}
+  New entries:      ${unique.length}
+  Total:            ${merged.length}\n`);
+    console.log(JSON.stringify(unique, null, 2));
     return;
   }
 
   // Write
   writeFileSync(promptsPath, JSON.stringify(merged, null, 2), 'utf-8');
-  console.log(`✅ Merge complete!
+  console.log(`\n✅ Merge complete!
   File:      ${promptsPath}
-  Added:     ${newEntries.length}
-  Total:     ${merged.length}
-  Next step: npm run build && git add -A && git commit -m "feat: add trending prompts" && git push
-`);
+  Added:     ${unique.length} (${newEntries.length - unique.length} duplicates skipped)
+  Total:     ${merged.length}\n
+🚀 Next step:
+   npm run build && git add -A && git commit -m "feat: add trending prompts $(date +%F)" && git push\n`);
 }
 
 main();

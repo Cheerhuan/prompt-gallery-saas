@@ -3,173 +3,508 @@
 /**
  * Trending Prompt Curator — CLI Tool
  * 
+ * Fetches REAL trending AI prompts with images from:
+ * - CivitAI API (most reacted images, SFW only)
+ * - Reddit r/midjourney (hot posts with images)
+ * 
  * Usage:
- *   node scripts/fetch-trending.mjs                    # search all platforms
- *   node scripts/fetch-trending.mjs --platform reddit   # specific platform
- *   node scripts/fetch-trending.mjs --output tmp/trending.json
- *   node scripts/fetch-trending.mjs --dry-run           # preview only, no write
- *
- * Platforms: reddit, twitter, civitai, lexica, thread
+ *   node scripts/fetch-trending.mjs                           # fetch & download (default: 10)
+ *   node scripts/fetch-trending.mjs --source civitai           # specific source only
+ *   node scripts/fetch-trending.mjs --count 5                  # specify count
+ *   node scripts/fetch-trending.mjs --dry-run                  # preview only, no download/merge
+ *   node scripts/fetch-trending.mjs --no-download              # generate entries without downloading
+ *   node scripts/fetch-trending.mjs --output tmp/output.json   # custom output path
  */
 
-const PLATFORMS = {
-  reddit: { label: 'Reddit (r/StableDiffusion)', query: 'trending AI image prompts Reddit' },
-  twitter: { label: 'X/Twitter AI Art', query: 'trending AI art prompts viral 2026' },
-  thread: { label: 'Threads', query: 'trending AI image prompts Threads 2026' },
-  civitai: { label: 'Civitai', query: 'trending prompts Civitai' },
-  lexica: { label: 'Lexica', query: 'Lexica trending prompts' },
-};
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
+import { resolve, extname, dirname } from 'path';
 
 // ═══════════════════════════════════════════════════════════════
-//  Prompt Template Generator
-//  Generates structured prompts matching prompts.json schema
+// Config
 // ═══════════════════════════════════════════════════════════════
 
-const STYLES = [
-  { style: 'Cinematic', lighting: 'Volumetric, Golden Hour', camera: '35mm, f/1.8', mood: 'Epic, Moody' },
-  { style: 'Cyberpunk', lighting: 'Neon Glow, Volumetric Fog', camera: 'Wide Angle, 8K', mood: 'Gritty, Futuristic' },
-  { style: 'Fantasy', lighting: 'Ethereal, Magical Glow', camera: 'Panoramic, Deep Focus', mood: 'Dreamy, Mystical' },
-  { style: 'Minimalist', lighting: 'Soft Diffuse, Studio', camera: '85mm, Macro', mood: 'Clean, Serene' },
-  { style: 'Anime', lighting: 'Cel Shaded, Soft', camera: 'Close-up, Portrait', mood: 'Whimsical, Dramatic' },
-  { style: 'Photorealistic', lighting: 'Natural, HDR', camera: '50mm, f/2.8', mood: 'Authentic, Raw' },
-];
+const CIVITAI_API = 'https://civitai.com/api/v1/images';
+const REDDIT_MIDJOURNEY = 'https://www.reddit.com/r/midjourney/hot.json';
+const REDDIT_USER_AGENT = 'prompt-gallery-saas/1.0 (by u/Cheerhuan)';
+const IMAGES_DIR = 'public/images';
+const PROMPTS_PATH = 'src/data/prompts.json';
+const BASE_PATH = '/prompt-gallery-saas';
 
-const SUBJECTS = [
-  'A futuristic metropolis at twilight with floating holographic advertisements',
-  'An ancient forest spirit emerging from glowing moss-covered ruins',
-  'A cyberpunk samurai standing on a rain-soaked rooftop overlooking neon city',
-  'A hyperrealistic portrait of a woman with intricate mechanical components in her face',
-  'A colossal dragon coiled around a crystalline mountain peak under aurora skies',
-  'A deserted space station orbiting a dying star with debris floating in zero gravity',
-  'A steampunk inventor\'s workshop filled with brass gears and copper pipes',
-  'An ethereal goddess made of flowing water and light in a cosmic void',
-  'A post-apocalyptic city reclaimed by nature with bioluminescent vines',
-  'A minimalist geometric composition of floating iridescent orbs and satin ribbons',
-  'A medieval alchemist\'s laboratory with glowing potions and ancient manuscripts',
-  'A biomechanical creature emerging from digital static in a dark cyberspace',
-  'A serene Japanese garden at cherry blossom season with koi pond and pagoda',
-  'A dramatic western desert landscape with a lone rider against a blood-orange sky',
-  'An abstract microscopic view of crystalline structures with vibrant neon colors',
-];
+// ═══════════════════════════════════════════════════════════════
+// Helpers
+// ═══════════════════════════════════════════════════════════════
 
-function generatePromptEntry(index, overrides = {}) {
-  const style = STYLES[index % STYLES.length];
-  const subject = overrides.subject || SUBJECTS[index % SUBJECTS.length];
-  const en = `${subject}, ${style.style}, ${style.lighting}, ${style.camera}, ${style.mood}, 8k, highly detailed`;
-  const zh = `${overrides.zhSubject || subject}，${style.style}風格，${style.lighting}光影，${style.camera}鏡頭，${style.mood}氛圍，8k，極致細節`;
+function dateStamp() {
+  return new Date().toISOString().slice(0, 10).replace(/-/g, '');
+}
 
-  return {
-    id: `${Date.now()}-${index}`,
-    title: overrides.title || `Trending Prompt #${index + 1}`,
-    image: overrides.image || '',
-    full_prompt: `${en} | ${zh}`,
-    model: overrides.model || 'SDXL 1.0',
-    _version: new Date().toISOString().slice(0, 10) + '-trending',
-    _source: overrides.source || 'curated',
-  };
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function sanitizeFilename(text, maxLen = 60) {
+  return text
+    .replace(/[^a-zA-Z0-9\u4e00-\u9fff]/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '')
+    .slice(0, maxLen)
+    .toLowerCase() || 'prompt';
+}
+
+function slugify(text) {
+  return text
+    .replace(/[^a-zA-Z0-9\u4e00-\u9fff\s]/g, '')
+    .trim()
+    .slice(0, 30)
+    .replace(/\s+/g, '-');
+}
+
+async function downloadFile(url, destPath) {
+  try {
+    const resp = await fetch(url, {
+      headers: { 'User-Agent': REDDIT_USER_AGENT },
+    });
+    if (!resp.ok) {
+      console.error(`  ⚠️ Download failed (${resp.status}): ${url.slice(0, 60)}`);
+      return false;
+    }
+    const buffer = Buffer.from(await resp.arrayBuffer());
+    writeFileSync(destPath, buffer);
+    const sizeKB = (buffer.length / 1024).toFixed(1);
+    console.log(`  ✅ Downloaded (${sizeKB}KB): ${destPath.split('/').pop()}`);
+    return true;
+  } catch (err) {
+    console.error(`  ⚠️ Download error: ${err.message}`);
+    return false;
+  }
 }
 
 // ═══════════════════════════════════════════════════════════════
-//  Platform Search
+// Source 1: CivitAI
 // ═══════════════════════════════════════════════════════════════
 
-async function searchPlatform(platformKey) {
-  const platform = PLATFORMS[platformKey];
-  if (!platform) throw new Error(`Unknown platform: ${platformKey}`);
+async function fetchCivitai({ count, noDownload }) {
+  console.log('\n📡 Fetching from CivitAI (Most Reacted, SFW)...');
   
-  // Use web search to find trending prompts
-  // Note: In a real implementation, this would use platform-specific APIs
-  // For now, we generate placeholder entries based on the search results
-  
-  return {
-    platform: platform.label,
-    query: platform.query,
-    entries: [],
-  };
-}
-
-// ═══════════════════════════════════════════════════════════════
-//  Generate curated trending entries (self-contained)
-// ═══════════════════════════════════════════════════════════════
-
-function generateTrendingBatch(count = 5) {
-  const now = Date.now();
   const entries = [];
-  const usedIndices = new Set();
+  const pagesNeeded = Math.ceil(count / 20);
+  let fetched = 0;
   
-  for (let i = 0; i < count; i++) {
-    let si;
-    do { si = Math.floor(Math.random() * SUBJECTS.length); } while (usedIndices.has(si));
-    usedIndices.add(si);
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 25000); // 25s timeout per source
+  
+  try {
+    for (let page = 1; page <= pagesNeeded && fetched < count; page++) {
+      const url = `${CIVITAI_API}?sort=${encodeURIComponent('Most Reactions')}&limit=20&page=${page}&nsfw=false`;
+      
+    let resp;
+    try {
+      resp = await fetch(url);
+    } catch (err) {
+      console.error(`  ⚠️ CivitAI fetch error: ${err.message}`);
+      break;
+    }
     
-    entries.push(generatePromptEntry(si, {
-      title: `Trending #${now.toString(36)}-${i + 1}`,
-      source: 'trending-weekly',
-    }));
+    if (!resp.ok) {
+      const text = await resp.text();
+      console.error(`  ⚠️ CivitAI HTTP ${resp.status}: ${text.slice(0, 100)}`);
+      break;
+    }
+    
+    const data = await resp.json();
+    const items = data.items || [];
+    
+    if (items.length === 0) break;
+    
+    for (const item of items) {
+      if (fetched >= count) break;
+      
+      const meta = item.meta || {};
+      let promptText = (meta.prompt || '').trim();
+      if (!promptText) continue;
+      
+      // Skip if prompt is too short (noise)
+      if (promptText.length < 10) continue;
+      
+      const imageUrl = item.url;
+      if (!imageUrl) continue;
+      
+      const model = meta.Model || meta.sdxl || meta.modelVersion || 'Unknown';
+      const width = item.width || 1024;
+      const height = item.height || 1024;
+      const stats = item.stats || {};
+      const likeCount = stats.likeCount || 0;
+      const heartCount = stats.heartCount || 0;
+      
+      // Generate intelligent title from prompt
+      let cleanPrompt = promptText.trim();
+      let autoTitle;
+      
+      // Try to find a natural language phrase (not tag soup)
+      const naturalPhrases = cleanPrompt.split(',').filter(t => {
+        const t2 = t.trim();
+        return t2.length > 15 && !t2.startsWith('score_') && !t2.startsWith('<lora:') && !t2.startsWith('breast') && !t2.startsWith('nsfw') && /[a-zA-Z]{3,}/.test(t2);
+      });
+      
+      if (naturalPhrases.length > 0) {
+        autoTitle = naturalPhrases[0].trim().slice(0, 55);
+      } else {
+        // Use first meaningful tag
+        const tags = cleanPrompt.split(',').map(t => t.trim()).filter(t => {
+          return t.length > 5 && !t.startsWith('score_') && !t.startsWith('<lora:') && /[a-zA-Z]/.test(t);
+        });
+        autoTitle = (tags.length > 2 ? tags.slice(0, 3).join(', ') : tags[0]) || `Trending #${fetched + 1}`;
+      }
+      
+      const title = autoTitle.charAt(0).toUpperCase() + autoTitle.slice(1);
+      
+      const ext = '.jpg';
+      const imageFilename = `trending-${dateStamp()}-civitai-${slugify(title).slice(0, 25) || fetched}${ext}`;
+      const imagePath = `${IMAGES_DIR}/${imageFilename}`;
+      const imageUrlFull = `${BASE_PATH}/images/${imageFilename}`;
+      
+      const entry = {
+        id: 0, // will be assigned by merge
+        title: title.charAt(0).toUpperCase() + title.slice(1).replace(/-/g, ' '),
+        image: imageUrlFull,
+        full_prompt: promptText,
+        model: `CivitAI (${model})`,
+        _version: new Date().toISOString().slice(0, 10) + '-civitai',
+        _source: 'civitai',
+        _likes: likeCount + heartCount,
+      };
+      
+      if (!noDownload) {
+        const absPath = resolve(process.cwd(), imagePath);
+        const ok = await downloadFile(imageUrl, absPath);
+        if (!ok) continue;
+      }
+      
+      entries.push(entry);
+      fetched++;
+    }
+    
+    // Be polite to the API
+    if (fetched < count) await sleep(500);
+    }
+  } catch (err) {
+    console.error(`  ⚠️ CivitAI source error: ${err.message}`);
+  } finally {
+    clearTimeout(timeoutId);
   }
   
+  console.log(`  📊 Fetched ${entries.length} entries from CivitAI`);
   return entries;
 }
 
 // ═══════════════════════════════════════════════════════════════
-//  Read existing prompts.json and merge
+// Source 2: Reddit r/midjourney
 // ═══════════════════════════════════════════════════════════════
 
-function readExistingPrompts() {
-  const fs = await import('fs');
-  const path = await import('path');
+async function fetchRedditMidjourney({ count, noDownload }) {
+  console.log('\n📡 Fetching from Reddit r/midjourney (Hot)...');
   
-  const promptsPath = path.resolve(process.cwd(), 'src/data/prompts.json');
+  const entries = [];
+  let fetched = 0;
+  let after = null;
+  const seenIds = new Set();
+  
+  while (fetched < count) {
+    let url = REDDIT_MIDJOURNEY;
+    if (after) url += `?after=${after}`;
+    
+    let resp;
+    try {
+      resp = await fetch(url, {
+        headers: { 'User-Agent': REDDIT_USER_AGENT },
+        signal: AbortSignal.timeout(15000),
+      });
+    } catch (err) {
+      console.error(`  ⚠️ Reddit fetch error: ${err.message}`);
+      break;
+    }
+    
+    if (!resp.ok) {
+      console.error(`  ⚠️ Reddit HTTP ${resp.status}`);
+      break;
+    }
+    
+    const data = await resp.json();
+    const children = data.data?.children || [];
+    
+    if (children.length === 0) break;
+    
+    after = data.data?.after;
+    
+    for (const child of children) {
+      if (fetched >= count) break;
+      
+      const post = child.data;
+      const postId = post.id;
+      if (seenIds.has(postId)) continue;
+      seenIds.add(postId);
+      
+      // Skip non-image posts (announcements, text-only)
+      const domain = post.domain || '';
+      const url = post.url || '';
+      const isDirectImage = domain === 'i.redd.it' && /\.(jpg|jpeg|png|webp)$/i.test(url);
+      
+      let imageUrl = null;
+      
+      if (isDirectImage) {
+        imageUrl = url;
+      } else if (post.is_gallery && post.media_metadata) {
+        const firstKey = Object.keys(post.media_metadata)[0];
+        if (firstKey) {
+          const media = post.media_metadata[firstKey];
+          if (media?.status === 'valid' && media?.s?.u) {
+            imageUrl = media.s.u.replace(/&amp;/g, '&');
+          }
+        }
+      }
+      
+      if (!imageUrl) continue;
+      
+      const title = (post.title || '').trim();
+      const selftext = (post.selftext || '').trim();
+      
+      // Skip announcements / non-prompt posts (selftext is long, title doesn't look like a prompt)
+      if (selftext.length > 200 && !title.toLowerCase().includes('prompt')) {
+        console.log(`  ⏭️ Skip (announcement/discussion): ${title.slice(0, 40)}`);
+        continue;
+      }
+      
+      if (!title || title.length < 5) continue;
+      
+      // Use title as the prompt (Midjourney posts usually have the prompt in the title)
+      let promptText = title;
+      
+      // If there's a short selftext, it might contain the actual prompt params
+      if (selftext && selftext.length < 100 && !selftext.includes('http')) {
+        promptText = `${title} ${selftext}`;
+      }
+      
+      const score = post.score || 0;
+      const numComments = post.num_comments || 0;
+      
+      // Clean title for display
+      const displayTitle = title
+        .replace(/\[.*?\]/g, '')
+        .replace(/\(.*?\)/g, '')
+        .replace(/^[\s\-–—|]+|[\s\-–—|]+$/g, '')
+        .trim()
+        .slice(0, 60) || `Midjourney #${fetched + 1}`;
+      
+      const ext = extname(new URL(imageUrl).pathname) || '.jpg';
+      const slug = slugify(displayTitle).slice(0, 25) || 'mj';
+      const imageFilename = `trending-${dateStamp()}-reddit-${slug}${ext}`;
+      const imagePath = `${IMAGES_DIR}/${imageFilename}`;
+      const imageUrlFull = `${BASE_PATH}/images/${imageFilename}`;
+      
+      const entry = {
+        id: 0,
+        title: displayTitle,
+        image: imageUrlFull,
+        full_prompt: promptText,
+        model: 'Midjourney',
+        _version: new Date().toISOString().slice(0, 10) + '-reddit',
+        _source: 'reddit-midjourney',
+        _likes: score + numComments,
+      };
+      
+      if (!noDownload) {
+        const absPath = resolve(process.cwd(), imagePath);
+        const ok = await downloadFile(imageUrl, absPath);
+        if (!ok) {
+          console.log(`  ⏭️ Skip (download failed): ${displayTitle.slice(0, 40)}`);
+          continue;
+        }
+      }
+      
+      entries.push(entry);
+      fetched++;
+    }
+    
+    if (!after || fetched >= count) break;
+    await sleep(300);
+  }
+  
+  console.log(`  📊 Fetched ${entries.length} entries from Reddit`);
+  return entries;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// Deduplication
+// ═══════════════════════════════════════════════════════════════
+
+function deduplicate(newEntries, existingEntries) {
+  const existingPrompts = new Set(
+    existingEntries.map(e => e.full_prompt?.trim()?.toLowerCase() || '')
+  );
+  const existingTitles = new Set(
+    existingEntries.map(e => e.title?.trim()?.toLowerCase() || '')
+  );
+  
+  const unique = [];
+  const seenInBatch = new Set();
+  
+  for (const entry of newEntries) {
+    const promptKey = (entry.full_prompt || '').trim().toLowerCase();
+    const titleKey = (entry.title || '').trim().toLowerCase();
+    
+    if (promptKey && existingPrompts.has(promptKey)) {
+      console.log(`  🔁 Skipping (duplicate prompt): ${entry.title.slice(0, 40)}`);
+      continue;
+    }
+    if (titleKey && existingTitles.has(titleKey)) {
+      console.log(`  🔁 Skipping (duplicate title): ${entry.title.slice(0, 40)}`);
+      continue;
+    }
+    if (promptKey && seenInBatch.has(promptKey)) {
+      console.log(`  🔁 Skipping (duplicate in batch): ${entry.title.slice(0, 40)}`);
+      continue;
+    }
+    
+    seenInBatch.add(promptKey);
+    unique.push(entry);
+  }
+  
+  return unique;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// Merge & Write
+// ═══════════════════════════════════════════════════════════════
+
+function loadExisting(path) {
+  const fullPath = resolve(process.cwd(), path);
+  if (!existsSync(fullPath)) return [];
   try {
-    const raw = fs.readFileSync(promptsPath, 'utf-8');
-    return JSON.parse(raw);
+    return JSON.parse(readFileSync(fullPath, 'utf-8'));
   } catch {
+    console.warn(`⚠️ Could not parse ${path}, starting fresh`);
     return [];
   }
 }
 
+function merge(existing, newEntries) {
+  const maxId = existing.reduce((max, p) => Math.max(max, parseInt(p.id, 10) || 0), 0);
+  
+  const merged = [...existing];
+  let id = maxId + 1;
+  
+  for (const entry of newEntries) {
+    merged.push({
+      ...entry,
+      id: String(id++),
+      _version: entry._version || (new Date().toISOString().slice(0, 10) + '-trending'),
+    });
+  }
+  
+  return merged;
+}
+
+function sortByLikes(entries) {
+  return entries.sort((a, b) => (b._likes || 0) - (a._likes || 0));
+}
+
 // ═══════════════════════════════════════════════════════════════
-//  Main
+// Main
 // ═══════════════════════════════════════════════════════════════
 
 async function main() {
   const args = process.argv.slice(2);
-  const platformIdx = args.indexOf('--platform');
-  const platform = platformIdx >= 0 ? args[platformIdx + 1] : null;
+  const sourceIdx = args.indexOf('--source');
+  const source = sourceIdx >= 0 ? args[sourceIdx + 1] : null;
   const countIdx = args.indexOf('--count');
-  const count = countIdx >= 0 ? parseInt(args[countIdx + 1], 10) || 5 : 5;
+  const count = countIdx >= 0 ? parseInt(args[countIdx + 1], 10) || 10 : 10;
   const outputIdx = args.indexOf('--output');
   const outputPath = outputIdx >= 0 ? args[outputIdx + 1] : null;
   const dryRun = args.includes('--dry-run');
+  const noDownload = args.includes('--no-download');
   
-  const entries = generateTrendingBatch(count);
+  console.log(`\n═══════════════════════════════════════════════`);
+  console.log(`  🔥 Prompt Gallery — Trending Curator`);
+  console.log(`  Target: ${count} new entries`);
+  console.log(`  Dry run: ${dryRun ? 'YES' : 'NO'}`);
+  console.log(`  Download images: ${noDownload ? 'NO' : 'YES'}`);
+  console.log(`═══════════════════════════════════════════════\n`);
   
+  // Ensure images directory exists
+  const imagesAbs = resolve(process.cwd(), IMAGES_DIR);
+  if (!existsSync(imagesAbs)) {
+    mkdirSync(imagesAbs, { recursive: true });
+    console.log(`📁 Created images directory: ${IMAGES_DIR}`);
+  }
+  
+  // Fetch from sources
+  let allEntries = [];
+  
+  if (!source || source === 'civitai') {
+    const civitai = await fetchCivitai({ count, noDownload });
+    allEntries.push(...civitai);
+  }
+  
+  if (!source || source === 'reddit') {
+    const reddit = await fetchRedditMidjourney({ count, noDownload });
+    allEntries.push(...reddit);
+  }
+  
+  if (allEntries.length === 0) {
+    console.log('\n⚠️ No entries fetched from any source.');
+    process.exit(1);
+  }
+  
+  // Sort by popularity
+  allEntries = sortByLikes(allEntries);
+  
+  // Trim to requested count
+  if (allEntries.length > count) {
+    allEntries = allEntries.slice(0, count);
+  }
+  
+  // Load existing prompts for dedup
+  const existing = loadExisting(PROMPTS_PATH);
+  const unique = deduplicate(allEntries, existing);
+  
+  if (unique.length === 0) {
+    console.log('\n✅ All fetched entries already exist in prompts.json. Nothing new to add.');
+    process.exit(0);
+  }
+  
+  // Merge with existing
+  const merged = merge(existing, unique);
+  
+  // Summary
+  console.log(`\n📊 Summary:`);
+  console.log(`  Existing:  ${existing.length}`);
+  console.log(`  New (fetched): ${allEntries.length}`);
+  console.log(`  Unique:       ${unique.length}`);
+  console.log(`  Total:        ${merged.length}`);
+  console.log(`  Source(s):    ${source || 'civitai + reddit'}`);
+  
+  // Output
   if (dryRun) {
-    console.log(JSON.stringify(entries, null, 2));
+    console.log(`\n📄 Preview of new entries:\n`);
+    console.log(JSON.stringify(unique, null, 2));
     return;
   }
   
-  // Read existing prompts
-  const existing = readExistingPrompts();
-  const maxId = existing.reduce((max, p) => Math.max(max, parseInt(p.id, 10) || 0), 0);
-  
-  // Assign sequential IDs
-  const merged = [
-    ...existing,
-    ...entries.map((e, i) => ({ ...e, id: String(maxId + i + 1) })),
-  ];
-  
-  // Write if output path specified
   if (outputPath) {
-    const fs = await import('fs');
-    const path = await import('path');
-    const fullPath = path.resolve(process.cwd(), outputPath);
-    fs.writeFileSync(fullPath, JSON.stringify(merged, null, 2), 'utf-8');
-    console.log(`✅ Written ${entries.length} new entries → ${fullPath}`);
-    console.log(`📊 Total prompts: ${merged.length}`);
+    const fullOutput = resolve(process.cwd(), outputPath);
+    mkdirSync(dirname(fullOutput), { recursive: true });
+    writeFileSync(fullOutput, JSON.stringify(outputPath.endsWith('prompts.json') ? merged : unique, null, 2), 'utf-8');
+    console.log(`\n💾 Written → ${fullOutput}`);
   } else {
-    console.log(JSON.stringify(entries, null, 2));
+    // Default: merge into prompts.json directly
+    writeFileSync(resolve(process.cwd(), PROMPTS_PATH), JSON.stringify(merged, null, 2), 'utf-8');
+    console.log(`\n💾 Updated → ${PROMPTS_PATH}`);
+    console.log(`\n🚀 Next step:`);
+    console.log(`   npm run build && git add -A && git commit -m "feat: daily trending prompts $(date +%F)" && git push`);
   }
 }
 
-main().catch(console.error);
+main().catch(err => {
+  console.error('\n❌ Fatal error:', err.message);
+  process.exit(1);
+});
