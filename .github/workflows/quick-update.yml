@@ -1,0 +1,110 @@
+name: Quick Update — Prompt Cards
+
+on:
+  workflow_dispatch:
+    inputs:
+      count:
+        description: 'Number of trending prompts to generate'
+        required: true
+        default: '3'
+        type: choice
+        options:
+          - '1'
+          - '3'
+          - '5'
+          - '10'
+      assign_images:
+        description: 'Assign Unsplash placeholder images'
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Generate trending prompts
+        run: |
+          COUNT=${{ github.event.inputs.count || '3' }}
+          ASSIGN_IMAGES=${{ github.event.inputs.assign_images || 'true' }}
+          node -e "
+          const fs = require('fs');
+          const data = JSON.parse(fs.readFileSync('src/data/prompts.json','utf-8'));
+          const maxId = data.reduce((m,p) => Math.max(m, parseInt(p.id,10)||0), 0);
+          
+          const STYLES = ['Cinematic','Cyberpunk','Fantasy','Minimalist','Anime','Photorealistic'];
+          const LIGHTINGS = ['Volumetric, Golden Hour','Neon Glow, Volumetric Fog','Ethereal, Magical Glow','Soft Diffuse, Studio','Cel Shaded, Soft','Natural, HDR'];
+          const CAMERAS = ['35mm, f/1.8','Wide Angle, 8K','Panoramic, Deep Focus','85mm, Macro','Close-up, Portrait','50mm, f/2.8'];
+          const MOODS = ['Epic, Moody','Gritty, Futuristic','Dreamy, Mystical','Clean, Serene','Whimsical, Dramatic','Authentic, Raw'];
+          const SUBJECTS = [
+            'A futuristic metropolis with holographic advertisements at twilight',
+            'An ancient forest spirit emerging from glowing moss-covered ruins',
+            'A cyberpunk samurai on a rain-soaked rooftop overlooking neon city',
+            'A hyperrealistic portrait with intricate mechanical face components',
+            'A colossal dragon coiled around a crystalline mountain peak under aurora',
+            'A post-apocalyptic city reclaimed by nature with bioluminescent vines',
+            'A steampunk inventor workshop filled with brass gears and copper pipes',
+            'An ethereal goddess made of flowing water and light in a cosmic void',
+            'A medieval alchemist laboratory with glowing potions and ancient manuscripts',
+            'A dramatic western desert landscape with a lone rider at sunset',
+          ];
+          const UNSPLASH = [
+            'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?q=80&w=800&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1548593911-43c3e076af08?q=80&w=800&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?q=80&w=800&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop',
+          ];
+          
+          const now = Date.now();
+          const used = new Set();
+          for (let i = 0; i < ${'$'}{COUNT}; i++) {
+            let si; do { si = Math.floor(Math.random() * SUBJECTS.length); } while (used.has(si));
+            used.add(si);
+            const s = STYLES[si % STYLES.length];
+            const subj = SUBJECTS[si];
+            const en = subj + ', ' + s + ', ' + LIGHTINGS[si % LIGHTINGS.length] + ', ' + CAMERAS[si % CAMERAS.length] + ', ' + MOODS[si % MOODS.length] + ', 8k, highly detailed';
+            const zh = subj + '，' + s + '風格，' + LIGHTINGS[si % LIGHTINGS.length] + '光影，' + CAMERAS[si % CAMERAS.length] + '鏡頭，' + MOODS[si % MOODS.length] + '氛圍，8k，極致細節';
+            const img = ASSIGN_IMAGES === 'true' ? UNSPLASH[si % UNSPLASH.length] : '';
+            data.push({
+              id: String(maxId + i + 1),
+              title: 'Trending #' + now.toString(36).slice(-4).toUpperCase() + '-' + (i + 1),
+              image: img,
+              full_prompt: en + ' | ' + zh,
+              model: 'SDXL 1.0',
+              _version: new Date().toISOString().slice(0,10) + '-gh-actions',
+              _source: 'github-actions-quick',
+            });
+          }
+          
+          fs.writeFileSync('src/data/prompts.json', JSON.stringify(data, null, 2), 'utf-8');
+          console.log('✅ Added ' + ${'$'}{COUNT} + ' trending prompts');
+          "
+
+      - name: Build
+        run: npm run build
+
+      - name: Commit & Push
+        run: |
+          git config user.name "Prompt Bot"
+          git config user.email "bot@prompt-gallery-saas"
+          git add src/data/prompts.json
+          git commit -m "feat: quick update — ${{ github.event.inputs.count || '3' }} trending prompts [bot]" || echo "No changes to commit"
+          git push
