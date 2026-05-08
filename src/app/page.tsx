@@ -19,7 +19,10 @@ export default function LandingPage() {
     return () => clearTimeout(timer);
   }, []);
 
-  const filteredPrompts = promptsData.filter(prompt => {
+  // Only show prompts that have an example image
+  const promptsWithImages = promptsData.filter(p => p.image && p.image.trim() !== '');
+
+  const filteredPrompts = promptsWithImages.filter(prompt => {
     const matchesSearch = prompt.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
                           prompt.full_prompt.toLowerCase().includes(searchQuery.toLowerCase());
     
@@ -107,6 +110,14 @@ export default function LandingPage() {
       <section className="max-w-7xl mx-auto px-4 pb-32">
         {isLoading ? (
           <GallerySkeleton />
+        ) : filteredPrompts.length === 0 ? (
+          <div className="py-24 text-center">
+            <span className="text-5xl block mb-4">🎨</span>
+            <h3 className="text-xl font-bold text-zinc-300 mb-2">{t('gallery.comingSoon')}</h3>
+            <p className="text-zinc-500 text-sm max-w-md mx-auto">
+              {t('gallery.comingSoonDesc')}
+            </p>
+          </div>
         ) : (
           <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
             {filteredPrompts.map((item) => (

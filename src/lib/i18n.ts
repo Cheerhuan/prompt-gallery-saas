@@ -23,6 +23,9 @@ export const translations = {
       sortTrending: 'Trending',
       sortNewest: 'Newest',
       sortSaved: 'Most Saved',
+      comingSoon: 'Gallery Coming Soon',
+      comingSoonDesc: 'We&apos;re curating high-quality example prompts with reference images. Check back soon for the full collection.',
+      empty: 'No prompts match your search.',
       filters: {
         all: 'All',
         cinematic: 'Cinematic',
@@ -155,6 +158,9 @@ export const translations = {
       sortTrending: '熱門',
       sortNewest: '最新',
       sortSaved: '最多收藏',
+      comingSoon: '圖庫即將上線',
+      comingSoonDesc: '我們正在策劃附帶參考圖片的優質提示詞範例。敬請期待完整圖庫。',
+      empty: '沒有符合搜索條件的提示詞。',
       filters: {
         all: '全部',
         cinematic: '電影感',
