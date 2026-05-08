@@ -138,6 +138,22 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
               </div>
             </div>
 
+            <div className="p-6 rounded-3xl bg-zinc-900 border border-zinc-800 shadow-2xl relative overflow-hidden">
+              <div className="flex items-center justify-between mb-3">
+                <h2 className="text-xs font-bold text-zinc-500 uppercase tracking-[0.2em]">Full Prompt</h2>
+                <button onClick={copyToClipboard} className="text-[10px] px-3 py-1 rounded-lg bg-zinc-800 text-zinc-400 hover:text-white transition-all">
+                  📋 Copy
+                </button>
+              </div>
+              <textarea
+                readOnly
+                value={prompt.full_prompt}
+                className="w-full bg-black border border-zinc-800 rounded-xl p-4 text-sm text-zinc-300 leading-relaxed outline-none resize-none font-mono"
+                rows={Math.min(12, prompt.full_prompt.split('\n').length + 2)}
+                onClick={(e) => (e.target as HTMLTextAreaElement).select()}
+              />
+            </div>
+
             <div className="p-8 rounded-3xl bg-zinc-900 border border-zinc-800 shadow-2xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 p-4">
                 <span className="text-[10px] px-2 py-1 rounded-md bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 font-mono">BETA_v1</span>
