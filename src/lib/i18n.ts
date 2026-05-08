@@ -71,6 +71,7 @@ export const translations = {
       badge: 'Simple, transparent pricing',
       title: 'Unlock Your Creative Potential',
       subtitle: 'Choose the plan that fits your workflow. Scale your AI art production with professional tools.',
+      monthLabel: '/month',
       free: {
         name: 'Free',
         desc: 'Perfect for beginners exploring AI art.',
@@ -81,6 +82,11 @@ export const translations = {
         desc: 'For power users and prompt engineers.',
         cta: 'Upgrade Now',
         popular: 'Most Popular',
+      },
+      enterprise: {
+        name: 'Enterprise',
+        desc: 'For studios and production teams.',
+        cta: 'Contact Sales',
       },
       features: {
         credits: 'Generation Credits / mo',
@@ -98,13 +104,23 @@ export const translations = {
       creative: 'Creative',
       complexity: 'Complexity',
     },
+    featureGate: {
+      proTitle: 'Pro Feature',
+      proDesc: 'Upgrade to unlock advanced tools',
+      upgradeBtn: 'Upgrade Now',
+    },
     admin: {
+      pageTitle: 'Admin Dashboard',
+      pageDesc: 'Manage your prompt gallery and assets.',
+      exportBtn: 'Export JSON',
       uploadTitle: 'Upload New Prompt',
       titleLabel: 'Title',
       promptLabel: 'Full Prompt',
       imageLabel: 'Image URL',
       tagsLabel: 'Tags (separated by commas)',
       submit: 'Publish to Gallery',
+      imagePlaceholder: 'URL or Google Drive File ID',
+      tagPlaceholder: 'Tag1, Tag2, Tag3',
     }
   },
   zh: {
@@ -176,6 +192,7 @@ export const translations = {
       badge: '簡單、透明的定價',
       title: '釋放您的創造潛能',
       subtitle: '選擇最適合您工作流的方案。使用專業工具提升 AI 藝術生產力。',
+      monthLabel: '/月',
       free: {
         name: '免費版',
         desc: '適合剛開始探索 AI 藝術的初學者。',
@@ -186,6 +203,11 @@ export const translations = {
         desc: '為資深用戶與提示詞工程師打造。',
         cta: '立即升級',
         popular: '最受歡迎',
+      },
+      enterprise: {
+        name: '企業版',
+        desc: '為工作室與生產團隊打造。',
+        cta: '聯繫銷售',
       },
       features: {
         credits: '每月生成額度',
@@ -203,13 +225,23 @@ export const translations = {
       creative: '創造力',
       complexity: '複雜度',
     },
+    featureGate: {
+      proTitle: 'Pro 功能',
+      proDesc: '升級以解鎖高級工具',
+      upgradeBtn: '立即升級',
+    },
     admin: {
+      pageTitle: '管理後台',
+      pageDesc: '管理您的提示詞圖庫與資產。',
+      exportBtn: '導出 JSON',
       uploadTitle: '上傳新提示詞',
       titleLabel: '標題',
       promptLabel: '完整提示詞',
       imageLabel: '圖片 URL',
       tagsLabel: '標籤 (用逗號隔開)',
       submit: '發佈到圖庫',
+      imagePlaceholder: 'URL 或 Google Drive 檔案 ID',
+      tagPlaceholder: '標籤1, 標籤2, 標籤3',
     }
   }
 };

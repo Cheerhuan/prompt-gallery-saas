@@ -6,36 +6,24 @@ import { useI18n } from '@/components/I18nProvider';
 export default function PricingPage() {
   const { t } = useI18n();
 
-  const PLANS = [
+  const plans = [
     {
-      name: t('pricing.plans.free.name'),
+      key: 'free',
       price: '0',
-      description: t('pricing.plans.free.description'),
-      features: [
-        t('pricing.plans.free.f1'),
-        t('pricing.plans.free.f2'),
-        t('pricing.plans.free.f3'),
-        t('pricing.plans.free.f4'),
-        t('pricing.plans.free.f5'),
-        t('pricing.plans.free.f6'),
-      ],
-      cta: t('pricing.plans.free.cta'),
       highlight: false,
+      featureKeys: ['credits', 'gallery', 'support'],
     },
     {
-      name: t('pricing.plans.pro.name'),
+      key: 'pro',
       price: '5',
-      description: t('pricing.plans.pro.description'),
-      features: [
-        t('pricing.plans.pro.f1'),
-        t('pricing.plans.pro.f2'),
-        t('pricing.plans.pro.f3'),
-        t('pricing.plans.pro.f4'),
-        t('pricing.plans.pro.f5'),
-        t('pricing.plans.pro.f6'),
-      ],
-      cta: t('pricing.plans.pro.cta'),
       highlight: true,
+      featureKeys: ['credits', 'gallery', 'breakdown', 'export', 'queue', 'collections', 'models'],
+    },
+    {
+      key: 'enterprise',
+      price: '29',
+      highlight: false,
+      featureKeys: ['credits', 'gallery', 'breakdown', 'export', 'queue', 'collections', 'models'],
     },
   ];
 
@@ -43,7 +31,7 @@ export default function PricingPage() {
     <div className="min-h-screen bg-black text-white">
       <SaaSNavbar />
       
-      <main className="pt-32 pb-20 px-4 max-w-5xl mx-auto text-center">
+      <main className="pt-32 pb-20 px-4 max-w-6xl mx-auto text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-xs text-indigo-400 mb-6">
           <span>{t('pricing.badge')}</span>
         </div>
@@ -54,11 +42,11 @@ export default function PricingPage() {
           {t('pricing.subtitle')}
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {PLANS.map((plan) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {plans.map((plan) => (
             <div 
-              key={plan.name} 
-              className={`relative p-8 rounded-3xl border transition-all duration-300 ${
+              key={plan.key} 
+              className={`relative p-8 rounded-3xl border transition-all duration-300 flex flex-col ${
                 plan.highlight 
                 ? 'bg-zinc-900 border-indigo-500 shadow-[0_0_40px_-10px_rgba(99,102,241,0.3)]' 
                 : 'bg-black border-zinc-800 hover:border-zinc-700'
@@ -66,34 +54,31 @@ export default function PricingPage() {
             >
               {plan.highlight && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-indigo-500 text-white text-[10px] font-bold uppercase tracking-widest">
-                  {t('pricing.mostPopular')}
+                  {t('pricing.pro.popular')}
                 </div>
               )}
               
               <div className="mb-8 text-left">
-                <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-                <p className="text-zinc-500 text-sm">{plan.description}</p>
+                <h3 className="text-2xl font-bold mb-2">{t(`pricing.${plan.key}.name`)}</h3>
+                <p className="text-zinc-500 text-sm">{t(`pricing.${plan.key}.desc`)}</p>
               </div>
 
               <div className="mb-8 flex items-baseline gap-1 justify-center md:justify-start">
                 <span className="text-5xl font-bold">${plan.price}</span>
-                <span className="text-zinc-500 text-sm">{t('pricing.perMonth')}</span>
+                <span className="text-zinc-500 text-sm">{t('pricing.monthLabel')}</span>
               </div>
 
-              <div className="space-y-4 mb-10 text-left">
-                {plan.features.map((feature, idx) => {
-                  const isChecked = feature.startsWith('✓') || feature.startsWith('✅');
-                  return (
-                    <div key={idx} className="flex items-center gap-3 text-sm">
-                      <span className={isChecked ? 'text-indigo-400' : 'text-zinc-600'}>
-                        {isChecked ? '✓' : '✕'}
-                      </span>
-                      <span className={isChecked ? 'text-zinc-300' : 'text-zinc-600'}>
-                        {feature.replace(/^✓\s*|✕\s*|✅\s*$/, '')}
-                      </span>
-                    </div>
-                  );
-                })}
+              <div className="space-y-4 mb-10 text-left flex-1">
+                {plan.featureKeys.map((featureKey, idx) => (
+                  <div key={idx} className="flex items-center gap-3 text-sm">
+                    <span className="text-indigo-400">✓</span>
+                    <span className="text-zinc-300">
+                      {featureKey === 'credits'
+                        ? `${plan.key === 'free' ? '10' : plan.key === 'pro' ? '100' : 'Unlimited'} ${t(`pricing.features.${featureKey}`)}`
+                        : t(`pricing.features.${featureKey}`)}
+                    </span>
+                  </div>
+                ))}
               </div>
 
               <button className={`w-full py-4 rounded-xl font-bold transition-all ${
@@ -101,7 +86,7 @@ export default function PricingPage() {
                 ? 'bg-white text-black hover:bg-zinc-200' 
                 : 'bg-zinc-900 text-white border border-zinc-800 hover:bg-zinc-800'
               }`}>
-                {plan.cta}
+                {t(`pricing.${plan.key}.cta`)}
               </button>
             </div>
           ))}

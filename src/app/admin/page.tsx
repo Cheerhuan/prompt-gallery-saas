@@ -11,11 +11,11 @@ export default function AdminPanel() {
       <div className="max-w-4xl mx-auto space-y-12">
         <div className="flex justify-between items-end">
           <div>
-            <h1 className="text-4xl font-bold tracking-tighter mb-2">Admin Dashboard</h1>
-            <p className="text-zinc-500">Manage your prompt gallery and assets.</p>
+            <h1 className="text-4xl font-bold tracking-tighter mb-2">{t('admin.pageTitle')}</h1>
+            <p className="text-zinc-500">{t('admin.pageDesc')}</p>
           </div>
           <button className="px-4 py-2 bg-zinc-900 border border-zinc-800 rounded-lg text-xs hover:bg-zinc-800 transition-colors">
-            Export JSON
+            {t('admin.exportBtn')}
           </button>
         </div>
         

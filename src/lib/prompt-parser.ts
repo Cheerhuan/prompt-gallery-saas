@@ -1,5 +1,8 @@
 import React from 'react';
 
+// Unified separator: supports both English and Chinese commas
+const SEPARATOR = /[,，]\s*/;
+
 export interface PromptBreakdown {
   [key: string]: string | any;
   subject: string;
@@ -10,7 +13,9 @@ export interface PromptBreakdown {
 }
 
 export const parsePrompt = (prompt: string): PromptBreakdown => {
-  const parts = prompt.split(',').map(p => p.trim());
+  // For dual-language prompts (EN | ZH), parse the first language part
+  const mainPart = prompt.split(' | ')[0] || prompt;
+  const parts = mainPart.split(SEPARATOR);
   return {
     subject: parts[0] || 'Unknown',
     style: parts[1] || 'Standard',

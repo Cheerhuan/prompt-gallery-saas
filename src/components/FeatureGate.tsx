@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import { useI18n } from '@/components/I18nProvider';
 
 interface FeatureGateProps {
   children: ReactNode;
@@ -7,6 +8,7 @@ interface FeatureGateProps {
 }
 
 export const FeatureGate = ({ children, isProRequired = true, userTier = 'free' }: FeatureGateProps) => {
+  const { t } = useI18n();
   const isLocked = isProRequired && userTier === 'free';
 
   return (
@@ -16,10 +18,10 @@ export const FeatureGate = ({ children, isProRequired = true, userTier = 'free' 
           <div className="w-8 h-8 bg-indigo-500 rounded-full flex items-center justify-center mb-2 shadow-lg shadow-indigo-500/50">
             <span className="text-white text-xs">🔒</span>
           </div>
-          <span className="text-white text-xs font-bold mb-1">Pro Feature</span>
-          <span className="text-zinc-400 text-[10px]">Upgrade to unlock advanced tools</span>
+          <span className="text-white text-xs font-bold mb-1">{t('featureGate.proTitle')}</span>
+          <span className="text-zinc-400 text-[10px]">{t('featureGate.proDesc')}</span>
           <button className="mt-3 px-3 py-1 bg-white text-black text-[10px] font-bold rounded-full hover:bg-zinc-200 transition-colors">
-            Upgrade Now
+            {t('featureGate.upgradeBtn')}
           </button>
         </div>
       )}

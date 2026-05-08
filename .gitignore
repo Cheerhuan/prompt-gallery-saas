@@ -21,6 +21,7 @@
 /build
 
 # misc
+/rescue_build/
 .DS_Store
 *.pem
 

@@ -57,7 +57,7 @@ export const AdminUpload = ({ onUpload }: AdminUploadProps) => {
             value={formData.image}
             onChange={(e) => setFormData({...formData, image: e.target.value})}
             className="w-full px-4 py-2 bg-black border border-zinc-800 rounded-xl text-sm focus:ring-2 focus:ring-indigo-500 outline-none"
-            placeholder="URL or Google Drive File ID"
+            placeholder={t('admin.imagePlaceholder')}
             required
           />
         </div>
@@ -68,7 +68,7 @@ export const AdminUpload = ({ onUpload }: AdminUploadProps) => {
             value={formData.tags}
             onChange={(e) => setFormData({...formData, tags: e.target.value})}
             className="w-full px-4 py-2 bg-black border border-zinc-800 rounded-xl text-sm focus:ring-2 focus:ring-indigo-500 outline-none"
-            placeholder="Tag1, Tag2, Tag3"
+            placeholder={t('admin.tagPlaceholder')}
             required
           />
         </div>
