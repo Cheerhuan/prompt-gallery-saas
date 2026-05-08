@@ -81,7 +81,7 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
           <div className="lg:col-span-7 space-y-10">
             <div className="relative group rounded-3xl overflow-hidden bg-zinc-900 border border-zinc-800 shadow-2xl">
               <img 
-                src={prompt.image} 
+                src={prompt.image?.startsWith('/') ? '/prompt-gallery-saas' + prompt.image : prompt.image} 
                 alt={prompt.title}
                 className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
@@ -106,7 +106,7 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
                   <div className="space-y-3">
                     <span className="text-[10px] text-indigo-400 uppercase tracking-tighter">Refined Architecture</span>
                     <div className="aspect-square rounded-2xl bg-zinc-900 border-2 border-indigo-500/50 overflow-hidden">
-                      <img src={prompt.image} className="w-full h-full object-cover" />
+                      <img src={prompt.image?.startsWith('/') ? '/prompt-gallery-saas' + prompt.image : prompt.image} className="w-full h-full object-cover" />
                     </div>
                   </div>
                 </div>
