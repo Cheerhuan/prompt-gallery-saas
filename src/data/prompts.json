@@ -386,5 +386,50 @@
     "model": "Claude 3.5 Sonnet",
     "_version": "2026-05-09-curated",
     "_source": "curated-from-threads"
+  },
+  {
+    "id": "42",
+    "title": "The Critique Mirror (批判之鏡)",
+    "image": "https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "full_prompt": "Act as a harsh but fair critic. Review the following [Content] and provide a 'Red Team' report: 1. Identify 3 logical fallacies. 2. Point out where the tone is too generic. 3. Find one critical missing perspective. Do not praise; only critique. | 扮演一名嚴厲但公正的評論家。審查以下 [內容] 並提供一份 '紅隊報告'：1. 識別 3 個邏輯謬誤。2. 指出語調過於通用之處。3. 找出一個關鍵的缺失視角。不要讚美，僅提供批評。",
+    "model": "Claude 3.5 Sonnet",
+    "_version": "2026-05-09-curated",
+    "_source": "curated-from-threads"
+  },
+  {
+    "id": "43",
+    "title": "Atomic Deconstructor (原子拆解器)",
+    "image": "https://images.pexels.com/photos/256174/pexels-photo-256174.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "full_prompt": "Take the following complex goal: [Goal]. Break it down into a sequence of 'Atomic Tasks'. Each task must be: 1. Single-purpose. 2. Executable in under 30 minutes. 3. Have a clear 'Definition of Done'. Present this as a checklist. | 將以下複雜目標：[目標] 拆解為一系列 '原子任務'。每個任務必須滿足：1. 單一目的。2. 30 分鐘內可執行。3. 具有明確的 '完成定義 (DoD)'。請以檢查清單形式呈現。",
+    "model": "Claude 3.5 Sonnet",
+    "_version": "2026-05-09-curated",
+    "_source": "curated-from-threads"
+  },
+  {
+    "id": "44",
+    "title": "Cognitive Bridge (認知橋接器)",
+    "image": "https://images.pexels.com/photos/210186/pexels-photo-210186.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "full_prompt": "Translate the following [Technical Concept] into a high-impact business value proposition. Use the formula: 'Instead of [Technical Complexity], we achieve [Business Result] which means [Financial/Strategic Benefit]'. Avoid all jargon. | 將以下 [技術概念] 轉化為高影響力的商業價值主張。使用公式：'與其 [技術複雜度]，我們實現了 [商業結果]，這意味著 [財務/戰略利益]'。避免使用所有專業術語。",
+    "model": "Claude 3.5 Sonnet",
+    "_version": "2026-05-09-curated",
+    "_source": "curated-from-threads"
+  },
+  {
+    "id": "45",
+    "title": "Emotional Resonance (情感共鳴器)",
+    "image": "https://images.pexels.com/photos/3771023/pexels-photo-3771023.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "full_prompt": "Rewrite the following [Text] to remove the 'AI-generated feel'. Inject human elements: 1. Vary sentence length dynamically. 2. Use specific, sensory details instead of abstract adjectives. 3. Add a touch of vulnerability or a personal anecdote. Maintain the original core message. | 重寫以下 [文本] 以消除 'AI 生成感'。注入人性化元素：1. 動態改變句子長度。2. 使用具體的感官細節而非抽象形容詞。3. 加入一點脆弱感或個人軼事。保持原有的核心訊息。",
+    "model": "Claude 3.5 Sonnet",
+    "_version": "2026-05-09-curated",
+    "_source": "curated-from-threads"
+  },
+  {
+    "id": "46",
+    "title": "Strategic Pivot (戰略轉向器)",
+    "image": "https://images.pexels.com/photos/63477/pexels-photo-63477.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "full_prompt": "Given the current approach to [Problem], propose 3 'Counter-Intuitive' alternative strategies. For each pivot, explain: 1. Why the common approach is a trap. 2. How the pivot creates a unique competitive advantage. 3. The biggest risk of this pivot. | 針對 [問題] 的當前處理方法，提出 3 個 '反直覺' 的替代戰略。對於每個轉向，請解釋：1. 為什麼常見方法是一個陷阱。2. 此轉向如何創造獨特的競爭優勢。3. 此轉向的最大風險。",
+    "model": "Claude 3.5 Sonnet",
+    "_version": "2026-05-09-curated",
+    "_source": "curated-from-threads"
   }
 ]
