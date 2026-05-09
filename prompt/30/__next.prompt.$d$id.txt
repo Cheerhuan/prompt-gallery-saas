@@ -1,0 +1,30 @@
+1:"$Sreact.fragment"
+2:I[75336,["/prompt-gallery-saas/_next/static/chunks/0~hdp4e3ey5pz.js","/prompt-gallery-saas/_next/static/chunks/0d3shmwh5_nmn.js","/prompt-gallery-saas/_next/static/chunks/09_atjtcvpb8-.js","/prompt-gallery-saas/_next/static/chunks/0a~8wjtaza0ml.js"],"default"]
+3:T4c1,[STYLE]
+monochromatic grayscale illustration, 3D rendered character, clean instructional reference sheet, 
+white background, comic-style cell grid layout, technical diagram aesthetic
+
+[LAYOUT]
+4x4 grid layout, 16 panels total, each panel separated by thin black border lines, 
+numbered cells from 1 to 16, consistent panel size
+
+[CHARACTER]
+{argument name="character" default="young female dancer, athletic build, ponytail hairstyle, crop top and baggy pants, sneakers"}, same character in all panels
+
+[PANEL STRUCTURE - per cell]
+top-left: bold number badge + {argument name="title" default="Korean title text"}
+center: full-body character pose illustration
+bottom-left: {argument name="description" default="Korean description text (3-4 lines)"}
+overlay: directional arrows indicating movement direction
+
+[ARROWS / MOTION INDICATORS]
+curved arrows, straight arrows, circular rotation indicators, 
+placed around the character to show movement flow and direction
+
+[RENDERING STYLE]
+high detail 3D sculpt style, soft studio lighting, subtle shadows, 
+no color, grayscale shading, clean linework, game concept art quality
+
+[NEGATIVE]
+no background scenery, no color tones, no extra characters, 
+no cluttered backgrounds0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/09_atjtcvpb8-.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/0a~8wjtaza0ml.js","async":true}]],["$","$L2",null,{"prompt":{"id":"30","title":"Dance Movement Reference Sheet [海報插畫]","image":"https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case130/output.jpg","full_prompt":"$3","model":"GPT-Image-2","_version":"2026-05-09-imported","_source":"awesome-gpt-image-2","_case_id":"poster-130"},"params":{"id":"30"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"O4MdHYJWlRsSOt-SonLx2"}
