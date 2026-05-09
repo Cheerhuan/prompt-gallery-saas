@@ -433,17 +433,45 @@
     "_source": "curated-from-threads"
   },
   {
-  "id": "47",
-  "title": "日系潮流聯名海報：善逸 x 50嵐",
-  "full_prompt": "一張高質感「日系聯名角色時尚海報」插畫，採用日系動漫＋潮流品牌廣告風格，整體為直式 9:16 構圖。畫面中心是《鬼滅之刃》裡的我妻善逸，金黃色方型短髮蓬鬆立體、帶有自然光澤與電光動感，眼睛明亮銳利，表情展現出既緊張又堅定的反差少年氣場。角色穿著以「50嵐 (50LAN)」聯名延伸設計的潮流街頭服裝，包括黃黑配色和服風外套、寬鬆運動短褲、潮流球鞋與科技感腰包，服裝細節融入大量 50嵐 元素，如品牌LOGO刺繡、飲料杯圖案、閃電造型配件與 50LAN 渦旋圖騰徽章。善逸手持超大杯 50嵐 經典珍珠奶茶，杯身透明帶有冰塊與珍珠細節，周圍漂浮金黃色閃電能量與漫畫速度線，站姿充滿動態張力，呈現熱血少年偶像般的潮流時尚感。構圖採品牌形象海報排版，左側配置大型英文字標題 'ZENITSU x 50LAN'、聯名LOGO、日文／中文宣傳文案（如：雷之呼吸 · 青春無畏）與產品資訊，下方加入聯名飲料杯、外帶紙袋、限定周邊與角色主題商品展示，營造完整商業視覺。背景為極簡淡黃色或米白色牆面，帶有強烈的閃電光影與大片留白，牆上加入手繪塗鴉風雷電符號、火焰、飲料插畫與漫畫分鏡元素，增添青春感與熱血氛圍。整體色調以金黃色、黑色、米白與少量棕色為主，高飽和暖色系營造高級感與能量感。畫面風格偏向「半寫實日系動漫插畫＋潮流品牌廣告設計」，結合細膩手繪線條、柔和賽璐璐上色、輕微紙張顆粒與高級時尚海報排版；光影乾淨柔和，帶有精品潮牌視覺氛圍與熱血少年動漫聯名飲品廣告感。",
-  "image": "/images/zenitsu-50lan-collab.jpg",
-  "model": "Midjourney v6",
-  "category": "Commercial Design",
-  "tags": [
-    "Brand Collab",
-    "Anime Fashion",
-    "Commercial Poster",
-    "Streetwear"
-  ]
-}
+    "id": "47",
+    "title": "日系潮流聯名海報：善逸 x 50嵐",
+    "full_prompt": "一張高質感「日系聯名角色時尚海報」插畫，採用日系動漫＋潮流品牌廣告風格，整體為直式 9:16 構圖。畫面中心是《鬼滅之刃》裡的我妻善逸，金黃色方型短髮蓬鬆立體、帶有自然光澤與電光動感，眼睛明亮銳利，表情展現出既緊張又堅定的反差少年氣場。角色穿著以「50嵐 (50LAN)」聯名延伸設計的潮流街頭服裝，包括黃黑配色和服風外套、寬鬆運動短褲、潮流球鞋與科技感腰包，服裝細節融入大量 50嵐 元素，如品牌LOGO刺繡、飲料杯圖案、閃電造型配件與 50LAN 渦旋圖騰徽章。善逸手持超大杯 50嵐 經典珍珠奶茶，杯身透明帶有冰塊與珍珠細節，周圍漂浮金黃色閃電能量與漫畫速度線，站姿充滿動態張力，呈現熱血少年偶像般的潮流時尚感。構圖採品牌形象海報排版，左側配置大型英文字標題 'ZENITSU x 50LAN'、聯名LOGO、日文／中文宣傳文案（如：雷之呼吸 · 青春無畏）與產品資訊，下方加入聯名飲料杯、外帶紙袋、限定周邊與角色主題商品展示，營造完整商業視覺。背景為極簡淡黃色或米白色牆面，帶有強烈的閃電光影與大片留白，牆上加入手繪塗鴉風雷電符號、火焰、飲料插畫與漫畫分鏡元素，增添青春感與熱血氛圍。整體色調以金黃色、黑色、米白與少量棕色為主，高飽和暖色系營造高級感與能量感。畫面風格偏向「半寫實日系動漫插畫＋潮流品牌廣告設計」，結合細膩手繪線條、柔和賽璐璐上色、輕微紙張顆粒與高級時尚海報排版；光影乾淨柔和，帶有精品潮牌視覺氛圍與熱血少年動漫聯名飲品廣告感。",
+    "image": "/images/zenitsu-50lan-collab.jpg",
+    "model": "Midjourney v6",
+    "category": "Commercial Design",
+    "tags": [
+      "Brand Collab",
+      "Anime Fashion",
+      "Commercial Poster",
+      "Streetwear"
+    ]
+  },
+  {
+    "id": "48",
+    "title": "3D 破框萌寵：IG 社交媒體視覺 (IG 3D Pop-out Pet)",
+    "image": "/images/pet-ig-popout.jpg",
+    "full_prompt": "A high-fidelity iPhone-sized vertical photo of a [Pet Breed] naturally stepping out of a giant 3D Instagram post frame. The IG account handle '[IG Account]' is clearly visible at the top. The pet is captured in a dynamic forward-stepping motion, with one front paw slightly raised and very close to the camera, creating a powerful wide-angle perspective with a detailed close-up of the paw pads. The background is a dreamlike garden under a bright blue sky with fluffy white clouds, scattered with colorful flowers and floating butterflies. Soft, warm sunlight filtering through leaves, creating a fairytale atmosphere. Hyper-realistic fur textures, professional depth-of-field (bokeh) effect, warm and bright lighting, heartwarming and cute aesthetic. | 一張高質感 iPhone 尺寸直式照片，一隻 [寵物品種] 從巨大的 3D Instagram 貼文相框裡自然走出來。頂部清晰顯示 IG 帳號 '[IG 帳號]'。捕捉寵物正在往前踏步的動態，前腳微微抬起並極其靠近鏡頭，營造強烈的低角度廣角視角，肉球特寫清晰且姿勢自然。背景是夢幻花園與藍天白雲，陽光灑落，花朵與蝴蝶環繞，呈現童話感氛圍。照片級真實感，毛髮細節清楚，專業景深效果，色調溫暖明亮，極其可愛療癒。",
+    "model": "Midjourney v6",
+    "category": "Creative Photography",
+    "tags": [
+      "3D Pop-out",
+      "Pet Portrait",
+      "Social Media Visual",
+      "Hyper-realistic"
+    ]
+  },
+  {
+    "id": "49",
+    "title": "3D 破框效果：萌寵走出 IG 貼文",
+    "image": "https://images.pexels.com/photos/30502974/pexels-photo-30502974.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "full_prompt": "iPhone wallpaper ratio 9:16. A hyper-realistic 3D pop-out effect where an adorable Golden Retriever puppy is naturally stepping out of a giant Instagram post frame. The IG account handle is '@CutePup_Life'. The puppy is stepping forward, with its front paw slightly lifted and positioned very close to the camera lens. Low-angle wide-angle perspective, creating a strong sense of depth and perspective. Extreme close-up of the soft paw pads, yet the overall posture remains natural. Background is a dreamy fantasy garden under a clear blue sky with fluffy white clouds, soft sunlight filtering through, surrounded by vibrant flowers and fluttering butterflies. Photorealistic, cinematic lighting, clear fur detail, shallow depth of field (bokeh), fairy-tale atmosphere, warm and bright, heartwarming and cute. | iPhone 手機尺寸照片，一隻黃金獵犬幼犬從巨大的 IG 貼文相框裡自然走出來，IG 帳號為 '@CutePup_Life'。動作是正在往前踏步，前腳微微抬起並靠近鏡頭，低角度廣角視角，透視感強烈，巨大肉球特寫但姿勢自然。背景是夢幻花園與藍天白雲，陽光灑落，花朵與蝴蝶環繞。照片級真實感，毛髮細節清楚，景深效果，童話感氛圍，溫暖明亮，可愛療癒。",
+    "model": "Midjourney v6",
+    "category": "Creative Art",
+    "tags": [
+      "3D Pop-out",
+      "Cute Pet",
+      "Instagram Style",
+      "Dreamy"
+    ]
+  }
 ]
