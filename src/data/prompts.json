@@ -241,5 +241,105 @@
     "model": "GPT-Image-2",
     "_version": "2026-05-09",
     "_source": "mobile-add"
+  },
+  {
+    "id": "27",
+    "title": "Emerald Street Fashion Poster [海報插畫]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case180/output.jpg",
+    "full_prompt": "GPT Image 2 on ChatGPT Prompt: Create a bold street-fashion poster featuring a handsome man with short black hair, and a fearless expression. Dress him in a glossy emerald satin bomber jacket and black pants. Place him in front of a distressed concrete wall with emerald, black, and white layered textures. Use dramatic editorial lighting, crisp contrast, and a premium urban mood. Add bold uppercase typography with a clean modern poster style.",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "poster-180"
+  },
+  {
+    "id": "28",
+    "title": "Social App Match Success Screen [海報插畫]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/case_case86/output.jpg",
+    "full_prompt": "社交App匹配成功界面，两个用户资料卡碰撞爱心特效",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "poster-50"
+  },
+  {
+    "id": "29",
+    "title": "Vintage Amalfi Travel Poster [海報插畫]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case2/output.jpg",
+    "full_prompt": "Modern pencil illustration of Vintage travel poster illustration of the Amalfi Coast, Italy, panoramic coastal cliff road scene, classic 1960s white car driving along a curved seaside road, deep blue Mediterranean sea with small sailboats, colorful pastel hillside village, bright blue sky with soft clouds, lemon tree branches with vibrant yellow lemons framing the foreground, warm summer sunlight, bold vibrant colors, retro 1950s travel poster style, cinematic composition, high detail, screen print texture, graphic illustration. Hand-drawn style, illustration with loose strokes and defined contours. High-contrast color palette, maintaining chromatic harmony between background and elements. Contemporary and decorative aesthetic.",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "poster-2"
+  },
+  {
+    "id": "30",
+    "title": "Dance Movement Reference Sheet [海報插畫]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case130/output.jpg",
+    "full_prompt": "[STYLE]\nmonochromatic grayscale illustration, 3D rendered character, clean instructional reference sheet, \nwhite background, comic-style cell grid layout, technical diagram aesthetic\n\n[LAYOUT]\n4x4 grid layout, 16 panels total, each panel separated by thin black border lines, \nnumbered cells from 1 to 16, consistent panel size\n\n[CHARACTER]\n{argument name=\"character\" default=\"young female dancer, athletic build, ponytail hairstyle, crop top and baggy pants, sneakers\"}, same character in all panels\n\n[PANEL STRUCTURE - per cell]\ntop-left: bold number badge + {argument name=\"title\" default=\"Korean title text\"}\ncenter: full-body character pose illustration\nbottom-left: {argument name=\"description\" default=\"Korean description text (3-4 lines)\"}\noverlay: directional arrows indicating movement direction\n\n[ARROWS / MOTION INDICATORS]\ncurved arrows, straight arrows, circular rotation indicators, \nplaced around the character to show movement flow and direction\n\n[RENDERING STYLE]\nhigh detail 3D sculpt style, soft studio lighting, subtle shadows, \nno color, grayscale shading, clean linework, game concept art quality\n\n[NEGATIVE]\nno background scenery, no color tones, no extra characters, \nno cluttered backgrounds",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "poster-130"
+  },
+  {
+    "id": "31",
+    "title": "Chili Pork Cooking Flowchart [海報插畫]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case55/output.jpg",
+    "full_prompt": "帮我制作辣椒炒肉这道菜的详细制作流程图,真实风格,适用于小红书图文比例",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "poster-55"
+  },
+  {
+    "id": "32",
+    "title": "Science Encyclopedia Vertical Poster [海報插畫]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case32/output.jpg",
+    "full_prompt": "Generate a high-quality vertical science popularization encyclopedia image based on [Theme].",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "poster-32"
+  },
+  {
+    "id": "33",
+    "title": "Spring 2026 Guangzhou Promo Poster [海報插畫]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case14/output.jpg",
+    "full_prompt": "一张充满新春喜庆但高雅的 2026 广州城市宣传海报，9:16 竖版，双重曝光，S 型流动构图。纯白纹理背景，右下角微缩传统服饰人物挥舞长红绸，红绸变形成山脉河流，内部叠加广州全景：广州塔、珠江新城、珠江、游轮、古建筑与白云山。左下角排版 “SPRING 2026” 与竖排 “千年商都 魅力广州”。",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "poster-14"
+  },
+  {
+    "id": "34",
+    "title": "Pixel game concept board from TV drama theme [角色設計]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/character_case15/output.jpg",
+    "full_prompt": "爱情公寓 电视剧主题 像素养成类游戏概念图，包括场景全局内容，周围环绕各人物形象三视图，底部是场景特写，右下角是剧情梗概。\n\n随机一个经典国内古装电视剧，生成古装电视剧主题像素养成类游戏概念图，包括场景全局内容，周围环绕各人物形象三视图，底部是场景特写，右下角是剧情梗概。\n\n「XXX」电视剧主题像素养成类游戏概念图，包括场景全局内容，周围环绕各人物（人物别重复）形象三视图，底部是场景特写，右下角是剧情梗概。",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "character-15"
+  },
+  {
+    "id": "35",
+    "title": "GTA 6 in Bangalore Flower Market [角色設計]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/character_case11/output.jpg",
+    "full_prompt": "{argument name=\"game\" default=\"gta 6\"} in {argument name=\"location\" default=\"Bangalore’s market flower\"} in India",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "character-11"
+  },
+  {
+    "id": "36",
+    "title": "Cyberpunk AI Tools Comparison Poster [對比展示]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/comparison_case73/output.jpg",
+    "full_prompt": "A futuristic Japanese tech comparison poster in a dark cyberpunk control-room setting, wide 16:9 composition. Large distressed white Japanese headline text at the upper left reading \"三つ巴\", with a bold gold subtitle directly below reading \"それぞれの武器\". Across the center-left are 3 glowing holographic comparison panels arranged horizontally and connected by neon arrows: a blue panel labeled \"Google\", an amber-gold panel labeled \"Claude\", and a purple-magenta panel labeled \"OpenAI\". The Google panel contains 4 inner cards: 2 larger top cards labeled \"Gemini\" and \"Antigravity\", plus 2 smaller bottom cards showing analytics/dashboard-like visuals and a blue isometric cube graphic. The Claude panel contains 4 inner cards: 1 large top card labeled \"Claude Code\", plus 3 smaller bottom cards showing a network diagram, text/code list, and chart analytics. The OpenAI panel contains 5 inner cards: 2 larger top cards labeled \"ChatGPT\" and \"Codex\", plus 3 smaller bottom cards showing interface/code windows and a geometric wireframe cube. Add glowing bidirectional arrows between Google and Claude, and between Claude and OpenAI. At the bottom center, place a large neon-framed banner with gold text reading \"Google / Claude / OpenAI\". On the right side, include a young woman standing and pointing left toward the panels, with long straight split-dyed hair in pastel pink and cyan blue, a plain white t-shirt with black text reading \"{argument name=\"shirt text\" default=\"OKIHIRO AI Creative\"}\", and a soft pink pleated skirt. Her face is obscured by a smooth rectangular blur block. Use cinematic sci-fi lighting, glossy hologram UI details, high contrast, vivid blue-gold-purple accents, and a polished YouTube thumbnail aesthetic.",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "comparison-73"
   }
 ]
