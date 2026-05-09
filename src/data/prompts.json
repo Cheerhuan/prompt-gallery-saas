@@ -459,5 +459,14 @@
       "Instagram Style",
       "Dreamy"
     ]
+  },
+  {
+    "id": "50",
+    "title": "Case #50: 日系插畫風「我」的想像 (Japanese Illustration - Imagined \"Me\")",
+    "image": "/images/uploads/img_1074cf679bc9.jpg",
+    "full_prompt": "生成一張你想象中的「我」的插圖、符合「我」氣質、日系插畫風、角色特徵鮮明、情緒自然表情、全身構圖、動態姿態、日系服裝細節精緻、手繪塗鴉風、潑墨筆觸、隨性線條、漫畫草稿質感、簡約日系背景、周圍小碎花點綴、氛圍感強、高細節、高品質。臉的細節要細緻一點",
+    "model": "Midjourney v6",
+    "_version": "2026-05-09-v3",
+    "_source": "user-manual-add"
   }
 ]
