@@ -341,5 +341,50 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "comparison-73"
+  },
+  {
+    "id": "37",
+    "title": "The Reasoning Engine (深度思考啟動器)",
+    "image": "https://images.pexels.com/photos/35050389/pexels-photo-35050389.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "full_prompt": "Before providing the final answer, please create a <thinking> section. In this section, brainstorm 3 different perspectives, challenge your own initial assumptions, and map out the logical dependencies. Only after this rigorous internal monologue, provide the structured final response. | 在提供最終答案之前，請先建立一個 <thinking> 區塊。在此區塊中，請從 3 個不同的視角進行腦力激盪，挑戰您最初的假設，並繪製出邏輯依賴關係。只有在經過這種嚴格的內部獨白後，才提供結構化的最終回應。",
+    "model": "Claude 3.5 Sonnet",
+    "_version": "2026-05-09-curated",
+    "_source": "curated-from-threads"
+  },
+  {
+    "id": "38",
+    "title": "Authority Persona (權威人格模擬)",
+    "image": "https://images.pexels.com/photos/3709346/pexels-photo-3709346.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "full_prompt": "Act as a [Role, e.g., World-class Solution Architect]. Your goal is to [Goal]. Instead of a generic response, apply the [Specific Framework, e.g., First Principles Thinking] and provide a high-fidelity output that emphasizes technical rigor, avoids fluff, and prioritizes actionable insights over descriptions. | 扮演 [角色，例如：世界級解決方案架構師]。您的目標是 [目標]。請不要提供通用回應，而應應用 [特定框架，例如：第一性原理思考]，並提供一個強調技術嚴謹性、避免廢話並優先考慮可執行洞察而非單純描述的高保真輸出。",
+    "model": "Claude 3.5 Sonnet",
+    "_version": "2026-05-09-curated",
+    "_source": "curated-from-threads"
+  },
+  {
+    "id": "39",
+    "title": "Context Architect (上下文建築師)",
+    "image": "https://images.pexels.com/photos/33393712/pexels-photo-33393712.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "full_prompt": "I want you to [Task]. However, I want the result to be perfect. Before you start, I want you to ask me 5-10 targeted questions that will give you the exact context and constraints needed to deliver a world-class output. Do not start the task until I answer these questions. | 我希望您執行 [任務]。但我希望結果是完美的。在您開始之前，我希望您向我提出 5-10 個有針對性的問題，以便您獲得交付世界級輸出所需的確切上下文和約束條件。在我回答這些問題之前，請不要開始執行任務。",
+    "model": "Claude 3.5 Sonnet",
+    "_version": "2026-05-09-curated",
+    "_source": "curated-from-threads"
+  },
+  {
+    "id": "40",
+    "title": "Infinite Refiner (無限精煉迴路)",
+    "image": "https://images.pexels.com/photos/12275644/pexels-photo-12275644.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "full_prompt": "Analyze the following [Content]. First, identify 3 critical weaknesses. Second, propose a 'v2' version that fixes these issues. Third, explain why the v2 is superior. Repeat this process for 3 iterations until the output reaches a 'Professional Grade' standard. | 分析以下 [內容]。首先，識別 3 個關鍵缺陷。其次，提出一個修復這些問題的 'v2' 版本。第三，解釋為什麼 v2 更優越。重複此過程 3 次迭代，直到輸出達到 '專業級' 標準。",
+    "model": "Claude 3.5 Sonnet",
+    "_version": "2026-05-09-curated",
+    "_source": "curated-from-threads"
+  },
+  {
+    "id": "41",
+    "title": "Knowledge Mapper (知識圖譜映射)",
+    "image": "https://images.pexels.com/photos/35146396/pexels-photo-35146396.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "full_prompt": "Explain [Complex Topic] using a combination of: 1. A high-level analogy for a 5-year-old. 2. A technical deep-dive for an expert. 3. A Mermaid.js flowchart representing the logic. 4. A 'Cheat Sheet' of 3 key takeaways. | 使用以下組合來解釋 [複雜主題]：1. 為 5 歲孩子提供的高層級類比。2. 為專家提供的技術深度分析。3. 代表邏輯的 Mermaid.js 流程圖。4. 包含 3 個關鍵要點的 '速查表'。",
+    "model": "Claude 3.5 Sonnet",
+    "_version": "2026-05-09-curated",
+    "_source": "curated-from-threads"
   }
 ]
