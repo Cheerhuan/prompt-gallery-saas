@@ -468,5 +468,105 @@
     "model": "Midjourney v6",
     "_version": "2026-05-09-v3",
     "_source": "user-manual-add"
+  },
+  {
+    "id": "51",
+    "title": "Outfit Breakdown Chart [介面設計]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/ui_case126/output.jpg",
+    "full_prompt": "Create a clean vertical fashion infographic from the uploaded portrait. Preserve the same face identity, hairstyle, body shape, and overall outfit style. Place the full-body character in the center in a relaxed T-pose, facing forward. Surround the character with realistic photo-style outfit breakdown elements, connected by thin arrows.\n\nInclude separate cutout sections for: head details, cardigan, sailor top, inner blouse, plaid skirt, bag, socks, loafers, color palette, styling notes, and fabric texture. Add 3–4 head close-ups from different angles at the top. Use short English handwritten-style labels and concise bullet points.\n\nVisual style: soft pastel cream and blush-pink background, clean fashion board layout, elegant magazine-style composition, sweet preppy aesthetic, realistic fabric textures, delicate borders, small bow and heart doodles, airy and polished design. Keep the text short, readable, and fully in English. Original vertical aspect ratio.\n\nNegative Prompt:\n\nChinese text, long text, messy layout, old parchment background, yellow aged paper, blurry details, distorted face, changed identity, extra limbs, bad hands, duplicated body, unrealistic fabric, cartoon style, anime style, 3D render, watermark, logo, unreadable typography, overcrowded design, harsh colors, low resolution.",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "ui-126"
+  },
+  {
+    "id": "52",
+    "title": "Rural Station Schoolgirl Scene [介面設計]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/ui_case113/output.jpg",
+    "full_prompt": "A cinematic anime-style illustration of a quiet rural Japanese train station in early summer, filled with travel nostalgia and bright midday light. In the foreground, one high school girl stands alone on the platform near the left side of the frame, facing slightly toward the viewer with a shy, gentle posture, her legs together and one foot angled inward. She has {argument name=\"hair color\" default=\"black\"} short bobbed hair with soft bangs, and wears a classic Japanese sailor school uniform: a white long-sleeved sailor blouse with navy trim, a vivid red neckerchief, a dark navy pleated skirt, white socks, and dark brown loafers. She holds a dark school bag in one hand at her side. Her expression should feel calm, a little wistful, as if she was just about to speak before the train arrived. Place her beside an old weathered wooden station building with large windowpanes and a simple wooden bench. Above her is 1 hanging station sign reading {argument name=\"station name\" default=\"山ノ下駅\"}, with smaller romanized text “YAMANOSHITA” and small local line information beneath it. The right half of the image opens to 1 set of railway tracks receding into the distance, bordered by lush green grass and wildflowers, with 1 small local train approaching from far down the line. Add a few utility poles running alongside the tracks. In the deep background, show a dramatic mountain range with lingering snow on the peaks under a vivid blue sky with scattered white clouds. Composition should balance the girl on the left and the railway perspective on the right, with detailed background scenery, crisp sunlight, soft anime rendering, realistic textures in the station wood and rails, and a heartfelt slice-of-life travel mood.",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "ui-113"
+  },
+  {
+    "id": "53",
+    "title": "Liu Yifei Douyin Livestream Screenshot [介面設計]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/ui_case7/output.jpg",
+    "full_prompt": "9:16 的图片比例，生成一张抖音直播的截图，里面是 刘亦菲 在直播，刘亦菲 手里拿着牌子，牌子里写着 今晚直播，欢迎来参亦菲畅聊！",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "ui-7"
+  },
+  {
+    "id": "54",
+    "title": "Amateur iPhone Keynote Snapshot [介面設計]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/ui_case2/output.jpg",
+    "full_prompt": "Amateur iPhone photo at Apple Park during the iPhone 20 keynote, Tim Cook presenting on stage. Shot from the crowd at a distance",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "ui-2"
+  },
+  {
+    "id": "55",
+    "title": "Soft Black Mist Idol Portrait [人像攝影]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/portrait_case16/output.jpg",
+    "full_prompt": "9:16 vertical — Korean idol portrait photography, single subject  soft black mist filter effect, lowered contrast, gentle highlight bloom, subtle glow, soft diffusion, slightly faded blacks  minimal indoor setting near window, white curtains, clean light-toned background  young Korean female idol, natural minimal makeup, dewy realistic skin texture, subtle imperfections  outfit: oversized white button-up shirt + short bottoms, slightly loose fit, soft and casual styling, no revealing elements  hair: long dark hair, slightly messy, natural volume, softly flowing  pose: relaxed standing or slight lean, body subtly angled, one leg slightly forward, shoulders relaxed; one hand lightly touching collar or resting near neckline, the other relaxed; gentle body curve without exaggeration  expression: soft cute smile, slightly playful eyes, direct or slightly off-camera gaze  camera: close to mid-body framing, eye-level, intimate distance, slight handheld feel  lighting: diffused natural daylight, soft shadows, gentle light wrapping around face and body  mood: cute yet subtly sensual, intimate, everyday softness, quiet romantic atmosphere  quality: ultra-realistic, fine film grain, slight softness at edges, natural imperfections, dreamy understated tone",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "portrait-16"
+  },
+  {
+    "id": "56",
+    "title": "Monochrome Glitch Profile Portrait [人像攝影]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/portrait_case114/output.jpg",
+    "full_prompt": "Subject: A sharp, high-contrast side-profile portrait of a handsome man with a defined jawline, short stubble, and voluminous, textured dark hair styled upwards.\n\nStyle & Composition: A fusion of realistic photography and abstract digital glitch art. The subject is rendered in stark black and white, set against a clean, minimalist white background.\n\nColor Palette: Strictly monochromatic (deep blacks and bright whites) with aggressive, vibrant splashes of crimson red.\n\nGraphic Elements: > * Glitch Effect: The back of the head and the lower torso dissolve into abstract geometric shards, pixel sorting, and \"glitchy\" red brushstrokes.\n\nTexture: Gritty, ink-wash textures and distressed digital overlays that suggest a modern noir or cyberpunk editorial feel.\n\nLighting & Technicals: > * Lighting: Intense side-lighting (Chiaroscuro) creating deep shadows on the face to highlight bone structure.\n\nDetails: Hyper-realistic skin texture, individual hair strands visible, high-grain film aesthetic.\n\nFraming: Vertical aspect ratio, close-up profile shot.\n\nAspect ratio is 9:16",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "portrait-114"
+  },
+  {
+    "id": "57",
+    "title": "Futuristic Mandala Illustration [海報插畫]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case8/output.jpg",
+    "full_prompt": "曼荼羅の近未来SF版を描いて",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "poster-8"
+  },
+  {
+    "id": "58",
+    "title": "2026 Spring Guangzhou City Poster [海報插畫]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case5/output.jpg",
+    "full_prompt": "一张充满新春喜庆氛围但不失高雅格调的 2026 城市宣传海报。\n双重曝光，构图延续了S型的流动感；\n在纯白的纹理背景右下角，一个身穿中国传统服饰的微缩人物正在挥舞着一条长长的红色丝绸舞带，这条红绸在空中舞动，不仅展现出丝绸的柔顺质感，更在向左上方飘动的过程中，奇幻地变形成了一条壮丽的山脉河流。\n在这条“河流”中，叠加了一个有山有海河的广州城市手绘图，国潮，景色尽在眼底，壮阔雄伟，令人震撼。\n广州的地标建筑(广州塔，珠江新城建筑群，珠江, 广州城里古建筑，游轮，白云山）。\n云雾环绕，仙气缥缈，色彩丰富，结构复杂，细节丰富，但因为大面积的留白，画面依然显得清新脱俗，左下角排版着“SPRING 2026”和竖排的宣传语，整体寓意“千年商都，魅力广州”。\n文字排版优美，大方，字迹清晰完整，尺寸9:16。",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "poster-5"
+  },
+  {
+    "id": "59",
+    "title": "Urban Fantasy Coexistence Crossing [海報插畫]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case142/output.jpg",
+    "full_prompt": "A highly detailed anime-style urban fantasy illustration set at a busy Tokyo-style scramble crossing on a bright clear day, viewed at street level with a wide cinematic composition. The city blends modern realism with mythic fantasy: dense high-rise buildings covered in giant billboards, a red broadcast tower in the middle distance, blue sky with fluffy clouds, and a crowded crosswalk full of pedestrians. In the foreground, show 7 prominent character figures: a silver-haired elf woman in a flowing white dress holding an iced drink and tote bag on the far left; a central schoolgirl with long dark hair, black animal ears, a navy school blazer, plaid skirt, blue ribbon, and large navy shoulder bag, lifting one hand to her head; a young man in a dark suit looking down at a smartphone; an androgynous white-haired angelic figure in an elegant white-and-gold ceremonial outfit with large white wings; a small blonde girl in an ornate pastel pink frilled dress beside the angel; a dark-haired woman in a black coat in right foreground profile; and a small blue-haired cat-eared child in a blue dress with a bow standing near a cave entrance on the right. In the midground crowd, include mixed humans and fantasy races walking together naturally. Add 4 clearly visible nonhuman or supernatural background beings: 1 dragon flying in the sky, 1 winged female angel descending above the street, 1 lizard-headed businessman in a suit near the angelic figure, and 1 tall red-skinned horned demon with crossed arms standing by the hillside path. On the right side, transition the city into a lush shrine hillside with large green trees, a red torii gate, stone steps, and a wooden signboard reading Japanese kanji. Below it, place a rocky cave-like tunnel entrance glowing blue, with a wooden sign over the entrance and several figures descending into an underground shared district lit by crystals. Show 6 major billboard/sign elements across the cityscape: a huge left billboard reading \"Shinpi Sekai 神秘世界\" with a cosmic planet image; a large central political poster with Japanese text and a raised fist icon; 2 rooftop signs reading \"未来研究所\" on separate buildings; a large right billboard with Japanese text about coexistence and silhouettes of different beings; and 1 vertical banner with Japanese text on a nearby building. Emphasize the theme of coexistence between ordinary modern city life and hidden fantasy societies. Crisp anime linework, polished light novel key visual rendering, rich textures, soft sunlight, subtle atmospheric perspective, vibrant but believable colors, intricate clothing details, and a sense of awe, everyday bustle, and worldbuilding depth.",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "poster-142"
+  },
+  {
+    "id": "60",
+    "title": "RPG Map to Anime Event Scene [海報插畫]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case140/output.jpg",
+    "full_prompt": "Using the provided reference image, transform the top-down RPG town map into a polished anime-style event illustration from a human eye-level perspective. Keep the same village location and layout cues: the central stone well, the path network, the hedges, the wooden houses, and the narrow water canal on the left. Convert the 2 small sprite characters by the well into 2 full-size fantasy characters in the foreground: a silver-haired mage in a purple robe holding a staff, and a blonde elf in green-and-brown adventurer clothing, both leaning over and looking into the well. Add a cinematic JRPG feel with soft daylight, detailed painterly rendering, clean line art, and gentle depth of field. Preserve the sense that this scene is taking place in the same town square, but enrich it with natural perspective, more environmental detail, and 5 background villagers: 1 man cropped at the far left edge, 2 small figures standing on the center path in the distance, and 2 townspeople talking near the right-side buildings.",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "poster-140"
   }
 ]
