@@ -31,14 +31,13 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
   return (
     <div className="min-h-screen bg-black text-white selection:bg-indigo-500/30">
       <SaaSNavbar userTier={userTier} />
-      
       <main className="pt-24 pb-20 px-4 max-w-7xl mx-auto">
         <div className="fixed top-16 left-0 right-0 z-40 bg-black/80 backdrop-blur-xl border-b border-zinc-800 px-4 py-3 hidden md:block">
           <div className="max-w-7xl mx-auto flex justify-between items-center">
             <div className="flex items-center gap-4">
-              <span className="text-xs font-mono text-zinc-500">ARCHIVE_ID: {params.id}</span>
+              <span className="text-xs font-mono text-zinc-500">{t('detail.archiveId')} {params.id}</span>
               <div className="w-px h-3 bg-zinc-800" />
-              <span className="text-xs font-mono text-indigo-400">ENGINE: {prompt.model}</span>
+              <span className="text-xs font-mono text-indigo-400">{t('detail.engine')} {prompt.model}</span>
             </div>
             <div className="flex items-center gap-3">
               <motion.button 
@@ -55,7 +54,7 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
                       exit={{ y: -20, opacity: 0 }}
                       className="block text-emerald-400"
                     >
-                      Prompt Synced ✓
+                      {t('detail.synced')}
                     </motion.span>
                   ) : (
                     <motion.span 
@@ -76,7 +75,6 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
             </div>
           </div>
         </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mt-8">
           <div className="lg:col-span-7 space-y-10">
             <div className="relative group rounded-3xl overflow-hidden bg-zinc-900 border border-zinc-800 shadow-2xl">
@@ -88,23 +86,22 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
               />
               <div className="absolute top-6 left-6">
                 <span className="px-3 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-[10px] uppercase tracking-widest text-white font-medium">
-                  High Fidelity Output
+                  {t('detail.highFidelity')}
                 </span>
               </div>
             </div>
-            
             <FeatureGate isProRequired={true} userTier={userTier}>
               <div className="p-8 rounded-3xl bg-zinc-900/40 border border-zinc-800 backdrop-blur-sm">
                 <h3 className="text-xs font-bold text-zinc-500 mb-6 uppercase tracking-[0.2em]">{t('detail.evolution')}</h3>
                 <div className="grid grid-cols-2 gap-8">
                   <div className="space-y-3">
-                    <span className="text-[10px] text-zinc-600 uppercase tracking-tighter">Baseline Version</span>
+                    <span className="text-[10px] text-zinc-600 uppercase tracking-tighter">{t('detail.baseline')}</span>
                     <div className="aspect-square rounded-2xl bg-zinc-800/50 border border-zinc-700/50 overflow-hidden flex items-center justify-center">
-                      <span className="text-zinc-600 text-[10px] font-mono">NO_DATA_AVAILABLE</span>
+                      <span className="text-zinc-600 text-[10px] font-mono">{t('detail.noData')}</span>
                     </div>
                   </div>
                   <div className="space-y-3">
-                    <span className="text-[10px] text-indigo-400 uppercase tracking-tighter">Refined Architecture</span>
+                    <span className="text-[10px] text-indigo-400 uppercase tracking-tighter">{t('detail.refinedArchitecture')}</span>
                     <div className="aspect-square rounded-2xl bg-zinc-900 border-2 border-indigo-500/50 overflow-hidden">
                       <img src={prompt.image?.startsWith('/') ? '/prompt-gallery-saas' + prompt.image : prompt.image} className="w-full h-full object-cover" />
                     </div>
@@ -113,36 +110,33 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
               </div>
             </FeatureGate>
           </div>
-
           <div className="lg:col-span-5 space-y-12">
             <div className="space-y-3">
               <h1 className="text-5xl font-bold tracking-tighter leading-tight">{prompt.title}</h1>
               <p className="text-zinc-500 text-sm font-light leading-relaxed">{t('detail.titleSubtitle')}</p>
             </div>
-
             <div className="space-y-6">
-              <h2 className="text-xs font-bold text-zinc-500 uppercase tracking-[0.2em]">Prompt Anatomy</h2>
+              <h2 className="text-xs font-bold text-zinc-500 uppercase tracking-[0.2em]">{t('detail.anatomyTitle')}</h2>
               <div className="grid grid-cols-1 gap-4">
                 <div className="p-4 rounded-2xl bg-zinc-900 border border-zinc-800 group hover:border-indigo-500/50 transition-all">
-                  <span className="text-[10px] text-indigo-400 uppercase font-bold mb-2 block">Subject / Core Concept</span>
+                  <span className="text-[10px] text-indigo-400 uppercase font-bold mb-2 block">{t('detail.subject')}</span>
                   <p className="text-sm text-zinc-300 leading-relaxed">{anatomy.subject}</p>
                 </div>
                 <div className="p-4 rounded-2xl bg-zinc-900 border border-zinc-800 group hover:border-indigo-500/50 transition-all">
-                  <span className="text-[10px] text-emerald-400 uppercase font-bold mb-2 block">Visual Style / Aesthetics</span>
+                  <span className="text-[10px] text-emerald-400 uppercase font-bold mb-2 block">{t('detail.style')}</span>
                   <p className="text-sm text-zinc-300 leading-relaxed">{anatomy.style}</p>
                 </div>
                 <div className="p-4 rounded-2xl bg-zinc-900 border border-zinc-800 group hover:border-indigo-500/50 transition-all">
-                  <span className="text-[10px] text-zinc-400 uppercase font-bold mb-2 block">Technical Parameters / Lighting</span>
+                  <span className="text-[10px] text-zinc-400 uppercase font-bold mb-2 block">{t('detail.technical')}</span>
                   <p className="text-sm text-zinc-300 leading-relaxed">{anatomy.technical}</p>
                 </div>
               </div>
             </div>
-
             <div className="p-6 rounded-3xl bg-zinc-900 border border-zinc-800 shadow-2xl relative overflow-hidden">
               <div className="flex items-center justify-between mb-3">
-                <h2 className="text-xs font-bold text-zinc-500 uppercase tracking-[0.2em]">Full Prompt</h2>
+                <h2 className="text-xs font-bold text-zinc-500 uppercase tracking-[0.2em]">{t('detail.fullPromptTitle')}</h2>
                 <button onClick={copyToClipboard} className="text-[10px] px-3 py-1 rounded-lg bg-zinc-800 text-zinc-400 hover:text-white transition-all">
-                  📋 Copy
+                  {t('detail.copyShort')}
                 </button>
               </div>
               <textarea
@@ -153,7 +147,6 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
                 onClick={(e) => (e.target as HTMLTextAreaElement).select()}
               />
             </div>
-
             <div className="p-8 rounded-3xl bg-zinc-900 border border-zinc-800 shadow-2xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 p-4">
                 <span className="text-[10px] px-2 py-1 rounded-md bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 font-mono">BETA_v1</span>
@@ -163,7 +156,6 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
               </div>
               <PromptPlayground initialPrompt={prompt.full_prompt} />
             </div>
-
             <FeatureGate isProRequired={true} userTier={userTier}>
               <div className="grid grid-cols-3 gap-4">
                 {[
@@ -175,8 +167,9 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
                     <div className={`text-xl font-bold ${stat.color}`}>{stat.score}%</div>
                     <div className="text-[10px] text-zinc-500 uppercase tracking-tighter">{t('scores.' + stat.label)}</div>
                   </div>
-                ))}
-              </div>
+                ))
+              }
+            </div>
             </FeatureGate>
           </div>
         </div>

@@ -18,6 +18,10 @@ export const I18nProvider = ({ children }: { children: React.ReactNode }) => {
     const browserLang = navigator.language || (navigator as any).browserLanguage;
     if (browserLang.startsWith('zh')) {
       setLocale('zh');
+    } else if (browserLang.startsWith('ja')) {
+      setLocale('ja');
+    } else if (browserLang.startsWith('ko')) {
+      setLocale('ko');
     } else {
       setLocale('en');
     }
