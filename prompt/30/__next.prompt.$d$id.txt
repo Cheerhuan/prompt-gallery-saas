@@ -1,3 +1,30 @@
 1:"$Sreact.fragment"
 2:I[75336,["/prompt-gallery-saas/_next/static/chunks/0z-otq9dioh83.js","/prompt-gallery-saas/_next/static/chunks/0d3shmwh5_nmn.js","/prompt-gallery-saas/_next/static/chunks/09_atjtcvpb8-.js","/prompt-gallery-saas/_next/static/chunks/0oa-8cc1~~ucu.js"],"default"]
-0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/09_atjtcvpb8-.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/0oa-8cc1~~ucu.js","async":true}]],["$","$L2",null,{"prompt":{"title":"Kinetic Sculpture","category":"Futuristic Spatiality","model":"Midjourney v6","full_prompt":"Subject: A complex assembly of gold and titanium gears and precision bearings floating in a deconstructed state. Environment: Pure white studio background, zero distractions. Lighting: High-key studio lighting, soft shadows, emphasizing the metallic luster and precision edges. Lens: 85mm, f/4, sharp focus on the interlocking gear teeth. Render: 8k, KeyShot, industrial design render, precision engineering, photorealistic metal.","slug":"kinetic-sculpture","id":"30","image":"/images/uploads/kinetic-sculpture.jpg"},"params":{"id":"30"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"MMYr0JH4mWsqmhSrbLUR9"}
+3:T4c1,[STYLE]
+monochromatic grayscale illustration, 3D rendered character, clean instructional reference sheet, 
+white background, comic-style cell grid layout, technical diagram aesthetic
+
+[LAYOUT]
+4x4 grid layout, 16 panels total, each panel separated by thin black border lines, 
+numbered cells from 1 to 16, consistent panel size
+
+[CHARACTER]
+{argument name="character" default="young female dancer, athletic build, ponytail hairstyle, crop top and baggy pants, sneakers"}, same character in all panels
+
+[PANEL STRUCTURE - per cell]
+top-left: bold number badge + {argument name="title" default="Korean title text"}
+center: full-body character pose illustration
+bottom-left: {argument name="description" default="Korean description text (3-4 lines)"}
+overlay: directional arrows indicating movement direction
+
+[ARROWS / MOTION INDICATORS]
+curved arrows, straight arrows, circular rotation indicators, 
+placed around the character to show movement flow and direction
+
+[RENDERING STYLE]
+high detail 3D sculpt style, soft studio lighting, subtle shadows, 
+no color, grayscale shading, clean linework, game concept art quality
+
+[NEGATIVE]
+no background scenery, no color tones, no extra characters, 
+no cluttered backgrounds0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/09_atjtcvpb8-.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/0oa-8cc1~~ucu.js","async":true}]],["$","$L2",null,{"prompt":{"id":"30","title":"Dance Movement Reference Sheet [海報插畫]","image":"https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case130/output.jpg","full_prompt":"$3","model":"GPT-Image-2","_version":"2026-05-09-imported","_source":"awesome-gpt-image-2","_case_id":"poster-130"},"params":{"id":"30"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"RWCnwX9EKxBPJAMtof833"}
