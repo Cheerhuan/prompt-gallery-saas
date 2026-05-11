@@ -595,5 +595,105 @@
     "model": "Midjourney v6",
     "_version": "2026-05-10-v3",
     "_source": "user-curated-industrial"
+  },
+  {
+    "id": "62",
+    "title": "Surreal Baroque Painting Reality Fracture [海報插畫]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case138/output.jpg",
+    "full_prompt": "A {argument name=\"painting style\" default=\"baroque oil painting\"} comes to life — its painted figures climbing out of the gilded frame into a {argument name=\"setting\" default=\"modern white gallery\"}, half their bodies still in flat 2D paint, half fully volumetric 3D humans, brushstrokes visible on their skin, the painting's background leaking watercolor clouds into the gallery ceiling, museum visitors frozen in shock, hyper-detailed, {argument name=\"artist influence\" default=\"René Magritte meets Pixar\"}, reality fracturing at every boundary",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "poster-138"
+  },
+  {
+    "id": "63",
+    "title": "ASCII dengue infographic [海報插畫]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case176/output.jpg",
+    "full_prompt": "infográfico ASCII DENGUE",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "poster-176"
+  },
+  {
+    "id": "64",
+    "title": "Sony A7 Exploded View Breakdown Prompt [海報插畫]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case58/output.jpg",
+    "full_prompt": "Descomposición detallada de una cámara de la marca Sony modelo A7 indicando todas sus piezas y con sus nombres.",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "poster-53"
+  },
+  {
+    "id": "65",
+    "title": "Korean Idol 3x3 Grid Portrait [人像攝影]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/portrait_case11/output.jpg",
+    "full_prompt": "9:16 vertical, Korean idol portrait photoshoot, 3x3 grid (nine frames), same person in all images, consistent facial features and styling, soft black mist filter effect, lowered contrast, blooming highlights, subtle glow around light sources",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "portrait-11"
+  },
+  {
+    "id": "66",
+    "title": "Japanese Negative Film Rooftop Portrait [人像攝影]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/portrait_case107/output.jpg",
+    "full_prompt": "Today's Portrait by gpt image 2 ---prompt--- Japanese negative film aesthetic, rooftop summer scene, soft natural sunlight, slight overexposure highlights, low contrast, muted faded colors, subtle grain a stunning beautiful young woman with subtle sensual presence, natural body line, effortless charm wearing a slightly oversized white shirt loosely unbuttoned at the collar, paired with high-waisted shorts; shirt softly moving in the wind, occasionally slipping off one shoulder holding a cold glass bottle drink with condensation, one hand lifting it near her neck or cheek, fingers lightly touching the surface subject sitting or leaning on rooftop edge, body relaxed but with slight weight shift, one hand supporting behind, torso subtly opening, one knee bent and the other leg softly extended hair gently blown by summer wind, loose strands across face expression calm and distant, lips slightly parted, looking toward camera or slightly away open sky, minimal environment, a light plastic bag resting beside her moving slightly with the wind imperfect composition, quiet isolated mood, nostalgic and reflective, “memory-like realism”, subtle sensuality through natural gesture --2:3",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "portrait-107"
+  },
+  {
+    "id": "67",
+    "title": "Dreamy Oriental female portrait prompt [人像攝影]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/portrait_case91/output.jpg",
+    "full_prompt": "{argument name=\"subject\" default=\"Dreamy Oriental female portrait\"}, adult female, close-up portrait, exquisite facial features, fair and translucent skin, delicate but clean skin texture, emerald green eyes, soft and charming gaze, brown wavy hair falling naturally; {argument name=\"accessories\" default=\"Off-white lace headpiece\"}, embellished with turquoise butterflies and pearl decorations; attire is an exquisite lace gown with a clear structure and clean, not overly complex texture, accompanied by emerald jewelry; lighting is soft warm gold side-backlighting, rim lighting is clear but not overexposed, skin has slight highlights but not excessive reflection, overall lighting is clean and transparent, background is softly blurred with shallow depth of field; high-end portrait photography quality, details are clear but restrained, no grain, no noise, real physical lighting, 8K, commercial-grade quality. Aspect ratio: 9:16",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "portrait-91"
+  },
+  {
+    "id": "68",
+    "title": "Wooden Bookshelf Prompt Test [對比展示]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/comparison_case5/output.jpg",
+    "full_prompt": "A wooden bookshelf consisting of three shelves: On the top shelf, there should be one book, on the second shelf, there should be three books, and on the bottom shelf, there should be seven books.",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "comparison-5"
+  },
+  {
+    "id": "69",
+    "title": "Handwritten Notebook Photo [介面設計]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/ui_case3/output.jpg",
+    "full_prompt": "Amateur photo of an open notebook lying flat, filled with handwritten notes in black ballpoint pen. The handwriting is casual and slightly messy, like personnal notes, natural imperfections, crossed out words, underlined headings. Shot from slightly above, natural daylight from a window, no flash. Casual desk setting, shot on iPhone",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "ui-3"
+  },
+  {
+    "id": "70",
+    "title": "Eleanor from White Cat Project [角色設計]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/character_case13/output.jpg",
+    "full_prompt": "{argument name=\"series\" default=\"White Cat Project\"}\n{argument name=\"character\" default=\"Eleanor\"}",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "character-13"
+  },
+  {
+    "id": "71",
+    "title": "Anime wallpaper for foldable phone — dark cool style [角色設計]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/character_case17/output.jpg",
+    "full_prompt": "请为我生成一个适用于折叠屏手机（Oppo find N6，内屏2480 × 2248 像素，外屏2616 × 1140 像素，比例适配即可，不需要完全对齐一样的像素大小）的4k壁纸，壁纸主体为动漫，风格中性壁纸适用于男性使用，但是动漫角色是女生，短发。风格建议：酷、耍帅风格，但是不要像那种二次元手游一样，可以带一些未来元素。整个图片的色调适合黑色折叠屏手机风格，注意头发线条整洁，不要过于杂乱和生硬。这个图片人物占比不要太大，否则放到手机上效果不好。",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "character-17"
   }
 ]
