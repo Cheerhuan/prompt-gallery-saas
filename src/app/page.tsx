@@ -6,12 +6,12 @@ import { PromptCard } from '@/components/PromptCard';
 import { GallerySkeleton } from '@/components/Skeleton';
 import { useI18n } from '@/components/I18nProvider';
 import promptsData from '@/data/prompts.json';
-import { translations } from '@/lib/i18n';
+import { translations, getCardTitle } from '@/lib/i18n';
 
 const CARDS_PER_PAGE = 20;
 
 export default function LandingPage() {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilter, setActiveFilter] = useState('all');
@@ -179,7 +179,7 @@ export default function LandingPage() {
                     <PromptCard
                       id={featuredPrompts[0].id}
                       image={featuredPrompts[0].image}
-                      title={featuredPrompts[0].title}
+                      title={getCardTitle(featuredPrompts[0].id, featuredPrompts[0].title, locale)}
                       tags={['High-Fidelity', 'Industrial']}
                       featured
                       onQuickView={setQuickViewId}
@@ -191,7 +191,7 @@ export default function LandingPage() {
                       <PromptCard
                         id={item.id}
                         image={item.image}
-                        title={item.title}
+                        title={getCardTitle(item.id, item.title, locale)}
                         tags={['High-Fidelity', 'Industrial']}
                         mini
                         index={1}
@@ -210,7 +210,7 @@ export default function LandingPage() {
                   key={item.id}
                   id={item.id}
                   image={item.image}
-                  title={item.title}
+                  title={getCardTitle(item.id, item.title, locale)}
                   tags={['High-Fidelity', 'Industrial']}
                   index={idx}
                   onQuickView={setQuickViewId}
@@ -267,7 +267,7 @@ export default function LandingPage() {
                   </span>
                   <span className="text-[10px] text-zinc-500 font-mono">#{quickViewPrompt.id}</span>
                 </div>
-                <h2 className="text-xl font-bold tracking-tight mb-4 line-clamp-2">{quickViewPrompt.title}</h2>
+                <h2 className="text-xl font-bold tracking-tight mb-4 line-clamp-2">{getCardTitle(quickViewPrompt.id, quickViewPrompt.title, locale)}</h2>
                 <p className="text-sm text-zinc-400 leading-relaxed line-clamp-8 mb-4">
                   {quickViewPrompt.full_prompt}
                 </p>

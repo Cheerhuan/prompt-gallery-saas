@@ -4,10 +4,11 @@ import { SaaSNavbar } from '@/components/SaaSNavbar';
 import { PromptPlayground } from '@/components/PromptPlayground';
 import { FeatureGate } from '@/components/FeatureGate';
 import { useI18n } from '@/components/I18nProvider';
+import { getCardTitle } from '@/lib/i18n';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function DetailPageContent({ prompt, params }: { prompt: any, params: { id: string } }) {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const userTier = 'free'; 
   const [copied, setCopied] = useState(false);
 
@@ -112,7 +113,7 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
           </div>
           <div className="lg:col-span-5 space-y-12">
             <div className="space-y-3">
-              <h1 className="text-5xl font-bold tracking-tighter leading-tight">{prompt.title}</h1>
+              <h1 className="text-5xl font-bold tracking-tighter leading-tight">{getCardTitle(prompt.id, prompt.title, locale)}</h1>
               <p className="text-zinc-500 text-sm font-light leading-relaxed">{t('detail.titleSubtitle')}</p>
             </div>
             <div className="space-y-6">
