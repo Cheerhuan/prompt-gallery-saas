@@ -695,5 +695,105 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "character-17"
+  },
+  {
+    "id": "72",
+    "title": "Alien Disclosure Dossier [海報插畫]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case186/output.jpg",
+    "full_prompt": "I asked GPT Image 2 to spill the beans on alien life. \n\ndo this for alien disclosure: <instruction>\nRole: You are \"The Declassification Officer,\" creating visually compelling intelligence dossiers.\n\nGoal: Produce a single vertical declassified case-file image about the chosen subject.\n\nPhase 1: Subject Classification\n- Analyze the input subject and reinterpret it as a high-priority intelligence target, anomaly, person of interest, secret invention, or unexplained event.\n- Assign:\n  - Case ID\n  - Threat level\n  - Classification level\n  - Status (active, missing, monitored, contained, unresolved)\n\nPhase 2: Document Structure\nDesign the image as a realistic but stylized dossier page with the following sections:\n- Header: agency-style title, case number, classification stamp.\n- Mugshot or main visual of the subject.\n- Summary paragraph.\n- Notable traits or observed abilities.\n- Timeline of 3–5 incidents.\n- Redacted notes.\n- Location sightings or evidence callouts.\n- Bottom section with stamp marks, signatures, and warnings.\n\nPhase 3: Visual Style\n- The entire output must be a single image.\n- Style: aged paper, photocopy texture, ink stamps, mild wear, redactions, handwritten annotations, paperclip shadows.\n- Include visual evidence elements such as photo corners, sticky notes, fingerprints, circles, arrows, highlighted lines.\n- Use readable layout and believable bureaucratic typography.\n\nPhase 4: Tone\n- Tone should be suspenseful, intriguing, and slightly cinematic.\n- Can be serious or humorous depending on the input.\n- Keep all content fictionalized if needed.\n\nOutput: One high-detail declassified dossier poster as a single finished image.\n</instruction>",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "poster-186"
+  },
+  {
+    "id": "73",
+    "title": "New York across two centuries cinematic poster [海報插畫]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case174/output.jpg",
+    "full_prompt": "Create a cinematic 3:4 vertical poster of New York City that feels truly epic and unconventional, showing the passage from the 20th century to the 21st century in one seamless image. Place a lone figure at the center of the composition, standing in the middle of the street and looking forward as if witnessing New York across time. The left side should depict 20th-century New York with warm sepia atmosphere, vintage taxis, old newsstands, retro lamps, and landmarks like the Chrysler Building and Empire State Building. The right side should depict 21st-century New York with glass skyscrapers, One World Trade Center, digital billboards, and modern urban energy. Make the transition natural rather than split-screen, with coherent perspective, wet reflective pavement, realistic textures, atmospheric depth, and no text.",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "poster-174"
+  },
+  {
+    "id": "74",
+    "title": "E-commerce Main Image - Minimalist Product Ad: PURE CRUNCH [海報插畫]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case158/output.jpg",
+    "full_prompt": "A minimalist product advertisement with a {argument name=\"product\" default=\"fried chicken bucket\"} placed on a clean white podium.\n\nBackground: soft gradient ({argument name=\"background gradient\" default=\"light cream to white\"}), clean studio.\n\nLighting: soft diffused, premium Apple-style.\n\nTypography (center): “{argument name=\"headline\" default=\"PURE CRUNCH\"}”\n\nSmall text below: “Nothing extra. Just perfection.”\n\nStyle: ultra clean, editorial minimal, high-end branding, 8K.",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "poster-158"
+  },
+  {
+    "id": "75",
+    "title": "Watermelon Lime Beverage Ad Poster [海報插畫]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/ad_case172/output.jpg",
+    "full_prompt": "Create a premium modern beverage promotional poster for We Drink.\n\nTOPIC:\n\nWatermelon Pink + Lime Green Refresh Campaign\n\nSTYLE & ART DIRECTION:\nModern energetic beverage advertising\nYouthful commercial branding\nSplit-color background composition\nBright refreshing summer aesthetic\nMinimal dynamic layout\nHigh-contrast drink advertisement style\nInstagram-ready beverage promotion\nPremium fast-moving commercial design\n\nMAIN SUBJECT:\n\nTwo large ultra-realistic cold beverages positioned prominently in the center.\n\nDrink 1:\n\nA vibrant watermelon pink drink in a transparent plastic cup with visible ice cubes, condensation droplets, and a fresh watermelon garnish.\n\nDrink 2:\n\nA bright lime green drink in a matching transparent cup with visible ice cubes, condensation droplets, and a lime slice garnish.\n\nAdditional elements:\n\nFloating ice cubes around the composition\nDynamic water splash effects\nSoft realistic shadows beneath each cup\nPremium glossy liquid textures\nTiny fruit slices suspended in motion\n\nLAYOUT & COMPOSITION:\nDiagonal split-color background\nLeft side: watermelon pink gradient\nRight side: lime green gradient\nLarge bold headline at the top center: \"SIP THE FRESHNESS\"\nTwo hero drinks centered prominently\nProduct descriptions placed beside each cup\nPromotional price section near the bottom-left\nWe Drink logo and small branding elements at the bottom\nFloating ice cubes and splash effects around the drinks\nSpacious modern commercial hierarchy\n\nTEXT & TYPOGRAPHY:\nBold oversized sans-serif typography\nYouthful rounded commercial fonts\nWhite typography accents\nSupporting text: \"Watermelon Burst\" and \"Lime Rush\"\nPromotional price: Only $3.99\nTagline: \"Freshness in Every Sip\"\n\nDEPTH & LIGHTING:\nSoft glossy studio lighting\nBright refreshing reflections\nRealistic beverage highlights\nFloating commercial depth\nSoft ambient shadows\nPremium condensation texture lighting\n\nEXTRA DESIGN DETAILS:\nFloating ice cubes\nWater splash particles\nGlossy gradients\nModern promotional badges\nFruit slices and droplets\nMinimal energetic decorative elements\n\nCOLOR PALETTE:\nWatermelon Pink (#FF4F87)\nLime Green (#A8FF2A)\nWhite typography\nSoft transparent highlights\n\nQUALITY:\n\nUltra-realistic beverage photography, premium advertising composition, Behance-quality commercial poster, high-resolution, sharp focus, photorealistic textures, professional brand campaign aesthetic.",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "poster-172"
+  },
+  {
+    "id": "76",
+    "title": "E-commerce Main Image - 9-Panel Product TVC Storyboard [海報插畫]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case160/output.jpg",
+    "full_prompt": "Using the provided reference image, transform the single casual product photo into a polished e-commerce TVC storyboard board for a {argument name=\"video duration\" default=\"15-second\"} ad in a {argument name=\"aspect ratio\" default=\"9:16\"} vertical format, presented as a 9-panel grid. Keep the same blue-and-white ceramic ashtray as the product base, but restage it across cinematic advertising shots with warm premium lighting, shallow depth of field, and a refined lifestyle desktop environment. Add a dark storyboard layout with Chinese titles and timing for each panel. Include exactly 9 scenes: 1) environment-establishing wide shot with desk, books, window, and the product placed in context; 2) hero product medium shot on the table; 3) extreme close-up of the blue floral craftsmanship pattern; 4) use case showing a hand placing a cigarette into the ashtray with visible smoke; 5) top-down capacity display showing multiple cigarette butts inside; 6) cleaning scene under running water in a sink with a hand holding the product; 7) bottom-detail close-up showing the underside and anti-slip pads; 8) mood/lifestyle scene at night with the product on a desk, smoke rising, and ambient lamp light; 9) brand closing frame with the product as the hero plus Chinese marketing text. Add the overall header text “产品TVC分镜脚本(15秒 / 9:16竖屏 / 9宫格)” and a product subtitle naming it {argument name=\"product name\" default=\"青花瓷烟灰缸\"}. Give each of the 9 panels a Chinese scene title and timestamp, plus small descriptive Chinese copy beneath each image in the style of a professional commercial shot list. Use premium, realistic commercial photography throughout, consistent product identity, elegant Chinese aesthetic, and a clean high-end storyboard presentation.",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "poster-160"
+  },
+  {
+    "id": "77",
+    "title": "AI Builder Doodle Sketch [海報插畫]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case36/output.jpg",
+    "full_prompt": "以涂鸦速写风表现【一个厉害的AI builder】。",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "poster-36"
+  },
+  {
+    "id": "78",
+    "title": "New Chinese Ink Landscape Poster [海報插畫]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case35/output.jpg",
+    "full_prompt": "新中式水墨山水海报，竖版9:16构图，东方极简美学风格，大面积留白，主题是春岚一叶红。",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "poster-35"
+  },
+  {
+    "id": "79",
+    "title": "Lion Camel Ridge Dark Myth Scene [對比展示]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/comparison_case29/output.jpg",
+    "full_prompt": "中式怪异，黑暗神秘风格融合中式美学，完美细节，多重管线渲染，完美建模。西游记背景，狮驼岭，千妖万怪，坐在左边巨大王座上的大象王重甲妖精，坐在中间巨大王座上的狮王重甲妖精，坐在右边巨大王座上大鹏鸟王重甲妖精。渺小的背对镜头孙悟空肩抗金箍棒步行前进，孙悟空身穿铠甲，近地仰拍镜头，长焦镜头，强烈阴影。极致细节刻画，多次修改，正确透视和主体线条，精致细节",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "comparison-29"
+  },
+  {
+    "id": "80",
+    "title": "Forged Masterpiece Prompt Test [對比展示]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/comparison_case32/output.jpg",
+    "full_prompt": "帮我生成xxxx真迹图片",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "comparison-32"
+  },
+  {
+    "id": "81",
+    "title": "Apple Pods Pro 3 Headphone E-Commerce Infographic [介面設計]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/ui_case44/output.jpg",
+    "full_prompt": "High-impact e-commerce infographic for \"Apple Pods Pro 3\" \npremium wireless over-ear headphones.\n\nFOREGROUND - PRODUCT HERO SHOT\nExtreme close-up of a hand holding a sleek, \nmatte-white premium over-ear headphone toward the camera \nat a slight angle. The headphone features:\n- Glossy white ear cushions with soft memory foam padding\n- Brushed aluminum silver headband with subtle Apple Pods \n  Pro 3 embossed branding\n- Black mesh speaker grille visible on the ear cup face\n- A tiny glowing green LED status indicator on the \n  right ear cup edge\n- Subtle touch-control icons etched on the outer cup surface\n\nMacro-lens shallow depth of field — hand and headphone \nslightly blurred at edges to create cinematic depth. \nProduct remains razor-sharp in center frame.\n\nCENTRAL SUBJECT — MODEL\nIn the mid-ground: a smiling young woman with freckles \nand wavy pastel-pink hair. She wears:\n- A vibrant lime-green knit beanie\n- A psychedelic black and white-striped long-sleeve shirt\n- The white over-ear headphones resting stylishly \n  around her neck (not on ears) — one hand casually \n  touching the ear cup\n\nExpression: relaxed, confident, joyful. \nShe is glancing slightly off-camera with a natural smile.\n\nBACKGROUND & ATMOSPHERE\nClean soft-focus studio backdrop — light gray gradient \nfading to warm white at center. \n\nAtmospheric overlays:\n- Diagonal rainbow prism lens flares cutting across \n  upper-left to lower-right\n- Soft pastel light leaks in pink and yellow at corners\n- 4–5 blurred white over-ear headphones floating \n  artistically in the background at various depths \n  and rotation angles\n- Subtle bokeh circles from background studio lights\n\nLighting: Soft professional three-point studio lighting. \nKey light from upper-left, fill light right side. \nRim light behind model for separation. \nGlossy highlights on headphone surfaces catching light naturally.\n\nTYPOGRAPHY & LAYOUT — Sans-Serif, Clean white \nTOP CENTER (behind model, large background text):\n→ Massive bold oversized text: \"HEADPHONES\"\n   Semi-transparent white, spanning full width behind subject\n\nTOP RIGHT CORNER:\n→ Bold clean text: \"Apple Pods Pro 3\"\n   Subtitle smaller text: \"Over-Ear Wireless\"\n\nMID LEFT:\n→ Icon: small sound wave symbol\n→ Bold text: \"Premium Sound\"\n→ Sub-text: \"Active Noise Cancellation + Transparency Mode\"\n\nMID RIGHT:\n→ Extra-large bold numeral: \"40\"\n→ Smaller text below: \"hours of battery life\"\n\nLOWER LEFT:\n→ Extra-large bold numeral: \"0\"\n   with \"to\" beside it → then bold \"100%\"\n→ Sub-text: \"Fast charge — 10 min = 3hrs playback\"\n\nBOTTOM RIGHT:\n→ Extra-large bold numeral: \"1\"\n→ Sub-text: \"Year Warranty Included\"\n\nBOTTOM CENTER (fine print style):\n→ Small elegant text: \n   \"Bluetooth 5.4  |  Hi-Res Audio Certified  \n    |  Foldable Design  |  USB-C Charging\"\n\nTECHNICAL SPECS\nResolution: 8K ultra-sharp\nStyle: Commercial product photography meets \n       editorial fashion advertising\nColor Palette: White, lime green, pastel pink, \n               rainbow prism accents\nFocus: Tack-sharp on headphone product — \n       shallow DOF on everything else\nLens: 85mm macro, slight low angle\nRender Quality: Hyperrealistic, clean ad aesthetic, \n                vibrant yet professional color grading",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "ui-44"
   }
 ]
