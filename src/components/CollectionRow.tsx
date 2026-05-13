@@ -72,7 +72,7 @@ export const CollectionRow = ({ collections }: CollectionRowProps) => {
               </p>
 
               <Link 
-                href={`${BASE_PATH}/?collection=${collection.id}#gallery-section`} 
+                href={`/?collection=${collection.id}#gallery-section`} 
                 className="w-fit px-5 py-2.5 rounded-xl bg-white text-black text-xs font-bold uppercase tracking-wider hover:bg-indigo-400 hover:text-white transition-all duration-300 flex items-center gap-2 group/btn"
               >
                 Explore Collection
