@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { isSaved, toggleSave } from '@/lib/vault';
+import { motion } from 'framer-motion';
 
 interface PromptCardProps {
   id: string | number;
@@ -49,6 +50,7 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
     try {
       await navigator.clipboard.writeText(title);
       setIsCopied(true);
+      window.plausible?.('CopyPrompt', {props: {id: String(id)}});
       setTimeout(() => setIsCopied(false), 1500);
     } catch {}
   };
@@ -58,6 +60,7 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
     e.stopPropagation();
     toggleSave(id);
     setSaved(!saved);
+    window.plausible?.('SavePrompt', {props: {id: String(id)}});
   };
 
   // ── Save Button (shared across all variants) ──
@@ -99,9 +102,13 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
     return (
       <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-black/10 to-transparent pointer-events-none">
         <div className="absolute bottom-16 left-1/2 -translate-x-1/2 flex flex-col items-center">
-          <div className="w-10 h-10 rounded-full bg-amber-500/20 backdrop-blur-md border border-amber-400/30 flex items-center justify-center mb-2 shadow-lg shadow-amber-500/10">
+          <motion.div
+            whileHover={{ rotate: [0, -10, 10, -10, 0] }}
+            transition={{ duration: 0.5 }}
+            className="w-10 h-10 rounded-full bg-amber-500/20 backdrop-blur-md border border-amber-400/30 flex items-center justify-center mb-2 shadow-lg shadow-amber-500/10"
+          >
             <span className="text-amber-300 text-lg">🔒</span>
-          </div>
+          </motion.div>
           <span className="text-[9px] text-amber-300/70 font-bold uppercase tracking-widest">PRO Exclusive</span>
         </div>
       </div>
@@ -162,12 +169,15 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
             </div>
 
             {!isPro && (
-              <button
+              <motion.button
                 onClick={handleCopy}
+                whileTap={{ scale: 0.9 }}
+                animate={isCopied ? { scale: [1, 1.2, 1] } : { scale: 1 }}
+                transition={{ duration: 0.4 }}
                 className="absolute top-4 right-14 px-4 py-2 rounded-xl bg-black/40 backdrop-blur-xl border border-white/10 text-xs text-zinc-300 hover:text-white hover:bg-black/60 transition-all opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 duration-300"
               >
                 {isCopied ? '✓ Copied' : 'Copy Prompt'}
-              </button>
+              </motion.button>
             )}
           </div>
         </Link>
@@ -239,8 +249,11 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
               </div>
               
               <div className="flex gap-2">
-                <button
+                <motion.button
                   onClick={handleCopy}
+                  whileTap={{ scale: 0.9 }}
+                  animate={isCopied ? { scale: [1, 1.2, 1] } : { scale: 1 }}
+                  transition={{ duration: 0.4 }}
                   className={`flex-1 text-[10px] font-extrabold uppercase tracking-widest py-2.5 rounded-xl transition-all duration-300 ${
                     isCopied
                       ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/20'
@@ -248,7 +261,7 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
                   }`}
                 >
                   {isCopied ? '✓ Copied' : 'Copy'}
-                </button>
+                </motion.button>
                 <button
                   onClick={(e) => {
                     e.preventDefault();

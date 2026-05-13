@@ -2,6 +2,7 @@ import React from 'react';
 import { I18nProvider } from '@/components/I18nProvider';
 import './globals.css';
 import type { Metadata } from 'next';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://cheerhuan.github.io/prompt-gallery-saas'),
@@ -38,8 +39,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {/* ── Critical image preload (OG image) ── */}
         <link rel="preload" href="/prompt-gallery-saas/images/attack-on-titan.jpg" as="image" fetchPriority="high" />
+
+        {/* ── Hreflang tags (i18n is client-side; x-default + en is safe) ── */}
+        <link rel="alternate" hrefLang="x-default" href="https://cheerhuan.github.io/prompt-gallery-saas/" />
+        <link rel="alternate" hrefLang="en" href="https://cheerhuan.github.io/prompt-gallery-saas/" />
       </head>
       <body>
+        {/* ── Plausible Analytics (production only) ── */}
+        {process.env.NODE_ENV === 'production' && (
+          <Script
+            defer
+            data-domain="cheerhuan.github.io"
+            src="https://plausible.io/js/script.js"
+          />
+        )}
         <I18nProvider>
           {children}
         </I18nProvider>

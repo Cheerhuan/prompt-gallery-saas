@@ -10,6 +10,7 @@ import { BeforeAfter } from '@/components/BeforeAfter';
 import { CollectionRow } from '@/components/CollectionRow';
 import promptsData from '@/data/prompts.json';
 import { translations, getCardTitle } from '@/lib/i18n';
+import { motion } from 'framer-motion';
 
 const CARDS_PER_PAGE = 20;
 
@@ -147,35 +148,76 @@ function GalleryContent() {
     <div className="min-h-screen bg-black text-white font-sans selection:bg-indigo-500/30">
       <SaaSNavbar />
 
-      {/* ─── HERO SECTION (unchanged) ─── */}
+      {/* ─── HERO SECTION ─── */}
       <section className="pt-36 pb-20 px-4 text-center max-w-5xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-[10px] uppercase tracking-widest text-zinc-400 mb-8 animate-fade-in">
-          <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse-dot" />
-          {t('hero.badge')}
-        </div>
-
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 bg-gradient-to-b from-white to-zinc-500 bg-clip-text text-transparent leading-[1.1]">
-          {t('hero.title')}
-        </h1>
-
-        <p className="text-lg text-zinc-400 mb-10 max-w-2xl mx-auto leading-relaxed font-light">
-          {t('hero.subtitle')}
-        </p>
-
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button
-            onClick={scrollToGallery}
-            className="w-full sm:w-auto px-10 py-4 bg-white text-black rounded-full font-bold hover:bg-zinc-200 transition-all transform hover:scale-105 active:scale-95 shadow-xl shadow-white/10"
+        <motion.div
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.15,
+                delayChildren: 0.1,
+              },
+            },
+          }}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 40 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+            }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-[10px] uppercase tracking-widest text-zinc-400 mb-8"
           >
-            {t('hero.ctaPrimary')}
-          </button>
-          <Link
-            href="/pricing"
-            className="w-full sm:w-auto px-8 py-4 bg-zinc-900 text-white rounded-full font-bold border border-zinc-800 hover:bg-zinc-800 transition-all text-center"
+            <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse-dot" />
+            {t('hero.badge')}
+          </motion.div>
+
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 40 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+            }}
           >
-            {t('hero.ctaSecondary')}
-          </Link>
-        </div>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 bg-gradient-to-b from-white to-zinc-500 bg-clip-text text-transparent leading-[1.1]">
+              {t('hero.title')}
+            </h1>
+          </motion.div>
+
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 40 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+            }}
+          >
+            <p className="text-lg text-zinc-400 mb-10 max-w-2xl mx-auto leading-relaxed font-light">
+              {t('hero.subtitle')}
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 40 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+            }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          >
+            <button
+              onClick={scrollToGallery}
+              className="w-full sm:w-auto px-10 py-4 bg-white text-black rounded-full font-bold hover:bg-zinc-200 transition-all transform hover:scale-105 active:scale-95 shadow-xl shadow-white/10"
+            >
+              {t('hero.ctaPrimary')}
+            </button>
+            <Link
+              href="/pricing"
+              className="w-full sm:w-auto px-8 py-4 bg-zinc-900 text-white rounded-full font-bold border border-zinc-800 hover:bg-zinc-800 transition-all text-center"
+            >
+              {t('hero.ctaSecondary')}
+            </Link>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* ─── PROMPT PACKS SECTION ─── */}
@@ -192,7 +234,22 @@ function GalleryContent() {
           </Link>
         </div>
 
-        <div className="flex gap-4 overflow-x-auto no-scrollbar pb-4 snap-x snap-mandatory">
+        <motion.div
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.2,
+              },
+            },
+          }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+          className="flex gap-4 overflow-x-auto no-scrollbar pb-4 snap-x snap-mandatory"
+        >
           {[
             { title: 'Cinematic Mastery', desc: '15 prompts · Hollywood-grade visual storytelling', icon: '🎬', color: 'from-indigo-500/20 to-purple-600/20', border: 'border-indigo-500/20', badge: 'Free' },
             { title: 'Cyberpunk Collection', desc: '12 prompts · Neon-drenched dystopian aesthetics', icon: '🌆', color: 'from-rose-500/20 to-orange-600/20', border: 'border-rose-500/20', badge: 'Free' },
@@ -200,13 +257,19 @@ function GalleryContent() {
             { title: 'Hyper-Realism Vault', desc: '18 prompts · Texture-perfect, light-accurate', icon: '🔬', color: 'from-emerald-500/20 to-teal-600/20', border: 'border-emerald-500/20', badge: 'Free' },
             { title: 'Character Design Studio', desc: '10 prompts · Next-gen character & portrait craft', icon: '👤', color: 'from-violet-500/20 to-pink-600/20', border: 'border-violet-500/20', badge: 'Pro' },
           ].map((pack) => (
-            <Link
+            <motion.div
               key={pack.title}
-              href={pack.badge === 'Pro' ? '/pricing' : '/'}
-              className="flex-shrink-0 w-[260px] snap-start group relative p-[1px] rounded-2xl transition-all duration-300 hover:scale-[1.02]"
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
+              }}
             >
-              <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${pack.color} opacity-60 group-hover:opacity-100 transition-opacity duration-300 blur-[2px]`} />
-              <div className={`relative h-full rounded-2xl bg-zinc-900/90 backdrop-blur-md border ${pack.border} p-5`}>
+              <Link
+                href={pack.badge === 'Pro' ? '/pricing' : '/'}
+                className="flex-shrink-0 w-[260px] snap-start group relative p-[1px] rounded-2xl transition-all duration-300 hover:scale-[1.02]"
+              >
+                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${pack.color} opacity-60 group-hover:opacity-100 transition-opacity duration-300 blur-[2px]`} />
+                <div className={`relative h-full rounded-2xl bg-zinc-900/90 backdrop-blur-md border ${pack.border} p-5`}>
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-3xl">{pack.icon}</span>
                   <span className={`text-[9px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full ${
@@ -227,8 +290,9 @@ function GalleryContent() {
                 )}
               </div>
             </Link>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
 
       {/* ─── GALLERY SECTION ─── */}
