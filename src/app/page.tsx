@@ -5,6 +5,8 @@ import { SaaSNavbar } from '@/components/SaaSNavbar';
 import { PromptCard } from '@/components/PromptCard';
 import { GallerySkeleton } from '@/components/Skeleton';
 import { useI18n } from '@/components/I18nProvider';
+import { BeforeAfter } from '@/components/BeforeAfter';
+import { CollectionRow } from '@/components/CollectionRow';
 import promptsData from '@/data/prompts.json';
 import { translations, getCardTitle } from '@/lib/i18n';
 
@@ -102,6 +104,17 @@ export default function LandingPage() {
           </Link>
         </div>
       </section>
+
+      {/* ─── GALLERY SECTION ─── */}
+      {/* ─── COLLECTIONS ROW ─── */}
+      <CollectionRow
+        collections={[
+          { id: 'cinematic', title: 'Cinematic Masters', description: 'Hollywood-grade visual storytelling prompts engineered for maximum emotional impact.', image: '/images/attack-on-titan.jpg', count: 12 },
+          { id: 'cyberpunk', title: 'Cyberpunk Vault', description: 'Neon-drenched dystopian aesthetics blending organic forms with digital decay.', image: '/images/zenitsu-50lan-collab.jpg', count: 8 },
+          { id: 'hyperreal', title: 'Hyper-Realistic', description: 'Texture-perfect, light-accurate prompts that blur the line between AI and photography.', image: '/images/pet-ig-popout.jpg', count: 15 },
+          { id: 'architectural', title: 'Spatial Visions', description: 'Futuristic architecture and impossible geometries rendered with industrial precision.', image: '/images/attack-on-titan.jpg', count: 10 },
+        ]}
+      />
 
       {/* ─── GALLERY SECTION ─── */}
       <section id="gallery-section" className="max-w-7xl mx-auto px-4 mb-8">
@@ -239,6 +252,28 @@ export default function LandingPage() {
           </>
         )}
       </section>
+
+      {/* ─── BEFORE/AFTER ENGINE ─── */}
+      <section className="border-t border-zinc-800/50 py-16 mt-16">
+        <div className="max-w-7xl mx-auto px-4 text-center mb-12">
+          <span className="text-[10px] uppercase tracking-[0.3em] text-indigo-400 font-bold mb-4 block">Proof of Quality</span>
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tighter text-white mb-4">
+            The <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">Prompt Gap</span>
+          </h2>
+          <p className="text-zinc-500 font-light max-w-xl mx-auto">
+            See the difference between a generic prompt and an engineered architecture. Drag the slider to compare.
+          </p>
+        </div>
+        <BeforeAfter
+          beforeImage="/prompt-gallery-saas/images/attack-on-titan.jpg"
+          afterImage="/prompt-gallery-saas/images/zenitsu-50lan-collab.jpg"
+          beforeLabel="Generic Prompt"
+          afterLabel="Engineered Vault Prompt"
+        />
+      </section>
+
+      {/* ─── DEPLOYMENT TAG ─── */}
+      <div id="hermes-deploy-tag" data-version="20260513-V2" className="hidden" />
 
       {/* ─── QUICK VIEW MODAL ─── */}
       {quickViewPrompt && (
