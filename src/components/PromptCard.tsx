@@ -1,6 +1,7 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { isSaved, toggleSave } from '@/lib/vault';
 
 interface PromptCardProps {
   id: string | number;
@@ -22,7 +23,16 @@ const BASE_PATH = '/prompt-gallery-saas';
 export const PromptCard = ({ id, image, title, tags = [], featured, mini, index = 0, onQuickView }: PromptCardProps) => {
   const [imgFailed, setImgFailed] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
+  const [saved, setSaved] = useState(false);
   const hasImage = image && image.trim() !== '';
+
+  // Sync saved state from localStorage + listen for cross-component updates
+  useEffect(() => {
+    setSaved(isSaved(id));
+    const handler = () => setSaved(isSaved(id));
+    window.addEventListener('vault-change', handler);
+    return () => window.removeEventListener('vault-change', handler);
+  }, [id]);
 
   if (!hasImage || imgFailed) return null;
 
@@ -37,6 +47,34 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
       setTimeout(() => setIsCopied(false), 1500);
     } catch {}
   };
+
+  const handleSave = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleSave(id);
+    setSaved(!saved);
+  };
+
+  // ── Save Button (shared across all variants) ──
+  const SaveBtn = () => (
+    <button
+      onClick={handleSave}
+      className="absolute top-3 right-3 z-20 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 backdrop-blur-md
+        bg-black/30 hover:bg-black/60 border border-white/10 hover:border-white/30
+        opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0"
+      aria-label={saved ? 'Unsave' : 'Save'}
+    >
+      <svg
+        className={`w-4 h-4 transition-colors ${saved ? 'text-pink-400 fill-pink-400' : 'text-white/70 fill-transparent'}`}
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={2}
+        fill={saved ? 'currentColor' : 'none'}
+      >
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+      </svg>
+    </button>
+  );
 
   // ── Shared Gradient Border Wrapper ──
   const CardWrapper = ({ children, className = "", style }: { children: React.ReactNode, className?: string, style?: React.CSSProperties }) => (
@@ -64,6 +102,8 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
             
+            <SaveBtn />
+
             <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
               <div className="flex items-center gap-3 mb-3">
                 <span className="text-[10px] uppercase tracking-[0.2em] px-2.5 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 backdrop-blur-md">
@@ -85,7 +125,7 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
 
             <button
               onClick={handleCopy}
-              className="absolute top-4 right-4 px-4 py-2 rounded-xl bg-black/40 backdrop-blur-xl border border-white/10 text-xs text-zinc-300 hover:text-white hover:bg-black/60 transition-all opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 duration-300"
+              className="absolute top-4 right-14 px-4 py-2 rounded-xl bg-black/40 backdrop-blur-xl border border-white/10 text-xs text-zinc-300 hover:text-white hover:bg-black/60 transition-all opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 duration-300"
             >
               {isCopied ? '✓ Copied' : 'Copy Prompt'}
             </button>
@@ -109,6 +149,7 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
+            <SaveBtn />
             <div className="absolute bottom-0 left-0 right-0 p-3">
               <h3 className="text-xs font-bold text-white leading-tight line-clamp-2 tracking-tight">{title}</h3>
             </div>
@@ -134,6 +175,8 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
             loading="lazy"
           />
           
+          <SaveBtn />
+
           <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-opacity duration-300 group-hover:opacity-0">
             <h3 className="text-sm font-bold text-white leading-tight line-clamp-2 tracking-tight">{title}</h3>
           </div>

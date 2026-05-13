@@ -1,10 +1,19 @@
 'use client';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useI18n } from '@/components/I18nProvider';
+import { getSavedIds } from '@/lib/vault';
 
 export const SaaSNavbar = ({ userTier = 'free' }) => {
   const { t, setLocale, locale } = useI18n();
+  const [vaultCount, setVaultCount] = useState(0);
+
+  useEffect(() => {
+    setVaultCount(getSavedIds().length);
+    const handler = () => setVaultCount(getSavedIds().length);
+    window.addEventListener('vault-change', handler);
+    return () => window.removeEventListener('vault-change', handler);
+  }, []);
 
   const handleLogin = () => {
     alert('Login system is coming soon. Please check our pricing for Pro access!');
@@ -24,6 +33,14 @@ export const SaaSNavbar = ({ userTier = 'free' }) => {
           <div className="hidden md:flex items-center gap-6 text-sm text-zinc-400">
             <Link href="/explore" className="hover:text-white transition-colors">{t('nav.explore')}</Link>
             <Link href="/trending" className="hover:text-white transition-colors">{t('nav.trending')}</Link>
+            <Link href="/saved" className="hover:text-white transition-colors flex items-center gap-1.5">
+              My Vault
+              {vaultCount > 0 && (
+                <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                  {vaultCount}
+                </span>
+              )}
+            </Link>
             <Link href="/pricing" className="hover:text-white transition-colors">{t('nav.pricing')}</Link>
           </div>
         </div>
