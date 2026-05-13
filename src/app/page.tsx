@@ -1,6 +1,7 @@
 'use client';
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, Suspense } from 'react';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { SaaSNavbar } from '@/components/SaaSNavbar';
 import { PromptCard } from '@/components/PromptCard';
 import { GallerySkeleton } from '@/components/Skeleton';
@@ -12,8 +13,9 @@ import { translations, getCardTitle } from '@/lib/i18n';
 
 const CARDS_PER_PAGE = 20;
 
-export default function LandingPage() {
+function GalleryContent() {
   const { t, locale } = useI18n();
+  const searchParams = useSearchParams();
   const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilter, setActiveFilter] = useState('all');
@@ -24,8 +26,7 @@ export default function LandingPage() {
     const timer = setTimeout(() => setIsLoading(false), 1000);
 
     // Read collection param from URL to auto-apply filter
-    const params = new URLSearchParams(window.location.search);
-    const collection = params.get('collection');
+    const collection = searchParams.get('collection');
     if (collection) {
       const filterMap: Record<string, string> = {
         cinematic: 'cinematic',
@@ -45,7 +46,7 @@ export default function LandingPage() {
     }
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [searchParams]);
 
   // Only show prompts that have an example image — 最新的在前
   const promptsWithImages = useMemo(() =>
@@ -348,5 +349,13 @@ export default function LandingPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function LandingPage() {
+  return (
+    <Suspense fallback={null}>
+      <GalleryContent />
+    </Suspense>
   );
 }
