@@ -71,6 +71,9 @@ export const SaaSNavbar = ({ userTier = 'free' }) => {
                 </span>
               )}
             </Link>
+            <Link href="/submit" className="hover:text-white transition-colors text-indigo-400 hover:text-indigo-300 font-medium">
+              + Submit Prompt
+            </Link>
             <Link href="/pricing" className="hover:text-white transition-colors">{t('nav.pricing')}</Link>
           </div>
         </div>
