@@ -85,7 +85,7 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
   return (
     <div className="min-h-screen bg-black text-white selection:bg-indigo-500/30">
       <SaaSNavbar userTier={userTier} />
-      <main className="pt-24 pb-20 px-4 max-w-7xl mx-auto">
+      <main id="main-content" className="pt-24 pb-20 px-4 max-w-7xl mx-auto">
         {/* ─── JSON-LD Structured Data ─── */}
         <script
           type="application/ld+json"
@@ -105,7 +105,7 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
         <div className="fixed top-16 left-0 right-0 z-40 bg-black/80 backdrop-blur-xl border-b border-zinc-800 px-4 py-3">
           <div className="max-w-7xl mx-auto flex justify-between items-center">
             <div className="flex items-center gap-4">
-              <Link href="/" className="text-xs text-zinc-500 hover:text-white transition-colors">← Back</Link>
+              <Link href="/" className="text-xs text-zinc-500 hover:text-white transition-colors" aria-label="Back to home">← Back</Link>
               <div className="w-px h-3 bg-zinc-800" />
               <span className="text-xs font-mono text-zinc-500">{t('detail.archiveId')} {params.id}</span>
               <div className="w-px h-3 bg-zinc-800" />
@@ -126,6 +126,7 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
               {/* Save Button */}
               <button
                 onClick={handleSave}
+                aria-label={saved ? 'Remove from vault' : 'Save to vault'}
                 className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all border flex items-center gap-1.5 ${
                   saved
                     ? 'bg-pink-500/10 border-pink-500/30 text-pink-400'
@@ -140,6 +141,7 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
               {/* Share Button */}
               <button
                 onClick={shareLink}
+                aria-label={shareCopied ? 'Link copied' : 'Share on Twitter'}
                 className="px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs text-zinc-400 hover:bg-zinc-800 hover:text-white transition-all"
               >
                 {shareCopied ? '✓ Copied' : 'Share on X'}
@@ -149,6 +151,7 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
                 <motion.button 
                   whileTap={{ scale: 0.95 }}
                   onClick={copyToClipboard}
+                  aria-label="Copy full prompt"
                   className="px-4 py-1.5 rounded-lg bg-white text-black text-xs font-bold hover:bg-zinc-200 transition-all"
                 >
                   {copied ? '✓ Copied' : t('detail.copyPrompt')}
@@ -206,7 +209,7 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
                   <div className="space-y-3">
                     <span className="text-[10px] text-indigo-400 uppercase tracking-tighter">{t('detail.refinedArchitecture')}</span>
                     <div className="aspect-square rounded-2xl bg-zinc-900 border-2 border-indigo-500/50 overflow-hidden">
-                      <img src={prompt.image?.startsWith('/') ? '/prompt-gallery-saas' + prompt.image : prompt.image} className="w-full h-full object-cover" />
+                      <img src={prompt.image?.startsWith('/') ? '/prompt-gallery-saas' + prompt.image : prompt.image} alt={prompt.title} className="w-full h-full object-cover" />
                     </div>
                   </div>
                 </div>
@@ -274,7 +277,7 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
               <div className="p-6 rounded-3xl bg-zinc-900 border border-zinc-800 shadow-2xl relative overflow-hidden">
                 <div className="flex items-center justify-between mb-3">
                   <h2 className="text-xs font-bold text-zinc-500 uppercase tracking-[0.2em]">{t('detail.fullPromptTitle')}</h2>
-                  <button onClick={copyToClipboard} className="text-[10px] px-3 py-1 rounded-lg bg-zinc-800 text-zinc-400 hover:text-white transition-all">
+                  <button onClick={copyToClipboard} aria-label="Copy full prompt" className="text-[10px] px-3 py-1 rounded-lg bg-zinc-800 text-zinc-400 hover:text-white transition-all">
                     {t('detail.copyShort')}
                   </button>
                 </div>

@@ -181,10 +181,13 @@ function GalleryContent() {
 
   return (
     <div className="min-h-screen bg-black text-white font-sans selection:bg-indigo-500/30">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:rounded-lg focus:text-sm focus:font-bold">
+        Skip to main content
+      </a>
       <SaaSNavbar />
 
       {/* ─── HERO SECTION ─── */}
-      <section ref={heroRef} className="pt-36 pb-20 px-4 text-center max-w-5xl mx-auto relative overflow-hidden">
+      <section id="main-content" ref={heroRef} className="pt-36 pb-20 px-4 text-center max-w-5xl mx-auto relative overflow-hidden">
         {/* Background gradient orbs — scroll parallax */}
         <motion.div
           style={{ y: orb1Y }}
@@ -380,6 +383,7 @@ function GalleryContent() {
             <input
               type="text"
               placeholder={t('gallery.searchPlaceholder')}
+              aria-label="Search prompts"
               className="w-full pl-10 pr-4 py-2.5 bg-black/40 border border-zinc-800 rounded-xl text-sm focus:ring-2 focus:ring-indigo-500 outline-none transition-all placeholder:text-zinc-600"
               value={searchQuery}
               onChange={(e) => {
@@ -419,6 +423,7 @@ function GalleryContent() {
                 <button
                   key={key}
                   onClick={() => setActiveFilter(key)}
+                  aria-pressed={activeFilter === key}
                   className={`px-3.5 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider transition-all whitespace-nowrap flex items-center gap-1.5 ${
                     activeFilter === key
                       ? 'bg-white text-black shadow-lg shadow-white/10'
@@ -429,7 +434,7 @@ function GalleryContent() {
                   <span className={`text-[9px] px-1.5 py-0.5 rounded-full ${
                     activeFilter === key
                       ? 'bg-zinc-200 text-zinc-700'
-                      : 'bg-zinc-700/50 text-zinc-500'
+                      : 'bg-zinc-700/50 text-zinc-400'
                   }`}>
                     {count}
                   </span>
@@ -439,7 +444,7 @@ function GalleryContent() {
           </div>
 
           {/* Sort dropdown */}
-          <select className="bg-zinc-800/50 border border-zinc-700/50 text-[10px] rounded-lg px-3 py-1.5 outline-none text-zinc-400 font-bold uppercase tracking-wider cursor-pointer hover:border-zinc-500 transition-all flex-shrink-0">
+          <select aria-label="Sort prompts by" className="bg-zinc-800/50 border border-zinc-700/50 text-[10px] rounded-lg px-3 py-1.5 outline-none text-zinc-400 font-bold uppercase tracking-wider cursor-pointer hover:border-zinc-500 transition-all flex-shrink-0">
             <option>{t('gallery.sortTrending')}</option>
             <option>{t('gallery.sortNewest')}</option>
             <option>{t('gallery.sortSaved')}</option>
@@ -459,7 +464,7 @@ function GalleryContent() {
                 <h3 className="text-xl font-bold text-zinc-300 mb-2">No matches found</h3>
                 <p className="text-zinc-500 text-sm max-w-md mx-auto mb-8">
                   Try a different search term or{' '}
-                  <button onClick={() => { setSearchQuery(''); setActiveFilter('all'); }} className="text-indigo-400 hover:underline">
+                  <button onClick={() => { setSearchQuery(''); setActiveFilter('all'); }} aria-label="Reset all filters" className="text-indigo-400 hover:underline">
                     reset all filters
                   </button>
                 </p>
@@ -586,7 +591,7 @@ function GalleryContent() {
 
             {/* Footer count */}
             {gridPrompts.length > 0 && (
-              <p className="text-center text-[10px] text-zinc-600 mt-6 font-mono">
+              <p className="text-center text-[10px] text-zinc-500 mt-6 font-mono">
                 Showing {Math.min(visibleCount + (featuredPrompts.length > 0 ? 3 : 0), totalCount)} of {totalCount} prompts
               </p>
             )}
@@ -676,6 +681,7 @@ function GalleryContent() {
           {/* Close button */}
           <button
             onClick={() => setQuickViewId(null)}
+            aria-label="Close quick view"
             className="absolute top-6 right-6 w-10 h-10 rounded-full bg-zinc-800/60 backdrop-blur-md border border-zinc-700/50 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-zinc-700 transition-all"
           >
             ✕

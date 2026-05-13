@@ -31,7 +31,7 @@ export default function PricingPage() {
     <div className="min-h-screen bg-black text-white">
       <SaaSNavbar />
       
-      <main className="pt-32 pb-20 px-4 max-w-6xl mx-auto text-center">
+      <main id="main-content" className="pt-32 pb-20 px-4 max-w-6xl mx-auto text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-xs text-indigo-400 mb-6">
           <span>{t('pricing.badge')}</span>
         </div>

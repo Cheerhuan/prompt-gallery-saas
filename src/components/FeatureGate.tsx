@@ -22,6 +22,7 @@ export const FeatureGate = ({ children, isProRequired = true, userTier = 'free' 
           <span className="text-zinc-400 text-[10px]">{t('featureGate.proDesc')}</span>
           <button
             onClick={() => window.plausible?.('UpgradeClick', {props: {feature: 'pro'}})}
+            aria-label="Upgrade to Pro"
             className="mt-3 px-3 py-1 bg-white text-black text-[10px] font-bold rounded-full hover:bg-zinc-200 transition-colors"
           >
             {t('featureGate.upgradeBtn')}

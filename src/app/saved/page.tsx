@@ -26,7 +26,7 @@ export default function SavedPage() {
   return (
     <div className="min-h-screen bg-black text-white font-sans selection:bg-indigo-500/30">
       <SaaSNavbar />
-      <main className="pt-36 pb-20 px-4 max-w-7xl mx-auto">
+      <main id="main-content" className="pt-36 pb-20 px-4 max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-bold tracking-tighter mb-4 bg-gradient-to-b from-white to-zinc-500 bg-clip-text text-transparent">
             My Vault

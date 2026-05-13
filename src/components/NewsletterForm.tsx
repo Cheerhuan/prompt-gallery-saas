@@ -62,11 +62,13 @@ export const NewsletterForm = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="your@email.com"
+            aria-label="Email address for newsletter"
             disabled={status === 'loading'}
             className="flex-1 px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-xl text-sm text-white placeholder:text-zinc-600 focus:ring-2 focus:ring-indigo-500 outline-none transition-all disabled:opacity-50"
           />
           <button
             type="submit"
+            aria-label="Subscribe to newsletter"
             disabled={status === 'loading'}
             className="px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-bold rounded-xl hover:from-indigo-400 hover:to-purple-500 transition-all disabled:opacity-50 shadow-lg shadow-indigo-500/20 whitespace-nowrap"
           >

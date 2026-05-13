@@ -88,7 +88,7 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
       className={`absolute top-3 right-3 z-20 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 backdrop-blur-md
         bg-black/30 hover:bg-black/60 border border-white/10 hover:border-white/30
         opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 ${isPro ? '!opacity-100' : ''}`}
-      aria-label={saved ? 'Unsave' : 'Save'}
+      aria-label={saved ? 'Remove from vault' : 'Save to vault'}
     >
       <svg
         className={`w-4 h-4 transition-colors ${saved ? 'text-pink-400 fill-pink-400' : 'text-white/70 fill-transparent'}`}
@@ -156,11 +156,11 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
   if (featured) {
     return (
       <CardWrapper className="h-full">
-        <Link href={`/prompt/${id}`} className="block">
+        <Link href={`/prompt/${id}`} className="block" aria-label={title}>
           <div className="aspect-[16/9] md:aspect-[21/9] overflow-hidden bg-zinc-800 relative">
             <img
               src={resolvedSrc}
-              alt=""
+              alt={title}
               onError={() => setImgFailed(true)}
               className={`w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 ${isPro ? 'blur-sm' : ''}`}
               loading="lazy"
@@ -193,6 +193,7 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
             {!isPro && (
               <motion.button
                 onClick={handleCopy}
+                aria-label="Copy prompt title"
                 whileTap={{ scale: 0.9 }}
                 animate={isCopied ? { scale: [1, 1.2, 1] } : { scale: 1 }}
                 transition={{ duration: 0.4 }}
@@ -211,11 +212,11 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
   if (mini) {
     return (
       <CardWrapper className="h-full">
-        <Link href={`/prompt/${id}`} className="block">
+        <Link href={`/prompt/${id}`} className="block" aria-label={title}>
           <div className="aspect-[4/5] overflow-hidden bg-zinc-800 relative">
             <img
               src={resolvedSrc}
-              alt=""
+              alt={title}
               onError={() => setImgFailed(true)}
               className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${isPro ? 'blur-sm' : ''}`}
               loading="lazy"
@@ -242,11 +243,11 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
       tiltRef={tiltRef}
       tiltStyle={tiltStyle}
     >
-      <Link href={`/prompt/${id}`} className="block">
+      <Link href={`/prompt/${id}`} className="block" aria-label={title}>
         <div className="aspect-[3/4] overflow-hidden bg-zinc-800 relative">
           <img
             src={resolvedSrc}
-            alt=""
+            alt={title}
             onError={() => setImgFailed(true)}
             className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${isPro ? 'blur-[6px]' : ''}`}
             loading="lazy"
@@ -276,6 +277,7 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
               <div className="flex gap-1.5">
                 <motion.button
                   onClick={handleCopy}
+                  aria-label="Copy prompt title"
                   whileTap={{ scale: 0.9 }}
                   animate={isCopied ? { scale: [1, 1.2, 1] } : { scale: 1 }}
                   transition={{ duration: 0.4 }}
@@ -289,6 +291,7 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
                 </motion.button>
                 <button
                   onClick={handleShare}
+                  aria-label="Share on Twitter"
                   className="flex-1 text-[10px] font-extrabold uppercase tracking-widest py-2.5 rounded-xl bg-sky-500/20 text-sky-300 hover:bg-sky-500/30 border border-sky-500/20 backdrop-blur-md transition-all duration-300"
                 >
                   Share
@@ -299,6 +302,7 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
                     e.stopPropagation();
                     onQuickView?.(id);
                   }}
+                  aria-label="Quick view"
                   className="flex-1 text-[10px] font-extrabold uppercase tracking-widest py-2.5 rounded-xl bg-indigo-500/20 text-indigo-300 hover:bg-indigo-500/30 border border-indigo-500/20 backdrop-blur-md transition-all duration-300"
                 >
                   Vault View

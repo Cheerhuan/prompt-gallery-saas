@@ -9,7 +9,7 @@ export default function TrendingPage() {
   return (
     <div className="min-h-screen bg-black text-white">
       <SaaSNavbar />
-      <main className="pt-32 pb-20 px-4 max-w-7xl mx-auto text-center">
+      <main id="main-content" className="pt-32 pb-20 px-4 max-w-7xl mx-auto text-center">
         <h1 className="text-5xl md:text-6xl font-bold tracking-tighter mb-6 bg-gradient-to-b from-white to-zinc-500 bg-clip-text text-transparent">
           {t('trending.title')}
         </h1>
