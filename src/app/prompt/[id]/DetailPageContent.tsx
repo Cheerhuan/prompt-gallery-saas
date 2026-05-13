@@ -44,10 +44,17 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
     setViewCount(count);
   }, [prompt.id]);
 
-  const shareLink = async () => {
-    await navigator.clipboard.writeText(window.location.href);
-    setShareCopied(true);
-    setTimeout(() => setShareCopied(false), 2000);
+  const shareLink = () => {
+    const siteUrl = 'https://cheerhuan.github.io/prompt-gallery-saas';
+    const url = `${siteUrl}/prompt/${prompt.id}`;
+    const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(prompt.title)}&url=${encodeURIComponent(url)}`;
+    window.open(tweetUrl, '_blank', 'noopener,noreferrer,width=600,height=400');
+    window.plausible?.('SharePrompt', { props: { id: String(prompt.id), platform: 'twitter' } });
+    // Also copy link to clipboard as fallback
+    navigator.clipboard.writeText(url).then(() => {
+      setShareCopied(true);
+      setTimeout(() => setShareCopied(false), 2000);
+    }).catch(() => {});
   };
 
   const handleSave = () => {
@@ -135,7 +142,7 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
                 onClick={shareLink}
                 className="px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs text-zinc-400 hover:bg-zinc-800 hover:text-white transition-all"
               >
-                {shareCopied ? '✓ Link Copied' : 'Share'}
+                {shareCopied ? '✓ Copied' : 'Share on X'}
               </button>
               {/* Copy Prompt Button - hidden for PRO prompts */}
               {!isPro && (

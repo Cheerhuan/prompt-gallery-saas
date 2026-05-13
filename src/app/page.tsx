@@ -9,6 +9,7 @@ import { useI18n } from '@/components/I18nProvider';
 import { BeforeAfter } from '@/components/BeforeAfter';
 import { CollectionRow } from '@/components/CollectionRow';
 import { MagneticButton } from '@/components/MagneticButton';
+import { NewsletterForm } from '@/components/NewsletterForm';
 import promptsData from '@/data/prompts.json';
 import embeddingsData from '@/data/embeddings.json';
 import { searchPrompts } from '@/lib/semantic-search';
@@ -610,6 +611,22 @@ function GalleryContent() {
           beforeLabel="Generic Prompt"
           afterLabel="Engineered Vault Prompt"
         />
+      </section>
+
+      {/* ─── NEWSLETTER SECTION ─── */}
+      <section className="border-t border-zinc-800/50 py-20">
+        <div className="max-w-2xl mx-auto px-4 text-center">
+          <span className="text-[10px] uppercase tracking-[0.3em] text-indigo-400 font-bold mb-4 block">
+            Stay Curated
+          </span>
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tighter mb-4">
+            Get the <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-pink-400">Best Prompts</span> Weekly
+          </h2>
+          <p className="text-zinc-500 mb-8 max-w-md mx-auto">
+            Join 1,000+ creators. No spam, just the most powerful prompts delivered every Monday.
+          </p>
+          <NewsletterForm />
+        </div>
       </section>
 
       {/* ─── DEPLOYMENT TAG ─── */}

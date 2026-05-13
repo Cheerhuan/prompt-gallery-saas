@@ -72,6 +72,15 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
     window.plausible?.('SavePrompt', {props: {id: String(id)}});
   };
 
+  const handleShare = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const siteUrl = 'https://cheerhuan.github.io/prompt-gallery-saas';
+    const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(siteUrl + '/prompt/' + id)}`;
+    window.open(tweetUrl, '_blank', 'noopener,noreferrer,width=600,height=400');
+    window.plausible?.('SharePrompt', { props: { id: String(id), platform: 'twitter' } });
+  };
+
   // ── Save Button (shared across all variants) ──
   const SaveBtn = () => (
     <button
@@ -264,7 +273,7 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
                 ))}
               </div>
               
-              <div className="flex gap-2">
+              <div className="flex gap-1.5">
                 <motion.button
                   onClick={handleCopy}
                   whileTap={{ scale: 0.9 }}
@@ -278,6 +287,12 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
                 >
                   {isCopied ? '✓ Copied' : 'Copy'}
                 </motion.button>
+                <button
+                  onClick={handleShare}
+                  className="flex-1 text-[10px] font-extrabold uppercase tracking-widest py-2.5 rounded-xl bg-sky-500/20 text-sky-300 hover:bg-sky-500/30 border border-sky-500/20 backdrop-blur-md transition-all duration-300"
+                >
+                  Share
+                </button>
                 <button
                   onClick={(e) => {
                     e.preventDefault();
