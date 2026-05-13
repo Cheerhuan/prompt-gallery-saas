@@ -31,6 +31,16 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
     setTimeout(() => setCopied(false), 2000);
   };
 
+  // View counter (client-side only)
+  const [viewCount, setViewCount] = useState(0);
+  useEffect(() => {
+    const key = `prompt-views-${prompt.id}`;
+    const raw = localStorage.getItem(key);
+    const count = raw ? parseInt(raw, 10) + 1 : 1;
+    localStorage.setItem(key, String(count));
+    setViewCount(count);
+  }, [prompt.id]);
+
   const shareLink = async () => {
     await navigator.clipboard.writeText(window.location.href);
     setShareCopied(true);
@@ -65,6 +75,21 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
     <div className="min-h-screen bg-black text-white selection:bg-indigo-500/30">
       <SaaSNavbar userTier={userTier} />
       <main className="pt-24 pb-20 px-4 max-w-7xl mx-auto">
+        {/* ─── JSON-LD Structured Data ─── */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "CreativeWork",
+              "name": prompt.title,
+              "description": prompt.full_prompt?.slice(0, 200),
+              "image": prompt.image?.startsWith('/') ? `https://cheerhuan.github.io/prompt-gallery-saas${prompt.image}` : prompt.image,
+              "keywords": `AI prompt, ${prompt.model || 'GPT-Image'}, prompt engineering`,
+              "creator": { "@type": "Person", "name": "Prompt Gallery" },
+            })
+          }}
+        />
         {/* ─── Sticky Action Bar ─── */}
         <div className="fixed top-16 left-0 right-0 z-40 bg-black/80 backdrop-blur-xl border-b border-zinc-800 px-4 py-3">
           <div className="max-w-7xl mx-auto flex justify-between items-center">
@@ -74,6 +99,8 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
               <span className="text-xs font-mono text-zinc-500">{t('detail.archiveId')} {params.id}</span>
               <div className="w-px h-3 bg-zinc-800" />
               <span className="text-xs font-mono text-indigo-400">{t('detail.engine')} {prompt.model || 'GPT-Image-2'}</span>
+              <div className="w-px h-3 bg-zinc-800" />
+              <span className="text-xs font-mono text-zinc-500">{viewCount} views</span>
             </div>
             <div className="flex items-center gap-2">
               {/* Save Button */}
