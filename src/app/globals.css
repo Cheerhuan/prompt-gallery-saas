@@ -15,6 +15,10 @@
   --font-mono: var(--font-geist-mono);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -92,19 +96,6 @@ body {
 }
 
 /* ── Grid gap for masonry-like bento ── */
-.bento-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-}
-.bento-grid .featured-card {
-  grid-column: span 2;
-  grid-row: span 2;
-}
-.bento-grid .mini-card {
-  grid-column: span 1;
-  grid-row: span 1;
-}
 
 /* ── Hover shine effect ── */
 .shine-effect {
@@ -140,22 +131,4 @@ body {
   background: linear-gradient(90deg, #18181b 25%, #27272a 50%, #18181b 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s ease-in-out infinite;
-}
-
-/* ── Load more button glow ── */
-.load-more-btn {
-  position: relative;
-}
-.load-more-btn::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: 9999px;
-  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary));
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: -1;
-}
-.load-more-btn:hover::before {
-  opacity: 1;
 }

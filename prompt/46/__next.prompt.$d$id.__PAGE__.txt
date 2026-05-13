@@ -1,6 +1,6 @@
 1:"$Sreact.fragment"
 3:I[97367,["/prompt-gallery-saas/_next/static/chunks/0k_gw_6z.2frl.js","/prompt-gallery-saas/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
 4:"$Sreact.suspense"
-0:{"rsc":["$","$1","c",{"children":["$L2",null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"MHCDyQgPmzz7QHt2ubNEb"}
+0:{"rsc":["$","$1","c",{"children":["$L2",null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"hUBY3ODCMx9qGFmP8wiH9"}
 5:null
 2:E{"digest":"NEXT_HTTP_ERROR_FALLBACK;404"}

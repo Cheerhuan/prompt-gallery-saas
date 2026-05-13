@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect, useMemo, Suspense } from 'react';
+import React, { useState, useEffect, useMemo, useRef, Suspense } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { SaaSNavbar } from '@/components/SaaSNavbar';
@@ -16,18 +16,49 @@ const CARDS_PER_PAGE = 20;
 function GalleryContent() {
   const { t, locale } = useI18n();
   const searchParams = useSearchParams();
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilter, setActiveFilter] = useState('all');
   const [visibleCount, setVisibleCount] = useState(CARDS_PER_PAGE);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [quickViewId, setQuickViewId] = useState<string | number | null>(null);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const searchRef = React.useRef<HTMLDivElement>(null);
+  const sentinelRef = useRef<HTMLDivElement>(null);
+
+  // IntersectionObserver for infinite scroll
+  const hasMoreRef = useRef(true);
+  const isLoadingMoreRef = useRef(false);
+  useEffect(() => {
+    const sentinel = sentinelRef.current;
+    if (!sentinel) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting && hasMoreRef.current && !isLoadingMoreRef.current) {
+          isLoadingMoreRef.current = true;
+          setIsLoadingMore(true);
+          // Use requestAnimationFrame for smooth batch loading
+          requestAnimationFrame(() => {
+            setVisibleCount(prev => prev + CARDS_PER_PAGE);
+            // Allow next trigger after render settles
+            requestAnimationFrame(() => {
+              isLoadingMoreRef.current = false;
+              setIsLoadingMore(false);
+            });
+          });
+        }
+      },
+      { rootMargin: '400px' } // Start loading 400px before sentinel enters viewport
+    );
+
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, []); // Empty deps — refs keep it fresh
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 1000);
-
-    // Read collection param from URL to auto-apply filter
+    // Read collection param from URL to auto-apply filter (no fake loading delay)
     const collection = searchParams.get('collection');
     if (collection) {
       const filterMap: Record<string, string> = {
@@ -46,8 +77,6 @@ function GalleryContent() {
         }, 600);
       }
     }
-
-    return () => clearTimeout(timer);
   }, [searchParams]);
 
   // Only show prompts that have an example image — 最新的在前
@@ -79,9 +108,8 @@ function GalleryContent() {
   const visibleGridPrompts = gridPrompts.slice(0, visibleCount);
   const hasMore = visibleCount < gridPrompts.length;
 
-  const loadMore = () => {
-    setVisibleCount(prev => prev + CARDS_PER_PAGE);
-  };
+  // Sync hasMoreRef on each render
+  hasMoreRef.current = hasMore;
 
   // Quick-view modal: find prompt by ID
   const quickViewPrompt = quickViewId
@@ -404,15 +432,17 @@ function GalleryContent() {
               ))}
             </div>
 
-            {/* ─── LOAD MORE ─── */}
+            {/* ─── INFINITE SCROLL SENTINEL ─── */}
+            <div ref={sentinelRef} className="h-4 w-full" />
+
+            {/* Loading indicator when fetching next batch */}
             {hasMore && (
-              <div className="flex justify-center mt-12">
-                <button
-                  onClick={loadMore}
-                  className="load-more-btn px-12 py-3.5 rounded-full bg-zinc-900 border border-zinc-800 text-sm font-bold text-zinc-300 hover:text-white transition-all hover:scale-105 active:scale-95"
-                >
-                  Load {Math.min(CARDS_PER_PAGE, gridPrompts.length - visibleCount)} More ↓
-                </button>
+              <div className="flex justify-center mt-4 mb-2">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse-dot" />
+                  <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse-dot" style={{ animationDelay: '0.3s' }} />
+                  <span className="w-2 h-2 rounded-full bg-pink-500 animate-pulse-dot" style={{ animationDelay: '0.6s' }} />
+                </div>
               </div>
             )}
 
