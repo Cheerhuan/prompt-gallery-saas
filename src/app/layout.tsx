@@ -5,10 +5,10 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://cheerhuan.github.io/prompt-gallery-saas'),
-  title: 'Prompt Gallery — The Internet\'s Most Addictive AI Inspiration Vault',
+  title: 'Prompt Gallery — The AI Prompt Vault',
   description: 'Stop guessing. Start creating. Access a curated ecosystem of high-conversion prompts engineered for cinematic results.',
   openGraph: {
-    title: 'Prompt Gallery — AI Inspiration Vault',
+    title: 'Prompt Gallery — The AI Prompt Vault',
     description: 'Curated high-conversion AI prompts for Midjourney, GPT-Image, and more.',
     url: 'https://cheerhuan.github.io/prompt-gallery-saas',
     siteName: 'Prompt Gallery',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Prompt Gallery — AI Inspiration Vault',
+    title: 'Prompt Gallery — The AI Prompt Vault',
     description: 'Curated high-conversion AI prompts for Midjourney, GPT-Image, and more.',
     images: ['/images/attack-on-titan.jpg'],
   },
