@@ -2,7 +2,6 @@ import React from 'react';
 import { I18nProvider } from '@/components/I18nProvider';
 import './globals.css';
 import type { Metadata } from 'next';
-import Script from 'next/script';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://cheerhuan.github.io/prompt-gallery-saas'),
@@ -47,11 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         {/* ── Plausible Analytics (production only) ── */}
         {process.env.NODE_ENV === 'production' && (
-          <Script
-            defer
-            data-domain="cheerhuan.github.io"
-            src="https://plausible.io/js/script.js"
-          />
+          <script defer data-domain="cheerhuan.github.io" src="https://plausible.io/js/script.js" />
         )}
         <I18nProvider>
           {children}
