@@ -695,5 +695,105 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "character-17"
+  },
+  {
+    "id": "72",
+    "title": "Apple Pods Pro 3 Earbuds E-Commerce Infographic [介面設計]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/ui_case45/output.jpg",
+    "full_prompt": "High-impact e-commerce infographic for \"Apple Pods Pro 3\" wireless earbuds.",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "ui-45"
+  },
+  {
+    "id": "73",
+    "title": "Pink Anime Natsuki Banner [介面設計]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/ui_case98/output.jpg",
+    "full_prompt": "A glossy pastel pink anime banner in a wide cinematic layout, themed around cute romance and sweets. Place a confident teenage anime girl on the right side, shown from about thigh-up, with short fluffy bob hair in {argument name=\"hair color\" default=\"soft pink\"}, large pink-magenta eyes, a small gentle smile, and arms crossed. She wears a Japanese school uniform: 1 brown blazer, 1 white shirt, 1 red ribbon bow at the collar, and 1 dark navy-and-purple plaid skirt. Add 2 red ribbon hair accessories, one larger bow on the side and one smaller ribbon accent. On the left half, feature the large handwritten script name {argument name=\"character name\" default=\"Natsuki\"} in bold glossy 3D cursive, white-to-pink fill with bright pink outline, soft bevel, subtle drop shadow, sparkles, and a small heart flourish integrated into the lettering. The background should be a layered scrapbook collage in blush pink tones with notebook paper texture, faint grid and torn paper details, scattered doodled hearts, flower petals, sparkles, and cute bakery motifs. Include exactly 4 pinned or taped sketch-style portrait cards of the same girl behind her on the upper-right and mid-right, arranged like overlapping polaroids. Add exactly 2 cupcakes in the foreground near the bottom left and lower center-left, both with pink frosting, striped wrappers, and tiny heart toppers or candy accents. Frame the composition with flowing satin ribbons and bows: exactly 4 major ribbon elements visible, including 1 bow near the top left, 1 bow near the bottom left, and 2 long curling ribbons sweeping across the top and right edges. Use a soft high-detail anime illustration style, polished lighting, dreamy bloom, romantic Valentine palette, delicate textures, and a clean impactful thumbnail-like composition.",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "ui-98"
+  },
+  {
+    "id": "74",
+    "title": "Song Dynasty Social Media Feed [介面設計]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/ui_case4/output.jpg",
+    "full_prompt": "\"宋朝人的朋友圈\"/\"SONG DYNASTY SOCIAL MEDIA FEED\"，古今穿越幽默融合界面设计风格，画面模拟手机社交媒体界面，但内容全部是宋朝场景头像是宋代文人画像，用户名\"苏东坡SuShi_Official\"，发布内容\"刚到黄州，被贬了但心情还行。今天自己做了东坡肉，味道绝了，附菜谱：\"，配图为工笔画风格的东坡肉特写，点赞列表\"黄庭坚、秦观、佛印等126人\"，评论区\"王安石：呵呵\"\"司马光：还是那个味道\"，界面元素如点赞图标用宋代花纹替代，状态栏显示\"大宋移动 5G\"和\"元丰三年\"，配色为手机深色模式搭配宋代雅致色调，历史与社交媒体的趣味碰撞杰作",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "ui-4"
+  },
+  {
+    "id": "75",
+    "title": "analyze this photo and give me a detailed JSON prompt that recreates it. brea... [人像攝影]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/portrait_case77/output.jpg",
+    "full_prompt": "analyze this photo and give me a detailed JSON prompt that recreates it. break down the color grading and every exact color in the photo\n\n(use Opus, not Sonnet. Opus has stronger visual analysis and writes more detailed JSON)\n\npaste that JSON into ChatGPT\nupload your product image and prompt:\nusing this JSON as reference, generate a person holding my product\nsave that generated photo as your character reference\n\nattach it to every future generation for facial consistency\n\nyou now have a consistent UGC model that works across any product\n\nthe JSON controls the lighting and color grading. GPT image-2 handles the character. you control the product placement.\n\nthe #1 tell on AI photos is flat colors and a grainy look. this method removes both.\n5 minutes to set up. unlimited variations after.",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "portrait-21"
+  },
+  {
+    "id": "76",
+    "title": "Restaurant POV Change Comparison [對比展示]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/comparison_case70/output.jpg",
+    "full_prompt": "A side-by-side comparison graphic on a black background demonstrating a camera-angle change in the same restaurant scene. At the top, large white sans-serif text reads: \"Show me the POV from someone standing behind the bar looking out over this crowded restaurant. Change NOTHING in the scene other than the pov\". Below, place 2 stacked rectangular photos centered vertically: the top image labeled \"Source\" in large white text on the left, and the bottom image labeled \"Output\" in large white text on the left. The top photo shows a warmly lit, upscale, crowded restaurant interior seen from the dining room side, facing a tall back bar filled with many illuminated liquor bottles on wall-to-wall shelves, with bartenders and guests in front, amber lighting, globe pendant lights, wood ceiling, beige columns, and tightly packed seated diners in the foreground. The bottom photo shows the exact same restaurant, same crowd density, same warm lighting, same decor, same bar shelving, same globe pendant lights, and same overall composition elements, but now from the point of view of someone standing behind the bar and looking outward across the crowded restaurant; the foreground includes the bar counter with glassware, metal bar tools, bottles, and a point-of-sale screen visible at the lower left, while guests and staff fill the middle ground and the dining room extends into the background. Preserve the sense that only the camera position changed between the 2 images, with no other scene alterations.",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "comparison-70"
+  },
+  {
+    "id": "77",
+    "title": "A professional product photography shot of a cold sparkling water [海報插畫]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case62/output.jpg",
+    "full_prompt": "A professional product photography shot of a cold sparkling water\ncan placed upright in golden beach sand. The can is silver and teal,\ncovered in realistic water droplets condensation, with a pineapple\nillustration and tropical branding. The can is slightly tilted,\nplanted in a small mound of fine golden sand with tiny white pebbles\nand small green tropical leaves/grass scattered around the base.\nBackground features a bold split composition - bright sky-blue on\nthe left and vivid yellow on the right, with a large blurred real\npineapple placed behind the can on the right side. A blurred tropical\npalm leaf drapes in from the upper left corner, adding depth and\nframing. Macro-level water condensation droplets visible on the\ncan surface. Lighting is bright, vibrant, commercial studio lighting\nwith clean shadows. Shallow depth of field - can in sharp focus,\nbackground softly blurred. Mood: summer, tropical, fresh, refreshing.\nCommercial product photography, ultra-detailed, 8K.",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "poster-59"
+  },
+  {
+    "id": "78",
+    "title": "Fashion Dress Collection Infographic [海報插畫]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case171/output.jpg",
+    "full_prompt": "{\n  \"image_type\": \"Commercial Fashion Infographic\",\n  \"subject\": {\n    \"model\": \"Young Asian woman with elegant features and dark hair tied in a loose bun\",\n    \"attire\": \"Satin midi dress with spaghetti straps and a draped cowl neckline\",\n    \"fit\": \"Bodycon / slim fit with side ruching and a subtle leg slit\"\n  },\n  \"layout_structure\": {\n    \"composition\": \"Multi-panel editorial layout\",\n    \"header\": \"Bold serif typography reading 'DRESS COLLECTION'\",\n    \"main_feature\": \"Large centered portrait of the model, a young Asian woman, wearing a wine-red satin dress\",\n    \"secondary_panels\": [\n      \"Dress Features grid with minimalist icons\",\n      \"Dress Guide sidebar detailing neckline, sleeve, and length\",\n      \"Color Collection row showing the dress in Black, Emerald Green, Navy, Champagne, and Royal Blue\",\n      \"Dress Style Guide footer featuring the model in various atmospheric evening settings\"\n    ]\n  },\n  \"aesthetic_style\": {\n    \"color_palette\": \"Deep jewel tones (Wine Red, Emerald, Navy, Royal Blue) contrasted with Champagne and Black against a warm cream or beige background\",\n    \"lighting\": \"Soft studio lighting with elegant highlights on the satin fabric texture\",\n    \"vibe\": \"Luxurious, timeless, and sophisticated commercial advertising\"\n  },\n  \"typography\": {\n    \"primary\": \"Classic Serif for titles\",\n    \"secondary\": \"Clean Sans-Serif for body text and technical details\"\n  }\n}",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "poster-171"
+  },
+  {
+    "id": "79",
+    "title": "Surrealist Liquor Brand High Fashion Poster [海報插畫]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case60/output.jpg",
+    "full_prompt": "Un póster publicitario surrealista de alta costura para Aguardiente Amarillo. La escena se sitúa en un estudio minimalista y monocromático de color naranja claro, con un suelo semirreflectante.\nEl foco central es una botella de Aguardiente Amarillo de tamaño descomunal y gigante, colocada en ángulo diagonal y que sirve como respaldo. Un modelo masculino de moda, de cabello largo y oscuro, vestido con un conjunto impecable y totalmente blanco —compuesto por una sudadera y pantalones de pierna ancha—, apoya toda su espalda contra la botella gigante en una postura relajada e inclinada. Mira hacia la derecha, de perfil, con la vista al frente y una expresión serena; calza zapatillas blancas de tamaño estándar.\nEn el fondo, la palabra \"AGUARDIENTE\" aparece escrita con una tipografía sans-serif condensada, blanca, masiva y en negrita, parcialmente oculta por la botella gigante y por el modelo para crear una sensación de profundidad. En la esquina superior derecha se lee: \"Creado por @HMontilla_\".\nEn la parte inferior central, una frase publicitaria en tipografía sans-serif blanca reza: \"El Aguardiente Amarillo de Manzanares es un icónico licor colombiano, originario de 1885 en Manzanares, Caldas\". La iluminación es suave, fría y uniforme, proyectando sombras tenues y un reflejo sutil de los sujetos sobre el suelo azul brillante. La estética general es limpia, moderna y de alto concepto.\n\nEstablecer la relación de aspecto en 3:4.",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "poster-75"
+  },
+  {
+    "id": "80",
+    "title": "Browser Game Ad Creative Poster [海報插畫]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case10/output.jpg",
+    "full_prompt": "以下の文字を必ず入れて、1:1のポスターを作成してください。書籍・講座・イベント告知に使える、プロの広告デザイナーが作ったような高品質な仕上がりにしてください。\n\n広告クリエイティブ制作\n思いついたら、もう遊べる。 AI×ブラウザゲームづくりは、マジで楽しい。 むずかしそうで、実ははじめやすい。 コードがわからなくても、はじめの一本は作れる",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "poster-10"
+  },
+  {
+    "id": "81",
+    "title": "GTA 6 Shinjuku Bar Scene [角色設計]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/character_case12/output.jpg",
+    "full_prompt": "{argument name=\"game\" default=\"GTA 6\"} in {argument name=\"bar name\" default=\"La Jetée Bar\"} (that pays homage to Chris Marker) in {argument name=\"location\" default=\"Shinjuku, Tokyo\"}",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "character-12"
   }
 ]
