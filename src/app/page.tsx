@@ -21,6 +21,8 @@ function GalleryContent() {
   const [activeFilter, setActiveFilter] = useState('all');
   const [visibleCount, setVisibleCount] = useState(CARDS_PER_PAGE);
   const [quickViewId, setQuickViewId] = useState<string | number | null>(null);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const searchRef = React.useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 1000);
@@ -91,6 +93,26 @@ function GalleryContent() {
     if (element) element.scrollIntoView({ behavior: 'smooth' });
   };
 
+  // Search autocomplete suggestions
+  const suggestions = useMemo(() => {
+    if (searchQuery.length < 2) return [];
+    return promptsWithImages
+      .filter(p => p.title.toLowerCase().includes(searchQuery.toLowerCase()))
+      .slice(0, 5)
+      .map(p => ({ id: p.id, title: p.title }));
+  }, [searchQuery, promptsWithImages]);
+
+  // Click outside to close suggestions
+  React.useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
+        setShowSuggestions(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, []);
+
   const totalCount = filteredPrompts.length;
 
   return (
@@ -156,32 +178,67 @@ function GalleryContent() {
         {/* ─── FILTER BAR (glass morphism) ─── */}
         <div className="glass-panel rounded-2xl p-2 mb-10 flex flex-col md:flex-row items-stretch md:items-center gap-3">
           {/* Search */}
-          <div className="relative flex-1 min-w-0">
-            <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500 text-sm leading-none">🔍</span>
+          <div className="relative flex-1 min-w-0" ref={searchRef}>
+            <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500 text-sm leading-none z-10">🔍</span>
             <input
               type="text"
               placeholder={t('gallery.searchPlaceholder')}
               className="w-full pl-10 pr-4 py-2.5 bg-black/40 border border-zinc-800 rounded-xl text-sm focus:ring-2 focus:ring-indigo-500 outline-none transition-all placeholder:text-zinc-600"
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+                setShowSuggestions(true);
+              }}
+              onFocus={() => setShowSuggestions(true)}
             />
+            {/* Autocomplete dropdown */}
+            {showSuggestions && suggestions.length > 0 && (
+              <div className="absolute top-full left-0 right-0 mt-1 z-50 glass-panel rounded-xl overflow-hidden shadow-2xl border-t-0">
+                {suggestions.map((s) => (
+                  <Link
+                    key={s.id}
+                    href={`/prompt/${s.id}`}
+                    className="block px-4 py-2.5 text-sm text-zinc-300 hover:bg-white/10 hover:text-white transition-all border-b border-white/5 last:border-0"
+                    onClick={() => setShowSuggestions(false)}
+                  >
+                    <span className="text-indigo-400 mr-2">→</span>
+                    {s.title}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Category pills (horizontal scroll) */}
           <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar flex-shrink-0">
-            {Object.entries(translations.en.gallery.filters).map(([key, value]) => (
-              <button
-                key={key}
-                onClick={() => setActiveFilter(key)}
-                className={`px-3.5 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider transition-all whitespace-nowrap flex items-center gap-1.5 ${
-                  activeFilter === key
-                    ? 'bg-white text-black shadow-lg shadow-white/10'
-                    : 'bg-zinc-800/50 text-zinc-400 hover:bg-zinc-700/50 hover:text-zinc-200'
-                }`}
-              >
-                {t(`gallery.filters.${key}`)}
-              </button>
-            ))}
+            {Object.entries(translations.en.gallery.filters).map(([key, value]) => {
+              const count = key === 'all'
+                ? promptsWithImages.length
+                : promptsWithImages.filter(p =>
+                    p.title.toLowerCase().includes(key.toLowerCase()) ||
+                    p.full_prompt.toLowerCase().includes(key.toLowerCase())
+                  ).length;
+              return (
+                <button
+                  key={key}
+                  onClick={() => setActiveFilter(key)}
+                  className={`px-3.5 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider transition-all whitespace-nowrap flex items-center gap-1.5 ${
+                    activeFilter === key
+                      ? 'bg-white text-black shadow-lg shadow-white/10'
+                      : 'bg-zinc-800/50 text-zinc-400 hover:bg-zinc-700/50 hover:text-zinc-200'
+                  }`}
+                >
+                  {t(`gallery.filters.${key}`)}
+                  <span className={`text-[9px] px-1.5 py-0.5 rounded-full ${
+                    activeFilter === key
+                      ? 'bg-zinc-200 text-zinc-700'
+                      : 'bg-zinc-700/50 text-zinc-500'
+                  }`}>
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
           </div>
 
           {/* Sort dropdown */}
@@ -199,9 +256,41 @@ function GalleryContent() {
           <GallerySkeleton />
         ) : filteredPrompts.length === 0 ? (
           <div className="py-24 text-center">
-            <span className="text-5xl block mb-4">🎨</span>
-            <h3 className="text-xl font-bold text-zinc-300 mb-2">{t('gallery.comingSoon')}</h3>
-            <p className="text-zinc-500 text-sm max-w-md mx-auto">{t('gallery.comingSoonDesc')}</p>
+            {searchQuery || activeFilter !== 'all' ? (
+              <>
+                <span className="text-5xl block mb-4">🔍</span>
+                <h3 className="text-xl font-bold text-zinc-300 mb-2">No matches found</h3>
+                <p className="text-zinc-500 text-sm max-w-md mx-auto mb-8">
+                  Try a different search term or{' '}
+                  <button onClick={() => { setSearchQuery(''); setActiveFilter('all'); }} className="text-indigo-400 hover:underline">
+                    reset all filters
+                  </button>
+                </p>
+                {/* Show suggestions: first 4 prompts as mini cards */}
+                <div className="max-w-4xl mx-auto">
+                  <p className="text-[10px] uppercase tracking-widest text-zinc-600 mb-4">You might like these</p>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    {promptsWithImages.slice(0, 4).map((item) => (
+                      <PromptCard
+                        key={item.id}
+                        id={item.id}
+                        image={item.image}
+                        title={getCardTitle(item.id, item.title, locale)}
+                        tags={[]}
+                        index={0}
+                        onQuickView={setQuickViewId}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                <span className="text-5xl block mb-4">🎨</span>
+                <h3 className="text-xl font-bold text-zinc-300 mb-2">{t('gallery.comingSoon')}</h3>
+                <p className="text-zinc-500 text-sm max-w-md mx-auto">{t('gallery.comingSoonDesc')}</p>
+              </>
+            )}
           </div>
         ) : (
           <>

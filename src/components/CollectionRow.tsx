@@ -20,7 +20,7 @@ interface CollectionRowProps {
 export const CollectionRow = ({ collections }: CollectionRowProps) => {
   return (
     <div className="w-full py-16 px-4 overflow-hidden">
-      <div className="max-w-7xl mx-auto mb-10">
+      <div className="max-w-7xl mx-auto mb-6 md:mb-10 px-2 md:px-0">
         <div className="flex items-end justify-between gap-4">
           <div>
             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tighter text-white mb-2">
@@ -42,7 +42,7 @@ export const CollectionRow = ({ collections }: CollectionRowProps) => {
             viewport={{ once: true }}
             transition={{ delay: index * 0.1, duration: 0.5 }}
             whileHover={{ y: -8 }}
-            className="group relative flex-shrink-0 w-[300px] md:w-[450px] aspect-[16/9] rounded-2xl overflow-hidden snap-start cursor-pointer"
+            className="group relative flex-shrink-0 w-[85vw] sm:w-[300px] md:w-[450px] aspect-[16/9] rounded-2xl overflow-hidden snap-start cursor-pointer"
           >
             {/* Background Image with Glassmorphism Overlay */}
             <div className="absolute inset-0 z-0">
