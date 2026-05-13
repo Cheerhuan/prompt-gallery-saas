@@ -3,7 +3,13 @@ import React from 'react';
 export const translations = {
   en: {
     nav: { explore: 'Explore', trending: 'Trending', pricing: 'Pricing', login: 'Login', getStarted: 'Get Started', upgrade: 'Upgrade to Pro' },
-    hero: { badge: 'v2.0 Now Live: Prompt Playground', title: 'Master the Art of AI Prompting', subtitle: 'Stop guessing. Start engineering. Explore a curated gallery of high-conversion prompts and refine them in our professional playground.', ctaPrimary: 'Start Exploring Free', ctaSecondary: 'View Pricing' },
+    hero: { 
+      badge: 'The Definitive Archive of Viral AI Prompts', 
+      title: 'The Internet\'s Most Addictive AI Inspiration Vault', 
+      subtitle: 'Stop guessing. Start creating. Access a curated ecosystem of high-conversion prompts engineered for cinematic results.', 
+      ctaPrimary: 'Explore the Vault', 
+      ctaSecondary: 'View Pricing' 
+    },
     gallery: { searchPlaceholder: 'Search prompts, styles, or models...', sortTrending: 'Trending', sortNewest: 'Newest', sortSaved: 'Most Saved', comingSoon: 'Gallery Coming Soon', comingSoonDesc: 'We\'re curating high-quality example prompts with reference images. Check back soon for the full collection.', empty: 'No prompts match your search.', stats: '{count} prompts · 7 styles · Updated daily', loadMore: 'Load More', loading: 'Loading...', editorsPick: "Editor's Pick", filters: { all: 'All', cinematic: 'Cinematic', anime: 'Anime', realistic: 'Realistic', product: 'Product', portrait: 'Portrait', hyperTactile: 'Hyper-Tactile', futuristicSpatiality: 'Futuristic Spatiality', syntheticNature: 'Synthetic Nature', nextGenStylization: 'Next-Gen Stylization' } },
     detail: { back: '← Back to Gallery', promptId: 'Prompt ID', model: 'Model', copyPrompt: 'Copy Prompt', generateSimilar: 'Generate Similar', evolution: 'Prompt Evolution', original: 'Original', refined: 'Refined', titleSubtitle: 'Engineered for high-fidelity cinematic realism.', playgroundTitle: 'Prompt Playground', playgroundBeta: 'v2.0 Beta', saveCollection: 'Save to Collection', share: 'Share', archiveId: 'ARCHIVE_ID:', engine: 'ENGINE:', synced: 'Prompt Synced ✓', highFidelity: 'High Fidelity Output', baseline: 'Baseline Version', noData: 'NO_DATA_AVAILABLE', refinedArchitecture: 'Refined Architecture', anatomyTitle: 'Prompt Anatomy', subject: 'Subject / Core Concept', style: 'Visual Style / Aesthetics', technical: 'Technical Parameters / Lighting', fullPromptTitle: 'Full Prompt', copyShort: '📋 Copy' },
     playground: { compiled: 'Compiled Prompt', copy: 'Copy', regenerate: '✨ Regenerate Image', regenerating: 'Generating New Version...', fields: { subject: 'Subject', style: 'Style', lighting: 'Lighting', camera: 'Camera', mood: 'Mood' }, placeholders: { subject: 'e.g. A futuristic cyborg', style: 'e.g. Digital Art, Unreal Engine 5', lighting: 'e.g. Volumetric, Neon Glow', camera: 'e.g. 85mm lens, Low Angle', mood: 'e.g. Melancholic, Epic' } },
@@ -16,7 +22,13 @@ export const translations = {
   },
   zh: {
     nav: { explore: '探索', trending: '熱門', pricing: '價格', login: '登錄', getStarted: '立即開始', upgrade: '升級至 Pro' },
-    hero: { badge: 'v2.0 正式上線：提示詞實驗場', title: '掌握 AI 提示詞工程之美', subtitle: '停止盲目嘗試，開始精準工程。探索高轉化率的精選提示詞庫，並在專業實驗場中進行微調。', ctaPrimary: '免費開始探索', ctaSecondary: '查看定價方案' },
+    hero: { 
+      badge: '權威級 AI 提示詞檔案庫', 
+      title: '互聯網上最令人上癮的 AI 靈感金庫', 
+      subtitle: '停止盲目嘗試，開始精準創作。獲取經過工程化設計、能產生電影級效果的高轉化率提示詞生態系統。', 
+      ctaPrimary: '探索金庫', 
+      ctaSecondary: '查看定價方案' 
+    },
     gallery: { searchPlaceholder: '搜索提示詞、風格或模型...', sortTrending: '熱門', sortNewest: '最新', sortSaved: '最多收藏', comingSoon: '圖庫即將上線', comingSoonDesc: '我們正在策劃附帶參考圖片的優質提示詞範例。敬請期待完整圖庫。', empty: '沒有符合搜索條件的提示詞。', stats: '{count} 個提示詞 · 7 種風格 · 每日更新', loadMore: '載入更多', loading: '載入中...', editorsPick: '編輯精選', filters: { all: '全部', cinematic: '電影感', anime: '動漫', realistic: '寫實', product: '產品', portrait: '人像', hyperTactile: '超感知觸感', futuristicSpatiality: '未來主義空間', syntheticNature: '合成自然', nextGenStylization: '次世代風格化' } },
     cardTitles: {
       "1": "液態克羅姆", "2": "生物數位融合", "3": "以太玻璃擬態", "4": "極致觸感超現實", "5": "工業高級時裝",
@@ -39,7 +51,13 @@ export const translations = {
   },
   ja: {
     nav: { explore: '探索', trending: 'トレンド', pricing: '料金プラン', login: 'ログイン', getStarted: '今すぐ開始', upgrade: 'Proにアップグレード' },
-    hero: { badge: 'v2.0 リリース: プロンプトプレイグラウンド', title: 'AIプロンプトエンジニアリングを極める', subtitle: '推測はやめて、設計を。厳選された高コンバージョンプロンプトを探索し、プロフェッショナルな環境で微調整してください。', ctaPrimary: '無料で探索を開始', ctaSecondary: '料金プランを見る' },
+    hero: { 
+      badge: 'ヴァイラルAIプロンプトの決定版アーカイブ', 
+      title: 'インターネットで最も中毒性の高いAIインスピレーション保管庫', 
+      subtitle: '推測はやめて、創造を始めよう。映画的な結果のために設計された高コンバージョンプロンプトの厳選エコシステム。', 
+      ctaPrimary: '保管庫を探索', 
+      ctaSecondary: '料金プランを見る' 
+    },
     gallery: { searchPlaceholder: 'プロンプト、スタイル、モデルを検索...', sortTrending: 'トレンド', sortNewest: '最新', sortSaved: '保存数順', comingSoon: 'ギャラリー近日公開', comingSoonDesc: '参考画像付きの高品質なプロンプト例をキュレーション中です。近日公開予定です。', empty: '検索に一致するプロンプトはありません。', stats: '{count} 個のプロンプト · 7つのスタイル · 毎日更新', loadMore: 'もっと読み込む', loading: '読み込み中...', editorsPick: 'エディターズピック', filters: { all: 'すべて', cinematic: 'シネマティック', anime: 'アニメ', realistic: 'リアリスティック', product: 'プロダクト', portrait: 'ポートレート', hyperTactile: 'ハイパータクタイル', futuristicSpatiality: '未来的空間性', syntheticNature: '合成的自然', nextGenStylization: '次世代スタイリング' } },
     cardTitles: {
       "1": "フルイドクローム", "2": "バイオデジタル融合", "3": "エセリアルグラスモーフィズム", "4": "ハイパータクタイル超現実", "5": "インダストリアルハイファッション",
@@ -62,7 +80,13 @@ export const translations = {
   },
   ko: {
     nav: { explore: '탐색', trending: '트렌딩', pricing: '가격', login: '로그인', getStarted: '시작하기', upgrade: 'Pro로 업그레이드' },
-    hero: { badge: 'v2.0 정식 출시: 프롬프트 플레이그라운드', title: 'AI 프롬프트 엔지니어링의 예술을 마스터하세요', subtitle: '추측은 그만, 이제는 설계입니다. 엄선된 고전환 프롬프트 갤러리를 탐색하고 전문 플레이그라운드에서 미세 조정하세요.', ctaPrimary: '무료 탐색 시작', ctaSecondary: '가격 보기' },
+    hero: { 
+      badge: '바이럴 AI 프롬프트의 결정판 아카이브', 
+      title: '인터넷에서 가장 중독성 있는 AI 영감 보관소', 
+      subtitle: '추측은 그만, 창작을 시작하세요. 영화같은 결과를 위해 설계된 고전환율 프롬프트의 엄선된 에코시스템.', 
+      ctaPrimary: '보관소 탐험', 
+      ctaSecondary: '가격 보기' 
+    },
     gallery: { searchPlaceholder: '프롬프트, 스타일 또는 모델 검색...', sortTrending: '트렌딩', sortNewest: '최신순', sortSaved: '가장 많이 저장됨', comingSoon: '갤러리 출시 예정', comingSoonDesc: '참조 이미지가 포함된 고품질 프롬프트 예시를 큐레이팅 중입니다. 곧 전체 컬렉션을 확인하세요.', empty: '검색 결과가 없습니다.', stats: '{count}개 프롬프트 · 7가지 스타일 · 매일 업데이트', loadMore: '더 보기', loading: '로딩 중...', editorsPick: '에디터 픽', filters: { all: '전체', cinematic: '시네마틱', anime: '애니메이션', realistic: '사실적', product: '제품', portrait: '인물', hyperTactile: '하이퍼-택타일', futuristicSpatiality: '미래적 공간성', syntheticNature: '합성 자연', nextGenStylization: '차세대 스타일화' } },
     cardTitles: {
       "1": "플루이드 크롬", "2": "바이오-디지털 융합", "3": "에테리얼 글라스모피즘", "4": "하이퍼-택타일 초현실", "5": "인더스트리얼 하이패션",
