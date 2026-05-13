@@ -39,11 +39,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* ── Critical image preload (OG image) ── */}
         <link rel="preload" href="/prompt-gallery-saas/images/attack-on-titan.jpg" as="image" fetchPriority="high" />
 
+        {/* ── PWA Support ── */}
+        <link rel="manifest" href="/prompt-gallery-saas/manifest.json" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="theme-color" content="#030303" />
+        <link rel="apple-touch-icon" href="/prompt-gallery-saas/icons/icon-192.png" />
+
         {/* ── Hreflang tags (i18n is client-side; x-default + en is safe) ── */}
         <link rel="alternate" hrefLang="x-default" href="https://cheerhuan.github.io/prompt-gallery-saas/" />
         <link rel="alternate" hrefLang="en" href="https://cheerhuan.github.io/prompt-gallery-saas/" />
       </head>
       <body>
+        {/* ── Service Worker Registration for PWA ── */}
+        <script dangerouslySetInnerHTML={{ __html: `if('serviceWorker' in navigator) { navigator.serviceWorker.register('/prompt-gallery-saas/sw.js'); }` }} />
+
         {/* ── Plausible Analytics (production only) ── */}
         {process.env.NODE_ENV === 'production' && (
           <script defer data-domain="cheerhuan.github.io" src="https://plausible.io/js/script.js" />
