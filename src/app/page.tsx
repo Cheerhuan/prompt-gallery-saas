@@ -22,6 +22,28 @@ export default function LandingPage() {
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 1000);
+
+    // Read collection param from URL to auto-apply filter
+    const params = new URLSearchParams(window.location.search);
+    const collection = params.get('collection');
+    if (collection) {
+      const filterMap: Record<string, string> = {
+        cinematic: 'cinematic',
+        cyberpunk: 'cyberpunk',
+        hyperreal: 'hyperreal',
+        spatial: 'spatial',
+      };
+      const keyword = filterMap[collection];
+      if (keyword) {
+        setSearchQuery(keyword);
+        // Scroll to gallery after load
+        setTimeout(() => {
+          const el = document.getElementById('gallery-section');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 600);
+      }
+    }
+
     return () => clearTimeout(timer);
   }, []);
 
