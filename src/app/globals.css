@@ -1,17 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --background: #030303;
+  --background: hsl(0, 0%, 2%);
   --foreground: #ededed;
   --accent-primary: #6366f1;
   --accent-secondary: #a855f7;
   --accent-tertiary: #ec4899;
+  --glass-bg: hsla(0, 0%, 100%, 0.03);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: 'Instrument Sans';
+  --font-serif: 'Instrument Serif';
   --font-mono: var(--font-geist-mono);
 }
 
@@ -22,7 +24,16 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Instrument Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* ── Editorial headings (Instrument Serif) ── */
+h1, h2, h3 {
+  font-family: 'Instrument Serif', serif;
+}
+
+h1 {
+  font-style: italic;
 }
 
 /* ── Custom focus-visible ring (replaces default blue outline) ── */
@@ -59,11 +70,24 @@ body {
 
 /* ── Glass morphism utility ── */
 .glass-panel {
-  background: rgba(10, 10, 12, 0.6);
+  background: var(--glass-bg);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+}
+
+/* ── Subtle grain texture overlay ── */
+.grain-overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.5'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  mix-blend-mode: overlay;
 }
 
 /* ── Stagger entrance animation ── */
@@ -102,8 +126,6 @@ body {
   animation: pulse-dot 2s ease-in-out infinite;
 }
 
-/* ── Grid gap for masonry-like bento ── */
-
 /* ── Hover shine effect ── */
 .shine-effect {
   position: relative;
@@ -138,4 +160,9 @@ body {
   background: linear-gradient(90deg, #18181b 25%, #27272a 50%, #18181b 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* ── Custom cursor: hide native cursor on desktop only ── */
+@media (hover: hover) and (pointer: fine) {
+  * { cursor: none !important; }
 }

@@ -9,7 +9,6 @@ import { useI18n } from '@/components/I18nProvider';
 import { BeforeAfter } from '@/components/BeforeAfter';
 import { CollectionRow } from '@/components/CollectionRow';
 import { MagneticButton } from '@/components/MagneticButton';
-import { NewsletterForm } from '@/components/NewsletterForm';
 import promptsData from '@/data/prompts.json';
 import embeddingsData from '@/data/embeddings.json';
 import { searchPrompts } from '@/lib/semantic-search';
@@ -618,24 +617,53 @@ function GalleryContent() {
         />
       </section>
 
-      {/* ─── NEWSLETTER SECTION ─── */}
-      <section className="border-t border-zinc-800/50 py-20">
-        <div className="max-w-2xl mx-auto px-4 text-center">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-indigo-400 font-bold mb-4 block">
-            Stay Curated
-          </span>
-          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tighter mb-4">
-            Get the <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-pink-400">Best Prompts</span> Weekly
-          </h2>
-          <p className="text-zinc-500 mb-8 max-w-md mx-auto">
-            Join 1,000+ creators. No spam, just the most powerful prompts delivered every Monday.
-          </p>
-          <NewsletterForm />
+      {/* ─── FOOTER: Editorial Statement ─── */}
+      <footer className="border-t border-zinc-800/30 mt-24">
+        <div className="max-w-7xl mx-auto px-4 py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            {/* 宣言區 - 佔多數空間 */}
+            <div className="lg:col-span-8">
+              <h2 className="text-6xl md:text-8xl lg:text-9xl font-serif italic font-bold leading-[0.9] tracking-tighter text-white/10 hover:text-white/20 transition-colors duration-1000 select-none">
+                Prompt<br />Gallery
+              </h2>
+              <p className="text-sm text-zinc-600 mt-8 max-w-md leading-relaxed font-light">
+                A curated ecosystem of high-conversion prompts engineered for cinematic results. 
+                Every prompt, tested. Every result, guaranteed.
+              </p>
+            </div>
+            {/* 連結區 - 最小資訊 */}
+            <div className="lg:col-span-4 flex flex-col justify-between">
+              <div className="space-y-6">
+                <div className="space-y-2">
+                  <span className="text-[10px] uppercase tracking-[0.2em] text-zinc-600 font-medium">Resources</span>
+                  <div className="flex flex-col gap-1.5">
+                    {['Explore', 'Trending', 'Leaderboard'].map(link => (
+                      <Link key={link} href={`/${link.toLowerCase()}`} className="text-sm text-zinc-400 hover:text-white transition-colors w-fit">
+                        {link}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <span className="text-[10px] uppercase tracking-[0.2em] text-zinc-600 font-medium">Community</span>
+                  <div className="flex flex-col gap-1.5">
+                    {['Submit Prompt', 'My Vault', 'Pricing'].map(link => (
+                      <Link key={link} href={`/${link.toLowerCase().replace(' ', '-')}`} className="text-sm text-zinc-400 hover:text-white transition-colors w-fit">
+                        {link}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div className="mt-12 lg:mt-0">
+                <p className="text-[10px] text-zinc-700 font-mono">
+                  © 2026 Prompt Gallery · Engineered with intent
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
-
-      {/* ─── DEPLOYMENT TAG ─── */}
-      <div id="hermes-deploy-tag" data-version="20260513-V2" className="hidden" />
+      </footer>
 
       {/* ─── QUICK VIEW MODAL ─── */}
       {quickViewPrompt && (

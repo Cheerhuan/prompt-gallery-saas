@@ -1,5 +1,6 @@
 import React from 'react';
 import { I18nProvider } from '@/components/I18nProvider';
+import CustomCursor from '@/components/CustomCursor';
 import './globals.css';
 import type { Metadata } from 'next';
 
@@ -30,11 +31,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta name="deploy-verify" content="SAAS_20260513_V2" />
 
-        {/* ── Font preloading ── */}
+        {/* ── Font preloading (Instrument Sans + Instrument Serif) ── */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" as="style" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" as="style" />
+        <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
 
         {/* ── Critical image preload (OG image) ── */}
         <link rel="preload" href="/prompt-gallery-saas/images/attack-on-titan.jpg" as="image" fetchPriority="high" />
@@ -52,6 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="alternate" hrefLang="en" href="https://cheerhuan.github.io/prompt-gallery-saas/" />
       </head>
       <body>
+        <div className="grain-overlay" />
         {/* ── Service Worker Registration for PWA ── */}
         <script dangerouslySetInnerHTML={{ __html: `if('serviceWorker' in navigator) { navigator.serviceWorker.register('/prompt-gallery-saas/sw.js'); }` }} />
 
@@ -59,6 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {process.env.NODE_ENV === 'production' && (
           <script defer data-domain="cheerhuan.github.io" src="https://plausible.io/js/script.js" />
         )}
+        <CustomCursor />
         <I18nProvider>
           {children}
         </I18nProvider>
