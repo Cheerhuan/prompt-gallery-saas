@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { isSaved, toggleSave } from '@/lib/vault';
 import { motion } from 'framer-motion';
+import { use3DTilt } from '@/hooks/use3DTilt';
 
 interface PromptCardProps {
   id: string | number;
@@ -31,6 +32,14 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
   const [saved, setSaved] = useState(false);
   const hasImage = image && image.trim() !== '';
   const isPro = tier === 'pro';
+
+  // 3D tilt — only for standard cards (not featured, not mini)
+  const isStandardCard = !featured && !mini;
+  const { ref: tiltRef, style: tiltStyle } = use3DTilt({
+    maxTilt: 8,
+    scale: 1.015,
+    speed: 500,
+  });
 
   // Sync saved state from localStorage + listen for cross-component updates
   useEffect(() => {
@@ -116,8 +125,11 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
   };
 
   // ── Shared Gradient Border Wrapper ──
-  const CardWrapper = ({ children, className = "", style }: { children: React.ReactNode, className?: string, style?: React.CSSProperties }) => (
-    <div className={`group relative p-[1px] rounded-2xl transition-all duration-500 hover:scale-[1.02] active:scale-95 cursor-pointer animate-fade-up shine-effect ${className}`} style={style}>
+  const CardWrapper = ({ children, className = "", style, tiltEnabled, tiltRef, tiltStyle }: { children: React.ReactNode, className?: string, style?: React.CSSProperties, tiltEnabled?: boolean, tiltRef?: React.RefObject<HTMLDivElement | null>, tiltStyle?: { transform: string; transition: string } }) => {
+    const combinedRef = tiltEnabled && tiltRef ? tiltRef : undefined;
+    const combinedStyle = tiltEnabled && tiltStyle ? { ...style, ...tiltStyle } : style;
+    return (
+    <div ref={combinedRef as any} className={`group relative p-[1px] rounded-2xl transition-all duration-500 hover:scale-[1.02] active:scale-95 cursor-pointer animate-fade-up shine-effect ${className}`} style={combinedStyle}>
       {/* Hover Glow Border - gold for PRO, indigo for free */}
       <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-[2px] ${
         isPro 
@@ -129,6 +141,7 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
       </div>
     </div>
   );
+  };
 
   // ── Featured card: cinematic 2x wide ──
   if (featured) {
@@ -216,6 +229,9 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
     <CardWrapper 
       className="h-full"
       style={{ animationDelay: `${Math.min(index * 60, 600)}ms` } as any}
+      tiltEnabled={isStandardCard}
+      tiltRef={tiltRef}
+      tiltStyle={tiltStyle}
     >
       <Link href={`/prompt/${id}`} className="block">
         <div className="aspect-[3/4] overflow-hidden bg-zinc-800 relative">

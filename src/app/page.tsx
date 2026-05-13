@@ -8,12 +8,13 @@ import { GallerySkeleton } from '@/components/Skeleton';
 import { useI18n } from '@/components/I18nProvider';
 import { BeforeAfter } from '@/components/BeforeAfter';
 import { CollectionRow } from '@/components/CollectionRow';
+import { MagneticButton } from '@/components/MagneticButton';
 import promptsData from '@/data/prompts.json';
 import embeddingsData from '@/data/embeddings.json';
 import { searchPrompts } from '@/lib/semantic-search';
 import type { SearchResult } from '@/lib/semantic-search';
 import { translations, getCardTitle } from '@/lib/i18n';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const CARDS_PER_PAGE = 20;
 
@@ -29,7 +30,19 @@ function GalleryContent() {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const searchRef = React.useRef<HTMLDivElement>(null);
   const sentinelRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLDivElement>(null);
   const [semanticSearchIds, setSemanticSearchIds] = useState<Set<string | number>>(new Set());
+
+  // Scroll-based parallax for Hero section
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  });
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const heroY = useTransform(scrollYProgress, [0, 1], [0, -120]);
+  const orb1Y = useTransform(scrollYProgress, [0, 1], [0, -200]);
+  const orb2Y = useTransform(scrollYProgress, [0, 1], [0, -300]);
+  const orb3Y = useTransform(scrollYProgress, [0, 1], [0, -150]);
 
   // IntersectionObserver for infinite scroll
   const hasMoreRef = useRef(true);
@@ -170,7 +183,22 @@ function GalleryContent() {
       <SaaSNavbar />
 
       {/* ─── HERO SECTION ─── */}
-      <section className="pt-36 pb-20 px-4 text-center max-w-5xl mx-auto">
+      <section ref={heroRef} className="pt-36 pb-20 px-4 text-center max-w-5xl mx-auto relative overflow-hidden">
+        {/* Background gradient orbs — scroll parallax */}
+        <motion.div
+          style={{ y: orb1Y }}
+          className="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-indigo-500/10 blur-[120px] pointer-events-none"
+        />
+        <motion.div
+          style={{ y: orb2Y }}
+          className="absolute -top-20 -right-32 w-[30rem] h-[30rem] rounded-full bg-purple-500/8 blur-[140px] pointer-events-none"
+        />
+        <motion.div
+          style={{ y: orb3Y }}
+          className="absolute top-40 left-1/2 -translate-x-1/2 w-[40rem] h-[40rem] rounded-full bg-pink-500/5 blur-[160px] pointer-events-none"
+        />
+
+        <motion.div style={{ opacity: heroOpacity, y: heroY }}>
         <motion.div
           variants={{
             hidden: { opacity: 0 },
@@ -225,19 +253,21 @@ function GalleryContent() {
             }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <button
+            <MagneticButton
               onClick={scrollToGallery}
               className="w-full sm:w-auto px-10 py-4 bg-white text-black rounded-full font-bold hover:bg-zinc-200 transition-all transform hover:scale-105 active:scale-95 shadow-xl shadow-white/10"
             >
               {t('hero.ctaPrimary')}
-            </button>
-            <Link
+            </MagneticButton>
+            <MagneticButton
+              as="link"
               href="/pricing"
               className="w-full sm:w-auto px-8 py-4 bg-zinc-900 text-white rounded-full font-bold border border-zinc-800 hover:bg-zinc-800 transition-all text-center"
             >
               {t('hero.ctaSecondary')}
-            </Link>
+            </MagneticButton>
           </motion.div>
+        </motion.div>
         </motion.div>
       </section>
 
