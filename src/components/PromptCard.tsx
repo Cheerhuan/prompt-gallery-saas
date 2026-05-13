@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { isSaved, toggleSave } from '@/lib/vault';
+import { isLiked, toggleLike } from '@/lib/likes';
+import { AuthModal } from './AuthModal';
 import { motion } from 'framer-motion';
 import { use3DTilt } from '@/hooks/use3DTilt';
 
@@ -30,6 +32,8 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
   const [imgFailed, setImgFailed] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [liked, setLiked] = useState(false);
+  const [showAuthModal, setShowAuthModal] = useState(false);
   const hasImage = image && image.trim() !== '';
   const isPro = tier === 'pro';
 
@@ -41,12 +45,20 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
     speed: 500,
   });
 
-  // Sync saved state from localStorage + listen for cross-component updates
+  // Sync saved + liked state from localStorage + listen for cross-component updates
   useEffect(() => {
     setSaved(isSaved(id));
-    const handler = () => setSaved(isSaved(id));
+    setLiked(isLiked(id));
+    const handler = () => {
+      setSaved(isSaved(id));
+      setLiked(isLiked(id));
+    };
     window.addEventListener('vault-change', handler);
-    return () => window.removeEventListener('vault-change', handler);
+    window.addEventListener('likes-change', handler);
+    return () => {
+      window.removeEventListener('vault-change', handler);
+      window.removeEventListener('likes-change', handler);
+    };
   }, [id]);
 
   if (!hasImage || imgFailed) return null;
@@ -70,6 +82,20 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
     toggleSave(id);
     setSaved(!saved);
     window.plausible?.('SavePrompt', {props: {id: String(id)}});
+  };
+
+  const handleLikeClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    // Check if user is logged in via localStorage mock user
+    const storedUser = localStorage.getItem('supabase-mock-user');
+    if (!storedUser) {
+      setShowAuthModal(true);
+      return;
+    }
+    const user = JSON.parse(storedUser);
+    toggleLike(id, user.id);
+    setLiked(!liked);
   };
 
   const handleShare = (e: React.MouseEvent) => {
@@ -96,6 +122,27 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
         stroke="currentColor"
         strokeWidth={2}
         fill={saved ? 'currentColor' : 'none'}
+      >
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+      </svg>
+    </button>
+  );
+
+  // ── Like Button ──
+  const LikeBtn = () => (
+    <button
+      onClick={handleLikeClick}
+      className={`absolute top-3 right-14 z-20 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 backdrop-blur-md
+        bg-black/30 hover:bg-black/60 border border-white/10 hover:border-white/30
+        opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 ${isPro ? '!opacity-100' : ''}`}
+      aria-label={liked ? 'Unlike' : 'Like'}
+    >
+      <svg
+        className={`w-4 h-4 transition-colors ${liked ? 'text-red-400 fill-red-400' : 'text-white/70 fill-transparent'}`}
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={2}
+        fill={liked ? 'currentColor' : 'none'}
       >
         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
       </svg>
@@ -170,6 +217,7 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
             <ProBadge />
             {isPro && <ProLock />}
             <SaveBtn />
+            {!isPro && <LikeBtn />}
 
             <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
               <div className="flex items-center gap-3 mb-3">
@@ -204,6 +252,7 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
             )}
           </div>
         </Link>
+        <AuthModal open={showAuthModal} onClose={() => setShowAuthModal(false)} />
       </CardWrapper>
     );
   }
@@ -225,11 +274,13 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
             <ProBadge />
             {isPro && <ProLock />}
             <SaveBtn />
+            {!isPro && <LikeBtn />}
             <div className="absolute bottom-0 left-0 right-0 p-3">
               <h3 className="text-xs font-bold text-white leading-tight line-clamp-2 tracking-tight">{title}</h3>
             </div>
           </div>
         </Link>
+        <AuthModal open={showAuthModal} onClose={() => setShowAuthModal(false)} />
       </CardWrapper>
     );
   }
@@ -256,6 +307,7 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
           <ProBadge />
           {isPro && <ProLock />}
           <SaveBtn />
+          {!isPro && <LikeBtn />}
 
           <div className={`absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-opacity duration-300 ${isPro ? '' : 'group-hover:opacity-0'}`}>
             <h3 className="text-sm font-bold text-white leading-tight line-clamp-2 tracking-tight">{title}</h3>
@@ -312,6 +364,7 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
           )}
         </div>
       </Link>
+      <AuthModal open={showAuthModal} onClose={() => setShowAuthModal(false)} />
     </CardWrapper>
   );
 };

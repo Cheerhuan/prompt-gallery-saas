@@ -3,10 +3,13 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useI18n } from '@/components/I18nProvider';
 import { getSavedIds } from '@/lib/vault';
+import { AuthModal } from './AuthModal';
 
 export const SaaSNavbar = ({ userTier = 'free' }) => {
   const { t, setLocale, locale } = useI18n();
   const [vaultCount, setVaultCount] = useState(0);
+  const [showAuthModal, setShowAuthModal] = useState(false);
+  const [user, setUser] = useState<{ full_name?: string; avatar_url?: string } | null>(null);
 
   useEffect(() => {
     setVaultCount(getSavedIds().length);
@@ -15,8 +18,35 @@ export const SaaSNavbar = ({ userTier = 'free' }) => {
     return () => window.removeEventListener('vault-change', handler);
   }, []);
 
+  // Listen for auth changes (mock mode + real supabase)
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const detail = (e as CustomEvent).detail;
+      if (detail?.user) {
+        setUser({
+          full_name: detail.user.user_metadata?.full_name || detail.user.user_metadata?.name || 'User',
+          avatar_url: detail.user.user_metadata?.avatar_url || detail.user.user_metadata?.picture || '',
+        });
+      } else {
+        setUser(null);
+      }
+    };
+    window.addEventListener('supabase-auth-change', handler);
+
+    // Restore from localStorage on mount
+    try {
+      const stored = localStorage.getItem('supabase-mock-user');
+      if (stored) {
+        const u = JSON.parse(stored);
+        setUser({ full_name: u.full_name, avatar_url: u.avatar_url });
+      }
+    } catch {}
+
+    return () => window.removeEventListener('supabase-auth-change', handler);
+  }, []);
+
   const handleLogin = () => {
-    alert('Login system is coming soon. Please check our pricing for Pro access!');
+    setShowAuthModal(true);
   };
 
   return (
@@ -62,9 +92,22 @@ export const SaaSNavbar = ({ userTier = 'free' }) => {
           )}
           <button 
             onClick={handleLogin}
-            className="text-sm text-zinc-400 hover:text-white transition-colors"
+            className="flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors"
           >
-            {t('nav.login')}
+            {user ? (
+              <>
+                {user.avatar_url ? (
+                  <img src={user.avatar_url} alt="" className="w-7 h-7 rounded-full object-cover ring-1 ring-zinc-700" referrerPolicy="no-referrer" />
+                ) : (
+                  <div className="w-7 h-7 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-[10px] font-bold text-white">
+                    {(user.full_name || 'U').charAt(0).toUpperCase()}
+                  </div>
+                )}
+                <span className="hidden sm:inline text-xs">{user.full_name || 'User'}</span>
+              </>
+            ) : (
+              t('nav.login')
+            )}
           </button>
           <Link 
             href="/pricing" 
@@ -74,6 +117,7 @@ export const SaaSNavbar = ({ userTier = 'free' }) => {
           </Link>
         </div>
       </div>
+      <AuthModal open={showAuthModal} onClose={() => setShowAuthModal(false)} />
     </nav>
   );
 };
