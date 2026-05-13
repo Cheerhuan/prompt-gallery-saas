@@ -5,8 +5,8 @@ export const translations = {
     nav: { explore: 'Explore', trending: 'Trending', pricing: 'Pricing', login: 'Login', getStarted: 'Get Started', upgrade: 'Upgrade to Pro' },
     hero: { 
       badge: 'The Definitive Archive of Viral AI Prompts', 
-      title: 'The Internet\'s Most Addictive AI Inspiration Vault', 
-      subtitle: 'Stop guessing. Start creating. Access a curated ecosystem of high-conversion prompts engineered for cinematic results.', 
+      title: 'The AI Prompt Vault', 
+      subtitle: 'Every prompt here is engineered to deliver. Curated, tested, and ready to use.', 
       ctaPrimary: 'Explore the Vault', 
       ctaSecondary: 'View Pricing' 
     },
@@ -24,8 +24,8 @@ export const translations = {
     nav: { explore: '探索', trending: '熱門', pricing: '價格', login: '登錄', getStarted: '立即開始', upgrade: '升級至 Pro' },
     hero: { 
       badge: '權威級 AI 提示詞檔案庫', 
-      title: '互聯網上最令人上癮的 AI 靈感金庫', 
-      subtitle: '停止盲目嘗試，開始精準創作。獲取經過工程化設計、能產生電影級效果的高轉化率提示詞生態系統。', 
+      title: 'AI 提示詞金庫', 
+      subtitle: '每個提示詞都經過工程化設計、測試與驗證，開箱即用。', 
       ctaPrimary: '探索金庫', 
       ctaSecondary: '查看定價方案' 
     },
@@ -53,8 +53,8 @@ export const translations = {
     nav: { explore: '探索', trending: 'トレンド', pricing: '料金プラン', login: 'ログイン', getStarted: '今すぐ開始', upgrade: 'Proにアップグレード' },
     hero: { 
       badge: 'ヴァイラルAIプロンプトの決定版アーカイブ', 
-      title: 'インターネットで最も中毒性の高いAIインスピレーション保管庫', 
-      subtitle: '推測はやめて、創造を始めよう。映画的な結果のために設計された高コンバージョンプロンプトの厳選エコシステム。', 
+      title: 'AI プロンプト ボールト', 
+      subtitle: 'すべてのプロンプトは実戦でテスト済み。厳選され、すぐに使えます。', 
       ctaPrimary: '保管庫を探索', 
       ctaSecondary: '料金プランを見る' 
     },
@@ -82,8 +82,8 @@ export const translations = {
     nav: { explore: '탐색', trending: '트렌딩', pricing: '가격', login: '로그인', getStarted: '시작하기', upgrade: 'Pro로 업그레이드' },
     hero: { 
       badge: '바이럴 AI 프롬프트의 결정판 아카이브', 
-      title: '인터넷에서 가장 중독성 있는 AI 영감 보관소', 
-      subtitle: '추측은 그만, 창작을 시작하세요. 영화같은 결과를 위해 설계된 고전환율 프롬프트의 엄선된 에코시스템.', 
+      title: 'AI 프롬프트 볼트', 
+      subtitle: '모든 프롬프트는 엄선되고 테스트되었습니다. 바로 사용 가능합니다.', 
       ctaPrimary: '보관소 탐험', 
       ctaSecondary: '가격 보기' 
     },
