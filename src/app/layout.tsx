@@ -29,13 +29,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        <meta name="deploy-verify" content="SAAS_20260513_V2" />
+        <meta name="deploy-verify" content="SAAS_20260513_V3" />
 
-        {/* ── Font preloading (Instrument Sans + Instrument Serif) ── */}
+        {/* ── Font preloading (Inter + Plus Jakarta Sans) ── */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" as="style" />
-        <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" as="style" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
         {/* ── Critical image preload (OG image) ── */}
         <link rel="preload" href="/prompt-gallery-saas/images/attack-on-titan.jpg" as="image" fetchPriority="high" />
