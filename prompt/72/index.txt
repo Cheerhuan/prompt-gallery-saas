@@ -7,14 +7,52 @@
 b:I[97367,["/prompt-gallery-saas/_next/static/chunks/0z-otq9dioh83.js","/prompt-gallery-saas/_next/static/chunks/0d3shmwh5_nmn.js"],"ViewportBoundary"]
 d:I[97367,["/prompt-gallery-saas/_next/static/chunks/0z-otq9dioh83.js","/prompt-gallery-saas/_next/static/chunks/0d3shmwh5_nmn.js"],"MetadataBoundary"]
 f:I[68027,["/prompt-gallery-saas/_next/static/chunks/0z-otq9dioh83.js","/prompt-gallery-saas/_next/static/chunks/0d3shmwh5_nmn.js"],"default",1]
-:HL["/prompt-gallery-saas/_next/static/chunks/15ahy.8ilvrn1.css","style"]
-0:{"P":null,"c":["","prompt","72",""],"q":"","i":false,"f":[[["",{"children":["prompt",{"children":[["id","72","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/prompt-gallery-saas/_next/static/chunks/15ahy.8ilvrn1.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/0z-otq9dioh83.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/0d3shmwh5_nmn.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":[["$","head",null,{"children":["$","meta",null,{"name":"deploy-verify","content":"SAAS_20260508_V1"}]}],["$","body",null,{"children":["$","$L2",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/09_atjtcvpb8-.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/0oa-8cc1~~ucu.js","async":true,"nonce":"$undefined"}]],"$L5"]}],{"children":[["$","$1","c",{"children":["$L6",null,["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]]}],{},null,false,null]},null,false,null]},null,false,"$@a"]},null,false,null],["$","$1","h",{"children":[null,["$","$Lb",null,{"children":"$Lc"}],["$","div",null,{"hidden":true,"children":["$","$Ld",null,{"children":["$","$8",null,{"name":"Next.Metadata","children":"$Le"}]}]}],null]}],false]],"m":"$undefined","G":["$f",[["$","link","0",{"rel":"stylesheet","href":"/prompt-gallery-saas/_next/static/chunks/15ahy.8ilvrn1.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"u7fr7sWErvTAPjFl0HKDs"}
+:HL["/prompt-gallery-saas/_next/static/chunks/0tdn_kn8hi0o0.css","style"]
+0:{"P":null,"c":["","prompt","72",""],"q":"","i":false,"f":[[["",{"children":["prompt",{"children":[["id","72","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/prompt-gallery-saas/_next/static/chunks/0tdn_kn8hi0o0.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/0z-otq9dioh83.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/0d3shmwh5_nmn.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":[["$","head",null,{"children":["$","meta",null,{"name":"deploy-verify","content":"SAAS_20260508_V1"}]}],["$","body",null,{"children":["$","$L2",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/09_atjtcvpb8-.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/0oa-8cc1~~ucu.js","async":true,"nonce":"$undefined"}]],"$L5"]}],{"children":[["$","$1","c",{"children":["$L6",null,["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]]}],{},null,false,null]},null,false,null]},null,false,"$@a"]},null,false,null],["$","$1","h",{"children":[null,["$","$Lb",null,{"children":"$Lc"}],["$","div",null,{"hidden":true,"children":["$","$Ld",null,{"children":["$","$8",null,{"name":"Next.Metadata","children":"$Le"}]}]}],null]}],false]],"m":"$undefined","G":["$f",[["$","link","0",{"rel":"stylesheet","href":"/prompt-gallery-saas/_next/static/chunks/0tdn_kn8hi0o0.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"BOnmnRfmndvgx_UImuSz5"}
 10:[]
 a:"$W10"
 6:E{"digest":"NEXT_HTTP_ERROR_FALLBACK;404"}
 11:I[75336,["/prompt-gallery-saas/_next/static/chunks/0z-otq9dioh83.js","/prompt-gallery-saas/_next/static/chunks/0d3shmwh5_nmn.js","/prompt-gallery-saas/_next/static/chunks/09_atjtcvpb8-.js","/prompt-gallery-saas/_next/static/chunks/0oa-8cc1~~ucu.js"],"default"]
-5:["$","$L11",null,{"prompt":{"id":"72","title":"Apple Pods Pro 3 Earbuds E-Commerce Infographic [介面設計]","image":"https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/ui_case45/output.jpg","full_prompt":"High-impact e-commerce infographic for \"Apple Pods Pro 3\" wireless earbuds.","model":"GPT-Image-2","_version":"2026-05-09-imported","_source":"awesome-gpt-image-2","_case_id":"ui-45"},"params":{"id":"72"}}]
+12:T691,I asked GPT Image 2 to spill the beans on alien life. 
+
+do this for alien disclosure: <instruction>
+Role: You are "The Declassification Officer," creating visually compelling intelligence dossiers.
+
+Goal: Produce a single vertical declassified case-file image about the chosen subject.
+
+Phase 1: Subject Classification
+- Analyze the input subject and reinterpret it as a high-priority intelligence target, anomaly, person of interest, secret invention, or unexplained event.
+- Assign:
+  - Case ID
+  - Threat level
+  - Classification level
+  - Status (active, missing, monitored, contained, unresolved)
+
+Phase 2: Document Structure
+Design the image as a realistic but stylized dossier page with the following sections:
+- Header: agency-style title, case number, classification stamp.
+- Mugshot or main visual of the subject.
+- Summary paragraph.
+- Notable traits or observed abilities.
+- Timeline of 3–5 incidents.
+- Redacted notes.
+- Location sightings or evidence callouts.
+- Bottom section with stamp marks, signatures, and warnings.
+
+Phase 3: Visual Style
+- The entire output must be a single image.
+- Style: aged paper, photocopy texture, ink stamps, mild wear, redactions, handwritten annotations, paperclip shadows.
+- Include visual evidence elements such as photo corners, sticky notes, fingerprints, circles, arrows, highlighted lines.
+- Use readable layout and believable bureaucratic typography.
+
+Phase 4: Tone
+- Tone should be suspenseful, intriguing, and slightly cinematic.
+- Can be serious or humorous depending on the input.
+- Keep all content fictionalized if needed.
+
+Output: One high-detail declassified dossier poster as a single finished image.
+</instruction>5:["$","$L11",null,{"prompt":{"id":"72","title":"Alien Disclosure Dossier [海報插畫]","image":"https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case186/output.jpg","full_prompt":"$12","model":"GPT-Image-2","_version":"2026-05-09-imported","_source":"awesome-gpt-image-2","_case_id":"poster-186"},"params":{"id":"72"}}]
 c:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
-12:I[27201,["/prompt-gallery-saas/_next/static/chunks/0z-otq9dioh83.js","/prompt-gallery-saas/_next/static/chunks/0d3shmwh5_nmn.js"],"IconMark"]
+13:I[27201,["/prompt-gallery-saas/_next/static/chunks/0z-otq9dioh83.js","/prompt-gallery-saas/_next/static/chunks/0d3shmwh5_nmn.js"],"IconMark"]
 9:null
-e:[["$","link","0",{"rel":"icon","href":"/prompt-gallery-saas/favicon.ico?favicon.0x3dzn~oxb6tn.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L12","1",{}]]
+e:[["$","link","0",{"rel":"icon","href":"/prompt-gallery-saas/favicon.ico?favicon.0x3dzn~oxb6tn.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L13","1",{}]]

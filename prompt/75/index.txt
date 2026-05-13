@@ -7,14 +7,94 @@
 b:I[97367,["/prompt-gallery-saas/_next/static/chunks/0z-otq9dioh83.js","/prompt-gallery-saas/_next/static/chunks/0d3shmwh5_nmn.js"],"ViewportBoundary"]
 d:I[97367,["/prompt-gallery-saas/_next/static/chunks/0z-otq9dioh83.js","/prompt-gallery-saas/_next/static/chunks/0d3shmwh5_nmn.js"],"MetadataBoundary"]
 f:I[68027,["/prompt-gallery-saas/_next/static/chunks/0z-otq9dioh83.js","/prompt-gallery-saas/_next/static/chunks/0d3shmwh5_nmn.js"],"default",1]
-:HL["/prompt-gallery-saas/_next/static/chunks/15ahy.8ilvrn1.css","style"]
-0:{"P":null,"c":["","prompt","75",""],"q":"","i":false,"f":[[["",{"children":["prompt",{"children":[["id","75","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/prompt-gallery-saas/_next/static/chunks/15ahy.8ilvrn1.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/0z-otq9dioh83.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/0d3shmwh5_nmn.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":[["$","head",null,{"children":["$","meta",null,{"name":"deploy-verify","content":"SAAS_20260508_V1"}]}],["$","body",null,{"children":["$","$L2",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/09_atjtcvpb8-.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/0oa-8cc1~~ucu.js","async":true,"nonce":"$undefined"}]],"$L5"]}],{"children":[["$","$1","c",{"children":["$L6",null,["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]]}],{},null,false,null]},null,false,null]},null,false,"$@a"]},null,false,null],["$","$1","h",{"children":[null,["$","$Lb",null,{"children":"$Lc"}],["$","div",null,{"hidden":true,"children":["$","$Ld",null,{"children":["$","$8",null,{"name":"Next.Metadata","children":"$Le"}]}]}],null]}],false]],"m":"$undefined","G":["$f",[["$","link","0",{"rel":"stylesheet","href":"/prompt-gallery-saas/_next/static/chunks/15ahy.8ilvrn1.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"u7fr7sWErvTAPjFl0HKDs"}
+:HL["/prompt-gallery-saas/_next/static/chunks/0tdn_kn8hi0o0.css","style"]
+0:{"P":null,"c":["","prompt","75",""],"q":"","i":false,"f":[[["",{"children":["prompt",{"children":[["id","75","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/prompt-gallery-saas/_next/static/chunks/0tdn_kn8hi0o0.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/0z-otq9dioh83.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/0d3shmwh5_nmn.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":[["$","head",null,{"children":["$","meta",null,{"name":"deploy-verify","content":"SAAS_20260508_V1"}]}],["$","body",null,{"children":["$","$L2",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/09_atjtcvpb8-.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/0oa-8cc1~~ucu.js","async":true,"nonce":"$undefined"}]],"$L5"]}],{"children":[["$","$1","c",{"children":["$L6",null,["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]]}],{},null,false,null]},null,false,null]},null,false,"$@a"]},null,false,null],["$","$1","h",{"children":[null,["$","$Lb",null,{"children":"$Lc"}],["$","div",null,{"hidden":true,"children":["$","$Ld",null,{"children":["$","$8",null,{"name":"Next.Metadata","children":"$Le"}]}]}],null]}],false]],"m":"$undefined","G":["$f",[["$","link","0",{"rel":"stylesheet","href":"/prompt-gallery-saas/_next/static/chunks/0tdn_kn8hi0o0.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"BOnmnRfmndvgx_UImuSz5"}
 10:[]
 a:"$W10"
 6:E{"digest":"NEXT_HTTP_ERROR_FALLBACK;404"}
 11:I[75336,["/prompt-gallery-saas/_next/static/chunks/0z-otq9dioh83.js","/prompt-gallery-saas/_next/static/chunks/0d3shmwh5_nmn.js","/prompt-gallery-saas/_next/static/chunks/09_atjtcvpb8-.js","/prompt-gallery-saas/_next/static/chunks/0oa-8cc1~~ucu.js"],"default"]
-5:["$","$L11",null,{"prompt":{"id":"75","title":"analyze this photo and give me a detailed JSON prompt that recreates it. brea... [人像攝影]","image":"https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/portrait_case77/output.jpg","full_prompt":"analyze this photo and give me a detailed JSON prompt that recreates it. break down the color grading and every exact color in the photo\n\n(use Opus, not Sonnet. Opus has stronger visual analysis and writes more detailed JSON)\n\npaste that JSON into ChatGPT\nupload your product image and prompt:\nusing this JSON as reference, generate a person holding my product\nsave that generated photo as your character reference\n\nattach it to every future generation for facial consistency\n\nyou now have a consistent UGC model that works across any product\n\nthe JSON controls the lighting and color grading. GPT image-2 handles the character. you control the product placement.\n\nthe #1 tell on AI photos is flat colors and a grainy look. this method removes both.\n5 minutes to set up. unlimited variations after.","model":"GPT-Image-2","_version":"2026-05-09-imported","_source":"awesome-gpt-image-2","_case_id":"portrait-21"},"params":{"id":"75"}}]
+12:T94c,Create a premium modern beverage promotional poster for We Drink.
+
+TOPIC:
+
+Watermelon Pink + Lime Green Refresh Campaign
+
+STYLE & ART DIRECTION:
+Modern energetic beverage advertising
+Youthful commercial branding
+Split-color background composition
+Bright refreshing summer aesthetic
+Minimal dynamic layout
+High-contrast drink advertisement style
+Instagram-ready beverage promotion
+Premium fast-moving commercial design
+
+MAIN SUBJECT:
+
+Two large ultra-realistic cold beverages positioned prominently in the center.
+
+Drink 1:
+
+A vibrant watermelon pink drink in a transparent plastic cup with visible ice cubes, condensation droplets, and a fresh watermelon garnish.
+
+Drink 2:
+
+A bright lime green drink in a matching transparent cup with visible ice cubes, condensation droplets, and a lime slice garnish.
+
+Additional elements:
+
+Floating ice cubes around the composition
+Dynamic water splash effects
+Soft realistic shadows beneath each cup
+Premium glossy liquid textures
+Tiny fruit slices suspended in motion
+
+LAYOUT & COMPOSITION:
+Diagonal split-color background
+Left side: watermelon pink gradient
+Right side: lime green gradient
+Large bold headline at the top center: "SIP THE FRESHNESS"
+Two hero drinks centered prominently
+Product descriptions placed beside each cup
+Promotional price section near the bottom-left
+We Drink logo and small branding elements at the bottom
+Floating ice cubes and splash effects around the drinks
+Spacious modern commercial hierarchy
+
+TEXT & TYPOGRAPHY:
+Bold oversized sans-serif typography
+Youthful rounded commercial fonts
+White typography accents
+Supporting text: "Watermelon Burst" and "Lime Rush"
+Promotional price: Only $3.99
+Tagline: "Freshness in Every Sip"
+
+DEPTH & LIGHTING:
+Soft glossy studio lighting
+Bright refreshing reflections
+Realistic beverage highlights
+Floating commercial depth
+Soft ambient shadows
+Premium condensation texture lighting
+
+EXTRA DESIGN DETAILS:
+Floating ice cubes
+Water splash particles
+Glossy gradients
+Modern promotional badges
+Fruit slices and droplets
+Minimal energetic decorative elements
+
+COLOR PALETTE:
+Watermelon Pink (#FF4F87)
+Lime Green (#A8FF2A)
+White typography
+Soft transparent highlights
+
+QUALITY:
+
+Ultra-realistic beverage photography, premium advertising composition, Behance-quality commercial poster, high-resolution, sharp focus, photorealistic textures, professional brand campaign aesthetic.5:["$","$L11",null,{"prompt":{"id":"75","title":"Watermelon Lime Beverage Ad Poster [海報插畫]","image":"https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/ad_case172/output.jpg","full_prompt":"$12","model":"GPT-Image-2","_version":"2026-05-09-imported","_source":"awesome-gpt-image-2","_case_id":"poster-172"},"params":{"id":"75"}}]
 c:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
-12:I[27201,["/prompt-gallery-saas/_next/static/chunks/0z-otq9dioh83.js","/prompt-gallery-saas/_next/static/chunks/0d3shmwh5_nmn.js"],"IconMark"]
+13:I[27201,["/prompt-gallery-saas/_next/static/chunks/0z-otq9dioh83.js","/prompt-gallery-saas/_next/static/chunks/0d3shmwh5_nmn.js"],"IconMark"]
 9:null
-e:[["$","link","0",{"rel":"icon","href":"/prompt-gallery-saas/favicon.ico?favicon.0x3dzn~oxb6tn.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L12","1",{}]]
+e:[["$","link","0",{"rel":"icon","href":"/prompt-gallery-saas/favicon.ico?favicon.0x3dzn~oxb6tn.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L13","1",{}]]
