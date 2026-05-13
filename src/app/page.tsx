@@ -109,10 +109,10 @@ export default function LandingPage() {
       {/* ─── COLLECTIONS ROW ─── */}
       <CollectionRow
         collections={[
-          { id: 'cinematic', title: 'Cinematic Masters', description: 'Hollywood-grade visual storytelling prompts engineered for maximum emotional impact.', image: '/images/attack-on-titan.jpg', count: 12 },
-          { id: 'cyberpunk', title: 'Cyberpunk Vault', description: 'Neon-drenched dystopian aesthetics blending organic forms with digital decay.', image: '/images/zenitsu-50lan-collab.jpg', count: 8 },
-          { id: 'hyperreal', title: 'Hyper-Realistic', description: 'Texture-perfect, light-accurate prompts that blur the line between AI and photography.', image: '/images/pet-ig-popout.jpg', count: 15 },
-          { id: 'architectural', title: 'Spatial Visions', description: 'Futuristic architecture and impossible geometries rendered with industrial precision.', image: '/images/attack-on-titan.jpg', count: 10 },
+          { id: 'cinematic', title: 'Cinematic Masters', description: 'Hollywood-grade visual storytelling prompts engineered for maximum emotional impact.', image: '/images/uploads/character-design.jpg', count: 12 },
+          { id: 'cyberpunk', title: 'Cyberpunk Vault', description: 'Neon-drenched dystopian aesthetics blending organic forms with digital decay.', image: '/images/uploads/cyber-organic-botany.jpg', count: 8 },
+          { id: 'hyperreal', title: 'Hyper-Realistic', description: 'Texture-perfect, light-accurate prompts that blur the line between AI and photography.', image: '/images/uploads/hyper-tactile-surrealism.jpg', count: 15 },
+          { id: 'spatial', title: 'Spatial Visions', description: 'Futuristic architecture and impossible geometries rendered with industrial precision.', image: '/images/uploads/surreal-floating-islands.jpg', count: 10 },
         ]}
       />
 

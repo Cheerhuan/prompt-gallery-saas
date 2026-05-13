@@ -3,6 +3,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
+const BASE_PATH = '/prompt-gallery-saas';
+
 interface CollectionItem {
   id: string;
   title: string;
@@ -45,7 +47,7 @@ export const CollectionRow = ({ collections }: CollectionRowProps) => {
             {/* Background Image with Glassmorphism Overlay */}
             <div className="absolute inset-0 z-0">
               <img 
-                src={collection.image} 
+                src={collection.image.startsWith('/') ? `${BASE_PATH}${collection.image}` : collection.image} 
                 alt={collection.title} 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
