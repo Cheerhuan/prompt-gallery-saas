@@ -9,6 +9,9 @@ import { useI18n } from '@/components/I18nProvider';
 import { BeforeAfter } from '@/components/BeforeAfter';
 import { CollectionRow } from '@/components/CollectionRow';
 import promptsData from '@/data/prompts.json';
+import embeddingsData from '@/data/embeddings.json';
+import { searchPrompts } from '@/lib/semantic-search';
+import type { SearchResult } from '@/lib/semantic-search';
 import { translations, getCardTitle } from '@/lib/i18n';
 import { motion } from 'framer-motion';
 
@@ -26,6 +29,7 @@ function GalleryContent() {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const searchRef = React.useRef<HTMLDivElement>(null);
   const sentinelRef = useRef<HTMLDivElement>(null);
+  const [semanticSearchIds, setSemanticSearchIds] = useState<Set<string | number>>(new Set());
 
   // IntersectionObserver for infinite scroll
   const hasMoreRef = useRef(true);
@@ -87,20 +91,37 @@ function GalleryContent() {
       .reverse(),
   []);
 
-  const filteredPrompts = useMemo(() =>
-    promptsWithImages.filter(prompt => {
-      const matchesSearch =
-        prompt.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        prompt.full_prompt.toLowerCase().includes(searchQuery.toLowerCase());
+  const filteredPrompts = useMemo(() => {
+    const q = searchQuery.trim();
+    if (q) {
+      // ── Combined keyword + semantic search ──
+      const results: SearchResult[] = searchPrompts(q, promptsWithImages, embeddingsData as any);
+      const semanticIds = new Set(results.filter(r => r.isSemantic).map(r => r.prompt.id));
+      setSemanticSearchIds(semanticIds);
 
-      const matchesFilter =
-        activeFilter === 'all' ||
-        prompt.title.toLowerCase().includes(activeFilter.toLowerCase()) ||
-        prompt.full_prompt.toLowerCase().includes(activeFilter.toLowerCase());
-
-      return matchesSearch && matchesFilter;
-    }),
-  [promptsWithImages, searchQuery, activeFilter]);
+      // Apply active filter on top of search results
+      return results
+        .filter(r => {
+          if (activeFilter === 'all') return true;
+          const p = r.prompt;
+          return (
+            p.title.toLowerCase().includes(activeFilter.toLowerCase()) ||
+            p.full_prompt.toLowerCase().includes(activeFilter.toLowerCase())
+          );
+        })
+        .map(r => r.prompt);
+    } else {
+      // ── No search query: standard filtering ──
+      setSemanticSearchIds(new Set());
+      return promptsWithImages.filter(prompt => {
+        const matchesFilter =
+          activeFilter === 'all' ||
+          prompt.title.toLowerCase().includes(activeFilter.toLowerCase()) ||
+          prompt.full_prompt.toLowerCase().includes(activeFilter.toLowerCase());
+        return matchesFilter;
+      });
+    }
+  }, [promptsWithImages, searchQuery, activeFilter]);
 
   // Sort: featured first (latest), then rest
   const featuredPrompts = filteredPrompts.slice(0, 3);
@@ -419,7 +440,7 @@ function GalleryContent() {
                       <PromptCard
                         key={item.id}
                         id={item.id}
-                        image={item.image}
+                        image={item.image || ''}
                         title={getCardTitle(item.id, item.title, locale)}
                         tags={[]}
                         index={0}
@@ -447,10 +468,17 @@ function GalleryContent() {
                 {/* First 3 as bento row: 1 featured (2 cols) + 2 mini */}
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
                   {/* Featured card — 2x wide, 2x tall */}
-                  <div className="md:col-span-2 md:row-span-2">
+                  <div className="md:col-span-2 md:row-span-2 relative">
+                    {semanticSearchIds.has(featuredPrompts[0].id) && (
+                      <div className="absolute -top-2 -right-2 z-30">
+                        <span className="px-2 py-0.5 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 text-[8px] font-extrabold uppercase tracking-wider text-white shadow-lg shadow-purple-500/30 animate-fade-up">
+                          ✦ AI Suggested
+                        </span>
+                      </div>
+                    )}
                     <PromptCard
                       id={featuredPrompts[0].id}
-                      image={featuredPrompts[0].image}
+                      image={featuredPrompts[0].image || ''}
                       title={getCardTitle(featuredPrompts[0].id, featuredPrompts[0].title, locale)}
                       tags={['High-Fidelity', 'Industrial']}
                       featured
@@ -461,10 +489,17 @@ function GalleryContent() {
                   </div>
                   {/* Mini cards */}
                   {featuredPrompts.slice(1, 3).map((item) => (
-                    <div key={item.id} className="md:col-span-1 md:row-span-1">
+                    <div key={item.id} className="md:col-span-1 md:row-span-1 relative">
+                      {semanticSearchIds.has(item.id) && (
+                        <div className="absolute -top-2 -right-2 z-30">
+                          <span className="px-2 py-0.5 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 text-[8px] font-extrabold uppercase tracking-wider text-white shadow-lg shadow-purple-500/30 animate-fade-up">
+                            ✦ AI Suggested
+                          </span>
+                        </div>
+                      )}
                       <PromptCard
                         id={item.id}
-                        image={item.image}
+                        image={item.image || ''}
                         title={getCardTitle(item.id, item.title, locale)}
                         tags={['High-Fidelity', 'Industrial']}
                         mini
@@ -482,17 +517,25 @@ function GalleryContent() {
             {/* ─── MAIN GRID ─── */}
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4">
               {visibleGridPrompts.map((item, idx) => (
-                <PromptCard
-                  key={item.id}
-                  id={item.id}
-                  image={item.image}
-                  title={getCardTitle(item.id, item.title, locale)}
-                  tags={['High-Fidelity', 'Industrial']}
-                  index={idx}
-                  tier={item.tier as 'free' | 'pro' || 'free'}
-                  creator={item.creator}
-                  onQuickView={setQuickViewId}
-                />
+                <div key={item.id} className="relative">
+                  {semanticSearchIds.has(item.id) && (
+                    <div className="absolute -top-2 -right-2 z-30">
+                      <span className="px-2 py-0.5 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 text-[8px] font-extrabold uppercase tracking-wider text-white shadow-lg shadow-purple-500/30 animate-fade-up">
+                        ✦ AI Suggested
+                      </span>
+                    </div>
+                  )}
+                  <PromptCard
+                    id={item.id}
+                    image={item.image || ''}
+                    title={getCardTitle(item.id, item.title, locale)}
+                    tags={['High-Fidelity', 'Industrial']}
+                    index={idx}
+                    tier={item.tier as 'free' | 'pro' || 'free'}
+                    creator={item.creator}
+                    onQuickView={setQuickViewId}
+                  />
+                </div>
               ))}
             </div>
 

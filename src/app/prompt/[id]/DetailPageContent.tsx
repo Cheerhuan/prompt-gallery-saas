@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { SaaSNavbar } from '@/components/SaaSNavbar';
 import { PromptCard } from '@/components/PromptCard';
@@ -9,6 +9,8 @@ import { useI18n } from '@/components/I18nProvider';
 import { getCardTitle } from '@/lib/i18n';
 import { isSaved, toggleSave } from '@/lib/vault';
 import promptsData from '@/data/prompts.json';
+import embeddingsData from '@/data/embeddings.json';
+import { getRelatedPrompts } from '@/lib/semantic-search';
 import { motion } from 'framer-motion';
 
 export default function DetailPageContent({ prompt, params }: { prompt: any, params: { id: string } }) {
@@ -53,13 +55,11 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
     setSaved(!saved);
   };
 
-  // Related prompts: find prompts with similar title keywords (same style bracket)
-  const styleMatch = prompt.title.match(/\[(.+?)\]/);
-  const relatedPrompts = styleMatch
-    ? promptsData
-        .filter(p => String(p.id) !== String(prompt.id) && p.image && p.title.includes(styleMatch[1]))
-        .slice(0, 4)
-    : [];
+  // Related prompts: AI-powered semantic similarity recommender
+  const relatedPrompts = useMemo(
+    () => getRelatedPrompts(prompt.id, promptsData as any, embeddingsData as any, 4),
+    [prompt.id]
+  );
 
   // Tier badge config
   const tierKey = isPro ? 'pro' : 'free';
@@ -316,7 +316,7 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
                 Related <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">Prompts</span>
               </h2>
               <p className="text-zinc-500 font-light max-w-md mx-auto">
-                More prompts in the same style collection.
+                AI-powered recommendations based on semantic similarity.
               </p>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
@@ -324,7 +324,7 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
                 <PromptCard
                   key={item.id}
                   id={item.id}
-                  image={item.image}
+                  image={item.image || ''}
                   title={getCardTitle(item.id, item.title, locale)}
                   tags={['High-Fidelity', 'Industrial']}
                   tier={item.tier as 'free' | 'pro' || 'free'}
