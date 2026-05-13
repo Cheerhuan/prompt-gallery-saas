@@ -1,22 +1,54 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { SaaSNavbar } from '@/components/SaaSNavbar';
+import { PromptCard } from '@/components/PromptCard';
 import { PromptPlayground } from '@/components/PromptPlayground';
 import { FeatureGate } from '@/components/FeatureGate';
 import { useI18n } from '@/components/I18nProvider';
 import { getCardTitle } from '@/lib/i18n';
+import { isSaved, toggleSave } from '@/lib/vault';
+import promptsData from '@/data/prompts.json';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function DetailPageContent({ prompt, params }: { prompt: any, params: { id: string } }) {
   const { t, locale } = useI18n();
   const userTier = 'free'; 
   const [copied, setCopied] = useState(false);
+  const [shareCopied, setShareCopied] = useState(false);
+  const [saved, setSaved] = useState(false);
+
+  useEffect(() => {
+    setSaved(isSaved(prompt.id));
+    const handler = () => setSaved(isSaved(prompt.id));
+    window.addEventListener('vault-change', handler);
+    return () => window.removeEventListener('vault-change', handler);
+  }, [prompt.id]);
 
   const copyToClipboard = async () => {
     await navigator.clipboard.writeText(prompt.full_prompt);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
+
+  const shareLink = async () => {
+    await navigator.clipboard.writeText(window.location.href);
+    setShareCopied(true);
+    setTimeout(() => setShareCopied(false), 2000);
+  };
+
+  const handleSave = () => {
+    toggleSave(prompt.id);
+    setSaved(!saved);
+  };
+
+  // Related prompts: find prompts with similar title keywords (same style bracket)
+  const styleMatch = prompt.title.match(/\[(.+?)\]/);
+  const relatedPrompts = styleMatch
+    ? promptsData
+        .filter(p => String(p.id) !== String(prompt.id) && p.image && p.title.includes(styleMatch[1]))
+        .slice(0, 4)
+    : [];
 
   const deconstructPrompt = (promptText: string) => {
     const parts = promptText.split('|')[0].split(',');
@@ -33,50 +65,52 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
     <div className="min-h-screen bg-black text-white selection:bg-indigo-500/30">
       <SaaSNavbar userTier={userTier} />
       <main className="pt-24 pb-20 px-4 max-w-7xl mx-auto">
-        <div className="fixed top-16 left-0 right-0 z-40 bg-black/80 backdrop-blur-xl border-b border-zinc-800 px-4 py-3 hidden md:block">
+        {/* ─── Sticky Action Bar ─── */}
+        <div className="fixed top-16 left-0 right-0 z-40 bg-black/80 backdrop-blur-xl border-b border-zinc-800 px-4 py-3">
           <div className="max-w-7xl mx-auto flex justify-between items-center">
             <div className="flex items-center gap-4">
+              <Link href="/" className="text-xs text-zinc-500 hover:text-white transition-colors">← Back</Link>
+              <div className="w-px h-3 bg-zinc-800" />
               <span className="text-xs font-mono text-zinc-500">{t('detail.archiveId')} {params.id}</span>
               <div className="w-px h-3 bg-zinc-800" />
-              <span className="text-xs font-mono text-indigo-400">{t('detail.engine')} {prompt.model}</span>
+              <span className="text-xs font-mono text-indigo-400">{t('detail.engine')} {prompt.model || 'GPT-Image-2'}</span>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
+              {/* Save Button */}
+              <button
+                onClick={handleSave}
+                className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all border flex items-center gap-1.5 ${
+                  saved
+                    ? 'bg-pink-500/10 border-pink-500/30 text-pink-400'
+                    : 'bg-zinc-900 border-zinc-800 text-zinc-400 hover:bg-zinc-800'
+                }`}
+              >
+                <svg className={`w-3.5 h-3.5 ${saved ? 'fill-pink-400' : 'fill-transparent'}`} viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+                {saved ? 'Saved' : 'Save'}
+              </button>
+              {/* Share Button */}
+              <button
+                onClick={shareLink}
+                className="px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs text-zinc-400 hover:bg-zinc-800 hover:text-white transition-all"
+              >
+                {shareCopied ? '✓ Link Copied' : 'Share'}
+              </button>
+              {/* Copy Prompt Button */}
               <motion.button 
                 whileTap={{ scale: 0.95 }}
                 onClick={copyToClipboard}
-                className="px-4 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs font-medium hover:bg-zinc-800 transition-all relative overflow-hidden group"
+                className="px-4 py-1.5 rounded-lg bg-white text-black text-xs font-bold hover:bg-zinc-200 transition-all"
               >
-                <AnimatePresence mode="wait">
-                  {copied ? (
-                    <motion.span 
-                      key="copied"
-                      initial={{ y: 20, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      exit={{ y: -20, opacity: 0 }}
-                      className="block text-emerald-400"
-                    >
-                      {t('detail.synced')}
-                    </motion.span>
-                  ) : (
-                    <motion.span 
-                      key="copy"
-                      initial={{ y: 20, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      exit={{ y: -20, opacity: 0 }}
-                      className="block text-zinc-300"
-                    >
-                      {t('detail.copyPrompt')}
-                    </motion.span>
-                  )}
-                </AnimatePresence>
+                {copied ? '✓ Copied' : t('detail.copyPrompt')}
               </motion.button>
-              <button className="px-4 py-1.5 rounded-lg bg-white text-black text-xs font-bold hover:bg-zinc-200 transition-all active:scale-95">
-                {t('detail.generateSimilar')}
-              </button>
             </div>
           </div>
         </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mt-8">
+          {/* ─── LEFT COLUMN: Image ─── */}
           <div className="lg:col-span-7 space-y-10">
             <div className="relative group rounded-3xl overflow-hidden bg-zinc-900 border border-zinc-800 shadow-2xl">
               <img 
@@ -91,6 +125,7 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
                 </span>
               </div>
             </div>
+
             <FeatureGate isProRequired={true} userTier={userTier}>
               <div className="p-8 rounded-3xl bg-zinc-900/40 border border-zinc-800 backdrop-blur-sm">
                 <h3 className="text-xs font-bold text-zinc-500 mb-6 uppercase tracking-[0.2em]">{t('detail.evolution')}</h3>
@@ -111,11 +146,14 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
               </div>
             </FeatureGate>
           </div>
+
+          {/* ─── RIGHT COLUMN: Details ─── */}
           <div className="lg:col-span-5 space-y-12">
             <div className="space-y-3">
               <h1 className="text-5xl font-bold tracking-tighter leading-tight">{getCardTitle(prompt.id, prompt.title, locale)}</h1>
               <p className="text-zinc-500 text-sm font-light leading-relaxed">{t('detail.titleSubtitle')}</p>
             </div>
+
             <div className="space-y-6">
               <h2 className="text-xs font-bold text-zinc-500 uppercase tracking-[0.2em]">{t('detail.anatomyTitle')}</h2>
               <div className="grid grid-cols-1 gap-4">
@@ -133,6 +171,7 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
                 </div>
               </div>
             </div>
+
             <div className="p-6 rounded-3xl bg-zinc-900 border border-zinc-800 shadow-2xl relative overflow-hidden">
               <div className="flex items-center justify-between mb-3">
                 <h2 className="text-xs font-bold text-zinc-500 uppercase tracking-[0.2em]">{t('detail.fullPromptTitle')}</h2>
@@ -148,6 +187,7 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
                 onClick={(e) => (e.target as HTMLTextAreaElement).select()}
               />
             </div>
+
             <div className="p-8 rounded-3xl bg-zinc-900 border border-zinc-800 shadow-2xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 p-4">
                 <span className="text-[10px] px-2 py-1 rounded-md bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 font-mono">BETA_v1</span>
@@ -157,6 +197,7 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
               </div>
               <PromptPlayground initialPrompt={prompt.full_prompt} />
             </div>
+
             <FeatureGate isProRequired={true} userTier={userTier}>
               <div className="grid grid-cols-3 gap-4">
                 {[
@@ -168,12 +209,37 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
                     <div className={`text-xl font-bold ${stat.color}`}>{stat.score}%</div>
                     <div className="text-[10px] text-zinc-500 uppercase tracking-tighter">{t('scores.' + stat.label)}</div>
                   </div>
-                ))
-              }
-            </div>
+                ))}
+              </div>
             </FeatureGate>
           </div>
         </div>
+
+        {/* ─── RELATED PROMPTS ─── */}
+        {relatedPrompts.length > 0 && (
+          <div className="mt-24 border-t border-zinc-800/50 pt-16">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl md:text-4xl font-extrabold tracking-tighter text-white mb-2">
+                Related <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">Prompts</span>
+              </h2>
+              <p className="text-zinc-500 font-light max-w-md mx-auto">
+                More prompts in the same style collection.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              {relatedPrompts.map((item) => (
+                <PromptCard
+                  key={item.id}
+                  id={item.id}
+                  image={item.image}
+                  title={getCardTitle(item.id, item.title, locale)}
+                  tags={['High-Fidelity', 'Industrial']}
+                  onQuickView={() => {}}
+                />
+              ))}
+            </div>
+          </div>
+        )}
       </main>
     </div>
   );
