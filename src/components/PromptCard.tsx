@@ -16,15 +16,20 @@ interface PromptCardProps {
   index?: number;
   /** Quick-view callback (opens lightbox) */
   onQuickView?: (id: string | number) => void;
+  /** PRO tier flag */
+  tier?: 'free' | 'pro';
+  /** Creator name */
+  creator?: string;
 }
 
 const BASE_PATH = '/prompt-gallery-saas';
 
-export const PromptCard = ({ id, image, title, tags = [], featured, mini, index = 0, onQuickView }: PromptCardProps) => {
+export const PromptCard = ({ id, image, title, tags = [], featured, mini, index = 0, onQuickView, tier = 'free', creator }: PromptCardProps) => {
   const [imgFailed, setImgFailed] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
   const [saved, setSaved] = useState(false);
   const hasImage = image && image.trim() !== '';
+  const isPro = tier === 'pro';
 
   // Sync saved state from localStorage + listen for cross-component updates
   useEffect(() => {
@@ -59,9 +64,9 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
   const SaveBtn = () => (
     <button
       onClick={handleSave}
-      className="absolute top-3 right-3 z-20 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 backdrop-blur-md
+      className={`absolute top-3 right-3 z-20 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 backdrop-blur-md
         bg-black/30 hover:bg-black/60 border border-white/10 hover:border-white/30
-        opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0"
+        opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 ${isPro ? '!opacity-100' : ''}`}
       aria-label={saved ? 'Unsave' : 'Save'}
     >
       <svg
@@ -76,11 +81,42 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
     </button>
   );
 
+  // ── PRO Badge overlay ──
+  const ProBadge = () => {
+    if (!isPro) return null;
+    return (
+      <div className="absolute top-3 left-3 z-20">
+        <span className="px-2 py-0.5 rounded-full bg-gradient-to-r from-amber-400 to-amber-600 text-[8px] font-extrabold uppercase tracking-wider text-black shadow-lg shadow-amber-500/30">
+          ⭐ Pro
+        </span>
+      </div>
+    );
+  };
+
+  // ── PRO Lock overlay (blur + gradient) ──
+  const ProLock = () => {
+    if (!isPro) return null;
+    return (
+      <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-black/10 to-transparent pointer-events-none">
+        <div className="absolute bottom-16 left-1/2 -translate-x-1/2 flex flex-col items-center">
+          <div className="w-10 h-10 rounded-full bg-amber-500/20 backdrop-blur-md border border-amber-400/30 flex items-center justify-center mb-2 shadow-lg shadow-amber-500/10">
+            <span className="text-amber-300 text-lg">🔒</span>
+          </div>
+          <span className="text-[9px] text-amber-300/70 font-bold uppercase tracking-widest">PRO Exclusive</span>
+        </div>
+      </div>
+    );
+  };
+
   // ── Shared Gradient Border Wrapper ──
   const CardWrapper = ({ children, className = "", style }: { children: React.ReactNode, className?: string, style?: React.CSSProperties }) => (
     <div className={`group relative p-[1px] rounded-2xl transition-all duration-500 hover:scale-[1.02] active:scale-95 cursor-pointer animate-fade-up shine-effect ${className}`} style={style}>
-      {/* Hover Glow Border */}
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-[2px]" />
+      {/* Hover Glow Border - gold for PRO, indigo for free */}
+      <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-[2px] ${
+        isPro 
+          ? 'from-amber-400 via-yellow-400 to-amber-600' 
+          : 'from-indigo-500 via-purple-500 to-pink-500'
+      }`} />
       <div className="relative h-full w-full overflow-hidden rounded-2xl bg-zinc-900">
         {children}
       </div>
@@ -97,11 +133,13 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
               src={resolvedSrc}
               alt=""
               onError={() => setImgFailed(true)}
-              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+              className={`w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 ${isPro ? 'blur-sm' : ''}`}
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
             
+            <ProBadge />
+            {isPro && <ProLock />}
             <SaveBtn />
 
             <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
@@ -118,17 +156,19 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
               <h3 className="text-2xl md:text-4xl font-extrabold tracking-tighter text-white leading-tight mb-2 line-clamp-1">
                 {title}
               </h3>
-              <p className="text-sm text-zinc-400 line-clamp-1 max-w-xl hidden md:block font-light">
-                Engineered for absolute fidelity. Explore the architecture →
-              </p>
+              {creator && (
+                <p className="text-[10px] text-zinc-500 font-mono tracking-wide">by {creator}</p>
+              )}
             </div>
 
-            <button
-              onClick={handleCopy}
-              className="absolute top-4 right-14 px-4 py-2 rounded-xl bg-black/40 backdrop-blur-xl border border-white/10 text-xs text-zinc-300 hover:text-white hover:bg-black/60 transition-all opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 duration-300"
-            >
-              {isCopied ? '✓ Copied' : 'Copy Prompt'}
-            </button>
+            {!isPro && (
+              <button
+                onClick={handleCopy}
+                className="absolute top-4 right-14 px-4 py-2 rounded-xl bg-black/40 backdrop-blur-xl border border-white/10 text-xs text-zinc-300 hover:text-white hover:bg-black/60 transition-all opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 duration-300"
+              >
+                {isCopied ? '✓ Copied' : 'Copy Prompt'}
+              </button>
+            )}
           </div>
         </Link>
       </CardWrapper>
@@ -145,10 +185,12 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
               src={resolvedSrc}
               alt=""
               onError={() => setImgFailed(true)}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${isPro ? 'blur-sm' : ''}`}
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
+            <ProBadge />
+            {isPro && <ProLock />}
             <SaveBtn />
             <div className="absolute bottom-0 left-0 right-0 p-3">
               <h3 className="text-xs font-bold text-white leading-tight line-clamp-2 tracking-tight">{title}</h3>
@@ -171,48 +213,55 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
             src={resolvedSrc}
             alt=""
             onError={() => setImgFailed(true)}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${isPro ? 'blur-[6px]' : ''}`}
             loading="lazy"
           />
           
+          <ProBadge />
+          {isPro && <ProLock />}
           <SaveBtn />
 
-          <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-opacity duration-300 group-hover:opacity-0">
+          <div className={`absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-opacity duration-300 ${isPro ? '' : 'group-hover:opacity-0'}`}>
             <h3 className="text-sm font-bold text-white leading-tight line-clamp-2 tracking-tight">{title}</h3>
+            {creator && (
+              <p className="text-[9px] text-zinc-500 mt-1 font-mono">by {creator}</p>
+            )}
           </div>
 
-          <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0 flex flex-col justify-end p-4">
-            <div className="flex flex-wrap gap-1.5 mb-4">
-              {tags.map(tag => (
-                <span key={tag} className="text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/10 text-zinc-300 border border-white/10 backdrop-blur-md">
-                  {tag}
-                </span>
-              ))}
+          {!isPro && (
+            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0 flex flex-col justify-end p-4">
+              <div className="flex flex-wrap gap-1.5 mb-4">
+                {tags.map(tag => (
+                  <span key={tag} className="text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/10 text-zinc-300 border border-white/10 backdrop-blur-md">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              
+              <div className="flex gap-2">
+                <button
+                  onClick={handleCopy}
+                  className={`flex-1 text-[10px] font-extrabold uppercase tracking-widest py-2.5 rounded-xl transition-all duration-300 ${
+                    isCopied
+                      ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/20'
+                      : 'bg-white text-black hover:bg-zinc-200'
+                  }`}
+                >
+                  {isCopied ? '✓ Copied' : 'Copy'}
+                </button>
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    onQuickView?.(id);
+                  }}
+                  className="flex-1 text-[10px] font-extrabold uppercase tracking-widest py-2.5 rounded-xl bg-indigo-500/20 text-indigo-300 hover:bg-indigo-500/30 border border-indigo-500/20 backdrop-blur-md transition-all duration-300"
+                >
+                  Vault View
+                </button>
+              </div>
             </div>
-            
-            <div className="flex gap-2">
-              <button
-                onClick={handleCopy}
-                className={`flex-1 text-[10px] font-extrabold uppercase tracking-widest py-2.5 rounded-xl transition-all duration-300 ${
-                  isCopied
-                    ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/20'
-                    : 'bg-white text-black hover:bg-zinc-200'
-                }`}
-              >
-                {isCopied ? '✓ Copied' : 'Copy'}
-              </button>
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  onQuickView?.(id);
-                }}
-                className="flex-1 text-[10px] font-extrabold uppercase tracking-widest py-2.5 rounded-xl bg-indigo-500/20 text-indigo-300 hover:bg-indigo-500/30 border border-indigo-500/20 backdrop-blur-md transition-all duration-300"
-              >
-                Vault View
-              </button>
-            </div>
-          </div>
+          )}
         </div>
       </Link>
     </CardWrapper>

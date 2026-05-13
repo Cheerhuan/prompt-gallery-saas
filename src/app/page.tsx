@@ -150,6 +150,59 @@ function GalleryContent() {
         </div>
       </section>
 
+      {/* ─── PROMPT PACKS SECTION ─── */}
+      <section className="max-w-7xl mx-auto px-4 mb-12">
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <span className="text-[10px] uppercase tracking-[0.3em] text-amber-500 font-bold mb-2 block">Curated Collections</span>
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tighter text-white">
+              Prompt <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">Packs</span>
+            </h2>
+          </div>
+          <Link href="/pricing" className="text-[10px] uppercase tracking-wider text-amber-400 hover:text-amber-300 font-bold transition-colors flex items-center gap-1">
+            View All →
+          </Link>
+        </div>
+
+        <div className="flex gap-4 overflow-x-auto no-scrollbar pb-4 snap-x snap-mandatory">
+          {[
+            { title: 'Cinematic Mastery', desc: '15 prompts · Hollywood-grade visual storytelling', icon: '🎬', color: 'from-indigo-500/20 to-purple-600/20', border: 'border-indigo-500/20', badge: 'Free' },
+            { title: 'Cyberpunk Collection', desc: '12 prompts · Neon-drenched dystopian aesthetics', icon: '🌆', color: 'from-rose-500/20 to-orange-600/20', border: 'border-rose-500/20', badge: 'Free' },
+            { title: 'Pro Architecture Pack', desc: '20 prompts · Industrial precision & spatial mastery', icon: '🏛️', color: 'from-amber-500/20 to-yellow-600/20', border: 'border-amber-500/20', badge: 'Pro' },
+            { title: 'Hyper-Realism Vault', desc: '18 prompts · Texture-perfect, light-accurate', icon: '🔬', color: 'from-emerald-500/20 to-teal-600/20', border: 'border-emerald-500/20', badge: 'Free' },
+            { title: 'Character Design Studio', desc: '10 prompts · Next-gen character & portrait craft', icon: '👤', color: 'from-violet-500/20 to-pink-600/20', border: 'border-violet-500/20', badge: 'Pro' },
+          ].map((pack) => (
+            <Link
+              key={pack.title}
+              href={pack.badge === 'Pro' ? '/pricing' : '/'}
+              className="flex-shrink-0 w-[260px] snap-start group relative p-[1px] rounded-2xl transition-all duration-300 hover:scale-[1.02]"
+            >
+              <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${pack.color} opacity-60 group-hover:opacity-100 transition-opacity duration-300 blur-[2px]`} />
+              <div className={`relative h-full rounded-2xl bg-zinc-900/90 backdrop-blur-md border ${pack.border} p-5`}>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-3xl">{pack.icon}</span>
+                  <span className={`text-[9px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full ${
+                    pack.badge === 'Pro'
+                      ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30'
+                      : 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
+                  }`}>
+                    {pack.badge === 'Pro' ? '⭐ Pro' : pack.badge}
+                  </span>
+                </div>
+                <h3 className="text-sm font-bold text-white mb-1 group-hover:text-indigo-300 transition-colors">{pack.title}</h3>
+                <p className="text-[10px] text-zinc-500 leading-relaxed">{pack.desc}</p>
+                {pack.badge === 'Pro' && (
+                  <div className="mt-3 flex items-center gap-1.5 text-[9px] text-amber-400/70 font-bold uppercase tracking-wider">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse-dot" />
+                    Unlock with Pro
+                  </div>
+                )}
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       {/* ─── GALLERY SECTION ─── */}
       {/* ─── COLLECTIONS ROW ─── */}
       <CollectionRow
@@ -278,6 +331,8 @@ function GalleryContent() {
                         title={getCardTitle(item.id, item.title, locale)}
                         tags={[]}
                         index={0}
+                        tier={item.tier as 'free' | 'pro' || 'free'}
+                        creator={item.creator}
                         onQuickView={setQuickViewId}
                       />
                     ))}
@@ -307,6 +362,8 @@ function GalleryContent() {
                       title={getCardTitle(featuredPrompts[0].id, featuredPrompts[0].title, locale)}
                       tags={['High-Fidelity', 'Industrial']}
                       featured
+                      tier={featuredPrompts[0].tier as 'free' | 'pro' || 'free'}
+                      creator={featuredPrompts[0].creator}
                       onQuickView={setQuickViewId}
                     />
                   </div>
@@ -320,6 +377,8 @@ function GalleryContent() {
                         tags={['High-Fidelity', 'Industrial']}
                         mini
                         index={1}
+                        tier={item.tier as 'free' | 'pro' || 'free'}
+                        creator={item.creator}
                         onQuickView={setQuickViewId}
                       />
                     </div>
@@ -338,6 +397,8 @@ function GalleryContent() {
                   title={getCardTitle(item.id, item.title, locale)}
                   tags={['High-Fidelity', 'Industrial']}
                   index={idx}
+                  tier={item.tier as 'free' | 'pro' || 'free'}
+                  creator={item.creator}
                   onQuickView={setQuickViewId}
                 />
               ))}
