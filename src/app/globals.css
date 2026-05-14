@@ -1,21 +1,37 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0a;
+  --background: hsl(0, 0%, 2%);
   --foreground: #ededed;
+  --accent-primary: #6366f1;
+  --accent-secondary: #a855f7;
+  --accent-tertiary: #ec4899;
+  --glass-bg: hsla(0, 0%, 100%, 0.03);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: 'Inter';
+  --font-serif: 'Plus Jakarta Sans';
   --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* ── Custom focus-visible ring (replaces default blue outline) ── */
+*:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 /* ── Custom scrollbar (thin, dark) ── */
@@ -45,10 +61,24 @@ body {
 
 /* ── Glass morphism utility ── */
 .glass-panel {
-  background: rgba(24, 24, 27, 0.6);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(63, 63, 70, 0.4);
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+}
+
+/* ── Subtle grain texture overlay ── */
+.grain-overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.5'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  mix-blend-mode: overlay;
 }
 
 /* ── Stagger entrance animation ── */
@@ -87,21 +117,6 @@ body {
   animation: pulse-dot 2s ease-in-out infinite;
 }
 
-/* ── Grid gap for masonry-like bento ── */
-.bento-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-}
-.bento-grid .featured-card {
-  grid-column: span 2;
-  grid-row: span 2;
-}
-.bento-grid .mini-card {
-  grid-column: span 1;
-  grid-row: span 1;
-}
-
 /* ── Hover shine effect ── */
 .shine-effect {
   position: relative;
@@ -138,20 +153,7 @@ body {
   animation: shimmer 1.5s ease-in-out infinite;
 }
 
-/* ── Load more button glow ── */
-.load-more-btn {
-  position: relative;
-}
-.load-more-btn::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  border-radius: 9999px;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7);
-  opacity: 0;
-  transition: opacity 0.3s;
-  z-index: -1;
-}
-.load-more-btn:hover::before {
-  opacity: 1;
+/* ── Custom cursor: hide native cursor on desktop only ── */
+@media (hover: hover) and (pointer: fine) {
+  * { cursor: none !important; }
 }
