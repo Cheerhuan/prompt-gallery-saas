@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     url: 'https://cheerhuan.github.io/prompt-gallery-saas',
     siteName: 'Prompt Gallery',
     type: 'website',
-    images: [{ url: '/images/attack-on-titan.jpg', width: 1200, height: 630 }],
+    images: [{ url: '/icons/icon-512.png', width: 512, height: 512 }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Prompt Gallery — The AI Prompt Vault',
     description: 'Curated high-conversion AI prompts for Midjourney, GPT-Image, and more.',
-    images: ['/images/attack-on-titan.jpg'],
+    images: ['/icons/icon-512.png'],
   },
   robots: { index: true, follow: true },
 };
