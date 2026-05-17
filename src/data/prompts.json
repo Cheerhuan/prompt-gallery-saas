@@ -1079,5 +1079,70 @@
     "_case_id": "character-12",
     "tier": "free",
     "creator": "Alex Chen"
+  },
+  {
+    "id": "3d-pop-out-visual",
+    "title": "3D 破屏視覺效果",
+    "category": "影像生成",
+    "prompt": "請製作一張超逼真電影感垂直照片。一個充滿活力的人物 + 請使用我上傳的相片的五官臉型不要改變 要真實感 穿著白色性感低胸露腿精靈妝感浪漫唯美時髦造型 從一台垂直的手機螢幕中「衝出來」。人物的一隻腳有力地伸向觀眾，營造強烈的 3D 深度和沉浸感。手機螢幕顯示一個逼真的、Instagram 的社交媒體應用介面，頂部清晰顯示使用者名稱「{{username}}」和頭像，下方有貼文內容、按讚、留言、分享等互動圖示。螢幕劇烈破碎，無數逼真的碎玻璃和發光的數位像素碎片向四周飛濺。人物的身體姿勢自然流暢。背景是{{landmark}}的真實地標，被設置為模糊的淺景深。高級電影光照、陰影和反射。前景、主體、手機和背景之間有強烈的分離。垂直構圖，無裁切。",
+    "image": "https://www.threads.net/@happy_princess_betty/post/DYMHWQoGSFU/media",
+    "tags": [
+      "3D",
+      "PopOut",
+      "Cinematic",
+      "Instagram"
+    ]
+  },
+  {
+    "id": "line-sticker-slicing",
+    "title": "LINE 貼圖專業裁切流",
+    "category": "工具指令",
+    "prompt": "請將我提供的貼圖總圖（16格）進行專業裁切與輸出，產出一套可直接上架LINE的貼圖包，請嚴格遵守以下規範：\n【一、輸出內容】\n1. 輸出16張貼圖（sticker_01 ~ sticker_16）\n2. 輸出主圖 main.png（240×240 px）\n3. 輸出聊天列表圖 tab.png（96×74 px）\n\n【二、裁切規則】\n1. 每張貼圖「獨立裁切」，不可共用邊界\n2. 必須「內縮裁切」避免殘影\n3. 禁止出現格線殘留、邊界殘影、文字被切掉\n\n【三、構圖與留白】\n1. 每張貼圖需「置中」\n2. 四周需保留「安全留白」\n3. 人物大小需「最大化但不貼邊」\n\n【四、尺寸規範】\n1. 貼圖尺寸：370 × 320 px（PNG，透明背景）\n2. 主圖：240 × 240 px\n3. 聊天圖：96 × 74 px\n\n【五、品質要求】\n1. 圖片需清晰，不可模糊/壓縮失真\n2. 線條與文字需銳利\n\n【六、TAB圖特別規則】\n1. 構圖重新設計，只保留半身或頭像\n2. 避免過多文字，小尺寸仍需清晰\n\n【七、輸出格式】\n1. 命名清楚 (sticker_01.png ~ main.png, tab.png)\n2. 打包為ZIP檔輸出",
+    "image": "https://www.threads.net/@happy_princess_betty/post/DYMYbIxmapG/media",
+    "tags": [
+      "LINE",
+      "Sticker",
+      "Slicing",
+      "Automation"
+    ]
+  },
+  {
+    "id": "chibi-character-design",
+    "title": "Q版似顏繪角色設計",
+    "category": "角色設計",
+    "prompt": "請依照提供的人物形象，設計一組 16張風格一致的專屬似顏繪貼圖。角色設定為「{{character_desc}}」，整體採用可愛精緻的Q版風格（chibi），保留人物五官特色與辨識度。\n\n貼圖需具備：\n• 表情豐富、情緒明確（開心、思考、驚訝、專注、加油等）\n• 動作自然生動（揮手、比讚、工作中、簡報中、靈感發想等）\n• 搭配職業情境元素（電腦、AI圖示、設計稿、數據圖表、數位轉型等）\n\n整體風格要求：\n• 色彩乾淨、柔和且具設計感\n• 風格統一、角色比例一致\n• 適用於簡報、社群貼文與數位內容創作\n\n最終呈現需：一整套16張貼圖完整排列，每張獨立可用，高解析度。",
+    "image": "https://www.threads.net/@happy_princess_betty/post/DYNR4k4me76/media",
+    "tags": [
+      "Chibi",
+      "Character",
+      "Sticker",
+      "Gemini"
+    ]
+  },
+  {
+    "id": "animal-3d-pop-out",
+    "title": "動物 3D 破屏 (療癒風)",
+    "category": "影像生成",
+    "prompt": "幫我做一張iPhone手機尺寸的照片，將照片上的{{animal}}，從巨大的IG貼文相框裡自然走出來，正在往前踏步，前腳微微抬起並靠近去鏡頭，低角度廣角視角，透視感強烈，巨大肉球特寫但姿勢自然，背景是{{background}}，陽光灑落，花朵與蝴蝶環繞，照片級真實感，毛髮細節清楚，景深效果，童話感氛圍，溫暖明亮可愛療癒",
+    "image": "https://www.threads.net/@xiaolan0177/post/DYOikh3EW90/media",
+    "tags": [
+      "Animal",
+      "3D",
+      "PopOut",
+      "Cute"
+    ]
+  },
+  {
+    "id": "japanese-retro-poster",
+    "title": "日系復古旅遊海報",
+    "category": "插畫設計",
+    "prompt": "生成圖片，一張超高解析度、日本復古旅遊宣傳海報風格插畫。\n主題城市：{{city}}\n畫面採用：\n- 日系動畫電影背景美術\n- 新海誠風天空光影\n- 高細節手繪插畫\n- 復古旅遊海報排版\n- 柔和夏日色調\n- 雜誌封面式構圖\n- 超精細場景細節\n- 乾淨通透的空氣感\n- 電影感光影\n- 高飽和但柔和色彩\n\n畫面需包含：{{landmarks}}\n街景加入：{{street_details}}\n\n前景、中景、遠景需有強烈景深層次。天空必須巨大、夢幻、帶有戲劇性雲層。\n加入：\n- 日文/中文直排標題\n- 復古旅遊海報文字設計\n- 金色細線裝飾\n- 觀光導覽元素\n- 雜誌封面感版面\n\n整體風格：超精緻、細節爆炸、動畫電影海報等級、高解析度、8K、收藏級印刷品質。",
+    "image": "https://www.threads.net/@tyjls4851/post/DYRJqiEErL1/media",
+    "tags": [
+      "Japan",
+      "Retro",
+      "Poster",
+      "Anime"
+    ]
   }
 ]
