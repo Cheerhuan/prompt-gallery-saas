@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect, useMemo, useRef, Suspense, useCallback } from 'react';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { SaaSNavbar } from '@/components/SaaSNavbar';
 import { PromptCard } from '@/components/PromptCard';
 import { GallerySkeleton } from '@/components/Skeleton';
@@ -103,10 +103,16 @@ function Pagination({
 
 function GalleryContent() {
   const { t, locale } = useI18n();
+  const router = useRouter();
   const searchParams = useSearchParams();
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilter, setActiveFilter] = useState('all');
-  const [currentPage, setCurrentPage] = useState(1);
+  // Read page from URL on mount so back-navigation preserves page
+  const initialPage = useMemo(() => {
+    const p = searchParams.get('page');
+    return p ? parseInt(p, 10) || 1 : 1;
+  }, []);
+  const [currentPage, setCurrentPage] = useState(initialPage);
   const [quickViewId, setQuickViewId] = useState<string | number | null>(null);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const searchRef = React.useRef<HTMLDivElement>(null);
@@ -133,9 +139,13 @@ function GalleryContent() {
     }
   }, [searchParams]);
 
-  // Reset page when filters change
+  // Reset page when filters change & clear URL page param
   useEffect(() => {
     setCurrentPage(1);
+    const params = new URLSearchParams(searchParams.toString());
+    params.delete('page');
+    router.replace(`?${params.toString()}`, { scroll: false });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchQuery, activeFilter]);
 
   // Only show prompts that have an example image — latest first
@@ -194,9 +204,13 @@ function GalleryContent() {
 
   const handlePageChange = useCallback((page: number) => {
     setCurrentPage(page);
+    // Persist page in URL for back-navigation preservation
+    const params = new URLSearchParams(searchParams.toString());
+    params.set('page', String(page));
+    router.replace(`?${params.toString()}`, { scroll: false });
     const el = document.getElementById('gallery-section');
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, []);
+  }, [router, searchParams]);
 
   // Search autocomplete suggestions
   const suggestions = useMemo(() => {
