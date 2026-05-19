@@ -36,6 +36,9 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
   const hasImage = image && image.trim() !== '';
   const isPro = tier === 'pro';
 
+  // Standard card — no 3D tilt (removed for performance)
+  const isStandardCard = !featured && !mini;
+
   // Sync saved + liked state from localStorage + listen for cross-component updates
   useEffect(() => {
     setSaved(isSaved(id));
@@ -172,9 +175,9 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
   };
 
   // ── Shared Gradient Border Wrapper ──
-  const CardWrapper = ({ children, className = "", style }: { children: React.ReactNode, className?: string, style?: React.CSSProperties }) => {
+  const CardWrapper = ({ children, className = "" }: { children: React.ReactNode, className?: string }) => {
     return (
-    <div className={`group relative p-[1px] rounded-2xl transition-all duration-300 hover:scale-[1.01] cursor-pointer animate-fade-up ${className}`} style={style}>
+    <div className={`group relative p-[1px] rounded-2xl transition-all duration-300 hover:scale-[1.01] cursor-pointer animate-fade-up shine-effect ${className}`}>
       {/* Hover Glow Border - gold for PRO, indigo for free */}
       <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-[2px] ${
         isPro 
@@ -278,7 +281,6 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
   return (
     <CardWrapper 
       className="h-full"
-      style={{ animationDelay: `${Math.min(index * 60, 600)}ms` } as any}
     >
       <Link href={`/prompt/${id}`} className="block" aria-label={title}>
         <div className="aspect-[3/4] overflow-hidden bg-zinc-800 relative">

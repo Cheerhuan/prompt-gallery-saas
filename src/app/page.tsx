@@ -111,10 +111,12 @@ function GalleryContent() {
   const [quickViewId, setQuickViewId] = useState<string | number | null>(null);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const searchRef = React.useRef<HTMLDivElement>(null);
-  const [semanticSearchIds, setSemanticSearchIds] = useState<Set<string | number>>(new Set());
+  // Hero section - simplified (no parallax for performance)
+  const heroRef = useRef<HTMLDivElement>(null);
 
+  // Pagination — no infinite scroll (better performance)
   useEffect(() => {
-    // Read collection param from URL to auto-apply filter
+    // Read collection param from URL to auto-apply filter (no fake loading delay)
     const collection = searchParams.get('collection');
     if (collection) {
       const filterMap: Record<string, string> = {
@@ -150,8 +152,6 @@ function GalleryContent() {
     const q = searchQuery.trim();
     if (q) {
       const results: SearchResult[] = searchPrompts(q, promptsWithImages, embeddingsData as any);
-      const semanticIds = new Set(results.filter(r => r.isSemantic).map(r => r.prompt.id));
-      setSemanticSearchIds(semanticIds);
 
       return results
         .filter(r => {
@@ -164,7 +164,7 @@ function GalleryContent() {
         })
         .map(r => r.prompt);
     } else {
-      setSemanticSearchIds(new Set());
+      // ── No search query: standard filtering ──
       return promptsWithImages.filter(prompt => {
         const matchesFilter =
           activeFilter === 'all' ||
@@ -180,12 +180,12 @@ function GalleryContent() {
   const gridPrompts = filteredPrompts.slice(3);
 
   // Pagination
-  const totalPages = Math.ceil(gridPrompts.length / CARDS_PER_PAGE);
-  const safePage = Math.min(currentPage, Math.max(totalPages, 1));
+  const totalPages = Math.max(1, Math.ceil(gridPrompts.length / CARDS_PER_PAGE));
+  const safePage = Math.min(currentPage, totalPages);
   const startIdx = (safePage - 1) * CARDS_PER_PAGE;
-  const pagePrompts = gridPrompts.slice(startIdx, startIdx + CARDS_PER_PAGE);
+  const visibleGridPrompts = gridPrompts.slice(startIdx, startIdx + CARDS_PER_PAGE);
 
-  // Quick-view modal
+  // Quick-view modal: find prompt by ID
   const quickViewPrompt = quickViewId
     ? promptsWithImages.find(p => p.id === quickViewId)
     : null;
@@ -230,11 +230,14 @@ function GalleryContent() {
       </a>
       <SaaSNavbar />
 
-      {/* ─── HERO ─── */}
-      <section id="main-content" className="pt-36 pb-20 px-4 text-center max-w-5xl mx-auto relative overflow-hidden">
-        {/* Subtle background glow — static, no parallax */}
-        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-indigo-500/5 blur-[160px] pointer-events-none" />
+      {/* ─── HERO SECTION ─── */}
+      <section id="main-content" ref={heroRef} className="pt-36 pb-20 px-4 text-center max-w-5xl mx-auto relative overflow-hidden">
+        {/* Background gradient orbs — static (no parallax for performance) */}
+        <div className="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-indigo-500/10 blur-[120px] pointer-events-none" />
+        <div className="absolute -top-20 -right-32 w-[30rem] h-[30rem] rounded-full bg-purple-500/8 blur-[140px] pointer-events-none" />
+        <div className="absolute top-40 left-1/2 -translate-x-1/2 w-[40rem] h-[40rem] rounded-full bg-pink-500/5 blur-[160px] pointer-events-none" />
 
+        <div>
         <motion.div
           variants={{
             hidden: { opacity: 0 },
@@ -303,6 +306,7 @@ function GalleryContent() {
             </Link>
           </motion.div>
         </motion.div>
+        </div>
       </section>
 
       {/* ─── PROMPT PACKS ─── */}
@@ -508,13 +512,6 @@ function GalleryContent() {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                   {/* Featured card — 2x wide */}
                   <div className="md:col-span-2 md:row-span-2 relative">
-                    {semanticSearchIds.has(featuredPrompts[0].id) && (
-                      <div className="absolute -top-2 -right-2 z-30">
-                        <span className="px-2 py-0.5 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 text-[8px] font-extrabold uppercase tracking-wider text-white shadow-lg shadow-purple-500/30 animate-fade-up">
-                          ✦ AI Suggested
-                        </span>
-                      </div>
-                    )}
                     <PromptCard
                       id={featuredPrompts[0].id}
                       image={featuredPrompts[0].image || ''}
@@ -529,13 +526,6 @@ function GalleryContent() {
                   {/* Mini cards */}
                   {featuredPrompts.slice(1, 3).map((item) => (
                     <div key={item.id} className="md:col-span-1 md:row-span-1 relative">
-                      {semanticSearchIds.has(item.id) && (
-                        <div className="absolute -top-2 -right-2 z-30">
-                          <span className="px-2 py-0.5 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 text-[8px] font-extrabold uppercase tracking-wider text-white shadow-lg shadow-purple-500/30 animate-fade-up">
-                            ✦ AI Suggested
-                          </span>
-                        </div>
-                      )}
                       <PromptCard
                         id={item.id}
                         image={item.image || ''}
@@ -557,13 +547,6 @@ function GalleryContent() {
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
               {pagePrompts.map((item, idx) => (
                 <div key={item.id} className="relative">
-                  {semanticSearchIds.has(item.id) && (
-                    <div className="absolute -top-2 -right-2 z-30">
-                      <span className="px-2 py-0.5 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 text-[8px] font-extrabold uppercase tracking-wider text-white shadow-lg shadow-purple-500/30 animate-fade-up">
-                        ✦ AI Suggested
-                      </span>
-                    </div>
-                  )}
                   <PromptCard
                     id={item.id}
                     image={item.image || ''}
@@ -579,12 +562,53 @@ function GalleryContent() {
             </div>
 
             {/* ─── PAGINATION ─── */}
-            <Pagination
-              currentPage={safePage}
-              totalPages={totalPages}
-              onPageChange={handlePageChange}
-              totalCount={totalCount}
-            />
+            {totalPages > 1 && (
+              <div className="flex items-center justify-center gap-2 mt-10 mb-4">
+                <button
+                  onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+                  disabled={currentPage <= 1}
+                  className="px-3 py-1.5 rounded-lg bg-zinc-800/50 border border-zinc-700/50 text-zinc-400 text-xs hover:text-white hover:border-zinc-500 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                >
+                  ← Prev
+                </button>
+                {Array.from({ length: Math.min(totalPages, 7) }, (_, i) => {
+                  const page = totalPages <= 7 ? i + 1 : (() => {
+                    const half = 3;
+                    let start = Math.max(1, currentPage - half);
+                    let end = Math.min(totalPages, start + 6);
+                    if (end - start < 6) start = Math.max(1, end - 6);
+                    return i + start;
+                  })();
+                  return (
+                    <button
+                      key={page}
+                      onClick={() => setCurrentPage(page)}
+                      className={`w-8 h-8 rounded-lg text-xs font-bold transition-all ${
+                        currentPage === page
+                          ? 'bg-indigo-500 text-white shadow-lg shadow-indigo-500/20'
+                          : 'bg-zinc-800/30 border border-zinc-700/50 text-zinc-500 hover:text-zinc-300 hover:border-zinc-500'
+                      }`}
+                    >
+                      {page}
+                    </button>
+                  );
+                })}
+                <button
+                  onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+                  disabled={currentPage >= totalPages}
+                  className="px-3 py-1.5 rounded-lg bg-zinc-800/50 border border-zinc-700/50 text-zinc-400 text-xs hover:text-white hover:border-zinc-500 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                >
+                  Next →
+                </button>
+              </div>
+            )}
+
+            {/* Footer count */}
+            {gridPrompts.length > 0 && (
+              <p className="text-center text-[10px] text-zinc-500 mt-4 mb-8 font-mono">
+                Page {safePage} of {totalPages} · {totalCount} prompts total
+              </p>
+            )}
           </>
         )}
       </section>

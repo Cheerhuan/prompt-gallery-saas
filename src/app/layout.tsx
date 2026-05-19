@@ -1,5 +1,6 @@
 import React from 'react';
 import { I18nProvider } from '@/components/I18nProvider';
+
 import './globals.css';
 import type { Metadata } from 'next';
 
