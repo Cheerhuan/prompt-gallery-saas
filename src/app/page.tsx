@@ -44,7 +44,7 @@ function Pagination({
   }
 
   return (
-    <nav className="flex flex-col items-center gap-3 pt-4 pb-4" aria-label="Pagination">
+    <nav className="flex flex-col items-center gap-2 pt-4 pb-2" aria-label="Pagination">
       <div className="flex items-center gap-1.5">
         {/* Prev */}
         <button
@@ -343,7 +343,7 @@ function GalleryContent() {
       />
 
       {/* ─── GALLERY ─── */}
-      <section id="gallery-section" className="max-w-7xl mx-auto px-4 mb-8 scroll-mt-20">
+      <section id="gallery-section" className="max-w-7xl mx-auto px-4 mb-6 scroll-mt-20">
         {/* Stats bar */}
         <div className="flex items-center gap-4 mb-4 text-xs text-zinc-500">
           <span className="flex items-center gap-1.5">
@@ -430,7 +430,7 @@ function GalleryContent() {
       </section>
 
       {/* ─── MAIN CONTENT ─── */}
-      <section className="max-w-7xl mx-auto px-4 pb-16">
+      <section className="max-w-7xl mx-auto px-4 pb-12">
         {filteredPrompts.length === 0 ? (
           <div className="py-24 text-center">
             {searchQuery || activeFilter !== 'all' ? (

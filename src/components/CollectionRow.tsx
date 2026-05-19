@@ -20,10 +20,9 @@ interface CollectionRowProps {
 export const CollectionRow = ({ collections }: CollectionRowProps) => {
   return (
     <div className="w-full py-16 px-4 overflow-hidden">
-      <div className="max-w-7xl mx-auto mb-6 md:mb-10 px-2 md:px-0">
-        <div className="flex items-end justify-between gap-4">
-          <div>
-            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tighter text-white mb-2">
+      <div className="max-w-7xl mx-auto mb-6 md:mb-10 px-2 md:px-0 text-center">
+        <div>
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tighter text-white mb-2">
               Curated <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">Collections</span>
             </h2>
             <p className="text-zinc-500 font-light max-w-md">
