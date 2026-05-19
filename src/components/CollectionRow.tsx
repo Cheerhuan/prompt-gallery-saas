@@ -30,7 +30,6 @@ export const CollectionRow = ({ collections }: CollectionRowProps) => {
             </p>
           </div>
         </div>
-      </div>
 
       {/* ─── Cards row — same padding as heading ─── */}
       <div className="max-w-7xl mx-auto px-2 md:px-0">
