@@ -174,19 +174,12 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
     );
   };
 
-  // ── Shared Gradient Border Wrapper ──
+  // ── Clean card wrapper (no gradient border — 2026 editorial style) ──
   const CardWrapper = ({ children, className = "" }: { children: React.ReactNode, className?: string }) => {
+    const borderClass = isPro ? 'border-amber-500/30 hover:border-amber-500/60' : 'border-zinc-800 hover:border-zinc-600';
     return (
-    <div className={`group relative p-[1px] rounded-2xl transition-all duration-300 hover:scale-[1.01] cursor-pointer animate-fade-up shine-effect ${className}`}>
-      {/* Hover Glow Border - gold for PRO, indigo for free */}
-      <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-[2px] ${
-        isPro 
-          ? 'from-amber-400 via-yellow-400 to-amber-600' 
-          : 'from-indigo-500 via-purple-500 to-pink-500'
-      }`} />
-      <div className="relative h-full w-full overflow-hidden rounded-2xl bg-zinc-900">
-        {children}
-      </div>
+    <div className={`group relative rounded-xl overflow-hidden border ${borderClass} bg-zinc-900 transition-all duration-300 hover:scale-[1.015] cursor-pointer animate-fade-up ${className}`}>
+      {children}
     </div>
   );
   };
@@ -213,20 +206,17 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
 
             <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
               <div className="flex items-center gap-3 mb-3">
-                <span className="text-[10px] uppercase tracking-[0.2em] px-2.5 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 backdrop-blur-md">
-                  Vault Selection
-                </span>
                 {tags.slice(0, 2).map(tag => (
-                  <span key={tag} className="text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/10 text-zinc-400 border border-white/10 backdrop-blur-sm">
+                  <span key={tag} className="text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-[3px] bg-white/10 text-zinc-400">
                     {tag}
                   </span>
                 ))}
               </div>
-              <h3 className="text-2xl md:text-4xl font-extrabold tracking-tighter text-white leading-tight mb-2 line-clamp-1">
+              <h3 className="text-2xl md:text-4xl font-bold tracking-tight text-white leading-tight mb-2 line-clamp-1">
                 {title}
               </h3>
               {creator && (
-                <p className="text-[10px] text-zinc-500 font-mono tracking-wide">by {creator}</p>
+                <p className="text-[10px] text-zinc-500 font-mono">by {creator}</p>
               )}
             </div>
 
@@ -305,36 +295,21 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
           </div>
 
           {!isPro && (
-            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0 flex flex-col justify-end p-4">
-              <div className="flex flex-wrap gap-1.5 mb-4">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-3">
+              <div className="flex flex-wrap gap-1.5 mb-2">
                 {tags.map(tag => (
-                  <span key={tag} className="text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/10 text-zinc-300 border border-white/10 backdrop-blur-md">
+                  <span key={tag} className="text-[8px] uppercase tracking-wider px-1.5 py-0.5 rounded-[3px] bg-white/10 text-zinc-300">
                     {tag}
                   </span>
                 ))}
               </div>
-              
-              <div className="flex gap-1.5">
-                <motion.button
-                  onClick={handleCopy}
-                  aria-label="Copy prompt title"
-                  whileTap={{ scale: 0.9 }}
-                  animate={isCopied ? { scale: [1, 1.2, 1] } : { scale: 1 }}
-                  transition={{ duration: 0.4 }}
-                  className={`flex-1 text-[10px] font-extrabold uppercase tracking-widest py-2.5 rounded-xl transition-all duration-300 ${
-                    isCopied
-                      ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/20'
-                      : 'bg-white text-black hover:bg-zinc-200'
-                  }`}
-                >
-                  {isCopied ? '✓ Copied' : 'Copy'}
-                </motion.button>
+              <div className="flex gap-2">
                 <button
-                  onClick={handleShare}
-                  aria-label="Share on Twitter"
-                  className="flex-1 text-[10px] font-extrabold uppercase tracking-widest py-2.5 rounded-xl bg-sky-500/20 text-sky-300 hover:bg-sky-500/30 border border-sky-500/20 backdrop-blur-md transition-all duration-300"
+                  onClick={handleCopy}
+                  aria-label="Copy prompt"
+                  className="flex-1 text-[9px] font-semibold uppercase tracking-wider py-2 rounded-lg bg-white text-black hover:bg-zinc-200 transition-all"
                 >
-                  Share
+                  {isCopied ? 'Copied' : 'Copy'}
                 </button>
                 <button
                   onClick={(e) => {
@@ -343,9 +318,9 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
                     onQuickView?.(id);
                   }}
                   aria-label="Quick view"
-                  className="flex-1 text-[10px] font-extrabold uppercase tracking-widest py-2.5 rounded-xl bg-indigo-500/20 text-indigo-300 hover:bg-indigo-500/30 border border-indigo-500/20 backdrop-blur-md transition-all duration-300"
+                  className="flex-1 text-[9px] font-semibold uppercase tracking-wider py-2 rounded-lg bg-white/10 text-white border border-white/10 hover:bg-white/20 transition-all"
                 >
-                  Vault View
+                  View
                 </button>
               </div>
             </div>

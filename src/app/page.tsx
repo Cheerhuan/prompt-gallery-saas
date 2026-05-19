@@ -111,8 +111,6 @@ function GalleryContent() {
   const [quickViewId, setQuickViewId] = useState<string | number | null>(null);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const searchRef = React.useRef<HTMLDivElement>(null);
-  // Hero section - simplified (no parallax for performance)
-  const heroRef = useRef<HTMLDivElement>(null);
 
   // Pagination — no infinite scroll (better performance)
   useEffect(() => {
@@ -230,82 +228,41 @@ function GalleryContent() {
       </a>
       <SaaSNavbar />
 
-      {/* ─── HERO SECTION ─── */}
-      <section id="main-content" ref={heroRef} className="pt-36 pb-20 px-4 text-center max-w-5xl mx-auto relative overflow-hidden">
-        {/* Background gradient orbs — static (no parallax for performance) */}
-        <div className="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-indigo-500/10 blur-[120px] pointer-events-none" />
-        <div className="absolute -top-20 -right-32 w-[30rem] h-[30rem] rounded-full bg-purple-500/8 blur-[140px] pointer-events-none" />
-        <div className="absolute top-40 left-1/2 -translate-x-1/2 w-[40rem] h-[40rem] rounded-full bg-pink-500/5 blur-[160px] pointer-events-none" />
+      {/* ─── HERO — compact editorial ─── */}
+      <section id="main-content" className="pt-28 pb-16 px-4 text-center max-w-4xl mx-auto relative overflow-hidden">
+        {/* Subtle background glow */}
+        <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full bg-indigo-500/4 blur-[140px] pointer-events-none" />
 
-        <div>
-        <motion.div
-          variants={{
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: {
-                staggerChildren: 0.15,
-                delayChildren: 0.1,
-              },
-            },
-          }}
-          initial="hidden"
-          animate="visible"
+        <div
+          className="space-y-6"
         >
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 24 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
-            }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-[10px] uppercase tracking-widest text-zinc-400 mb-8"
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse-dot" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 border border-zinc-800 text-[10px] uppercase tracking-widest text-zinc-500">
+            <span className="w-1 h-1 rounded-full bg-zinc-500" />
             {t('hero.badge')}
-          </motion.div>
+          </div>
 
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 24 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
-            }}
-          >
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 bg-gradient-to-b from-white to-zinc-500 bg-clip-text text-transparent leading-[1.1]">
-              {t('hero.title')}
-            </h1>
-          </motion.div>
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white leading-[1.1]">
+            {t('hero.title')}
+          </h1>
 
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 24 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
-            }}
-          >
-            <p className="text-lg text-zinc-400 mb-10 max-w-2xl mx-auto leading-relaxed font-light">
-              {t('hero.subtitle')}
-            </p>
-          </motion.div>
+          <p className="text-base text-zinc-500 max-w-lg mx-auto leading-relaxed font-light">
+            {t('hero.subtitle')}
+          </p>
 
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 24 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
-            }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
+          <div className="flex items-center justify-center gap-3 pt-2">
             <button
               onClick={scrollToGallery}
-              className="w-full sm:w-auto px-10 py-4 bg-white text-black rounded-full font-bold hover:bg-zinc-200 transition-all transform hover:scale-105 active:scale-95 shadow-xl shadow-white/10"
+              className="px-8 py-3 bg-white text-black rounded-lg font-medium text-sm hover:bg-zinc-200 transition-all"
             >
               {t('hero.ctaPrimary')}
             </button>
             <Link
               href="/pricing"
-              className="w-full sm:w-auto px-8 py-4 bg-zinc-900 text-white rounded-full font-bold border border-zinc-800 hover:bg-zinc-800 transition-all text-center"
+              className="px-6 py-3 text-zinc-400 rounded-lg font-medium text-sm border border-zinc-800 hover:border-zinc-600 hover:text-white transition-all"
             >
               {t('hero.ctaSecondary')}
             </Link>
-          </motion.div>
-        </motion.div>
+          </div>
         </div>
       </section>
 
@@ -386,16 +343,16 @@ function GalleryContent() {
           <span>Updated daily</span>
         </div>
 
-        {/* ─── FILTER BAR ─── */}
-        <div className="bg-zinc-900/50 backdrop-blur-md border border-zinc-800/50 rounded-xl p-3 mb-8 flex flex-col md:flex-row items-stretch md:items-center gap-3">
+        {/* ─── FILTER BAR — flat, no glassmorphism ─── */}
+        <div className="border-b border-zinc-800 pb-4 mb-8 flex flex-col md:flex-row items-stretch md:items-center gap-3">
           {/* Search */}
           <div className="relative flex-1 min-w-0" ref={searchRef}>
-            <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500 text-sm leading-none z-10">🔍</span>
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500 text-xs leading-none z-10">⌘</span>
             <input
               type="text"
               placeholder={t('gallery.searchPlaceholder')}
               aria-label="Search prompts"
-              className="w-full pl-10 pr-4 py-2.5 bg-black/40 border border-zinc-800 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500 outline-none transition-all placeholder:text-zinc-600"
+              className="w-full pl-8 pr-4 py-2 bg-transparent border-b border-zinc-800 text-sm focus:border-zinc-500 outline-none transition-all placeholder:text-zinc-600"
               value={searchQuery}
               onChange={(e) => {
                 setSearchQuery(e.target.value);
@@ -422,7 +379,7 @@ function GalleryContent() {
           </div>
 
           {/* Filter pills */}
-          <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar flex-shrink-0">
+          <div className="flex items-center gap-4 overflow-x-auto no-scrollbar flex-shrink-0">
             {Object.entries(translations.en.gallery.filters).map(([key, value]) => {
               const count = key === 'all'
                 ? promptsWithImages.length
@@ -435,18 +392,14 @@ function GalleryContent() {
                   key={key}
                   onClick={() => setActiveFilter(key)}
                   aria-pressed={activeFilter === key}
-                  className={`px-3.5 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider transition-all whitespace-nowrap flex items-center gap-1.5 ${
+                  className={`text-xs transition-all whitespace-nowrap py-1 ${
                     activeFilter === key
-                      ? 'bg-white text-black shadow-lg shadow-white/10'
-                      : 'bg-zinc-800/50 text-zinc-400 hover:bg-zinc-700/50 hover:text-zinc-200'
+                      ? 'text-white font-medium border-b-2 border-white'
+                      : 'text-zinc-500 hover:text-zinc-300 font-normal border-b-2 border-transparent'
                   }`}
                 >
                   {t(`gallery.filters.${key}`)}
-                  <span className={`text-[9px] px-1.5 py-0.5 rounded-full ${
-                    activeFilter === key
-                      ? 'bg-zinc-200 text-zinc-700'
-                      : 'bg-zinc-700/50 text-zinc-400'
-                  }`}>
+                  <span className={`ml-1.5 text-[10px] ${activeFilter === key ? 'text-zinc-400' : 'text-zinc-600'}`}>
                     {count}
                   </span>
                 </button>
@@ -455,7 +408,7 @@ function GalleryContent() {
           </div>
 
           {/* Sort */}
-          <select aria-label="Sort" className="bg-zinc-800/50 border border-zinc-700/50 text-[10px] rounded-lg px-3 py-1.5 outline-none text-zinc-400 font-bold uppercase tracking-wider cursor-pointer hover:border-zinc-500 transition-all flex-shrink-0">
+          <select aria-label="Sort" className="bg-transparent border border-zinc-800 text-xs rounded-md px-2.5 py-1 outline-none text-zinc-500 cursor-pointer hover:border-zinc-600 transition-all flex-shrink-0">
             <option>{t('gallery.sortTrending')}</option>
             <option>{t('gallery.sortNewest')}</option>
             <option>{t('gallery.sortSaved')}</option>
@@ -545,7 +498,7 @@ function GalleryContent() {
 
             {/* ─── MAIN GRID: 4 columns desktop, 5 on ultra-wide ─── */}
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
-              {pagePrompts.map((item, idx) => (
+              {visibleGridPrompts.map((item, idx) => (
                 <div key={item.id} className="relative">
                   <PromptCard
                     id={item.id}
