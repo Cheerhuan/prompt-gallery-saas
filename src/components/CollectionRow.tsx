@@ -33,7 +33,9 @@ export const CollectionRow = ({ collections }: CollectionRowProps) => {
         </div>
       </div>
 
-      <div className="flex gap-6 overflow-x-auto pb-8 px-4 no-scrollbar snap-x snap-mandatory">
+      {/* ─── Cards row — constrained to same width as heading ─── */}
+      <div className="max-w-7xl mx-auto">
+        <div className="flex gap-6 overflow-x-auto pb-8 px-4 no-scrollbar snap-x snap-mandatory">
         {collections.map((collection, index) => (
           <motion.div
             key={collection.id}
@@ -93,6 +95,7 @@ export const CollectionRow = ({ collections }: CollectionRowProps) => {
             <div className="absolute -inset-px bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-20 blur-sm transition-opacity duration-500 rounded-2xl" />
           </motion.div>
         ))}
+      </div>
       </div>
       
       <style jsx global>{`

@@ -6,7 +6,6 @@ import { SaaSNavbar } from '@/components/SaaSNavbar';
 import { PromptCard } from '@/components/PromptCard';
 import { GallerySkeleton } from '@/components/Skeleton';
 import { useI18n } from '@/components/I18nProvider';
-import { BeforeAfter } from '@/components/BeforeAfter';
 import { CollectionRow } from '@/components/CollectionRow';
 import promptsData from '@/data/prompts.json';
 import embeddingsData from '@/data/embeddings.json';
@@ -469,7 +468,7 @@ function GalleryContent() {
                       id={featuredPrompts[0].id}
                       image={featuredPrompts[0].image || ''}
                       title={getCardTitle(featuredPrompts[0].id, featuredPrompts[0].title, locale)}
-                      tags={['High-Fidelity', 'Industrial']}
+                      tags={[]}
                       featured
                       tier={featuredPrompts[0].tier as 'free' | 'pro' || 'free'}
                       creator={featuredPrompts[0].creator}
@@ -483,7 +482,7 @@ function GalleryContent() {
                         id={item.id}
                         image={item.image || ''}
                         title={getCardTitle(item.id, item.title, locale)}
-                        tags={['High-Fidelity', 'Industrial']}
+                        tags={[]}
                         mini
                         index={1}
                         tier={item.tier as 'free' | 'pro' || 'free'}
@@ -504,7 +503,7 @@ function GalleryContent() {
                     id={item.id}
                     image={item.image || ''}
                     title={getCardTitle(item.id, item.title, locale)}
-                    tags={['High-Fidelity', 'Industrial']}
+                    tags={[]}
                     index={idx}
                     tier={item.tier as 'free' | 'pro' || 'free'}
                     creator={item.creator}
@@ -564,25 +563,6 @@ function GalleryContent() {
             )}
           </>
         )}
-      </section>
-
-      {/* ─── BEFORE/AFTER ─── */}
-      <section className="border-t border-zinc-800/50 py-16 mt-16">
-        <div className="max-w-7xl mx-auto px-4 text-center mb-12">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-indigo-400 font-bold mb-4 block">Proof of Quality</span>
-          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tighter text-white mb-4">
-            The <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">Prompt Gap</span>
-          </h2>
-          <p className="text-zinc-500 font-light max-w-xl mx-auto">
-            See the difference between a generic prompt and an engineered architecture. Drag the slider to compare.
-          </p>
-        </div>
-        <BeforeAfter
-          beforeImage="/prompt-gallery-saas/images/attack-on-titan.jpg"
-          afterImage="/prompt-gallery-saas/images/zenitsu-50lan-collab.jpg"
-          beforeLabel="Generic Prompt"
-          afterLabel="Engineered Vault Prompt"
-        />
       </section>
 
       {/* ─── FOOTER ─── */}
