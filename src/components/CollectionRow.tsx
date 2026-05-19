@@ -33,9 +33,9 @@ export const CollectionRow = ({ collections }: CollectionRowProps) => {
         </div>
       </div>
 
-      {/* ─── Cards row — constrained to same width as heading ─── */}
-      <div className="max-w-7xl mx-auto">
-        <div className="flex gap-6 overflow-x-auto pb-8 px-4 no-scrollbar snap-x snap-mandatory">
+      {/* ─── Cards row — same padding as heading ─── */}
+      <div className="max-w-7xl mx-auto px-2 md:px-0">
+        <div className="flex gap-6 overflow-x-auto pb-8 no-scrollbar snap-x snap-mandatory">
         {collections.map((collection, index) => (
           <motion.div
             key={collection.id}
