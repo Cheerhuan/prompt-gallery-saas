@@ -44,7 +44,7 @@ function Pagination({
   }
 
   return (
-    <nav className="flex flex-col items-center gap-4 pt-8 pb-4" aria-label="Pagination">
+    <nav className="flex flex-col items-center gap-3 pt-4 pb-4" aria-label="Pagination">
       <div className="flex items-center gap-1.5">
         {/* Prev */}
         <button
@@ -416,7 +416,7 @@ function GalleryContent() {
       </section>
 
       {/* ─── MAIN CONTENT ─── */}
-      <section className="max-w-7xl mx-auto px-4 pb-32">
+      <section className="max-w-7xl mx-auto px-4 pb-16">
         {filteredPrompts.length === 0 ? (
           <div className="py-24 text-center">
             {searchQuery || activeFilter !== 'all' ? (
