@@ -329,7 +329,7 @@ function GalleryContent() {
       />
 
       {/* ─── GALLERY ─── */}
-      <section id="gallery-section" className="max-w-7xl mx-auto px-4 mb-8">
+      <section id="gallery-section" className="max-w-7xl mx-auto px-4 mb-8 scroll-mt-20">
         {/* Stats bar */}
         <div className="flex items-center gap-4 mb-4 text-xs text-zinc-500">
           <span className="flex items-center gap-1.5">
