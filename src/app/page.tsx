@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect, useMemo, useRef, Suspense } from 'react';
+import React, { useState, useEffect, useMemo, useRef, Suspense, useCallback } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { SaaSNavbar } from '@/components/SaaSNavbar';
@@ -8,75 +8,113 @@ import { GallerySkeleton } from '@/components/Skeleton';
 import { useI18n } from '@/components/I18nProvider';
 import { BeforeAfter } from '@/components/BeforeAfter';
 import { CollectionRow } from '@/components/CollectionRow';
-import { MagneticButton } from '@/components/MagneticButton';
 import promptsData from '@/data/prompts.json';
 import embeddingsData from '@/data/embeddings.json';
 import { searchPrompts } from '@/lib/semantic-search';
 import type { SearchResult } from '@/lib/semantic-search';
 import { translations, getCardTitle } from '@/lib/i18n';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const CARDS_PER_PAGE = 20;
+
+function Pagination({
+  currentPage,
+  totalPages,
+  onPageChange,
+  totalCount,
+}: {
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
+  totalCount: number;
+}) {
+  if (totalPages <= 1) return null;
+
+  // Generate visible page numbers
+  const pages: (number | '...')[] = [];
+  if (totalPages <= 7) {
+    for (let i = 1; i <= totalPages; i++) pages.push(i);
+  } else {
+    pages.push(1);
+    if (currentPage > 3) pages.push('...');
+    const start = Math.max(2, currentPage - 1);
+    const end = Math.min(totalPages - 1, currentPage + 1);
+    for (let i = start; i <= end; i++) pages.push(i);
+    if (currentPage < totalPages - 2) pages.push('...');
+    pages.push(totalPages);
+  }
+
+  return (
+    <nav className="flex flex-col items-center gap-4 pt-8 pb-4" aria-label="Pagination">
+      <div className="flex items-center gap-1.5">
+        {/* Prev */}
+        <button
+          onClick={() => onPageChange(currentPage - 1)}
+          disabled={currentPage <= 1}
+          className="px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200
+            disabled:opacity-30 disabled:cursor-not-allowed
+            enabled:hover:bg-zinc-800 enabled:text-zinc-400 enabled:hover:text-zinc-200"
+          aria-label="Previous page"
+        >
+          ← Prev
+        </button>
+
+        {/* Page numbers */}
+        <div className="flex items-center gap-1 px-2">
+          {pages.map((p, i) =>
+            p === '...' ? (
+              <span key={`dot-${i}`} className="px-1.5 text-zinc-600 text-xs select-none">…</span>
+            ) : (
+              <button
+                key={p}
+                onClick={() => onPageChange(p)}
+                className={`min-w-[32px] h-8 rounded-lg text-xs font-medium transition-all duration-200
+                  ${p === currentPage
+                    ? 'bg-white text-black shadow-lg shadow-white/10'
+                    : 'text-zinc-500 hover:bg-zinc-800 hover:text-zinc-200'
+                  }`}
+                aria-label={`Page ${p}`}
+                aria-current={p === currentPage ? 'page' : undefined}
+              >
+                {p}
+              </button>
+            )
+          )}
+        </div>
+
+        {/* Next */}
+        <button
+          onClick={() => onPageChange(currentPage + 1)}
+          disabled={currentPage >= totalPages}
+          className="px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200
+            disabled:opacity-30 disabled:cursor-not-allowed
+            enabled:hover:bg-zinc-800 enabled:text-zinc-400 enabled:hover:text-zinc-200"
+          aria-label="Next page"
+        >
+          Next →
+        </button>
+      </div>
+
+      <p className="text-[10px] text-zinc-600 font-mono tracking-wide">
+        Page {currentPage} of {totalPages} · {totalCount} prompts total
+      </p>
+    </nav>
+  );
+}
 
 function GalleryContent() {
   const { t, locale } = useI18n();
   const searchParams = useSearchParams();
-  const [isLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilter, setActiveFilter] = useState('all');
-  const [visibleCount, setVisibleCount] = useState(CARDS_PER_PAGE);
-  const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
   const [quickViewId, setQuickViewId] = useState<string | number | null>(null);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const searchRef = React.useRef<HTMLDivElement>(null);
-  const sentinelRef = useRef<HTMLDivElement>(null);
-  const heroRef = useRef<HTMLDivElement>(null);
   const [semanticSearchIds, setSemanticSearchIds] = useState<Set<string | number>>(new Set());
 
-  // Scroll-based parallax for Hero section
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ['start start', 'end start'],
-  });
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
-  const heroY = useTransform(scrollYProgress, [0, 1], [0, -120]);
-  const orb1Y = useTransform(scrollYProgress, [0, 1], [0, -200]);
-  const orb2Y = useTransform(scrollYProgress, [0, 1], [0, -300]);
-  const orb3Y = useTransform(scrollYProgress, [0, 1], [0, -150]);
-
-  // IntersectionObserver for infinite scroll
-  const hasMoreRef = useRef(true);
-  const isLoadingMoreRef = useRef(false);
   useEffect(() => {
-    const sentinel = sentinelRef.current;
-    if (!sentinel) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        if (entry.isIntersecting && hasMoreRef.current && !isLoadingMoreRef.current) {
-          isLoadingMoreRef.current = true;
-          setIsLoadingMore(true);
-          // Use requestAnimationFrame for smooth batch loading
-          requestAnimationFrame(() => {
-            setVisibleCount(prev => prev + CARDS_PER_PAGE);
-            // Allow next trigger after render settles
-            requestAnimationFrame(() => {
-              isLoadingMoreRef.current = false;
-              setIsLoadingMore(false);
-            });
-          });
-        }
-      },
-      { rootMargin: '400px' } // Start loading 400px before sentinel enters viewport
-    );
-
-    observer.observe(sentinel);
-    return () => observer.disconnect();
-  }, []); // Empty deps — refs keep it fresh
-
-  useEffect(() => {
-    // Read collection param from URL to auto-apply filter (no fake loading delay)
+    // Read collection param from URL to auto-apply filter
     const collection = searchParams.get('collection');
     if (collection) {
       const filterMap: Record<string, string> = {
@@ -88,7 +126,6 @@ function GalleryContent() {
       const keyword = filterMap[collection];
       if (keyword) {
         setSearchQuery(keyword);
-        // Scroll to gallery after load
         setTimeout(() => {
           const el = document.getElementById('gallery-section');
           if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -97,7 +134,12 @@ function GalleryContent() {
     }
   }, [searchParams]);
 
-  // Only show prompts that have an example image — 最新的在前
+  // Reset page when filters change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery, activeFilter]);
+
+  // Only show prompts that have an example image — latest first
   const promptsWithImages = useMemo(() =>
     promptsData
       .filter(p => p.image && p.image.trim() !== '')
@@ -107,12 +149,10 @@ function GalleryContent() {
   const filteredPrompts = useMemo(() => {
     const q = searchQuery.trim();
     if (q) {
-      // ── Combined keyword + semantic search ──
       const results: SearchResult[] = searchPrompts(q, promptsWithImages, embeddingsData as any);
       const semanticIds = new Set(results.filter(r => r.isSemantic).map(r => r.prompt.id));
       setSemanticSearchIds(semanticIds);
 
-      // Apply active filter on top of search results
       return results
         .filter(r => {
           if (activeFilter === 'all') return true;
@@ -124,7 +164,6 @@ function GalleryContent() {
         })
         .map(r => r.prompt);
     } else {
-      // ── No search query: standard filtering ──
       setSemanticSearchIds(new Set());
       return promptsWithImages.filter(prompt => {
         const matchesFilter =
@@ -140,21 +179,27 @@ function GalleryContent() {
   const featuredPrompts = filteredPrompts.slice(0, 3);
   const gridPrompts = filteredPrompts.slice(3);
 
-  const visibleGridPrompts = gridPrompts.slice(0, visibleCount);
-  const hasMore = visibleCount < gridPrompts.length;
+  // Pagination
+  const totalPages = Math.ceil(gridPrompts.length / CARDS_PER_PAGE);
+  const safePage = Math.min(currentPage, Math.max(totalPages, 1));
+  const startIdx = (safePage - 1) * CARDS_PER_PAGE;
+  const pagePrompts = gridPrompts.slice(startIdx, startIdx + CARDS_PER_PAGE);
 
-  // Sync hasMoreRef on each render
-  hasMoreRef.current = hasMore;
-
-  // Quick-view modal: find prompt by ID
+  // Quick-view modal
   const quickViewPrompt = quickViewId
     ? promptsWithImages.find(p => p.id === quickViewId)
     : null;
 
-  const scrollToGallery = () => {
+  const scrollToGallery = useCallback(() => {
     const element = document.getElementById('gallery-section');
     if (element) element.scrollIntoView({ behavior: 'smooth' });
-  };
+  }, []);
+
+  const handlePageChange = useCallback((page: number) => {
+    setCurrentPage(page);
+    const el = document.getElementById('gallery-section');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, []);
 
   // Search autocomplete suggestions
   const suggestions = useMemo(() => {
@@ -185,23 +230,11 @@ function GalleryContent() {
       </a>
       <SaaSNavbar />
 
-      {/* ─── HERO SECTION ─── */}
-      <section id="main-content" ref={heroRef} className="pt-36 pb-20 px-4 text-center max-w-5xl mx-auto relative overflow-hidden">
-        {/* Background gradient orbs — scroll parallax */}
-        <motion.div
-          style={{ y: orb1Y }}
-          className="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-indigo-500/10 blur-[120px] pointer-events-none"
-        />
-        <motion.div
-          style={{ y: orb2Y }}
-          className="absolute -top-20 -right-32 w-[30rem] h-[30rem] rounded-full bg-purple-500/8 blur-[140px] pointer-events-none"
-        />
-        <motion.div
-          style={{ y: orb3Y }}
-          className="absolute top-40 left-1/2 -translate-x-1/2 w-[40rem] h-[40rem] rounded-full bg-pink-500/5 blur-[160px] pointer-events-none"
-        />
+      {/* ─── HERO ─── */}
+      <section id="main-content" className="pt-36 pb-20 px-4 text-center max-w-5xl mx-auto relative overflow-hidden">
+        {/* Subtle background glow — static, no parallax */}
+        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-indigo-500/5 blur-[160px] pointer-events-none" />
 
-        <motion.div style={{ opacity: heroOpacity, y: heroY }}>
         <motion.div
           variants={{
             hidden: { opacity: 0 },
@@ -218,8 +251,8 @@ function GalleryContent() {
         >
           <motion.div
             variants={{
-              hidden: { opacity: 0, y: 40 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+              hidden: { opacity: 0, y: 24 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
             }}
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-[10px] uppercase tracking-widest text-zinc-400 mb-8"
           >
@@ -229,8 +262,8 @@ function GalleryContent() {
 
           <motion.div
             variants={{
-              hidden: { opacity: 0, y: 40 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+              hidden: { opacity: 0, y: 24 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
             }}
           >
             <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 bg-gradient-to-b from-white to-zinc-500 bg-clip-text text-transparent leading-[1.1]">
@@ -240,8 +273,8 @@ function GalleryContent() {
 
           <motion.div
             variants={{
-              hidden: { opacity: 0, y: 40 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+              hidden: { opacity: 0, y: 24 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
             }}
           >
             <p className="text-lg text-zinc-400 mb-10 max-w-2xl mx-auto leading-relaxed font-light">
@@ -251,32 +284,30 @@ function GalleryContent() {
 
           <motion.div
             variants={{
-              hidden: { opacity: 0, y: 40 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+              hidden: { opacity: 0, y: 24 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
             }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <MagneticButton
+            <button
               onClick={scrollToGallery}
               className="w-full sm:w-auto px-10 py-4 bg-white text-black rounded-full font-bold hover:bg-zinc-200 transition-all transform hover:scale-105 active:scale-95 shadow-xl shadow-white/10"
             >
               {t('hero.ctaPrimary')}
-            </MagneticButton>
-            <MagneticButton
-              as="link"
+            </button>
+            <Link
               href="/pricing"
               className="w-full sm:w-auto px-8 py-4 bg-zinc-900 text-white rounded-full font-bold border border-zinc-800 hover:bg-zinc-800 transition-all text-center"
             >
               {t('hero.ctaSecondary')}
-            </MagneticButton>
+            </Link>
           </motion.div>
-        </motion.div>
         </motion.div>
       </section>
 
-      {/* ─── PROMPT PACKS SECTION ─── */}
-      <section className="max-w-7xl mx-auto px-4 mb-12">
-        <div className="flex items-center justify-between mb-6">
+      {/* ─── PROMPT PACKS ─── */}
+      <section className="max-w-7xl mx-auto px-4 mb-16">
+        <div className="flex items-center justify-between mb-8">
           <div>
             <span className="text-[10px] uppercase tracking-[0.3em] text-amber-500 font-bold mb-2 block">Curated Collections</span>
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tighter text-white">
@@ -288,22 +319,7 @@ function GalleryContent() {
           </Link>
         </div>
 
-        <motion.div
-          variants={{
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: {
-                staggerChildren: 0.1,
-                delayChildren: 0.2,
-              },
-            },
-          }}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
-          className="flex gap-4 overflow-x-auto no-scrollbar pb-4 snap-x snap-mandatory"
-        >
+        <div className="flex gap-4 overflow-x-auto no-scrollbar pb-4 snap-x snap-mandatory">
           {[
             { title: 'Cinematic Mastery', desc: '15 prompts · Hollywood-grade visual storytelling', icon: '🎬', color: 'from-indigo-500/20 to-purple-600/20', border: 'border-indigo-500/20', badge: 'Free' },
             { title: 'Cyberpunk Collection', desc: '12 prompts · Neon-drenched dystopian aesthetics', icon: '🌆', color: 'from-rose-500/20 to-orange-600/20', border: 'border-rose-500/20', badge: 'Free' },
@@ -311,19 +327,13 @@ function GalleryContent() {
             { title: 'Hyper-Realism Vault', desc: '18 prompts · Texture-perfect, light-accurate', icon: '🔬', color: 'from-emerald-500/20 to-teal-600/20', border: 'border-emerald-500/20', badge: 'Free' },
             { title: 'Character Design Studio', desc: '10 prompts · Next-gen character & portrait craft', icon: '👤', color: 'from-violet-500/20 to-pink-600/20', border: 'border-violet-500/20', badge: 'Pro' },
           ].map((pack) => (
-            <motion.div
+            <Link
               key={pack.title}
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
-              }}
+              href={pack.badge === 'Pro' ? '/pricing' : '/'}
+              className="flex-shrink-0 w-[260px] snap-start group relative p-[1px] rounded-2xl transition-all duration-300 hover:scale-[1.02]"
             >
-              <Link
-                href={pack.badge === 'Pro' ? '/pricing' : '/'}
-                className="flex-shrink-0 w-[260px] snap-start group relative p-[1px] rounded-2xl transition-all duration-300 hover:scale-[1.02]"
-              >
-                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${pack.color} opacity-60 group-hover:opacity-100 transition-opacity duration-300 blur-[2px]`} />
-                <div className={`relative h-full rounded-2xl bg-zinc-900/90 backdrop-blur-md border ${pack.border} p-5`}>
+              <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${pack.color} opacity-60 group-hover:opacity-100 transition-opacity duration-300 blur-[2px]`} />
+              <div className={`relative h-full rounded-2xl bg-zinc-900/90 backdrop-blur-md border ${pack.border} p-5`}>
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-3xl">{pack.icon}</span>
                   <span className={`text-[9px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full ${
@@ -344,12 +354,10 @@ function GalleryContent() {
                 )}
               </div>
             </Link>
-            </motion.div>
           ))}
-        </motion.div>
+        </div>
       </section>
 
-      {/* ─── GALLERY SECTION ─── */}
       {/* ─── COLLECTIONS ROW ─── */}
       <CollectionRow
         collections={[
@@ -360,9 +368,9 @@ function GalleryContent() {
         ]}
       />
 
-      {/* ─── GALLERY SECTION ─── */}
+      {/* ─── GALLERY ─── */}
       <section id="gallery-section" className="max-w-7xl mx-auto px-4 mb-8">
-        {/* Stats bar — contextual info */}
+        {/* Stats bar */}
         <div className="flex items-center gap-4 mb-4 text-xs text-zinc-500">
           <span className="flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse-dot" />
@@ -374,8 +382,8 @@ function GalleryContent() {
           <span>Updated daily</span>
         </div>
 
-        {/* ─── FILTER BAR (glass morphism) ─── */}
-        <div className="glass-panel rounded-2xl p-2 mb-10 flex flex-col md:flex-row items-stretch md:items-center gap-3">
+        {/* ─── FILTER BAR ─── */}
+        <div className="bg-zinc-900/50 backdrop-blur-md border border-zinc-800/50 rounded-xl p-3 mb-8 flex flex-col md:flex-row items-stretch md:items-center gap-3">
           {/* Search */}
           <div className="relative flex-1 min-w-0" ref={searchRef}>
             <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500 text-sm leading-none z-10">🔍</span>
@@ -383,7 +391,7 @@ function GalleryContent() {
               type="text"
               placeholder={t('gallery.searchPlaceholder')}
               aria-label="Search prompts"
-              className="w-full pl-10 pr-4 py-2.5 bg-black/40 border border-zinc-800 rounded-xl text-sm focus:ring-2 focus:ring-indigo-500 outline-none transition-all placeholder:text-zinc-600"
+              className="w-full pl-10 pr-4 py-2.5 bg-black/40 border border-zinc-800 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500 outline-none transition-all placeholder:text-zinc-600"
               value={searchQuery}
               onChange={(e) => {
                 setSearchQuery(e.target.value);
@@ -391,14 +399,14 @@ function GalleryContent() {
               }}
               onFocus={() => setShowSuggestions(true)}
             />
-            {/* Autocomplete dropdown */}
+            {/* Autocomplete */}
             {showSuggestions && suggestions.length > 0 && (
-              <div className="absolute top-full left-0 right-0 mt-1 z-50 glass-panel rounded-xl overflow-hidden shadow-2xl border-t-0">
+              <div className="absolute top-full left-0 right-0 mt-1 z-50 bg-zinc-900 border border-zinc-800 rounded-lg overflow-hidden shadow-xl">
                 {suggestions.map((s) => (
                   <Link
                     key={s.id}
                     href={`/prompt/${s.id}`}
-                    className="block px-4 py-2.5 text-sm text-zinc-300 hover:bg-white/10 hover:text-white transition-all border-b border-white/5 last:border-0"
+                    className="block px-4 py-2.5 text-sm text-zinc-300 hover:bg-zinc-800 hover:text-white transition-all border-b border-zinc-800 last:border-0"
                     onClick={() => setShowSuggestions(false)}
                   >
                     <span className="text-indigo-400 mr-2">→</span>
@@ -409,7 +417,7 @@ function GalleryContent() {
             )}
           </div>
 
-          {/* Category pills (horizontal scroll) */}
+          {/* Filter pills */}
           <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar flex-shrink-0">
             {Object.entries(translations.en.gallery.filters).map(([key, value]) => {
               const count = key === 'all'
@@ -442,8 +450,8 @@ function GalleryContent() {
             })}
           </div>
 
-          {/* Sort dropdown */}
-          <select aria-label="Sort prompts by" className="bg-zinc-800/50 border border-zinc-700/50 text-[10px] rounded-lg px-3 py-1.5 outline-none text-zinc-400 font-bold uppercase tracking-wider cursor-pointer hover:border-zinc-500 transition-all flex-shrink-0">
+          {/* Sort */}
+          <select aria-label="Sort" className="bg-zinc-800/50 border border-zinc-700/50 text-[10px] rounded-lg px-3 py-1.5 outline-none text-zinc-400 font-bold uppercase tracking-wider cursor-pointer hover:border-zinc-500 transition-all flex-shrink-0">
             <option>{t('gallery.sortTrending')}</option>
             <option>{t('gallery.sortNewest')}</option>
             <option>{t('gallery.sortSaved')}</option>
@@ -453,9 +461,7 @@ function GalleryContent() {
 
       {/* ─── MAIN CONTENT ─── */}
       <section className="max-w-7xl mx-auto px-4 pb-32">
-        {isLoading ? (
-          <GallerySkeleton />
-        ) : filteredPrompts.length === 0 ? (
+        {filteredPrompts.length === 0 ? (
           <div className="py-24 text-center">
             {searchQuery || activeFilter !== 'all' ? (
               <>
@@ -467,7 +473,6 @@ function GalleryContent() {
                     reset all filters
                   </button>
                 </p>
-                {/* Show suggestions: first 4 prompts as mini cards */}
                 <div className="max-w-4xl mx-auto">
                   <p className="text-[10px] uppercase tracking-widest text-zinc-600 mb-4">You might like these</p>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -497,12 +502,11 @@ function GalleryContent() {
           </div>
         ) : (
           <>
-            {/* ─── FEATURED BENTO SECTION ─── */}
+            {/* ─── FEATURED BENTO ─── */}
             {featuredPrompts.length > 0 && (
-              <div className="mb-8">
-                {/* First 3 as bento row: 1 featured (2 cols) + 2 mini */}
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
-                  {/* Featured card — 2x wide, 2x tall */}
+              <div className="mb-10">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                  {/* Featured card — 2x wide */}
                   <div className="md:col-span-2 md:row-span-2 relative">
                     {semanticSearchIds.has(featuredPrompts[0].id) && (
                       <div className="absolute -top-2 -right-2 z-30">
@@ -549,9 +553,9 @@ function GalleryContent() {
               </div>
             )}
 
-            {/* ─── MAIN GRID ─── */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4">
-              {visibleGridPrompts.map((item, idx) => (
+            {/* ─── MAIN GRID: 4 columns desktop, 5 on ultra-wide ─── */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+              {pagePrompts.map((item, idx) => (
                 <div key={item.id} className="relative">
                   {semanticSearchIds.has(item.id) && (
                     <div className="absolute -top-2 -right-2 z-30">
@@ -574,31 +578,18 @@ function GalleryContent() {
               ))}
             </div>
 
-            {/* ─── INFINITE SCROLL SENTINEL ─── */}
-            <div ref={sentinelRef} className="h-4 w-full" />
-
-            {/* Loading indicator when fetching next batch */}
-            {hasMore && (
-              <div className="flex justify-center mt-4 mb-2">
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse-dot" />
-                  <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse-dot" style={{ animationDelay: '0.3s' }} />
-                  <span className="w-2 h-2 rounded-full bg-pink-500 animate-pulse-dot" style={{ animationDelay: '0.6s' }} />
-                </div>
-              </div>
-            )}
-
-            {/* Footer count */}
-            {gridPrompts.length > 0 && (
-              <p className="text-center text-[10px] text-zinc-500 mt-6 font-mono">
-                Showing {Math.min(visibleCount + (featuredPrompts.length > 0 ? 3 : 0), totalCount)} of {totalCount} prompts
-              </p>
-            )}
+            {/* ─── PAGINATION ─── */}
+            <Pagination
+              currentPage={safePage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+              totalCount={totalCount}
+            />
           </>
         )}
       </section>
 
-      {/* ─── BEFORE/AFTER ENGINE ─── */}
+      {/* ─── BEFORE/AFTER ─── */}
       <section className="border-t border-zinc-800/50 py-16 mt-16">
         <div className="max-w-7xl mx-auto px-4 text-center mb-12">
           <span className="text-[10px] uppercase tracking-[0.3em] text-indigo-400 font-bold mb-4 block">Proof of Quality</span>
@@ -617,11 +608,10 @@ function GalleryContent() {
         />
       </section>
 
-      {/* ─── FOOTER: Editorial Statement ─── */}
+      {/* ─── FOOTER ─── */}
       <footer className="border-t border-zinc-800/30 mt-24">
         <div className="max-w-7xl mx-auto px-4 py-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-            {/* 宣言區 - 佔多數空間 */}
             <div className="lg:col-span-8">
               <h2 className="text-6xl md:text-8xl lg:text-9xl font-serif italic font-bold leading-[0.9] tracking-tighter text-white/10 hover:text-white/20 transition-colors duration-1000 select-none">
                 Prompt<br />Gallery
@@ -631,7 +621,6 @@ function GalleryContent() {
                 Every prompt, tested. Every result, guaranteed.
               </p>
             </div>
-            {/* 連結區 - 最小資訊 */}
             <div className="lg:col-span-4 flex flex-col justify-between">
               <div className="space-y-6">
                 <div className="space-y-2">
@@ -675,7 +664,6 @@ function GalleryContent() {
             className="bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden max-w-3xl w-full max-h-[90vh] flex flex-col md:flex-row animate-fade-up shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Image */}
             <div className="md:w-1/2 bg-zinc-800">
               <img
                 src={quickViewPrompt.image}
@@ -683,7 +671,6 @@ function GalleryContent() {
                 className="w-full h-full object-cover max-h-[50vh] md:max-h-[70vh]"
               />
             </div>
-            {/* Info */}
             <div className="md:w-1/2 p-6 flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-2 mb-3">
@@ -706,7 +693,6 @@ function GalleryContent() {
               </Link>
             </div>
           </div>
-          {/* Close button */}
           <button
             onClick={() => setQuickViewId(null)}
             aria-label="Close quick view"

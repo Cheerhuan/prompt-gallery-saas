@@ -1,6 +1,5 @@
 import React from 'react';
 import { I18nProvider } from '@/components/I18nProvider';
-import CustomCursor from '@/components/CustomCursor';
 import './globals.css';
 import type { Metadata } from 'next';
 
@@ -61,7 +60,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {process.env.NODE_ENV === 'production' && (
           <script defer data-domain="cheerhuan.github.io" src="https://plausible.io/js/script.js" />
         )}
-        <CustomCursor />
         <I18nProvider>
           {children}
         </I18nProvider>

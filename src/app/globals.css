@@ -153,7 +153,4 @@ body {
   animation: shimmer 1.5s ease-in-out infinite;
 }
 
-/* ── Custom cursor: hide native cursor on desktop only ── */
-@media (hover: hover) and (pointer: fine) {
-  * { cursor: none !important; }
-}
+/* ── Native cursor restored (custom cursor removed for performance) ── */
