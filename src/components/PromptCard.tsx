@@ -4,30 +4,25 @@ import Link from 'next/link';
 import { isSaved, toggleSave } from '@/lib/vault';
 import { isLiked, toggleLike } from '@/lib/likes';
 import { AuthModal } from './AuthModal';
-import { motion } from 'framer-motion';
 
 interface PromptCardProps {
   id: string | number;
   image: string;
   title: string;
   tags?: string[];
-  /** Featured card: 2x width, larger image, shows prompt preview */
   featured?: boolean;
-  /** Mini card: compact for bento row */
   mini?: boolean;
-  /** Stagger animation index */
   index?: number;
-  /** Quick-view callback (opens lightbox) */
   onQuickView?: (id: string | number) => void;
-  /** PRO tier flag */
   tier?: 'free' | 'pro';
-  /** Creator name */
   creator?: string;
+  model?: string;
+  likesCount?: number;
 }
 
 const BASE_PATH = '/prompt-gallery-saas';
 
-export const PromptCard = ({ id, image, title, tags = [], featured, mini, index = 0, onQuickView, tier = 'free', creator }: PromptCardProps) => {
+export const PromptCard = ({ id, image, title, tags = [], featured, mini, index = 0, onQuickView, tier = 'free', creator, model, likesCount }: PromptCardProps) => {
   const [imgFailed, setImgFailed] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
   const [saved, setSaved] = useState(false);
@@ -36,10 +31,6 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
   const hasImage = image && image.trim() !== '';
   const isPro = tier === 'pro';
 
-  // Standard card — no 3D tilt (removed for performance)
-  const isStandardCard = !featured && !mini;
-
-  // Sync saved + liked state from localStorage + listen for cross-component updates
   useEffect(() => {
     setSaved(isSaved(id));
     setLiked(isLiked(id));
@@ -81,7 +72,6 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
   const handleLikeClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    // Check if user is logged in via localStorage mock user
     const storedUser = localStorage.getItem('supabase-mock-user');
     if (!storedUser) {
       setShowAuthModal(true);
@@ -92,55 +82,62 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
     setLiked(!liked);
   };
 
-  const handleShare = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    const siteUrl = 'https://cheerhuan.github.io/prompt-gallery-saas';
-    const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(siteUrl + '/prompt/' + id)}`;
-    window.open(tweetUrl, '_blank', 'noopener,noreferrer,width=600,height=400');
-    window.plausible?.('SharePrompt', { props: { id: String(id), platform: 'twitter' } });
-  };
-
-  // ── Save Button (shared across all variants) ──
-  const SaveBtn = () => (
-    <button
-      onClick={handleSave}
-      className={`absolute top-3 right-3 z-20 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 backdrop-blur-md
-        bg-black/30 hover:bg-black/60 border border-white/10 hover:border-white/30
-        opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 ${isPro ? '!opacity-100' : ''}`}
-      aria-label={saved ? 'Remove from vault' : 'Save to vault'}
-    >
-      <svg
-        className={`w-4 h-4 transition-colors ${saved ? 'text-pink-400 fill-pink-400' : 'text-white/70 fill-transparent'}`}
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={2}
-        fill={saved ? 'currentColor' : 'none'}
+  // ── Floating action buttons (top-right, hover reveal) ──
+  const ActionButtons = () => (
+    <div className="absolute top-3 right-3 z-20 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
+      <button
+        onClick={handleSave}
+        className="w-8 h-8 rounded-full flex items-center justify-center backdrop-blur-md bg-black/40 hover:bg-black/70 border border-white/15 transition-all"
+        aria-label={saved ? 'Remove from vault' : 'Save to vault'}
       >
-        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-      </svg>
-    </button>
+        <svg className={`w-4 h-4 ${saved ? 'text-pink-400 fill-pink-400' : 'text-white/70 fill-transparent'}`} viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} fill={saved ? 'currentColor' : 'none'}>
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+        </svg>
+      </button>
+      <button
+        onClick={handleLikeClick}
+        className="w-8 h-8 rounded-full flex items-center justify-center backdrop-blur-md bg-black/40 hover:bg-black/70 border border-white/15 transition-all"
+        aria-label={liked ? 'Unlike' : 'Like'}
+      >
+        <svg className={`w-4 h-4 ${liked ? 'text-red-400 fill-red-400' : 'text-white/70 fill-transparent'}`} viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} fill={liked ? 'currentColor' : 'none'}>
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+        </svg>
+      </button>
+    </div>
   );
 
-  // ── Like Button ──
-  const LikeBtn = () => (
-    <button
-      onClick={handleLikeClick}
-      className={`absolute top-3 right-14 z-20 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 backdrop-blur-md
-        bg-black/30 hover:bg-black/60 border border-white/10 hover:border-white/30
-        opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 ${isPro ? '!opacity-100' : ''}`}
-      aria-label={liked ? 'Unlike' : 'Like'}
-    >
-      <svg
-        className={`w-4 h-4 transition-colors ${liked ? 'text-red-400 fill-red-400' : 'text-white/70 fill-transparent'}`}
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={2}
-        fill={liked ? 'currentColor' : 'none'}
-      >
-        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-      </svg>
-    </button>
+  // ── Model Badge (top-left, hover reveal) ──
+  const ModelBadge = () => {
+    if (!model) return null;
+    return (
+      <div className="absolute top-3 left-3 z-20 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
+        <span className="px-2 py-0.5 rounded-md bg-black/50 backdrop-blur-md border border-white/10 text-[9px] font-semibold uppercase tracking-wider text-zinc-200">
+          {model}
+        </span>
+      </div>
+    );
+  };
+
+  // ── Hover Info Panel (bottom, floating) ──
+  const HoverInfoPanel = () => (
+    <div className="absolute bottom-0 left-0 right-0 z-20 p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+      <div className="rounded-lg bg-black/60 backdrop-blur-md border border-white/10 p-3">
+        <div className="flex items-start justify-between gap-2">
+          <div className="min-w-0 flex-1">
+            <h3 className="text-xs font-bold text-white leading-tight line-clamp-2 tracking-tight">{title}</h3>
+            {creator && <p className="text-[9px] text-zinc-400 mt-1 font-mono truncate">by {creator}</p>}
+          </div>
+          <div className="flex gap-1.5 shrink-0">
+            <button onClick={handleCopy} className="px-2.5 py-1 text-[9px] font-semibold uppercase tracking-wider rounded-md bg-white text-black hover:bg-zinc-200 transition-all whitespace-nowrap">
+              {isCopied ? 'Copied' : 'Copy'}
+            </button>
+            <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); onQuickView?.(id); }} className="px-2.5 py-1 text-[9px] font-semibold uppercase tracking-wider rounded-md bg-white/10 text-white border border-white/15 hover:bg-white/20 transition-all whitespace-nowrap">
+              View
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 
   // ── PRO Badge overlay ──
@@ -148,40 +145,33 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
     if (!isPro) return null;
     return (
       <div className="absolute top-3 left-3 z-20">
-        <span className="px-2 py-0.5 rounded-full bg-gradient-to-r from-amber-400 to-amber-600 text-[8px] font-extrabold uppercase tracking-wider text-black shadow-lg shadow-amber-500/30">
-          ⭐ Pro
-        </span>
+        <span className="px-2 py-0.5 rounded-full bg-gradient-to-r from-amber-400 to-amber-600 text-[8px] font-extrabold uppercase tracking-wider text-black shadow-lg shadow-amber-500/30">⭐ Pro</span>
       </div>
     );
   };
 
-  // ── PRO Lock overlay (blur + gradient) ──
   const ProLock = () => {
     if (!isPro) return null;
     return (
       <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-black/10 to-transparent pointer-events-none">
         <div className="absolute bottom-16 left-1/2 -translate-x-1/2 flex flex-col items-center">
-          <motion.div
-            whileHover={{ rotate: [0, -10, 10, -10, 0] }}
-            transition={{ duration: 0.5 }}
-            className="w-10 h-10 rounded-full bg-amber-500/20 backdrop-blur-md border border-amber-400/30 flex items-center justify-center mb-2 shadow-lg shadow-amber-500/10"
-          >
+          <div className="w-10 h-10 rounded-full bg-amber-500/20 backdrop-blur-md border border-amber-400/30 flex items-center justify-center mb-2 shadow-lg shadow-amber-500/10">
             <span className="text-amber-300 text-lg">🔒</span>
-          </motion.div>
+          </div>
           <span className="text-[9px] text-amber-300/70 font-bold uppercase tracking-widest">PRO Exclusive</span>
         </div>
       </div>
     );
   };
 
-  // ── Clean card wrapper (no gradient border — 2026 editorial style) ──
+  // ── Card wrapper (2026 editorial style, subtle shadow on hover) ──
   const CardWrapper = ({ children, className = "" }: { children: React.ReactNode, className?: string }) => {
-    const borderClass = isPro ? 'border-amber-500/30 hover:border-amber-500/60' : 'border-zinc-800 hover:border-zinc-600';
+    const borderClass = isPro ? 'border-amber-500/30 hover:border-amber-500/60' : 'border-zinc-800/0 hover:border-zinc-700/50';
     return (
-    <div className={`group relative rounded-xl overflow-hidden border ${borderClass} bg-zinc-900 transition-all duration-300 hover:scale-[1.015] cursor-pointer animate-fade-up ${className}`}>
-      {children}
-    </div>
-  );
+      <div className={`group relative rounded-xl overflow-hidden border ${borderClass} bg-zinc-900 transition-all duration-300 hover:shadow-lg hover:shadow-black/30 hover:scale-[1.02] cursor-pointer animate-fade-up ${className}`}>
+        {children}
+      </div>
+    );
   };
 
   // ── Featured card: cinematic 2x wide ──
@@ -190,48 +180,20 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
       <CardWrapper className="h-full">
         <Link href={`/prompt/${id}`} className="block" aria-label={title}>
           <div className="aspect-[16/9] md:aspect-[21/9] overflow-hidden bg-zinc-800 relative">
-            <img
-              src={resolvedSrc}
-              alt={title}
-              onError={() => setImgFailed(true)}
-              className={`w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 ${isPro ? 'blur-sm' : ''}`}
-              loading="lazy"
-            />
+            <img src={resolvedSrc} alt={title} onError={() => setImgFailed(true)} className={`w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 ${isPro ? 'blur-sm' : ''}`} loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
-            
             <ProBadge />
             {isPro && <ProLock />}
-            <SaveBtn />
-            {!isPro && <LikeBtn />}
-
+            <ActionButtons />
             <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
               <div className="flex items-center gap-3 mb-3">
                 {tags.slice(0, 2).map(tag => (
-                  <span key={tag} className="text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-[3px] bg-white/10 text-zinc-400">
-                    {tag}
-                  </span>
+                  <span key={tag} className="text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-[3px] bg-white/10 text-zinc-400">{tag}</span>
                 ))}
               </div>
-              <h3 className="text-2xl md:text-4xl font-bold tracking-tight text-white leading-tight mb-2 line-clamp-1">
-                {title}
-              </h3>
-              {creator && (
-                <p className="text-[10px] text-zinc-500 font-mono">by {creator}</p>
-              )}
+              <h3 className="text-2xl md:text-4xl font-bold tracking-tight text-white leading-tight mb-2 line-clamp-1">{title}</h3>
+              {creator && <p className="text-[10px] text-zinc-500 font-mono">by {creator}</p>}
             </div>
-
-            {!isPro && (
-              <motion.button
-                onClick={handleCopy}
-                aria-label="Copy prompt title"
-                whileTap={{ scale: 0.9 }}
-                animate={isCopied ? { scale: [1, 1.2, 1] } : { scale: 1 }}
-                transition={{ duration: 0.4 }}
-                className="absolute top-4 right-14 px-4 py-2 rounded-xl bg-black/40 backdrop-blur-xl border border-white/10 text-xs text-zinc-300 hover:text-white hover:bg-black/60 transition-all opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 duration-300"
-              >
-                {isCopied ? '✓ Copied' : 'Copy Prompt'}
-              </motion.button>
-            )}
           </div>
         </Link>
         <AuthModal open={showAuthModal} onClose={() => setShowAuthModal(false)} />
@@ -239,27 +201,18 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
     );
   }
 
-  // ── Mini card: compact ──
+  // ── Mini card: compact (kept as-is for bento row) ──
   if (mini) {
     return (
       <CardWrapper className="h-full">
         <Link href={`/prompt/${id}`} className="block" aria-label={title}>
           <div className="aspect-[4/5] overflow-hidden bg-zinc-800 relative">
-            <img
-              src={resolvedSrc}
-              alt={title}
-              onError={() => setImgFailed(true)}
-              className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${isPro ? 'blur-sm' : ''}`}
-              loading="lazy"
-            />
+            <img src={resolvedSrc} alt={title} onError={() => setImgFailed(true)} className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${isPro ? 'blur-sm' : ''}`} loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
             <ProBadge />
             {isPro && <ProLock />}
-            <SaveBtn />
-            {!isPro && <LikeBtn />}
-            <div className="absolute bottom-0 left-0 right-0 p-3">
-              <h3 className="text-xs font-bold text-white leading-tight line-clamp-2 tracking-tight">{title}</h3>
-            </div>
+            <ActionButtons />
+            <HoverInfoPanel />
           </div>
         </Link>
         <AuthModal open={showAuthModal} onClose={() => setShowAuthModal(false)} />
@@ -267,64 +220,17 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
     );
   }
 
-  // ── Standard card: Pure Visual Discovery ──
+  // ── Standard card: MeiGen-inspired Pure Visual Discovery ──
   return (
-    <CardWrapper 
-      className="h-full"
-    >
+    <CardWrapper>
       <Link href={`/prompt/${id}`} className="block" aria-label={title}>
-        <div className="aspect-[3/4] overflow-hidden bg-zinc-800 relative">
-          <img
-            src={resolvedSrc}
-            alt={title}
-            onError={() => setImgFailed(true)}
-            className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${isPro ? 'blur-[6px]' : ''}`}
-            loading="lazy"
-          />
-          
+        <div className="overflow-hidden bg-zinc-800 relative">
+          <img src={resolvedSrc} alt={title} onError={() => setImgFailed(true)} className={`w-full h-auto object-contain block ${isPro ? 'blur-[6px]' : ''}`} loading="lazy" />
           <ProBadge />
           {isPro && <ProLock />}
-          <SaveBtn />
-          {!isPro && <LikeBtn />}
-
-          <div className={`absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-opacity duration-300 ${isPro ? '' : 'group-hover:opacity-0'}`}>
-            <h3 className="text-sm font-bold text-white leading-tight line-clamp-2 tracking-tight">{title}</h3>
-            {creator && (
-              <p className="text-[9px] text-zinc-500 mt-1 font-mono">by {creator}</p>
-            )}
-          </div>
-
-          {!isPro && (
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-3">
-              <div className="flex flex-wrap gap-1.5 mb-2">
-                {tags.map(tag => (
-                  <span key={tag} className="text-[8px] uppercase tracking-wider px-1.5 py-0.5 rounded-[3px] bg-white/10 text-zinc-300">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <div className="flex gap-2">
-                <button
-                  onClick={handleCopy}
-                  aria-label="Copy prompt"
-                  className="flex-1 text-[9px] font-semibold uppercase tracking-wider py-2 rounded-lg bg-white text-black hover:bg-zinc-200 transition-all"
-                >
-                  {isCopied ? 'Copied' : 'Copy'}
-                </button>
-                <button
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    onQuickView?.(id);
-                  }}
-                  aria-label="Quick view"
-                  className="flex-1 text-[9px] font-semibold uppercase tracking-wider py-2 rounded-lg bg-white/10 text-white border border-white/10 hover:bg-white/20 transition-all"
-                >
-                  View
-                </button>
-              </div>
-            </div>
-          )}
+          <ActionButtons />
+          <ModelBadge />
+          <HoverInfoPanel />
         </div>
       </Link>
       <AuthModal open={showAuthModal} onClose={() => setShowAuthModal(false)} />

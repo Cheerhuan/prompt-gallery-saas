@@ -163,6 +163,8 @@ export default function ProfilePage() {
                   image={item.image}
                   title={getCardTitle(item.id, item.title, locale)}
                   tags={['High-Fidelity', 'Industrial']}
+                  creator={item.creator}
+                  model={item.model}
                 />
               ))}
             </div>

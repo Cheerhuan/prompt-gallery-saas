@@ -339,6 +339,7 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
                   tags={['High-Fidelity', 'Industrial']}
                   tier={item.tier as 'free' | 'pro' || 'free'}
                   creator={item.creator}
+                  model={item.model}
                   onQuickView={() => {}}
                 />
               ))}

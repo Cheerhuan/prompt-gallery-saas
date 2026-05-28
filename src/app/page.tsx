@@ -456,6 +456,7 @@ function GalleryContent() {
                         index={0}
                         tier={item.tier as 'free' | 'pro' || 'free'}
                         creator={item.creator}
+                        model={item.model}
                         onQuickView={setQuickViewId}
                       />
                     ))}
@@ -486,6 +487,7 @@ function GalleryContent() {
                       featured
                       tier={featuredPrompts[0].tier as 'free' | 'pro' || 'free'}
                       creator={featuredPrompts[0].creator}
+                      model={featuredPrompts[0].model}
                       onQuickView={setQuickViewId}
                     />
                   </div>
@@ -501,6 +503,7 @@ function GalleryContent() {
                         index={1}
                         tier={item.tier as 'free' | 'pro' || 'free'}
                         creator={item.creator}
+                        model={item.model}
                         onQuickView={setQuickViewId}
                       />
                     </div>
@@ -509,10 +512,10 @@ function GalleryContent() {
               </div>
             )}
 
-            {/* ─── MAIN GRID: 4 columns desktop, 5 on ultra-wide ─── */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+            {/* ─── MAIN GRID: Masonry columns (MeiGen-inspired) ─── */}
+            <div className="columns-2 sm:columns-3 lg:columns-4 xl:columns-5 gap-5 [&>*]:break-inside-avoid space-y-5">
               {visibleGridPrompts.map((item, idx) => (
-                <div key={item.id} className="relative">
+                <div key={item.id} className="break-inside-avoid">
                   <PromptCard
                     id={item.id}
                     image={item.image || ''}
@@ -521,6 +524,7 @@ function GalleryContent() {
                     index={idx}
                     tier={item.tier as 'free' | 'pro' || 'free'}
                     creator={item.creator}
+                    model={item.model}
                     onQuickView={setQuickViewId}
                   />
                 </div>
