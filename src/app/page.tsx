@@ -185,11 +185,6 @@ function GalleryContent() {
   const featuredPrompts = sortedPrompts.slice(0, 3);
   const gridPrompts = sortedPrompts.slice(3);
 
-  const totalPages = Math.max(1, Math.ceil(gridPrompts.length / CARDS_PER_PAGE));
-  const safePage = Math.min(currentPage, totalPages);
-  const startIdx = (safePage - 1) * CARDS_PER_PAGE;
-  const visibleGridPrompts = gridPrompts.slice(startIdx, startIdx + CARDS_PER_PAGE);
-
   const quickViewPrompt = quickViewId
     ? promptsWithImages.find(p => p.id === quickViewId)
     : null;
@@ -248,7 +243,7 @@ function GalleryContent() {
         <Sidebar activePage="home" />
 
         {/* Main Content */}
-        <main id="main-content" className="flex-1 min-w-0 px-4 md:px-6 pb-24 md:pb-12 pt-6">
+        <main id="main-content" className="flex-1 min-w-0 px-4 md:px-6 pb-24 md:pb-12 pt-2">
           {/* Model Tabs + Search */}
           <ModelTabs
             activeTab={activeFilter}
@@ -314,7 +309,7 @@ function GalleryContent() {
               <>
                 {/* ─── FEATURED BENTO ─── */}
                 {featuredPrompts.length > 0 && (
-                  <div className="mb-10">
+                  <div className="mb-4">
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                       <div className="md:col-span-2 md:row-span-2 relative">
                         <PromptCard
@@ -351,7 +346,7 @@ function GalleryContent() {
 
                 {/* ─── MASONRY GRID ─── */}
                 <div className="columns-2 sm:columns-3 lg:columns-4 xl:columns-5 gap-5 [&>*]:break-inside-avoid space-y-5">
-                  {visibleGridPrompts.map((item, idx) => (
+                  {gridPrompts.map((item, idx) => (
                     <div key={item.id} className="break-inside-avoid">
                       <PromptCard
                         id={item.id}
@@ -368,13 +363,7 @@ function GalleryContent() {
                   ))}
                 </div>
 
-                {/* ─── PAGINATION ─── */}
-                <Pagination
-                  currentPage={safePage}
-                  totalPages={totalPages}
-                  onPageChange={handlePageChange}
-                  totalCount={totalCount}
-                />
+                {/* ─── NO PAGINATION — all cards shown ─── */}
               </>
             )}
           </section>

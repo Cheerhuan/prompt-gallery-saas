@@ -49,7 +49,7 @@ const ModelTabs: React.FC<ModelTabsProps> = ({
 }) => {
   const tabs = filterOptions || DEFAULT_FILTERS;
   return (
-    <div className="border-b border-zinc-800 pb-4 mb-6 flex flex-col gap-3">
+    <div className="border-b border-zinc-800 pb-3 mb-2 flex flex-col gap-2">
       {/* Tab Bar */}
       <div className="flex items-center gap-2 overflow-x-auto no-scrollbar">
         {tabs.map((tab) => (
@@ -84,7 +84,7 @@ const ModelTabs: React.FC<ModelTabsProps> = ({
         </div>
       </div>
 
-      {/* Search Row */}
+        {/* Search Row */}
       <div className="relative flex items-center" ref={searchRef}>
         {/* Search Icon */}
         <svg
@@ -108,7 +108,7 @@ const ModelTabs: React.FC<ModelTabsProps> = ({
           value={searchQuery}
           onChange={(e) => onSearchChange(e.target.value)}
           placeholder="Search prompts..."
-          className="flex-1 pl-8 pr-4 py-2 bg-transparent border-b border-zinc-800 text-sm focus:border-zinc-500 outline-none transition-all placeholder:text-zinc-600"
+          className="flex-1 pl-8 pr-4 py-2 bg-transparent text-sm outline-none transition-all placeholder:text-zinc-600"
         />
 
         {/* ⌘K Badge */}
