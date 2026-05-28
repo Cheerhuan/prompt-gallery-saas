@@ -2,17 +2,16 @@
 import React, { useState, useEffect, useMemo, useRef, Suspense, useCallback } from 'react';
 import Link from 'next/link';
 import { useSearchParams, useRouter } from 'next/navigation';
-import { SaaSNavbar } from '@/components/SaaSNavbar';
+import Sidebar from '@/components/Sidebar';
+import ModelTabs from '@/components/ModelTabs';
 import { PromptCard } from '@/components/PromptCard';
 import { GallerySkeleton } from '@/components/Skeleton';
 import { useI18n } from '@/components/I18nProvider';
-import { CollectionRow } from '@/components/CollectionRow';
 import promptsData from '@/data/prompts.json';
 import embeddingsData from '@/data/embeddings.json';
 import { searchPrompts } from '@/lib/semantic-search';
 import type { SearchResult } from '@/lib/semantic-search';
 import { translations, getCardTitle } from '@/lib/i18n';
-import { motion } from 'framer-motion';
 
 const CARDS_PER_PAGE = 20;
 
@@ -29,7 +28,6 @@ function Pagination({
 }) {
   if (totalPages <= 1) return null;
 
-  // Generate visible page numbers
   const pages: (number | '...')[] = [];
   if (totalPages <= 7) {
     for (let i = 1; i <= totalPages; i++) pages.push(i);
@@ -46,7 +44,6 @@ function Pagination({
   return (
     <nav className="flex flex-col items-center gap-2 pt-4 pb-2" aria-label="Pagination">
       <div className="flex items-center gap-1.5">
-        {/* Prev */}
         <button
           onClick={() => onPageChange(currentPage - 1)}
           disabled={currentPage <= 1}
@@ -57,8 +54,6 @@ function Pagination({
         >
           ← Prev
         </button>
-
-        {/* Page numbers */}
         <div className="flex items-center gap-1 px-2">
           {pages.map((p, i) =>
             p === '...' ? (
@@ -80,8 +75,6 @@ function Pagination({
             )
           )}
         </div>
-
-        {/* Next */}
         <button
           onClick={() => onPageChange(currentPage + 1)}
           disabled={currentPage >= totalPages}
@@ -93,7 +86,6 @@ function Pagination({
           Next →
         </button>
       </div>
-
       <p className="text-[10px] text-zinc-600 font-mono tracking-wide">
         Page {currentPage} of {totalPages} · {totalCount} prompts total
       </p>
@@ -107,7 +99,7 @@ function GalleryContent() {
   const searchParams = useSearchParams();
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilter, setActiveFilter] = useState('all');
-  // Read page from URL on mount so back-navigation preserves page
+  const [sortBy, setSortBy] = useState<'featured' | 'newest' | 'popular'>('featured');
   const initialPage = useMemo(() => {
     const p = searchParams.get('page');
     return p ? parseInt(p, 10) || 1 : 1;
@@ -117,9 +109,8 @@ function GalleryContent() {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const searchRef = React.useRef<HTMLDivElement>(null);
 
-  // Pagination — no infinite scroll (better performance)
+  // Read collection param from URL
   useEffect(() => {
-    // Read collection param from URL to auto-apply filter (no fake loading delay)
     const collection = searchParams.get('collection');
     if (collection) {
       const filterMap: Record<string, string> = {
@@ -148,7 +139,6 @@ function GalleryContent() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchQuery, activeFilter]);
 
-  // Only show prompts that have an example image — latest first
   const promptsWithImages = useMemo(() =>
     promptsData
       .filter(p => p.image && p.image.trim() !== '')
@@ -159,7 +149,6 @@ function GalleryContent() {
     const q = searchQuery.trim();
     if (q) {
       const results: SearchResult[] = searchPrompts(q, promptsWithImages, embeddingsData as any);
-
       return results
         .filter(r => {
           if (activeFilter === 'all') return true;
@@ -171,7 +160,6 @@ function GalleryContent() {
         })
         .map(r => r.prompt);
     } else {
-      // ── No search query: standard filtering ──
       return promptsWithImages.filter(prompt => {
         const matchesFilter =
           activeFilter === 'all' ||
@@ -182,29 +170,32 @@ function GalleryContent() {
     }
   }, [promptsWithImages, searchQuery, activeFilter]);
 
-  // Sort: featured first (latest), then rest
-  const featuredPrompts = filteredPrompts.slice(0, 3);
-  const gridPrompts = filteredPrompts.slice(3);
+  // Sort logic
+  const sortedPrompts = useMemo(() => {
+    const list = [...filteredPrompts];
+    if (sortBy === 'newest') {
+      // Already reversed (latest first), no change needed
+    } else if (sortBy === 'popular') {
+      // Random/placeholder sort - keep as-is for now
+    }
+    // 'featured' = default order
+    return list;
+  }, [filteredPrompts, sortBy]);
 
-  // Pagination
+  const featuredPrompts = sortedPrompts.slice(0, 3);
+  const gridPrompts = sortedPrompts.slice(3);
+
   const totalPages = Math.max(1, Math.ceil(gridPrompts.length / CARDS_PER_PAGE));
   const safePage = Math.min(currentPage, totalPages);
   const startIdx = (safePage - 1) * CARDS_PER_PAGE;
   const visibleGridPrompts = gridPrompts.slice(startIdx, startIdx + CARDS_PER_PAGE);
 
-  // Quick-view modal: find prompt by ID
   const quickViewPrompt = quickViewId
     ? promptsWithImages.find(p => p.id === quickViewId)
     : null;
 
-  const scrollToGallery = useCallback(() => {
-    const element = document.getElementById('gallery-section');
-    if (element) element.scrollIntoView({ behavior: 'smooth' });
-  }, []);
-
   const handlePageChange = useCallback((page: number) => {
     setCurrentPage(page);
-    // Persist page in URL for back-navigation preservation
     const params = new URLSearchParams(searchParams.toString());
     params.set('page', String(page));
     router.replace(`?${params.toString()}`, { scroll: false });
@@ -212,7 +203,6 @@ function GalleryContent() {
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, [router, searchParams]);
 
-  // Search autocomplete suggestions
   const suggestions = useMemo(() => {
     if (searchQuery.length < 2) return [];
     return promptsWithImages
@@ -221,7 +211,6 @@ function GalleryContent() {
       .map(p => ({ id: p.id, title: p.title }));
   }, [searchQuery, promptsWithImages]);
 
-  // Click outside to close suggestions
   React.useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
@@ -234,273 +223,138 @@ function GalleryContent() {
 
   const totalCount = filteredPrompts.length;
 
+  const handleSuggestionClick = useCallback(() => {
+    setShowSuggestions(false);
+  }, []);
+
+  // Mobile bottom nav items
+  const mobileNavItems = [
+    { href: '/', label: 'Home', icon: '⌂', active: true },
+    { href: '/explore', label: 'Search', icon: '⌕', active: false },
+    { href: '/saved', label: 'Saved', icon: '♡', active: false },
+    { href: '/submit', label: 'Submit', icon: '+', active: false },
+    { href: '/profile', label: 'Profile', icon: '●', active: false },
+  ];
+
   return (
     <div className="min-h-screen bg-black text-white font-sans selection:bg-indigo-500/30">
       <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:rounded-lg focus:text-sm focus:font-bold">
         Skip to main content
       </a>
-      <SaaSNavbar />
 
-      {/* ─── HERO — compact editorial ─── */}
-      <section id="main-content" className="pt-28 pb-16 px-4 text-center max-w-4xl mx-auto relative overflow-hidden">
-        {/* Subtle background glow */}
-        <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full bg-indigo-500/4 blur-[140px] pointer-events-none" />
+      {/* ─── THREE-COLUMN LAYOUT ─── */}
+      <div className="flex min-h-screen">
+        {/* Left Sidebar (desktop only) */}
+        <Sidebar activePage="home" />
 
-        <div
-          className="space-y-6"
-        >
-          <div className="inline-flex items-center gap-2 px-3 py-1 border border-zinc-800 text-[10px] uppercase tracking-widest text-zinc-500">
-            <span className="w-1 h-1 rounded-full bg-zinc-500" />
-            {t('hero.badge')}
-          </div>
+        {/* Main Content */}
+        <main id="main-content" className="flex-1 min-w-0 px-4 md:px-6 pb-24 md:pb-12 pt-6">
+          {/* Model Tabs + Search */}
+          <ModelTabs
+            activeTab={activeFilter}
+            onTabChange={setActiveFilter}
+            sortBy={sortBy}
+            onSortChange={setSortBy}
+            searchQuery={searchQuery}
+            onSearchChange={(q) => { setSearchQuery(q); setShowSuggestions(true); }}
+            totalCount={totalCount}
+            searchSuggestions={suggestions}
+            showSuggestions={showSuggestions}
+            onSuggestionClick={handleSuggestionClick}
+            searchRef={searchRef}
+          />
 
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white leading-[1.1]">
-            {t('hero.title')}
-          </h1>
-
-          <p className="text-base text-zinc-500 max-w-lg mx-auto leading-relaxed font-light">
-            {t('hero.subtitle')}
-          </p>
-
-          <div className="flex items-center justify-center gap-3 pt-2">
-            <button
-              onClick={scrollToGallery}
-              className="px-8 py-3 bg-white text-black rounded-lg font-medium text-sm hover:bg-zinc-200 transition-all"
-            >
-              {t('hero.ctaPrimary')}
-            </button>
-            <Link
-              href="/pricing"
-              className="px-6 py-3 text-zinc-400 rounded-lg font-medium text-sm border border-zinc-800 hover:border-zinc-600 hover:text-white transition-all"
-            >
-              {t('hero.ctaSecondary')}
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── PROMPT PACKS ─── */}
-      <section className="max-w-7xl mx-auto px-4 mb-16">
-        <div className="flex items-center justify-between mb-8">
-          <div>
-            <span className="text-[10px] uppercase tracking-[0.3em] text-amber-500 font-bold mb-2 block">Curated Collections</span>
-            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tighter text-white">
-              Prompt <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">Packs</span>
-            </h2>
-          </div>
-          <Link href="/pricing" className="text-[10px] uppercase tracking-wider text-amber-400 hover:text-amber-300 font-bold transition-colors flex items-center gap-1">
-            View All →
-          </Link>
-        </div>
-
-        <div className="flex gap-4 overflow-x-auto no-scrollbar pb-4 snap-x snap-mandatory">
-          {[
-            { title: 'Cinematic Mastery', desc: '15 prompts · Hollywood-grade visual storytelling', icon: '🎬', color: 'from-indigo-500/20 to-purple-600/20', border: 'border-indigo-500/20', badge: 'Free' },
-            { title: 'Cyberpunk Collection', desc: '12 prompts · Neon-drenched dystopian aesthetics', icon: '🌆', color: 'from-rose-500/20 to-orange-600/20', border: 'border-rose-500/20', badge: 'Free' },
-            { title: 'Pro Architecture Pack', desc: '20 prompts · Industrial precision & spatial mastery', icon: '🏛️', color: 'from-amber-500/20 to-yellow-600/20', border: 'border-amber-500/20', badge: 'Pro' },
-            { title: 'Hyper-Realism Vault', desc: '18 prompts · Texture-perfect, light-accurate', icon: '🔬', color: 'from-emerald-500/20 to-teal-600/20', border: 'border-emerald-500/20', badge: 'Free' },
-            { title: 'Character Design Studio', desc: '10 prompts · Next-gen character & portrait craft', icon: '👤', color: 'from-violet-500/20 to-pink-600/20', border: 'border-violet-500/20', badge: 'Pro' },
-          ].map((pack) => (
-            <Link
-              key={pack.title}
-              href={pack.badge === 'Pro' ? '/pricing' : '/'}
-              className="flex-shrink-0 w-[260px] snap-start group relative p-[1px] rounded-2xl transition-all duration-300 hover:scale-[1.02]"
-            >
-              <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${pack.color} opacity-60 group-hover:opacity-100 transition-opacity duration-300 blur-[2px]`} />
-              <div className={`relative h-full rounded-2xl bg-zinc-900/90 backdrop-blur-md border ${pack.border} p-5`}>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-3xl">{pack.icon}</span>
-                  <span className={`text-[9px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full ${
-                    pack.badge === 'Pro'
-                      ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30'
-                      : 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
-                  }`}>
-                    {pack.badge === 'Pro' ? '⭐ Pro' : pack.badge}
-                  </span>
-                </div>
-                <h3 className="text-sm font-bold text-white mb-1 group-hover:text-indigo-300 transition-colors">{pack.title}</h3>
-                <p className="text-[10px] text-zinc-500 leading-relaxed">{pack.desc}</p>
-                {pack.badge === 'Pro' && (
-                  <div className="mt-3 flex items-center gap-1.5 text-[9px] text-amber-400/70 font-bold uppercase tracking-wider">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse-dot" />
-                    Unlock with Pro
-                  </div>
+          {/* ─── GALLERY ─── */}
+          <section id="gallery-section" className="scroll-mt-6">
+            {filteredPrompts.length === 0 ? (
+              <div className="py-24 text-center">
+                {searchQuery || activeFilter !== 'all' ? (
+                  <>
+                    <span className="text-5xl block mb-4">🔍</span>
+                    <h3 className="text-xl font-bold text-zinc-300 mb-2">No matches found</h3>
+                    <p className="text-zinc-500 text-sm max-w-md mx-auto mb-8">
+                      Try a different search term or{' '}
+                      <button onClick={() => { setSearchQuery(''); setActiveFilter('all'); }} aria-label="Reset all filters" className="text-indigo-400 hover:underline">
+                        reset all filters
+                      </button>
+                    </p>
+                    <div className="max-w-4xl mx-auto">
+                      <p className="text-[10px] uppercase tracking-widest text-zinc-600 mb-4">You might like these</p>
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                        {promptsWithImages.slice(0, 4).map((item) => (
+                          <PromptCard
+                            key={item.id}
+                            id={item.id}
+                            image={item.image || ''}
+                            title={getCardTitle(item.id, item.title, locale)}
+                            tags={[]}
+                            index={0}
+                            tier={item.tier as 'free' | 'pro' || 'free'}
+                            creator={item.creator}
+                            model={item.model}
+                            onQuickView={setQuickViewId}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <span className="text-5xl block mb-4">🎨</span>
+                    <h3 className="text-xl font-bold text-zinc-300 mb-2">{t('gallery.comingSoon')}</h3>
+                    <p className="text-zinc-500 text-sm max-w-md mx-auto">{t('gallery.comingSoonDesc')}</p>
+                  </>
                 )}
               </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* ─── COLLECTIONS ROW ─── */}
-      <CollectionRow
-        collections={[
-          { id: 'cinematic', title: 'Cinematic Masters', description: 'Hollywood-grade visual storytelling prompts engineered for maximum emotional impact.', image: '/images/uploads/character-design.jpg', count: 12 },
-          { id: 'cyberpunk', title: 'Cyberpunk Vault', description: 'Neon-drenched dystopian aesthetics blending organic forms with digital decay.', image: '/images/uploads/cyber-organic-botany.jpg', count: 8 },
-          { id: 'hyperreal', title: 'Hyper-Realistic', description: 'Texture-perfect, light-accurate prompts that blur the line between AI and photography.', image: '/images/uploads/hyper-tactile-surrealism.jpg', count: 15 },
-          { id: 'spatial', title: 'Spatial Visions', description: 'Futuristic architecture and impossible geometries rendered with industrial precision.', image: '/images/uploads/surreal-floating-islands.jpg', count: 10 },
-        ]}
-      />
-
-      {/* ─── GALLERY ─── */}
-      <section id="gallery-section" className="max-w-7xl mx-auto px-4 mb-6 scroll-mt-20">
-        {/* Stats bar */}
-        <div className="flex items-center gap-4 mb-4 text-xs text-zinc-500">
-          <span className="flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse-dot" />
-            {totalCount} prompts
-          </span>
-          <span className="w-px h-3 bg-zinc-800" />
-          <span>7 styles</span>
-          <span className="w-px h-3 bg-zinc-800" />
-          <span>Updated daily</span>
-        </div>
-
-        {/* ─── FILTER BAR — flat, no glassmorphism ─── */}
-        <div className="border-b border-zinc-800 pb-4 mb-8 flex flex-col md:flex-row items-stretch md:items-center gap-3">
-          {/* Search */}
-          <div className="relative flex-1 min-w-0" ref={searchRef}>
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500 text-xs leading-none z-10">⌘</span>
-            <input
-              type="text"
-              placeholder={t('gallery.searchPlaceholder')}
-              aria-label="Search prompts"
-              className="w-full pl-8 pr-4 py-2 bg-transparent border-b border-zinc-800 text-sm focus:border-zinc-500 outline-none transition-all placeholder:text-zinc-600"
-              value={searchQuery}
-              onChange={(e) => {
-                setSearchQuery(e.target.value);
-                setShowSuggestions(true);
-              }}
-              onFocus={() => setShowSuggestions(true)}
-            />
-            {/* Autocomplete */}
-            {showSuggestions && suggestions.length > 0 && (
-              <div className="absolute top-full left-0 right-0 mt-1 z-50 bg-zinc-900 border border-zinc-800 rounded-lg overflow-hidden shadow-xl">
-                {suggestions.map((s) => (
-                  <Link
-                    key={s.id}
-                    href={`/prompt/${s.id}`}
-                    className="block px-4 py-2.5 text-sm text-zinc-300 hover:bg-zinc-800 hover:text-white transition-all border-b border-zinc-800 last:border-0"
-                    onClick={() => setShowSuggestions(false)}
-                  >
-                    <span className="text-indigo-400 mr-2">→</span>
-                    {s.title}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Filter pills */}
-          <div className="flex items-center gap-4 overflow-x-auto no-scrollbar flex-shrink-0">
-            {Object.entries(translations.en.gallery.filters).map(([key, value]) => {
-              const count = key === 'all'
-                ? promptsWithImages.length
-                : promptsWithImages.filter(p =>
-                    p.title.toLowerCase().includes(key.toLowerCase()) ||
-                    p.full_prompt.toLowerCase().includes(key.toLowerCase())
-                  ).length;
-              return (
-                <button
-                  key={key}
-                  onClick={() => setActiveFilter(key)}
-                  aria-pressed={activeFilter === key}
-                  className={`text-xs transition-all whitespace-nowrap py-1 ${
-                    activeFilter === key
-                      ? 'text-white font-medium border-b-2 border-white'
-                      : 'text-zinc-500 hover:text-zinc-300 font-normal border-b-2 border-transparent'
-                  }`}
-                >
-                  {t(`gallery.filters.${key}`)}
-                  <span className={`ml-1.5 text-[10px] ${activeFilter === key ? 'text-zinc-400' : 'text-zinc-600'}`}>
-                    {count}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Sort */}
-          <select aria-label="Sort" className="bg-transparent border border-zinc-800 text-xs rounded-md px-2.5 py-1 outline-none text-zinc-500 cursor-pointer hover:border-zinc-600 transition-all flex-shrink-0">
-            <option>{t('gallery.sortTrending')}</option>
-            <option>{t('gallery.sortNewest')}</option>
-            <option>{t('gallery.sortSaved')}</option>
-          </select>
-        </div>
-      </section>
-
-      {/* ─── MAIN CONTENT ─── */}
-      <section className="max-w-7xl mx-auto px-4 pb-12">
-        {filteredPrompts.length === 0 ? (
-          <div className="py-24 text-center">
-            {searchQuery || activeFilter !== 'all' ? (
-              <>
-                <span className="text-5xl block mb-4">🔍</span>
-                <h3 className="text-xl font-bold text-zinc-300 mb-2">No matches found</h3>
-                <p className="text-zinc-500 text-sm max-w-md mx-auto mb-8">
-                  Try a different search term or{' '}
-                  <button onClick={() => { setSearchQuery(''); setActiveFilter('all'); }} aria-label="Reset all filters" className="text-indigo-400 hover:underline">
-                    reset all filters
-                  </button>
-                </p>
-                <div className="max-w-4xl mx-auto">
-                  <p className="text-[10px] uppercase tracking-widest text-zinc-600 mb-4">You might like these</p>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                    {promptsWithImages.slice(0, 4).map((item) => (
-                      <PromptCard
-                        key={item.id}
-                        id={item.id}
-                        image={item.image || ''}
-                        title={getCardTitle(item.id, item.title, locale)}
-                        tags={[]}
-                        index={0}
-                        tier={item.tier as 'free' | 'pro' || 'free'}
-                        creator={item.creator}
-                        model={item.model}
-                        onQuickView={setQuickViewId}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </>
             ) : (
               <>
-                <span className="text-5xl block mb-4">🎨</span>
-                <h3 className="text-xl font-bold text-zinc-300 mb-2">{t('gallery.comingSoon')}</h3>
-                <p className="text-zinc-500 text-sm max-w-md mx-auto">{t('gallery.comingSoonDesc')}</p>
-              </>
-            )}
-          </div>
-        ) : (
-          <>
-            {/* ─── FEATURED BENTO ─── */}
-            {featuredPrompts.length > 0 && (
-              <div className="mb-10">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                  {/* Featured card — 2x wide */}
-                  <div className="md:col-span-2 md:row-span-2 relative">
-                    <PromptCard
-                      id={featuredPrompts[0].id}
-                      image={featuredPrompts[0].image || ''}
-                      title={getCardTitle(featuredPrompts[0].id, featuredPrompts[0].title, locale)}
-                      tags={[]}
-                      featured
-                      tier={featuredPrompts[0].tier as 'free' | 'pro' || 'free'}
-                      creator={featuredPrompts[0].creator}
-                      model={featuredPrompts[0].model}
-                      onQuickView={setQuickViewId}
-                    />
+                {/* ─── FEATURED BENTO ─── */}
+                {featuredPrompts.length > 0 && (
+                  <div className="mb-10">
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                      <div className="md:col-span-2 md:row-span-2 relative">
+                        <PromptCard
+                          id={featuredPrompts[0].id}
+                          image={featuredPrompts[0].image || ''}
+                          title={getCardTitle(featuredPrompts[0].id, featuredPrompts[0].title, locale)}
+                          tags={[]}
+                          featured
+                          tier={featuredPrompts[0].tier as 'free' | 'pro' || 'free'}
+                          creator={featuredPrompts[0].creator}
+                          model={featuredPrompts[0].model}
+                          onQuickView={setQuickViewId}
+                        />
+                      </div>
+                      {featuredPrompts.slice(1, 3).map((item) => (
+                        <div key={item.id} className="md:col-span-1 md:row-span-1 relative">
+                          <PromptCard
+                            id={item.id}
+                            image={item.image || ''}
+                            title={getCardTitle(item.id, item.title, locale)}
+                            tags={[]}
+                            mini
+                            index={1}
+                            tier={item.tier as 'free' | 'pro' || 'free'}
+                            creator={item.creator}
+                            model={item.model}
+                            onQuickView={setQuickViewId}
+                          />
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                  {/* Mini cards */}
-                  {featuredPrompts.slice(1, 3).map((item) => (
-                    <div key={item.id} className="md:col-span-1 md:row-span-1 relative">
+                )}
+
+                {/* ─── MASONRY GRID ─── */}
+                <div className="columns-2 sm:columns-3 lg:columns-4 xl:columns-5 gap-5 [&>*]:break-inside-avoid space-y-5">
+                  {visibleGridPrompts.map((item, idx) => (
+                    <div key={item.id} className="break-inside-avoid">
                       <PromptCard
                         id={item.id}
                         image={item.image || ''}
                         title={getCardTitle(item.id, item.title, locale)}
                         tags={[]}
-                        mini
-                        index={1}
+                        index={idx}
                         tier={item.tier as 'free' | 'pro' || 'free'}
                         creator={item.creator}
                         model={item.model}
@@ -509,134 +363,56 @@ function GalleryContent() {
                     </div>
                   ))}
                 </div>
-              </div>
+
+                {/* ─── PAGINATION ─── */}
+                <Pagination
+                  currentPage={safePage}
+                  totalPages={totalPages}
+                  onPageChange={handlePageChange}
+                  totalCount={totalCount}
+                />
+              </>
             )}
+          </section>
 
-            {/* ─── MAIN GRID: Masonry columns (MeiGen-inspired) ─── */}
-            <div className="columns-2 sm:columns-3 lg:columns-4 xl:columns-5 gap-5 [&>*]:break-inside-avoid space-y-5">
-              {visibleGridPrompts.map((item, idx) => (
-                <div key={item.id} className="break-inside-avoid">
-                  <PromptCard
-                    id={item.id}
-                    image={item.image || ''}
-                    title={getCardTitle(item.id, item.title, locale)}
-                    tags={[]}
-                    index={idx}
-                    tier={item.tier as 'free' | 'pro' || 'free'}
-                    creator={item.creator}
-                    model={item.model}
-                    onQuickView={setQuickViewId}
-                  />
-                </div>
-              ))}
-            </div>
-
-            {/* ─── PAGINATION ─── */}
-            {totalPages > 1 && (
-              <div className="flex items-center justify-center gap-2 mt-10 mb-4">
-                <button
-                  onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
-                  disabled={currentPage <= 1}
-                  className="px-3 py-1.5 rounded-lg bg-zinc-800/50 border border-zinc-700/50 text-zinc-400 text-xs hover:text-white hover:border-zinc-500 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
-                >
-                  ← Prev
-                </button>
-                {Array.from({ length: Math.min(totalPages, 7) }, (_, i) => {
-                  const page = totalPages <= 7 ? i + 1 : (() => {
-                    const half = 3;
-                    let start = Math.max(1, currentPage - half);
-                    let end = Math.min(totalPages, start + 6);
-                    if (end - start < 6) start = Math.max(1, end - 6);
-                    return i + start;
-                  })();
-                  return (
-                    <button
-                      key={page}
-                      onClick={() => setCurrentPage(page)}
-                      className={`w-8 h-8 rounded-lg text-xs font-bold transition-all ${
-                        currentPage === page
-                          ? 'bg-indigo-500 text-white shadow-lg shadow-indigo-500/20'
-                          : 'bg-zinc-800/30 border border-zinc-700/50 text-zinc-500 hover:text-zinc-300 hover:border-zinc-500'
-                      }`}
-                    >
-                      {page}
-                    </button>
-                  );
-                })}
-                <button
-                  onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
-                  disabled={currentPage >= totalPages}
-                  className="px-3 py-1.5 rounded-lg bg-zinc-800/50 border border-zinc-700/50 text-zinc-400 text-xs hover:text-white hover:border-zinc-500 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
-                >
-                  Next →
-                </button>
-              </div>
-            )}
-
-            {/* Footer count */}
-            {gridPrompts.length > 0 && (
-              <p className="text-center text-[10px] text-zinc-500 mt-4 mb-8 font-mono">
-                Page {safePage} of {totalPages} · {totalCount} prompts total
+          {/* ─── SIMPLE FOOTER ─── */}
+          <footer className="border-t border-zinc-800/30 mt-16">
+            <div className="py-6 flex items-center justify-between">
+              <p className="text-[10px] text-zinc-600 font-mono">
+                Prompt Gallery · {totalCount} prompts · Updated daily
               </p>
-            )}
-          </>
-        )}
-      </section>
+              <div className="flex items-center gap-4 text-[10px] text-zinc-600">
+                <Link href="/terms" className="hover:text-zinc-400 transition-colors">Terms</Link>
+                <span>·</span>
+                <Link href="/privacy" className="hover:text-zinc-400 transition-colors">Privacy</Link>
+                <span>·</span>
+                <a href="https://github.com/Cheerhuan/prompt-gallery-saas" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-400 transition-colors">GitHub</a>
+              </div>
+            </div>
+          </footer>
+        </main>
+      </div>
 
-      {/* ─── FOOTER ─── */}
-      <footer className="border-t border-zinc-800/30 mt-24">
-        <div className="max-w-7xl mx-auto px-4 py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-            <div className="lg:col-span-8">
-              <h2 className="text-6xl md:text-8xl lg:text-9xl font-serif italic font-bold leading-[0.9] tracking-tighter text-white/10 hover:text-white/20 transition-colors duration-1000 select-none">
-                Prompt<br />Gallery
-              </h2>
-              <p className="text-sm text-zinc-600 mt-8 max-w-md leading-relaxed font-light">
-                A curated ecosystem of high-conversion prompts engineered for cinematic results. 
-                Every prompt, tested. Every result, guaranteed.
-              </p>
-            </div>
-            <div className="lg:col-span-4 flex flex-col justify-between">
-              <div className="space-y-6">
-                <div className="space-y-2">
-                  <span className="text-[10px] uppercase tracking-[0.2em] text-zinc-600 font-medium">Resources</span>
-                  <div className="flex flex-col gap-1.5">
-                    {['Explore', 'Trending', 'Leaderboard'].map(link => (
-                      <Link key={link} href={`/${link.toLowerCase()}`} className="text-sm text-zinc-400 hover:text-white transition-colors w-fit">
-                        {link}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <span className="text-[10px] uppercase tracking-[0.2em] text-zinc-600 font-medium">Community</span>
-                  <div className="flex flex-col gap-1.5">
-                    {['Submit Prompt', 'My Vault', 'Pricing'].map(link => (
-                      <Link key={link} href={`/${link.toLowerCase().replace(' ', '-')}`} className="text-sm text-zinc-400 hover:text-white transition-colors w-fit">
-                        {link}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <div className="mt-12 lg:mt-0">
-                <p className="text-[10px] text-zinc-700 font-mono">
-                  © 2026 Prompt Gallery · Engineered with intent
-                </p>
-              </div>
-            </div>
-          </div>
+      {/* ─── MOBILE BOTTOM NAV ─── */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-zinc-950 border-t border-zinc-800">
+        <div className="flex items-center justify-around py-2">
+          {mobileNavItems.map(item => (
+            <Link key={item.label} href={item.href} className="flex flex-col items-center gap-0.5 px-3 py-1">
+              <span className={`text-lg ${item.active ? 'text-white' : 'text-zinc-500'}`}>{item.icon}</span>
+              <span className={`text-[8px] ${item.active ? 'text-white' : 'text-zinc-500'}`}>{item.label}</span>
+            </Link>
+          ))}
         </div>
-      </footer>
+      </div>
 
       {/* ─── QUICK VIEW MODAL ─── */}
       {quickViewPrompt && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
+          className="fixed inset-0 z-[100] bg-black/70 backdrop-blur-sm flex items-center justify-center p-4"
           onClick={() => setQuickViewId(null)}
         >
           <div
-            className="bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden max-w-3xl w-full max-h-[90vh] flex flex-col md:flex-row animate-fade-up shadow-2xl"
+            className="bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden max-w-4xl w-full max-h-[90vh] flex flex-col md:flex-row relative"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="md:w-1/2 bg-zinc-800">

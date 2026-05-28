@@ -1,0 +1,213 @@
+'use client';
+
+import React from 'react';
+import Link from 'next/link';
+
+interface SidebarProps {
+  activePage?: 'home' | 'search' | 'history' | 'favorites';
+}
+
+export default function Sidebar({ activePage = 'home' }: SidebarProps) {
+  const baseNavItem = (href: string, icon: React.ReactNode, label: string, isActive: boolean, isExternal?: boolean) => {
+    const classes = `flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-all ${
+      isActive
+        ? 'bg-zinc-800/50 text-white border-l-2 border-white pl-3'
+        : 'text-zinc-500 hover:text-zinc-300 hover:bg-zinc-800/30 pl-4'
+    }`;
+
+    const content = (
+      <>
+        <span className="w-4 h-4 shrink-0">{icon}</span>
+        <span className="flex-1">{label}</span>
+        {isExternal && (
+          <svg className="w-3 h-3 text-zinc-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+            <path d="M7 17l10-10M17 7v10M17 7H7" />
+          </svg>
+        )}
+      </>
+    );
+
+    if (isExternal) {
+      return (
+        <a href={href} target="_blank" rel="noopener noreferrer" className={classes}>
+          {content}
+        </a>
+      );
+    }
+
+    return (
+      <Link href={href} className={classes}>
+        {content}
+      </Link>
+    );
+  };
+
+  const navItems = [
+    {
+      href: '/',
+      label: 'Home',
+      key: 'home' as const,
+      icon: (
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+          <polyline points="9 22 9 12 15 12 15 22" />
+        </svg>
+      ),
+    },
+    {
+      href: '/explore',
+      label: 'Search',
+      key: 'search' as const,
+      icon: (
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+      ),
+    },
+    {
+      href: '/saved',
+      label: 'History',
+      key: 'history' as const,
+      icon: (
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+          <circle cx="12" cy="12" r="10" />
+          <polyline points="12 6 12 12 16 14" />
+        </svg>
+      ),
+    },
+    {
+      href: '/favorites',
+      label: 'Favorites',
+      key: 'favorites' as const,
+      icon: (
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+        </svg>
+      ),
+    },
+  ];
+
+  return (
+    <aside className="w-[240px] shrink-0 h-screen sticky top-0 bg-zinc-950 border-r border-zinc-800 flex flex-col py-6 px-4 overflow-y-auto hidden md:flex">
+      {/* Logo */}
+      <Link href="/" className="flex items-center gap-3 px-3 mb-6">
+        <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center text-black text-xs font-bold shrink-0">
+          PG
+        </div>
+        <span className="text-lg font-bold tracking-tighter text-white">PROMPT GALLERY</span>
+      </Link>
+
+      {/* Main Navigation */}
+      <nav className="flex flex-col gap-1">
+        {navItems.map((item) =>
+          baseNavItem(item.href, item.icon, item.label, activePage === item.key)
+        )}
+      </nav>
+
+      {/* Separator */}
+      <div className="border-t border-zinc-800 my-4" />
+
+      {/* Categories Section */}
+      <div className="text-[10px] uppercase tracking-[0.2em] text-zinc-600 font-medium px-3 mb-2">
+        CATEGORIES
+      </div>
+      <nav className="flex flex-col gap-1">
+        {baseNavItem(
+          '/explore',
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
+            <line x1="7" y1="7" x2="7.01" y2="7" />
+          </svg>,
+          'Tags',
+          false
+        )}
+        {baseNavItem(
+          '/',
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+          </svg>,
+          'Recent Updates',
+          false
+        )}
+      </nav>
+
+      {/* Separator */}
+      <div className="border-t border-zinc-800 my-4" />
+
+      {/* Ecosystem Section */}
+      <div className="text-[10px] uppercase tracking-[0.2em] text-zinc-600 font-medium px-3 mb-2">
+        ECOSYSTEM
+      </div>
+      <nav className="flex flex-col gap-1">
+        {baseNavItem(
+          'https://github.com/jau123/MeiGen-AI-Design-MCP',
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            <path d="M9 22V12h6v10" />
+          </svg>,
+          'MCP Server',
+          false,
+          true
+        )}
+        {baseNavItem(
+          'https://clawhub.ai/jau123/creative-toolkit',
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+            <path d="M12 2L2 7l10 5 10-5-10-5z" />
+            <path d="M2 17l10 5 10-5" />
+            <path d="M2 12l10 5 10-5" />
+          </svg>,
+          'Hermes Skill',
+          false,
+          true
+        )}
+        {baseNavItem(
+          'https://www.figma.com/community/plugin/1539963026393306817',
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+            <line x1="3" y1="9" x2="21" y2="9" />
+            <line x1="9" y1="21" x2="9" y2="9" />
+          </svg>,
+          'Figma Plugin',
+          false,
+          true
+        )}
+      </nav>
+
+      {/* Spacer */}
+      <div className="flex-1" />
+
+      {/* CTA Card */}
+      <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-4 mb-4">
+        <p className="text-sm font-semibold text-white mb-1">Publish &amp; earn credits</p>
+        <p className="text-xs text-zinc-500 mb-3">50 credits per approval</p>
+        <Link
+          href="/submit"
+          className="w-full bg-white text-black rounded-lg py-2 text-xs font-semibold block text-center hover:bg-zinc-200 transition-colors"
+        >
+          Get Started
+        </Link>
+      </div>
+
+      {/* Footer Links */}
+      <div className="flex items-center gap-3 px-3">
+        <Link href="/terms" className="text-[10px] text-zinc-600 hover:text-zinc-400 transition-colors">
+          Terms
+        </Link>
+        <span className="text-[10px] text-zinc-700">·</span>
+        <Link href="/privacy" className="text-[10px] text-zinc-600 hover:text-zinc-400 transition-colors">
+          Privacy
+        </Link>
+        <span className="text-[10px] text-zinc-700">·</span>
+        <a
+          href="https://github.com/Cheerhuan/prompt-gallery-saas"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[10px] text-zinc-600 hover:text-zinc-400 transition-colors"
+        >
+          Git
+        </a>
+      </div>
+    </aside>
+  );
+}
