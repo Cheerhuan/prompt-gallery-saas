@@ -262,6 +262,10 @@ function GalleryContent() {
             showSuggestions={showSuggestions}
             onSuggestionClick={handleSuggestionClick}
             searchRef={searchRef}
+            filterOptions={Object.entries(translations[locale].gallery.filters).map(([key, label]) => ({
+              value: key,
+              label: String(label),
+            }))}
           />
 
           {/* ─── GALLERY ─── */}

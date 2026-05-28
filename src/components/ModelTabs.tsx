@@ -15,20 +15,22 @@ interface ModelTabsProps {
   showSuggestions?: boolean;
   onSuggestionClick?: () => void;
   searchRef?: React.RefObject<HTMLDivElement | null>;
+  filterOptions?: Array<{ value: string; label: string }>;
 }
-
-const TABS: Array<{ value: string; label: string }> = [
-  { value: 'all', label: 'All' },
-  { value: 'gptimage', label: 'GPT Image' },
-  { value: 'midjourney', label: 'Midjourney' },
-  { value: 'nanobanana', label: 'Nano Banana' },
-  { value: 'seedance', label: 'Seedance 2.0' },
-];
 
 const SORTS: Array<{ value: 'featured' | 'newest' | 'popular'; label: string }> = [
   { value: 'featured', label: 'Featured' },
   { value: 'newest', label: 'Newest' },
   { value: 'popular', label: 'Popular' },
+];
+
+const DEFAULT_FILTERS: Array<{ value: string; label: string }> = [
+  { value: 'all', label: 'All' },
+  { value: 'cinematic', label: 'Cinematic' },
+  { value: 'anime', label: 'Anime' },
+  { value: 'realistic', label: 'Realistic' },
+  { value: 'product', label: 'Product' },
+  { value: 'portrait', label: 'Portrait' },
 ];
 
 const ModelTabs: React.FC<ModelTabsProps> = ({
@@ -43,12 +45,14 @@ const ModelTabs: React.FC<ModelTabsProps> = ({
   showSuggestions = false,
   onSuggestionClick,
   searchRef,
+  filterOptions,
 }) => {
+  const tabs = filterOptions || DEFAULT_FILTERS;
   return (
     <div className="border-b border-zinc-800 pb-4 mb-6 flex flex-col gap-3">
       {/* Tab Bar */}
       <div className="flex items-center gap-2 overflow-x-auto no-scrollbar">
-        {TABS.map((tab) => (
+        {tabs.map((tab) => (
           <button
             key={tab.value}
             onClick={() => onTabChange(tab.value)}
