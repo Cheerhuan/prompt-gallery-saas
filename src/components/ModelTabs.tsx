@@ -26,11 +26,12 @@ const SORTS: Array<{ value: 'featured' | 'newest' | 'popular'; label: string }> 
 
 const DEFAULT_FILTERS: Array<{ value: string; label: string }> = [
   { value: 'all', label: 'All' },
+  { value: 'portrait', label: 'Portrait' },
+  { value: 'product', label: 'Product' },
   { value: 'cinematic', label: 'Cinematic' },
   { value: 'anime', label: 'Anime' },
+  { value: 'illustration', label: 'Illustration' },
   { value: 'realistic', label: 'Realistic' },
-  { value: 'product', label: 'Product' },
-  { value: 'portrait', label: 'Portrait' },
 ];
 
 const ModelTabs: React.FC<ModelTabsProps> = ({
