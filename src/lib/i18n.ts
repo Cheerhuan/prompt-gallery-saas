@@ -3,6 +3,13 @@ import React from 'react';
 export const translations = {
   en: {
     nav: { explore: 'Explore', trending: 'Trending', pricing: 'Pricing', login: 'Login', getStarted: 'Get Started', upgrade: 'Upgrade to Pro' },
+    sidebar: {
+      home: 'Home', search: 'Search', history: 'History', favorites: 'Favorites',
+      categories: 'Categories', tags: 'Tags', recentUpdates: 'Recent Updates',
+      ecosystem: 'Ecosystem', mcpServer: 'MCP Server', hermesSkill: 'Hermes Skill', figmaPlugin: 'Figma Plugin',
+      publishTitle: 'Publish & earn credits', publishSub: '50 credits per approval', getStarted: 'Get Started',
+      terms: 'Terms', privacy: 'Privacy', git: 'GitHub',
+    },
     hero: { 
       badge: 'The Definitive Archive of Viral AI Prompts', 
       title: 'The AI Prompt Vault', 
@@ -22,6 +29,13 @@ export const translations = {
   },
   zh: {
     nav: { explore: '探索', trending: '熱門', pricing: '價格', login: '登錄', getStarted: '立即開始', upgrade: '升級至 Pro' },
+    sidebar: {
+      home: '首頁', search: '搜尋', history: '歷史', favorites: '收藏',
+      categories: '分類', tags: '標籤', recentUpdates: '最近更新',
+      ecosystem: '生態系', mcpServer: 'MCP 伺服器', hermesSkill: 'Hermes 技能', figmaPlugin: 'Figma 外掛',
+      publishTitle: '發布並賺取積分', publishSub: '每次審核通過 50 積分', getStarted: '立即開始',
+      terms: '條款', privacy: '隱私', git: 'GitHub',
+    },
     hero: { 
       badge: '權威級 AI 提示詞檔案庫', 
       title: 'AI 提示詞金庫', 
@@ -51,6 +65,13 @@ export const translations = {
   },
   ja: {
     nav: { explore: '探索', trending: 'トレンド', pricing: '料金プラン', login: 'ログイン', getStarted: '今すぐ開始', upgrade: 'Proにアップグレード' },
+    sidebar: {
+      home: 'ホーム', search: '検索', history: '履歴', favorites: 'お気に入り',
+      categories: 'カテゴリー', tags: 'タグ', recentUpdates: '最近の更新',
+      ecosystem: 'エコシステム', mcpServer: 'MCP サーバー', hermesSkill: 'Hermes スキル', figmaPlugin: 'Figma プラグイン',
+      publishTitle: '公開してクレジットを獲得', publishSub: '承認ごとに50クレジット', getStarted: '今すぐ開始',
+      terms: '利用規約', privacy: 'プライバシー', git: 'GitHub',
+    },
     hero: { 
       badge: 'ヴァイラルAIプロンプトの決定版アーカイブ', 
       title: 'AI プロンプト ボールト', 
@@ -80,6 +101,13 @@ export const translations = {
   },
   ko: {
     nav: { explore: '탐색', trending: '트렌딩', pricing: '가격', login: '로그인', getStarted: '시작하기', upgrade: 'Pro로 업그레이드' },
+    sidebar: {
+      home: '홈', search: '검색', history: '히스토리', favorites: '즐겨찾기',
+      categories: '카테고리', tags: '태그', recentUpdates: '최근 업데이트',
+      ecosystem: '생태계', mcpServer: 'MCP 서버', hermesSkill: 'Hermes 스킬', figmaPlugin: 'Figma 플러그인',
+      publishTitle: '게시하고 크레딧 획득', publishSub: '승인당 50 크레딧', getStarted: '시작하기',
+      terms: '약관', privacy: '개인정보', git: 'GitHub',
+    },
     hero: { 
       badge: '바이럴 AI 프롬프트의 결정판 아카이브', 
       title: 'AI 프롬프트 볼트', 
