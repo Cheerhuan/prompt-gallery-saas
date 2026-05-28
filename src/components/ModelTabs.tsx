@@ -49,7 +49,7 @@ const ModelTabs: React.FC<ModelTabsProps> = ({
 }) => {
   const tabs = filterOptions || DEFAULT_FILTERS;
   return (
-    <div className="border-b border-zinc-800 pb-3 mb-2 flex flex-col gap-2">
+    <div className="border-b border-zinc-800 pb-2 mb-5 flex flex-col gap-2">
       {/* Tab Bar */}
       <div className="flex items-center gap-2 overflow-x-auto no-scrollbar">
         {tabs.map((tab) => (

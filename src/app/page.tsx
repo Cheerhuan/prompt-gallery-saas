@@ -182,8 +182,7 @@ function GalleryContent() {
     return list;
   }, [filteredPrompts, sortBy]);
 
-  const featuredPrompts = sortedPrompts.slice(0, 3);
-  const gridPrompts = sortedPrompts.slice(3);
+  const gridPrompts = sortedPrompts;
 
   const quickViewPrompt = quickViewId
     ? promptsWithImages.find(p => p.id === quickViewId)
@@ -243,7 +242,7 @@ function GalleryContent() {
         <Sidebar activePage="home" />
 
         {/* Main Content */}
-        <main id="main-content" className="flex-1 min-w-0 px-4 md:px-6 pb-24 md:pb-12 pt-2">
+        <main id="main-content" className="flex-1 min-w-0 px-4 md:px-6 pb-24 md:pb-12 pt-0">
           {/* Model Tabs + Search */}
           <ModelTabs
             activeTab={activeFilter}
@@ -307,45 +306,8 @@ function GalleryContent() {
               </div>
             ) : (
               <>
-                {/* ─── FEATURED BENTO ─── */}
-                {featuredPrompts.length > 0 && (
-                  <div className="mb-4">
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                      <div className="md:col-span-2 md:row-span-2 relative">
-                        <PromptCard
-                          id={featuredPrompts[0].id}
-                          image={featuredPrompts[0].image || ''}
-                          title={getCardTitle(featuredPrompts[0].id, featuredPrompts[0].title, locale)}
-                          tags={[]}
-                          featured
-                          tier={featuredPrompts[0].tier as 'free' | 'pro' || 'free'}
-                          creator={featuredPrompts[0].creator}
-                          model={featuredPrompts[0].model}
-                          onQuickView={setQuickViewId}
-                        />
-                      </div>
-                      {featuredPrompts.slice(1, 3).map((item) => (
-                        <div key={item.id} className="md:col-span-1 md:row-span-1 relative">
-                          <PromptCard
-                            id={item.id}
-                            image={item.image || ''}
-                            title={getCardTitle(item.id, item.title, locale)}
-                            tags={[]}
-                            mini
-                            index={1}
-                            tier={item.tier as 'free' | 'pro' || 'free'}
-                            creator={item.creator}
-                            model={item.model}
-                            onQuickView={setQuickViewId}
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
                 {/* ─── MASONRY GRID ─── */}
-                <div className="columns-2 sm:columns-3 lg:columns-4 xl:columns-5 gap-5 [&>*]:break-inside-avoid space-y-5">
+                <div className="columns-2 sm:columns-3 lg:columns-4 xl:columns-5 gap-4 [&>*]:break-inside-avoid space-y-4">
                   {gridPrompts.map((item, idx) => (
                     <div key={item.id} className="break-inside-avoid">
                       <PromptCard
