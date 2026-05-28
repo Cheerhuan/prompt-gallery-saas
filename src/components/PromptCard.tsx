@@ -14,7 +14,6 @@ interface PromptCardProps {
   mini?: boolean;
   index?: number;
   onQuickView?: (id: string | number) => void;
-  tier?: 'free' | 'pro';
   creator?: string;
   model?: string;
   likesCount?: number;
@@ -22,14 +21,13 @@ interface PromptCardProps {
 
 const BASE_PATH = '/prompt-gallery-saas';
 
-export const PromptCard = ({ id, image, title, tags = [], featured, mini, index = 0, onQuickView, tier = 'free', creator, model, likesCount }: PromptCardProps) => {
+export const PromptCard = ({ id, image, title, tags = [], featured, mini, index = 0, onQuickView, creator, model, likesCount }: PromptCardProps) => {
   const [imgFailed, setImgFailed] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
   const [saved, setSaved] = useState(false);
   const [liked, setLiked] = useState(false);
   const [showAuthModal, setShowAuthModal] = useState(false);
   const hasImage = image && image.trim() !== '';
-  const isPro = tier === 'pro';
 
   useEffect(() => {
     setSaved(isSaved(id));
@@ -140,35 +138,10 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
     </div>
   );
 
-  // ── PRO Badge overlay ──
-  const ProBadge = () => {
-    if (!isPro) return null;
-    return (
-      <div className="absolute top-3 left-3 z-20">
-        <span className="px-2 py-0.5 rounded-full bg-gradient-to-r from-amber-400 to-amber-600 text-[8px] font-extrabold uppercase tracking-wider text-black shadow-lg shadow-amber-500/30">⭐ Pro</span>
-      </div>
-    );
-  };
-
-  const ProLock = () => {
-    if (!isPro) return null;
-    return (
-      <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-black/10 to-transparent pointer-events-none">
-        <div className="absolute bottom-16 left-1/2 -translate-x-1/2 flex flex-col items-center">
-          <div className="w-10 h-10 rounded-full bg-amber-500/20 backdrop-blur-md border border-amber-400/30 flex items-center justify-center mb-2 shadow-lg shadow-amber-500/10">
-            <span className="text-amber-300 text-lg">🔒</span>
-          </div>
-          <span className="text-[9px] text-amber-300/70 font-bold uppercase tracking-widest">PRO Exclusive</span>
-        </div>
-      </div>
-    );
-  };
-
   // ── Card wrapper (2026 editorial style, subtle shadow on hover) ──
   const CardWrapper = ({ children, className = "" }: { children: React.ReactNode, className?: string }) => {
-    const borderClass = isPro ? 'border-amber-500/30 hover:border-amber-500/60' : 'border-zinc-800/0 hover:border-zinc-700/50';
     return (
-      <div className={`group relative rounded-xl overflow-hidden border ${borderClass} bg-zinc-900 transition-all duration-300 hover:shadow-lg hover:shadow-black/30 hover:scale-[1.02] cursor-pointer animate-fade-up ${className}`}>
+      <div className={`group relative rounded-xl overflow-hidden border border-zinc-800/0 hover:border-zinc-700/50 bg-zinc-900 transition-all duration-300 hover:shadow-lg hover:shadow-black/30 hover:scale-[1.02] cursor-pointer animate-fade-up ${className}`}>
         {children}
       </div>
     );
@@ -180,10 +153,8 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
       <CardWrapper className="h-full">
         <Link href={`/prompt/${id}`} className="block" aria-label={title}>
           <div className="aspect-[16/9] md:aspect-[21/9] overflow-hidden bg-zinc-800 relative">
-            <img src={resolvedSrc} alt={title} onError={() => setImgFailed(true)} className={`w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 ${isPro ? 'blur-sm' : ''}`} loading="lazy" />
+            <img src={resolvedSrc} alt={title} onError={() => setImgFailed(true)} className={`w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110`} loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
-            <ProBadge />
-            {isPro && <ProLock />}
             <ActionButtons />
             <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
               <div className="flex items-center gap-3 mb-3">
@@ -207,10 +178,8 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
       <CardWrapper className="h-full">
         <Link href={`/prompt/${id}`} className="block" aria-label={title}>
           <div className="aspect-[4/5] overflow-hidden bg-zinc-800 relative">
-            <img src={resolvedSrc} alt={title} onError={() => setImgFailed(true)} className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${isPro ? 'blur-sm' : ''}`} loading="lazy" />
+            <img src={resolvedSrc} alt={title} onError={() => setImgFailed(true)} className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110`} loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
-            <ProBadge />
-            {isPro && <ProLock />}
             <ActionButtons />
             <HoverInfoPanel />
           </div>
@@ -225,9 +194,7 @@ export const PromptCard = ({ id, image, title, tags = [], featured, mini, index 
     <CardWrapper>
       <Link href={`/prompt/${id}`} className="block" aria-label={title}>
         <div className="overflow-hidden bg-zinc-800 relative">
-          <img src={resolvedSrc} alt={title} onError={() => setImgFailed(true)} className={`w-full h-auto object-contain block ${isPro ? 'blur-[6px]' : ''}`} loading="lazy" />
-          <ProBadge />
-          {isPro && <ProLock />}
+          <img src={resolvedSrc} alt={title} onError={() => setImgFailed(true)} className="w-full h-auto object-contain block" loading="lazy" />
           <ActionButtons />
           <ModelBadge />
           <HoverInfoPanel />

@@ -287,7 +287,6 @@ function GalleryContent() {
                             title={getCardTitle(item.id, item.title, locale)}
                             tags={[]}
                             index={0}
-                            tier={item.tier as 'free' | 'pro' || 'free'}
                             creator={item.creator}
                             model={item.model}
                             onQuickView={setQuickViewId}
@@ -316,7 +315,6 @@ function GalleryContent() {
                         title={getCardTitle(item.id, item.title, locale)}
                         tags={[]}
                         index={idx}
-                        tier={item.tier as 'free' | 'pro' || 'free'}
                         creator={item.creator}
                         model={item.model}
                         onQuickView={setQuickViewId}

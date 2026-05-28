@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { SaaSNavbar } from '@/components/SaaSNavbar';
 import { PromptCard } from '@/components/PromptCard';
 import { PromptPlayground } from '@/components/PromptPlayground';
-import { FeatureGate } from '@/components/FeatureGate';
 import { useI18n } from '@/components/I18nProvider';
 import { getCardTitle } from '@/lib/i18n';
 import { isSaved, toggleSave } from '@/lib/vault';
@@ -15,11 +14,9 @@ import { motion } from 'framer-motion';
 
 export default function DetailPageContent({ prompt, params }: { prompt: any, params: { id: string } }) {
   const { t, locale } = useI18n();
-  const userTier = 'free'; 
   const [copied, setCopied] = useState(false);
   const [shareCopied, setShareCopied] = useState(false);
   const [saved, setSaved] = useState(false);
-  const isPro = prompt.tier === 'pro';
 
   useEffect(() => {
     setSaved(isSaved(prompt.id));
@@ -68,9 +65,6 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
     [prompt.id]
   );
 
-  // Tier badge config
-  const tierKey = isPro ? 'pro' : 'free';
-
   const deconstructPrompt = (promptText: string) => {
     const parts = promptText.split('|')[0].split(',');
     return {
@@ -84,7 +78,7 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
 
   return (
     <div className="min-h-screen bg-black text-white selection:bg-indigo-500/30">
-      <SaaSNavbar userTier={userTier} />
+      <SaaSNavbar />
       <main id="main-content" className="pt-24 pb-20 px-4 max-w-7xl mx-auto">
         {/* ─── JSON-LD Structured Data ─── */}
         <script
@@ -112,15 +106,6 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
               <span className="text-xs font-mono text-indigo-400">{t('detail.engine')} {prompt.model || 'GPT-Image-2'}</span>
               <div className="w-px h-3 bg-zinc-800" />
               <span className="text-xs font-mono text-zinc-500">{viewCount} views</span>
-              {/* Tier badge */}
-              <div className="w-px h-3 bg-zinc-800" />
-              <span className={`text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full ${
-                isPro
-                  ? 'bg-amber-500/15 text-amber-400 border border-amber-500/30'
-                  : 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/30'
-              }`}>
-                {isPro ? '⭐ Pro' : 'Free'}
-              </span>
             </div>
             <div className="flex items-center gap-2">
               {/* Save Button */}
@@ -146,8 +131,7 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
               >
                 {shareCopied ? '✓ Copied' : 'Share on X'}
               </button>
-              {/* Copy Prompt Button - hidden for PRO prompts */}
-              {!isPro && (
+              {/* Copy Prompt Button */}
                 <motion.button 
                   whileTap={{ scale: 0.95 }}
                   onClick={copyToClipboard}
@@ -156,7 +140,6 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
                 >
                   {copied ? '✓ Copied' : t('detail.copyPrompt')}
                 </motion.button>
-              )}
             </div>
           </div>
         </div>
@@ -164,40 +147,21 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mt-8">
           {/* ─── LEFT COLUMN: Image ─── */}
           <div className="lg:col-span-7 space-y-10">
-            <div className={`relative group rounded-3xl overflow-hidden bg-zinc-900 border shadow-2xl ${
-              isPro ? 'border-amber-500/20' : 'border-zinc-800'
-            }`}>
+            <div className={`relative group rounded-3xl overflow-hidden bg-zinc-900 border border-zinc-800 shadow-2xl`}>
               <img 
                 src={prompt.image?.startsWith('/') ? '/prompt-gallery-saas' + prompt.image : prompt.image} 
                 alt={prompt.title}
-                className={`w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105 ${isPro ? 'blur-sm' : ''}`}
+                className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />
-              {isPro && (
-                <div className="absolute inset-0 bg-black/20 backdrop-blur-[2px] flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-16 h-16 rounded-full bg-amber-500/20 backdrop-blur-xl border border-amber-400/30 flex items-center justify-center mx-auto mb-4 shadow-2xl">
-                      <span className="text-3xl">🔒</span>
-                    </div>
-                    <p className="text-sm font-bold text-amber-300 mb-1">Premium Prompt</p>
-                    <p className="text-[10px] text-zinc-400">Upgrade to Pro to unlock full resolution</p>
-                  </div>
-                </div>
-              )}
               <div className="absolute top-6 left-6 flex gap-2">
                 <span className="px-3 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-[10px] uppercase tracking-widest text-white font-medium">
                   {t('detail.highFidelity')}
                 </span>
-                {isPro && (
-                  <span className="px-3 py-1 rounded-full bg-amber-500/20 backdrop-blur-md border border-amber-400/30 text-[10px] uppercase tracking-widest text-amber-300 font-bold">
-                    ⭐ Pro
-                  </span>
-                )}
               </div>
             </div>
 
-            <FeatureGate isProRequired={true} userTier={userTier}>
-              <div className="p-8 rounded-3xl bg-zinc-900/40 border border-zinc-800 backdrop-blur-sm">
+            <div className="p-8 rounded-3xl bg-zinc-900/40 border border-zinc-800 backdrop-blur-sm">
                 <h3 className="text-xs font-bold text-zinc-500 mb-6 uppercase tracking-[0.2em]">{t('detail.evolution')}</h3>
                 <div className="grid grid-cols-2 gap-8">
                   <div className="space-y-3">
@@ -214,7 +178,6 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
                   </div>
                 </div>
               </div>
-            </FeatureGate>
           </div>
 
           {/* ─── RIGHT COLUMN: Details ─── */}
@@ -254,26 +217,6 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
             </div>
 
             {/* ─── FULL PROMPT SECTION ─── */}
-            {/* Free prompts show full prompt; PRO prompts gate it */}
-            {isPro ? (
-              <FeatureGate isProRequired={true} userTier={userTier}>
-                <div className="p-6 rounded-3xl bg-zinc-900 border border-zinc-800 shadow-2xl relative overflow-hidden">
-                  <div className="flex items-center justify-between mb-3">
-                    <h2 className="text-xs font-bold text-zinc-500 uppercase tracking-[0.2em]">{t('detail.fullPromptTitle')}</h2>
-                    <span className="text-[10px] px-2 py-0.5 rounded-md bg-amber-500/10 text-amber-400 border border-amber-500/20 font-bold uppercase tracking-wider">
-                      ⭐ Pro
-                    </span>
-                  </div>
-                  <textarea
-                    readOnly
-                    value={prompt.full_prompt}
-                    className="w-full bg-black border border-zinc-800 rounded-xl p-4 text-sm text-zinc-300 leading-relaxed outline-none resize-none font-mono"
-                    rows={Math.min(12, prompt.full_prompt.split('\n').length + 2)}
-                    onClick={(e) => (e.target as HTMLTextAreaElement).select()}
-                  />
-                </div>
-              </FeatureGate>
-            ) : (
               <div className="p-6 rounded-3xl bg-zinc-900 border border-zinc-800 shadow-2xl relative overflow-hidden">
                 <div className="flex items-center justify-between mb-3">
                   <h2 className="text-xs font-bold text-zinc-500 uppercase tracking-[0.2em]">{t('detail.fullPromptTitle')}</h2>
@@ -289,7 +232,6 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
                   onClick={(e) => (e.target as HTMLTextAreaElement).select()}
                 />
               </div>
-            )}
 
             <div className="p-8 rounded-3xl bg-zinc-900 border border-zinc-800 shadow-2xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 p-4">
@@ -301,8 +243,7 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
               <PromptPlayground initialPrompt={prompt.full_prompt} />
             </div>
 
-            <FeatureGate isProRequired={true} userTier={userTier}>
-              <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-4">
                 {[
                   { label: 'realism', score: 98, color: 'text-emerald-400' },
                   { label: 'creative', score: 82, color: 'text-indigo-400' },
@@ -314,7 +255,6 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
                   </div>
                 ))}
               </div>
-            </FeatureGate>
           </div>
         </div>
 
@@ -337,7 +277,6 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
                   image={item.image || ''}
                   title={getCardTitle(item.id, item.title, locale)}
                   tags={['High-Fidelity', 'Industrial']}
-                  tier={item.tier as 'free' | 'pro' || 'free'}
                   creator={item.creator}
                   model={item.model}
                   onQuickView={() => {}}

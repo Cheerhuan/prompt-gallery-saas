@@ -7,7 +7,6 @@
     "model": "Midjourney v6",
     "_version": "2026-05-09-v3",
     "_source": "trending-auto-img",
-    "tier": "pro",
     "creator": "Alex Chen"
   },
   {
@@ -17,7 +16,6 @@
     "full_prompt": "「進擊的巨人 艾連」美式厚塗插畫，角色側臉半身特寫，人物視覺還原角色設定，視線朝左，極簡米白背景，大量留白，右側構圖，乾淨高級感，柔和電影級光影，邊緣光，高對比但低飽和配色，角色主色點綴，幾何切面感上色，細緻皮膚與髮絲，商業海報排版，大標題字體設計。9:16直板。",
     "model": "SDXL 1.0",
     "_version": "2026-05-09-v3",
-    "tier": "free",
     "creator": "Mia Zhang"
   },
   {
@@ -28,7 +26,6 @@
     "model": "DALL-E 3",
     "_version": "2026-05-09-v3",
     "_source": "trending-auto-img",
-    "tier": "pro",
     "creator": "Leo Park"
   },
   {
@@ -39,7 +36,6 @@
     "model": "Midjourney v6",
     "_version": "2026-05-09-v3",
     "_source": "trending-auto-img",
-    "tier": "free",
     "creator": "Sara Kim"
   },
   {
@@ -50,7 +46,6 @@
     "model": "SDXL 1.0",
     "_version": "2026-05-09-v3",
     "_source": "trending-auto-img",
-    "tier": "free",
     "creator": "Jamie Wu"
   },
   {
@@ -61,7 +56,6 @@
     "model": "Midjourney v6",
     "_version": "2026-05-09-v3",
     "_source": "trending-auto-img",
-    "tier": "free",
     "creator": "Yuki Tanaka"
   },
   {
@@ -72,7 +66,6 @@
     "model": "DALL-E 3",
     "_version": "2026-05-09-v3",
     "_source": "trending-auto-img",
-    "tier": "pro",
     "creator": "Elena Voss"
   },
   {
@@ -83,7 +76,6 @@
     "model": "Midjourney v6",
     "_version": "2026-05-09-v3",
     "_source": "trending-auto-img",
-    "tier": "free",
     "creator": "Marcus Lee"
   },
   {
@@ -94,7 +86,6 @@
     "model": "SDXL 1.0",
     "_version": "2026-05-09-v3",
     "_source": "trending-auto-img",
-    "tier": "free",
     "creator": "Nina Patel"
   },
   {
@@ -105,7 +96,6 @@
     "model": "Midjourney v6",
     "_version": "2026-05-09-v3",
     "_source": "trending-auto-img",
-    "tier": "pro",
     "creator": "Oliver Zhou"
   },
   {
@@ -116,7 +106,6 @@
     "model": "SDXL 1.0",
     "_version": "2026-05-08-trending",
     "_source": "trending-weekly-2026-05-08",
-    "tier": "free",
     "creator": "Ryo Takahashi"
   },
   {
@@ -127,7 +116,6 @@
     "model": "SDXL 1.0",
     "_version": "2026-05-08-trending",
     "_source": "trending-weekly-2026-05-08",
-    "tier": "free",
     "creator": "Sophie Laurent"
   },
   {
@@ -138,7 +126,6 @@
     "model": "SDXL 1.0",
     "_version": "2026-05-08-trending",
     "_source": "trending-weekly-2026-05-08",
-    "tier": "pro",
     "creator": "David Kim"
   },
   {
@@ -149,7 +136,6 @@
     "model": "SDXL 1.0",
     "_version": "2026-05-08-trending",
     "_source": "trending-weekly-2026-05-08",
-    "tier": "free",
     "creator": "Luna Martinez"
   },
   {
@@ -160,7 +146,6 @@
     "model": "SDXL 1.0",
     "_version": "2026-05-08-trending",
     "_source": "trending-weekly-2026-05-08",
-    "tier": "free",
     "creator": "Hiro Nakamura"
   },
   {
@@ -172,7 +157,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "character-9",
-    "tier": "free",
     "creator": "Alex Chen"
   },
   {
@@ -184,7 +168,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "character-1",
-    "tier": "free",
     "creator": "Mia Zhang"
   },
   {
@@ -196,7 +179,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-67",
-    "tier": "free",
     "creator": "Leo Park"
   },
   {
@@ -208,7 +190,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-56",
-    "tier": "free",
     "creator": "Sara Kim"
   },
   {
@@ -220,7 +201,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-110",
-    "tier": "free",
     "creator": "Jamie Wu"
   },
   {
@@ -232,7 +212,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-62",
-    "tier": "free",
     "creator": "Yuki Tanaka"
   },
   {
@@ -244,7 +223,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-1",
-    "tier": "free",
     "creator": "Elena Voss"
   },
   {
@@ -256,7 +234,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "ui-122",
-    "tier": "free",
     "creator": "Marcus Lee"
   },
   {
@@ -268,7 +245,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "portrait-29",
-    "tier": "free",
     "creator": "Nina Patel"
   },
   {
@@ -280,7 +256,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "portrait-17",
-    "tier": "free",
     "creator": "Oliver Zhou"
   },
   {
@@ -291,7 +266,6 @@
     "model": "GPT-Image-2",
     "_version": "2026-05-09",
     "_source": "mobile-add",
-    "tier": "free",
     "creator": "Ryo Takahashi"
   },
   {
@@ -303,7 +277,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-180",
-    "tier": "free",
     "creator": "Sophie Laurent"
   },
   {
@@ -315,7 +288,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-50",
-    "tier": "free",
     "creator": "David Kim"
   },
   {
@@ -327,7 +299,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-2",
-    "tier": "free",
     "creator": "Luna Martinez"
   },
   {
@@ -339,7 +310,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-130",
-    "tier": "free",
     "creator": "Hiro Nakamura"
   },
   {
@@ -351,7 +321,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-55",
-    "tier": "free",
     "creator": "Alex Chen"
   },
   {
@@ -363,7 +332,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-32",
-    "tier": "free",
     "creator": "Mia Zhang"
   },
   {
@@ -375,7 +343,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-14",
-    "tier": "free",
     "creator": "Leo Park"
   },
   {
@@ -387,7 +354,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "character-15",
-    "tier": "free",
     "creator": "Sara Kim"
   },
   {
@@ -399,7 +365,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "character-11",
-    "tier": "free",
     "creator": "Jamie Wu"
   },
   {
@@ -411,7 +376,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "comparison-73",
-    "tier": "free",
     "creator": "Yuki Tanaka"
   },
   {
@@ -422,7 +386,6 @@
     "model": "Claude 3.5 Sonnet",
     "_version": "2026-05-09-curated",
     "_source": "curated-from-threads",
-    "tier": "free",
     "creator": "Elena Voss"
   },
   {
@@ -433,7 +396,6 @@
     "model": "Claude 3.5 Sonnet",
     "_version": "2026-05-09-curated",
     "_source": "curated-from-threads",
-    "tier": "free",
     "creator": "Marcus Lee"
   },
   {
@@ -444,7 +406,6 @@
     "model": "Claude 3.5 Sonnet",
     "_version": "2026-05-09-curated",
     "_source": "curated-from-threads",
-    "tier": "free",
     "creator": "Nina Patel"
   },
   {
@@ -455,7 +416,6 @@
     "model": "Claude 3.5 Sonnet",
     "_version": "2026-05-09-curated",
     "_source": "curated-from-threads",
-    "tier": "free",
     "creator": "Oliver Zhou"
   },
   {
@@ -466,7 +426,6 @@
     "model": "Claude 3.5 Sonnet",
     "_version": "2026-05-09-curated",
     "_source": "curated-from-threads",
-    "tier": "free",
     "creator": "Ryo Takahashi"
   },
   {
@@ -477,7 +436,6 @@
     "model": "Claude 3.5 Sonnet",
     "_version": "2026-05-09-curated",
     "_source": "curated-from-threads",
-    "tier": "free",
     "creator": "Sophie Laurent"
   },
   {
@@ -488,7 +446,6 @@
     "model": "Claude 3.5 Sonnet",
     "_version": "2026-05-09-curated",
     "_source": "curated-from-threads",
-    "tier": "free",
     "creator": "David Kim"
   },
   {
@@ -499,7 +456,6 @@
     "model": "Claude 3.5 Sonnet",
     "_version": "2026-05-09-curated",
     "_source": "curated-from-threads",
-    "tier": "free",
     "creator": "Luna Martinez"
   },
   {
@@ -510,7 +466,6 @@
     "model": "Claude 3.5 Sonnet",
     "_version": "2026-05-09-curated",
     "_source": "curated-from-threads",
-    "tier": "free",
     "creator": "Hiro Nakamura"
   },
   {
@@ -521,7 +476,6 @@
     "model": "Claude 3.5 Sonnet",
     "_version": "2026-05-09-curated",
     "_source": "curated-from-threads",
-    "tier": "free",
     "creator": "Alex Chen"
   },
   {
@@ -537,7 +491,6 @@
       "Commercial Poster",
       "Streetwear"
     ],
-    "tier": "free",
     "creator": "Mia Zhang"
   },
   {
@@ -553,7 +506,6 @@
       "Instagram Style",
       "Dreamy"
     ],
-    "tier": "free",
     "creator": "Sara Kim"
   },
   {
@@ -564,7 +516,6 @@
     "model": "Midjourney v6",
     "_version": "2026-05-09-v3",
     "_source": "user-manual-add",
-    "tier": "free",
     "creator": "Jamie Wu"
   },
   {
@@ -576,7 +527,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "ui-126",
-    "tier": "free",
     "creator": "Yuki Tanaka"
   },
   {
@@ -588,7 +538,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "ui-113",
-    "tier": "free",
     "creator": "Elena Voss"
   },
   {
@@ -600,7 +549,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "ui-7",
-    "tier": "free",
     "creator": "Marcus Lee"
   },
   {
@@ -612,7 +560,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "ui-2",
-    "tier": "free",
     "creator": "Nina Patel"
   },
   {
@@ -624,7 +571,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "portrait-16",
-    "tier": "free",
     "creator": "Oliver Zhou"
   },
   {
@@ -636,7 +582,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "portrait-114",
-    "tier": "free",
     "creator": "Ryo Takahashi"
   },
   {
@@ -648,7 +593,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-8",
-    "tier": "free",
     "creator": "Sophie Laurent"
   },
   {
@@ -660,7 +604,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-5",
-    "tier": "free",
     "creator": "David Kim"
   },
   {
@@ -672,7 +615,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-142",
-    "tier": "free",
     "creator": "Luna Martinez"
   },
   {
@@ -684,7 +626,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-140",
-    "tier": "free",
     "creator": "Hiro Nakamura"
   },
   {
@@ -695,7 +636,6 @@
     "prompt": "A high-end commercial poster of Asuka Langley Soryu, thick digital paint style, bold graphic layout, clean white background, high contrast, professional anime character design.",
     "full_prompt": "Commercial graphic poster featuring Asuka Langley Soryu from Evangelion 2.0. Style: Thick digital impasto painting (厚塗) with visible, tactile brushstrokes and rich color layering. Composition: Center-aligned character portrait set against a stark, minimalist white background to maximize negative space. Lighting: High-contrast studio lighting with sharp specular highlights and deep, defined shadows to emphasize volumetric form. Details: Integrated bold, modern sans-serif typography. Text includes 'ASUKA LANGLEY SORYU' as a dominant header, 'I'm not a child. I'm the Second Child.' as a sophisticated sub-caption, and 'EVANGELION:2.0' as a professional branding element. Palette: Dominant vibrant reds and deep oranges contrasted against a clinical white. 8k resolution, professional advertising layout, industrial design precision, sharp edges, vivid saturation --v 6.0",
     "image": "/images/uploads/asuka-commercial-poster.jpg",
-    "tier": "free",
     "creator": "Alex Chen"
   },
   {
@@ -706,7 +646,6 @@
     "model": "GPT-Image-2",
     "_version": "2026-05-10-manual",
     "_source": "user-manual-add",
-    "tier": "free",
     "creator": "Alex Chen"
   },
   {
@@ -717,7 +656,6 @@
     "model": "Midjourney v6",
     "_version": "2026-05-10-v3",
     "_source": "user-curated-industrial",
-    "tier": "free",
     "creator": "Oliver Zhou"
   },
   {
@@ -729,7 +667,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-138",
-    "tier": "free",
     "creator": "Mia Zhang"
   },
   {
@@ -741,7 +678,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-176",
-    "tier": "free",
     "creator": "Leo Park"
   },
   {
@@ -753,7 +689,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-53",
-    "tier": "free",
     "creator": "Sara Kim"
   },
   {
@@ -765,7 +700,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "portrait-11",
-    "tier": "free",
     "creator": "Jamie Wu"
   },
   {
@@ -777,7 +711,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "portrait-107",
-    "tier": "free",
     "creator": "Yuki Tanaka"
   },
   {
@@ -789,7 +722,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "portrait-91",
-    "tier": "free",
     "creator": "Elena Voss"
   },
   {
@@ -801,7 +733,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "comparison-5",
-    "tier": "free",
     "creator": "Marcus Lee"
   },
   {
@@ -813,7 +744,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "ui-3",
-    "tier": "free",
     "creator": "Nina Patel"
   },
   {
@@ -825,7 +755,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "character-13",
-    "tier": "free",
     "creator": "Oliver Zhou"
   },
   {
@@ -837,7 +766,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "character-17",
-    "tier": "free",
     "creator": "Ryo Takahashi"
   },
   {
@@ -849,7 +777,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-186",
-    "tier": "free",
     "creator": "Sophie Laurent"
   },
   {
@@ -861,7 +788,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-174",
-    "tier": "free",
     "creator": "David Kim"
   },
   {
@@ -873,7 +799,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-158",
-    "tier": "free",
     "creator": "Luna Martinez"
   },
   {
@@ -885,7 +810,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-172",
-    "tier": "free",
     "creator": "Hiro Nakamura"
   },
   {
@@ -897,7 +821,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-160",
-    "tier": "free",
     "creator": "Alex Chen"
   },
   {
@@ -909,7 +832,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-36",
-    "tier": "free",
     "creator": "Mia Zhang"
   },
   {
@@ -921,7 +843,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-35",
-    "tier": "free",
     "creator": "Leo Park"
   },
   {
@@ -933,7 +854,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "comparison-29",
-    "tier": "free",
     "creator": "Sara Kim"
   },
   {
@@ -945,7 +865,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "comparison-32",
-    "tier": "free",
     "creator": "Jamie Wu"
   },
   {
@@ -957,7 +876,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "ui-44",
-    "tier": "free",
     "creator": "Yuki Tanaka"
   },
   {
@@ -969,7 +887,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "portrait-105",
-    "tier": "free",
     "creator": "Elena Voss"
   },
   {
@@ -981,7 +898,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "portrait-1",
-    "tier": "free",
     "creator": "Marcus Lee"
   },
   {
@@ -993,7 +909,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "portrait-22",
-    "tier": "free",
     "creator": "Nina Patel"
   },
   {
@@ -1005,7 +920,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "portrait-25",
-    "tier": "free",
     "creator": "Oliver Zhou"
   },
   {
@@ -1017,7 +931,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "ui-91",
-    "tier": "free",
     "creator": "Ryo Takahashi"
   },
   {
@@ -1029,7 +942,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-154",
-    "tier": "free",
     "creator": "Sophie Laurent"
   },
   {
@@ -1041,7 +953,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-182",
-    "tier": "free",
     "creator": "David Kim"
   },
   {
@@ -1053,7 +964,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-59",
-    "tier": "free",
     "creator": "Luna Martinez"
   },
   {
@@ -1065,7 +975,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "comparison-23",
-    "tier": "free",
     "creator": "Hiro Nakamura"
   },
   {
@@ -1077,7 +986,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "character-12",
-    "tier": "free",
     "creator": "Alex Chen"
   },
   {
@@ -1089,7 +997,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-251",
-    "tier": "free",
     "creator": "Nina Patel"
   },
   {
@@ -1101,7 +1008,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-33",
-    "tier": "free",
     "creator": "Alex Chen"
   },
   {
@@ -1113,7 +1019,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-171",
-    "tier": "free",
     "creator": "Marcus Lee"
   },
   {
@@ -1125,7 +1030,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-139",
-    "tier": "free",
     "creator": "Sara Kim"
   },
   {
@@ -1137,7 +1041,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-109",
-    "tier": "free",
     "creator": "Yuki Tanaka"
   },
   {
@@ -1149,7 +1052,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "portrait-13",
-    "tier": "free",
     "creator": "Sophie Laurent"
   },
   {
@@ -1161,7 +1063,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "comparison-31",
-    "tier": "free",
     "creator": "Oliver Zhou"
   },
   {
@@ -1173,7 +1074,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "comparison-80",
-    "tier": "free",
     "creator": "Leo Park"
   },
   {
@@ -1185,7 +1085,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "ui-47",
-    "tier": "free",
     "creator": "David Kim"
   },
   {
@@ -1197,7 +1096,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "character-2",
-    "tier": "free",
     "creator": "Hiro Nakamura"
   },
   {
@@ -1209,7 +1107,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "ecommerce-163",
-    "tier": "free",
     "creator": "Nina Patel"
   },
   {
@@ -1221,7 +1118,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-256",
-    "tier": "free",
     "creator": "Alex Chen"
   },
   {
@@ -1233,7 +1129,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-24",
-    "tier": "free",
     "creator": "Marcus Lee"
   },
   {
@@ -1245,7 +1140,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-156",
-    "tier": "free",
     "creator": "Sara Kim"
   },
   {
@@ -1257,7 +1151,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-145",
-    "tier": "free",
     "creator": "Yuki Tanaka"
   },
   {
@@ -1269,7 +1162,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-250",
-    "tier": "free",
     "creator": "Sophie Laurent"
   },
   {
@@ -1281,7 +1173,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "portrait-15",
-    "tier": "free",
     "creator": "Oliver Zhou"
   },
   {
@@ -1293,7 +1184,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "portrait-3",
-    "tier": "free",
     "creator": "Leo Park"
   },
   {
@@ -1305,7 +1195,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "character-5",
-    "tier": "free",
     "creator": "David Kim"
   },
   {
@@ -1317,7 +1206,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "ui-39",
-    "tier": "free",
     "creator": "Hiro Nakamura"
   },
   {
@@ -1835,7 +1723,6 @@
     "full_prompt": "Futurist retro-serigraph illustration of a [BRAND]-inspired [VEHICLE] concept speeding through giant flowing graphic curves and abstract high-speed road forms, dynamic 3/4 perspective, aerodynamic bodywork, aggressive stance and retro motorsport aesthetic, stylized motion trails integrated into the environment, sensation of high speed without realistic motion blur. Minimal but dramatic composition made from layered curved bands and negative space. Vintage modernist poster aesthetic, smooth airbrushed gradients, crisp vector-like surfaces, subtle print grain, soft paper texture. Color palette restricted to [COLOR 1], [COLOR 2], [COLOR 3] and [COLOR 4] only. Elegant screenprint finish, vertical composition 4:5 | 未來主義復古絲網印刷插畫，一名 [品牌] 啟發的 [車輛] 概念車在巨大的流動圖形曲線與抽象高速道路形式中疾馳。動態 3/4 視角，空氣動力學車身，侵略性姿態與復古賽車美學，將風格化的運動軌跡整合至環境中，營造高速感而無寫實模糊。由層疊曲線帶與負空間構成的極簡且具戲劇性的構圖。復古現代主義海報美學，平滑的噴槍漸層，銳利的向量化表面，細微的印刷顆粒感與柔和紙張紋理。配色僅限於 [顏色 1]、[顏色 2]、[顏色 3] 與 [顏色 4]。優雅的絲網印刷完成度，4:5 垂直構圖。",
     "model": "Midjourney v6",
     "_version": "2026-05-19-manual",
-    "tier": "pro",
     "creator": "Cal"
   },
   {
@@ -2834,7 +2721,6 @@
     "full_prompt": "(Prompt text from meigen.ai - see detail page)",
     "model": "GPT Image",
     "creator": "ChillaiKalan__",
-    "tier": "free",
     "_source": "meigen.ai",
     "_version": "2026-05-28-v1",
     "id": "252"
@@ -2845,7 +2731,6 @@
     "full_prompt": "(Prompt text from meigen.ai - see detail page)",
     "model": "GPT Image",
     "creator": "john_my07",
-    "tier": "free",
     "_source": "meigen.ai",
     "_version": "2026-05-28-v1",
     "id": "253"
@@ -2856,7 +2741,6 @@
     "full_prompt": "(Prompt text from meigen.ai - see detail page)",
     "model": "GPT Image",
     "creator": "TechieBySA",
-    "tier": "free",
     "_source": "meigen.ai",
     "_version": "2026-05-28-v1",
     "id": "254"
@@ -2867,7 +2751,6 @@
     "full_prompt": "(Prompt text from meigen.ai - see detail page)",
     "model": "GPT Image",
     "creator": "Shinning1010",
-    "tier": "free",
     "_source": "meigen.ai",
     "_version": "2026-05-28-v1",
     "id": "255"
@@ -2878,7 +2761,6 @@
     "full_prompt": "(Prompt text from meigen.ai - see detail page)",
     "model": "GPT Image",
     "creator": "xiaqingfeng666",
-    "tier": "free",
     "_source": "meigen.ai",
     "_version": "2026-05-28-v1",
     "id": "256"
@@ -2889,7 +2771,6 @@
     "full_prompt": "(Prompt text from meigen.ai - see detail page)",
     "model": "GPT Image",
     "creator": "MrLarus",
-    "tier": "free",
     "_source": "meigen.ai",
     "_version": "2026-05-28-v1",
     "id": "257"
@@ -2900,7 +2781,6 @@
     "full_prompt": "(Prompt text from meigen.ai - see detail page)",
     "model": "GPT Image",
     "creator": "mdmadeit",
-    "tier": "free",
     "_source": "meigen.ai",
     "_version": "2026-05-28-v1",
     "id": "258"
@@ -2911,7 +2791,6 @@
     "full_prompt": "(Prompt text from meigen.ai - see detail page)",
     "model": "GPT Image",
     "creator": "ChillaiKalan__",
-    "tier": "free",
     "_source": "meigen.ai",
     "_version": "2026-05-28-v1",
     "id": "259"
@@ -2922,7 +2801,6 @@
     "full_prompt": "(Prompt text from meigen.ai - see detail page)",
     "model": "GPT Image",
     "creator": "aziz4ai",
-    "tier": "free",
     "_source": "meigen.ai",
     "_version": "2026-05-28-v1",
     "id": "260"
@@ -2933,7 +2811,6 @@
     "full_prompt": "(Prompt text from meigen.ai - see detail page)",
     "model": "GPT Image",
     "creator": "ShamiWeb3",
-    "tier": "free",
     "_source": "meigen.ai",
     "_version": "2026-05-28-v1",
     "id": "261"
@@ -2944,7 +2821,6 @@
     "full_prompt": "(Prompt text from meigen.ai - see detail page)",
     "model": "GPT Image",
     "creator": "rovvmut_",
-    "tier": "free",
     "_source": "meigen.ai",
     "_version": "2026-05-28-v1",
     "id": "262"
@@ -2955,7 +2831,6 @@
     "full_prompt": "(Prompt text from meigen.ai - see detail page)",
     "model": "GPT Image",
     "creator": "obsidian_fr1",
-    "tier": "free",
     "_source": "meigen.ai",
     "_version": "2026-05-28-v1",
     "id": "263"
