@@ -345,10 +345,10 @@ function GalleryContent() {
               </div>
             ) : (
               <>
-                {/* ─── STABLE MASONRY GRID (grid, not columns — prevents reflow) ─── */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 auto-rows-min">
+                {/* ─── MASONRY COLUMNS (CSS columns for natural flow) ─── */}
+                <div className="columns-2 sm:columns-3 lg:columns-4 xl:columns-5 gap-4 [&>*]:break-inside-avoid space-y-4">
                   {gridPrompts.slice(0, visibleCount).map((item, idx) => (
-                    <div key={item.id} className="h-fit">
+                    <div key={item.id} className="break-inside-avoid">
                       <PromptCard
                         id={item.id}
                         image={item.image || ''}
@@ -365,13 +365,26 @@ function GalleryContent() {
 
                 {/* ─── SHOW MORE ─── */}
                 {visibleCount < gridPrompts.length && (
-                  <div ref={showMoreRef} className="flex justify-center pt-6 pb-2">
+                  <div ref={showMoreRef} className="flex justify-center pt-6 pb-2 scroll-mt-32">
                     <button
                       onClick={() => {
+                        // Save scroll Y before columns reflow
+                        const savedY = window.scrollY;
+
                         setVisibleCount(prev => prev + ITEMS_PER_BATCH);
-                        // Grid layout doesn't reflow — just scroll button into view
+
+                        // Restore scroll position after columns redistribute
                         requestAnimationFrame(() => {
-                          showMoreRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                          // Re-read scrollY after columns reflow
+                          const newY = window.scrollY;
+                          // If columns pushed content up/down, compensate
+                          if (Math.abs(newY - savedY) > 10) {
+                            window.scrollTo({ top: savedY, behavior: 'instant' });
+                          }
+                          // Then smooth-scroll button into view
+                          requestAnimationFrame(() => {
+                            showMoreRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                          });
                         });
                       }}
                       className="px-8 py-3 rounded-xl bg-zinc-900 border border-zinc-800 text-sm text-zinc-400 hover:text-white hover:bg-zinc-800 hover:border-zinc-700 transition-all"
