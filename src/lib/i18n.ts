@@ -4,7 +4,7 @@ export const translations = {
     sidebar: {
       home: 'Home', search: 'Search', history: 'History', favorites: 'Favorites',
       categories: 'Categories', tags: 'Tags', recentUpdates: 'Recent Updates',
-      ecosystem: 'Ecosystem', github: 'GitHub', openData: 'Open Data', changelog: 'Changelog',
+      ecosystem: 'Ecosystem', github: 'GitHub', personalStudio: 'Personal Studio', changelog: 'Changelog',
       publishTitle: 'Publish & earn credits', publishSub: '50 credits per approval', getStarted: 'Get Started',
       terms: 'Terms', privacy: 'Privacy', git: 'GitHub',
     },
@@ -30,7 +30,7 @@ export const translations = {
     sidebar: {
       home: '首頁', search: '搜尋', history: '歷史', favorites: '收藏',
       categories: '分類', tags: '標籤', recentUpdates: '最近更新',
-      ecosystem: '生態系', github: 'GitHub', openData: '開放數據', changelog: '更新日誌',
+      ecosystem: '生態系', github: 'GitHub', personalStudio: '個人工作室', changelog: '更新日誌',
       publishTitle: '發布並賺取積分', publishSub: '每次審核通過 50 積分', getStarted: '立即開始',
       terms: '條款', privacy: '隱私', git: 'GitHub',
     },
@@ -66,7 +66,7 @@ export const translations = {
     sidebar: {
       home: 'ホーム', search: '検索', history: '履歴', favorites: 'お気に入り',
       categories: 'カテゴリー', tags: 'タグ', recentUpdates: '最近の更新',
-      ecosystem: 'エコシステム', github: 'GitHub', openData: 'オープンデータ', changelog: '更新履歴',
+      ecosystem: 'エコシステム', github: 'GitHub', personalStudio: 'パーソナルスタジオ', changelog: '更新履歴',
       publishTitle: '公開してクレジットを獲得', publishSub: '承認ごとに50クレジット', getStarted: '今すぐ開始',
       terms: '利用規約', privacy: 'プライバシー', git: 'GitHub',
     },
@@ -102,7 +102,7 @@ export const translations = {
     sidebar: {
       home: '홈', search: '검색', history: '히스토리', favorites: '즐겨찾기',
       categories: '카테고리', tags: '태그', recentUpdates: '최근 업데이트',
-      ecosystem: '생태계', github: 'GitHub', openData: '오픈 데이터', changelog: '변경 로그',
+      ecosystem: '생태계', github: 'GitHub', personalStudio: '개인 스튜디오', changelog: '변경 로그',
       publishTitle: '게시하고 크레딧 획득', publishSub: '승인당 50 크레딧', getStarted: '시작하기',
       terms: '약관', privacy: '개인정보', git: 'GitHub',
     },

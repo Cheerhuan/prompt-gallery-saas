@@ -1,5 +1,5 @@
 1:"$Sreact.fragment"
-2:I[75336,["/prompt-gallery-saas/_next/static/chunks/0hi4lpj1igwfj.js","/prompt-gallery-saas/_next/static/chunks/07iwvi7s-niqv.js","/prompt-gallery-saas/_next/static/chunks/0d3shmwh5_nmn.js","/prompt-gallery-saas/_next/static/chunks/0p9-288.54py6.js","/prompt-gallery-saas/_next/static/chunks/0khcrfaastu1w.js"],"default"]
+2:I[75336,["/prompt-gallery-saas/_next/static/chunks/058vvvn3uko...js","/prompt-gallery-saas/_next/static/chunks/07iwvi7s-niqv.js","/prompt-gallery-saas/_next/static/chunks/0d3shmwh5_nmn.js","/prompt-gallery-saas/_next/static/chunks/0p9-288.54py6.js","/prompt-gallery-saas/_next/static/chunks/0khcrfaastu1w.js"],"default"]
 3:Td2a,{
   "type": "18-panel brand identity and character design document",
   "brand": {
@@ -85,4 +85,4 @@
       }
     ]
   }
-}0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/0p9-288.54py6.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/0khcrfaastu1w.js","async":true}]],["$","$L2",null,{"prompt":{"id":"135","title":"18-Panel Mascot Brand Identity Document [海報插畫]","image":"https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case107/output.jpg","full_prompt":"$3","model":"GPT-Image-2","_version":"2026-05-09-imported","_source":"awesome-gpt-image-2","_case_id":"poster-107"},"params":{"id":"135"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"SIsSW2nIRNZkwd-nO90ya"}
+}0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/0p9-288.54py6.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/0khcrfaastu1w.js","async":true}]],["$","$L2",null,{"prompt":{"id":"135","title":"18-Panel Mascot Brand Identity Document [海報插畫]","image":"https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case107/output.jpg","full_prompt":"$3","model":"GPT-Image-2","_version":"2026-05-09-imported","_source":"awesome-gpt-image-2","_case_id":"poster-107"},"params":{"id":"135"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"5K5Uz71cHd7lUbXOmHwia"}

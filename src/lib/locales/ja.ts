@@ -4,7 +4,7 @@ const locale: Record<string, any> = {
     sidebar: {
       home: 'ホーム', search: '検索', history: '履歴', favorites: 'お気に入り',
       categories: 'カテゴリー', tags: 'タグ', recentUpdates: '最近の更新',
-      ecosystem: 'エコシステム', github: 'GitHub', openData: 'オープンデータ', changelog: '更新履歴',
+      ecosystem: 'エコシステム', github: 'GitHub', personalStudio: 'パーソナルスタジオ', changelog: '更新履歴',
       publishTitle: '公開してクレジットを獲得', publishSub: '承認ごとに50クレジット', getStarted: '今すぐ開始',
       terms: '利用規約', privacy: 'プライバシー', git: 'GitHub',
     },

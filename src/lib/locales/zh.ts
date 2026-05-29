@@ -4,7 +4,7 @@ const locale: Record<string, any> = {
     sidebar: {
       home: '首頁', search: '搜尋', history: '歷史', favorites: '收藏',
       categories: '分類', tags: '標籤', recentUpdates: '最近更新',
-      ecosystem: '生態系', github: 'GitHub', openData: '開放數據', changelog: '更新日誌',
+      ecosystem: '生態系', github: 'GitHub', personalStudio: '個人工作室', changelog: '更新日誌',
       publishTitle: '發布並賺取積分', publishSub: '每次審核通過 50 積分', getStarted: '立即開始',
       terms: '條款', privacy: '隱私', git: 'GitHub',
     },

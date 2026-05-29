@@ -4,7 +4,7 @@ const locale: Record<string, any> = {
     sidebar: {
       home: '홈', search: '검색', history: '히스토리', favorites: '즐겨찾기',
       categories: '카테고리', tags: '태그', recentUpdates: '최근 업데이트',
-      ecosystem: '생태계', github: 'GitHub', openData: '오픈 데이터', changelog: '변경 로그',
+      ecosystem: '생태계', github: 'GitHub', personalStudio: '개인 스튜디오', changelog: '변경 로그',
       publishTitle: '게시하고 크레딧 획득', publishSub: '승인당 50 크레딧', getStarted: '시작하기',
       terms: '약관', privacy: '개인정보', git: 'GitHub',
     },

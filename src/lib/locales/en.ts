@@ -4,7 +4,7 @@ const locale: Record<string, any> = {
     sidebar: {
       home: 'Home', search: 'Search', history: 'History', favorites: 'Favorites',
       categories: 'Categories', tags: 'Tags', recentUpdates: 'Recent Updates',
-      ecosystem: 'Ecosystem', github: 'GitHub', openData: 'Open Data', changelog: 'Changelog',
+      ecosystem: 'Ecosystem', github: 'GitHub', personalStudio: 'Personal Studio', changelog: 'Changelog',
       publishTitle: 'Publish & earn credits', publishSub: '50 credits per approval', getStarted: 'Get Started',
       terms: 'Terms', privacy: 'Privacy', git: 'GitHub',
     },
