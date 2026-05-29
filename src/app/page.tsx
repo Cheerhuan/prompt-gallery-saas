@@ -97,6 +97,7 @@ function GalleryContent() {
   const searchParams = useSearchParams();
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilter, setActiveFilter] = useState('all');
+  const [activeModel, setActiveModel] = useState('all');
   const [sortBy, setSortBy] = useState<'featured' | 'newest' | 'popular'>('featured');
   const initialPage = useMemo(() => {
     const p = searchParams.get('page');
@@ -210,9 +211,15 @@ function GalleryContent() {
     }
   }, [promptsWithImages, searchQuery, activeFilter, embeddingsReady]);
 
+  // Model filter
+  const modelFilteredPrompts = useMemo(() => {
+    if (activeModel === 'all') return filteredPrompts;
+    return filteredPrompts.filter(p => (p as any).model === activeModel);
+  }, [filteredPrompts, activeModel]);
+
   // Sort logic
   const sortedPrompts = useMemo(() => {
-    const list = [...filteredPrompts];
+    const list = [...modelFilteredPrompts];
     if (sortBy === 'newest') {
       // Already reversed (latest first), no change needed
     } else if (sortBy === 'popular') {
@@ -255,7 +262,7 @@ function GalleryContent() {
     return () => document.removeEventListener('mousedown', handleClick);
   }, []);
 
-  const totalCount = filteredPrompts.length;
+  const totalCount = modelFilteredPrompts.length;
 
   const handleSuggestionClick = useCallback(() => {
     setShowSuggestions(false);
@@ -285,6 +292,8 @@ function GalleryContent() {
         <main id="main-content" className="flex-1 min-w-0 px-4 md:px-6 pb-24 md:pb-12 pt-0">
           {/* Model Tabs + Search */}
           <ModelTabs
+            activeModel={activeModel}
+            onModelChange={setActiveModel}
             activeTab={activeFilter}
             onTabChange={setActiveFilter}
             sortBy={sortBy}
@@ -304,7 +313,7 @@ function GalleryContent() {
 
           {/* ─── GALLERY ─── */}
           <section id="gallery-section" className="scroll-mt-6">
-            {filteredPrompts.length === 0 ? (
+            {modelFilteredPrompts.length === 0 ? (
               <div className="py-24 text-center">
                 {searchQuery || activeFilter !== 'all' ? (
                   <>

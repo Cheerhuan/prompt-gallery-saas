@@ -216,29 +216,21 @@ export default function Sidebar({ activePage = 'home' }: SidebarProps) {
         ))}
       </div>
 
-      {/* CTA Card — login gated */}
+      {/* Get Started Button — like MeiGen */}
       {user ? (
-        <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-4 mb-4">
-          <p className="text-sm font-semibold text-white mb-1">{t('sidebar.publishTitle')}</p>
-          <p className="text-xs text-zinc-500 mb-3">{t('sidebar.publishSub')}</p>
-          <Link
-            href="/submit"
-            className="w-full bg-white text-black rounded-lg py-2 text-xs font-semibold block text-center hover:bg-zinc-200 transition-colors"
-          >
-            {t('sidebar.getStarted')}
-          </Link>
-        </div>
+        <Link
+          href="/submit"
+          className="mx-3 mb-4 w-[calc(100%-24px)] bg-white text-black rounded-lg py-2.5 text-xs font-semibold block text-center hover:bg-zinc-200 transition-colors"
+        >
+          + {t('sidebar.getStarted')}
+        </Link>
       ) : (
-        <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-4 mb-4">
-          <p className="text-sm font-semibold text-white mb-1">🔒 {t('sidebar.publishTitle')}</p>
-          <p className="text-xs text-zinc-500 mb-3">Sign in to submit your own prompts.</p>
-          <button
-            onClick={() => setShowAuthModal(true)}
-            className="w-full bg-white text-black rounded-lg py-2 text-xs font-semibold block text-center hover:bg-zinc-200 transition-colors cursor-pointer"
-          >
-            Sign In to Publish
-          </button>
-        </div>
+        <button
+          onClick={() => setShowAuthModal(true)}
+          className="mx-3 mb-4 w-[calc(100%-24px)] bg-white text-black rounded-lg py-2.5 text-xs font-semibold block text-center hover:bg-zinc-200 transition-colors cursor-pointer"
+        >
+          Get Started
+        </button>
       )}
 
       {/* Footer Links */}
