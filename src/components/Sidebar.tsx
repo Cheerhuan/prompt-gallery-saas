@@ -1,8 +1,10 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { supabase } from '@/lib/supabase';
 import { useI18n } from '@/components/I18nProvider';
+import { AuthModal } from '@/components/AuthModal';
 import type { Locale } from '@/lib/i18n';
 
 interface SidebarProps {
@@ -18,6 +20,29 @@ const LOCALES: { key: Locale; label: string }[] = [
 
 export default function Sidebar({ activePage = 'home' }: SidebarProps) {
   const { t, locale, setLocale } = useI18n();
+  const [user, setUser] = useState<{ id: string } | null>(null);
+  const [showAuthModal, setShowAuthModal] = useState(false);
+
+  // Restore session
+  useEffect(() => {
+    const restore = async () => {
+      const { data } = await supabase.auth.getSession();
+      if (data?.session?.user) {
+        setUser({ id: data.session.user.id });
+      }
+    };
+    restore();
+  }, []);
+
+  // Listen for auth changes
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const detail = (e as CustomEvent).detail;
+      setUser(detail?.user ? { id: detail.user.id } : null);
+    };
+    window.addEventListener('supabase-auth-change', handler);
+    return () => window.removeEventListener('supabase-auth-change', handler);
+  }, []);
 
   const baseNavItem = (href: string, icon: React.ReactNode, label: string, isActive: boolean, isExternal?: boolean) => {
     const classes = `flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-all ${
@@ -51,6 +76,14 @@ export default function Sidebar({ activePage = 'home' }: SidebarProps) {
         {content}
       </Link>
     );
+  };
+
+  const handlePublishClick = (e: React.MouseEvent) => {
+    if (!user) {
+      e.preventDefault();
+      setShowAuthModal(true);
+    }
+    // If logged in, let the Link navigate normally to /submit
   };
 
   const navItems = [
@@ -93,6 +126,8 @@ export default function Sidebar({ activePage = 'home' }: SidebarProps) {
 
   return (
     <aside className="w-[240px] shrink-0 h-screen sticky top-0 bg-zinc-950 border-r border-zinc-800 flex flex-col py-6 px-4 overflow-y-auto hidden md:flex">
+      <AuthModal open={showAuthModal} onClose={() => setShowAuthModal(false)} />
+
       {/* Logo */}
       <Link href="/" className="flex items-center gap-3 px-3 mb-6">
         <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center text-black text-xs font-bold shrink-0">
@@ -189,16 +224,17 @@ export default function Sidebar({ activePage = 'home' }: SidebarProps) {
         ))}
       </div>
 
-      {/* CTA Card */}
+      {/* CTA Card — login gate */}
       <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-4 mb-4">
         <p className="text-sm font-semibold text-white mb-1">{t('sidebar.publishTitle')}</p>
         <p className="text-xs text-zinc-500 mb-3">{t('sidebar.publishSub')}</p>
-        <Link
-          href="/submit"
-          className="w-full bg-white text-black rounded-lg py-2 text-xs font-semibold block text-center hover:bg-zinc-200 transition-colors"
+        <a
+          href={user ? '/submit' : '#'}
+          onClick={handlePublishClick}
+          className="w-full bg-white text-black rounded-lg py-2 text-xs font-semibold block text-center hover:bg-zinc-200 transition-colors cursor-pointer"
         >
           {t('sidebar.getStarted')}
-        </Link>
+        </a>
       </div>
 
       {/* Footer Links */}
