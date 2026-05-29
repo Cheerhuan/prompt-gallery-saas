@@ -9,6 +9,9 @@ import type { Locale } from '@/lib/i18n';
 interface SidebarProps {
   activePage?: 'home' | 'search' | 'history' | 'favorites';
   onGetStarted?: () => void;
+  activeFilter?: string;
+  onFilterChange?: (filter: string) => void;
+  filterOptions?: Array<{ value: string; label: string }>;
 }
 
 interface SidebarUser {
@@ -25,7 +28,7 @@ const LOCALES: { key: Locale; label: string }[] = [
   { key: 'ko', label: '한국어' },
 ];
 
-export default function Sidebar({ activePage = 'home', onGetStarted }: SidebarProps) {
+export default function Sidebar({ activePage = 'home', onGetStarted, activeFilter, onFilterChange, filterOptions }: SidebarProps) {
   const { t, locale, setLocale } = useI18n();
   const [user, setUser] = useState<SidebarUser | null>(null);
 
@@ -155,30 +158,30 @@ export default function Sidebar({ activePage = 'home', onGetStarted }: SidebarPr
       {/* Separator */}
       <div className="border-t border-zinc-800 my-4" />
 
-      {/* Categories Section */}
-      <div className="text-[10px] uppercase tracking-[0.2em] text-zinc-600 font-medium px-3 mb-2">
-        {t('sidebar.categories')}
-      </div>
-      <nav className="flex flex-col gap-1">
-        {baseNavItem(
-          '/explore',
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
-            <line x1="7" y1="7" x2="7.01" y2="7" />
-          </svg>,
-          t('sidebar.tags'), false
-        )}
-        {baseNavItem(
-          '/',
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-          </svg>,
-          t('sidebar.recentUpdates'), false
-        )}
-      </nav>
-
-      {/* Separator */}
-      <div className="border-t border-zinc-800 my-4" />
+      {/* Filter Section */}
+      {filterOptions && filterOptions.length > 0 && (
+        <>
+          <div className="text-[10px] uppercase tracking-[0.2em] text-zinc-600 font-medium px-3 mb-2">
+            {t('sidebar.categories')}
+          </div>
+          <nav className="flex flex-col gap-0.5 mb-2">
+            {filterOptions.map((opt) => (
+              <button
+                key={opt.value}
+                onClick={() => onFilterChange?.(opt.value)}
+                className={`px-3 py-1.5 rounded-lg text-xs text-left transition-all ${
+                  activeFilter === opt.value
+                    ? 'bg-zinc-800 text-white font-medium'
+                    : 'text-zinc-500 hover:text-zinc-300 hover:bg-zinc-800/30'
+                }`}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </nav>
+          <div className="border-t border-zinc-800 my-3" />
+        </>
+      )}
 
       {/* Ecosystem Section */}
       <div className="text-[10px] uppercase tracking-[0.2em] text-zinc-600 font-medium px-3 mb-2">

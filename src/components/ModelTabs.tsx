@@ -6,8 +6,6 @@ import Link from 'next/link';
 interface ModelTabsProps {
   activeModel: string;
   onModelChange: (model: string) => void;
-  activeTab: string;
-  onTabChange: (tab: string) => void;
   sortBy: 'featured' | 'newest' | 'popular';
   onSortChange: (sort: 'featured' | 'newest' | 'popular') => void;
   searchQuery: string;
@@ -17,23 +15,12 @@ interface ModelTabsProps {
   showSuggestions?: boolean;
   onSuggestionClick?: () => void;
   searchRef?: React.RefObject<HTMLDivElement | null>;
-  filterOptions?: Array<{ value: string; label: string }>;
 }
 
 const SORTS: Array<{ value: 'featured' | 'newest' | 'popular'; label: string }> = [
   { value: 'featured', label: 'Featured' },
   { value: 'newest', label: 'Newest' },
   { value: 'popular', label: 'Popular' },
-];
-
-const DEFAULT_FILTERS: Array<{ value: string; label: string }> = [
-  { value: 'all', label: 'All' },
-  { value: 'portrait', label: 'Portrait' },
-  { value: 'product', label: 'Product' },
-  { value: 'cinematic', label: 'Cinematic' },
-  { value: 'anime', label: 'Anime' },
-  { value: 'illustration', label: 'Illustration' },
-  { value: 'realistic', label: 'Realistic' },
 ];
 
 const MODELS: Array<{ value: string; label: string }> = [
@@ -49,8 +36,6 @@ const MODELS: Array<{ value: string; label: string }> = [
 const ModelTabs: React.FC<ModelTabsProps> = ({
   activeModel,
   onModelChange,
-  activeTab,
-  onTabChange,
   sortBy,
   onSortChange,
   searchQuery,
@@ -60,12 +45,10 @@ const ModelTabs: React.FC<ModelTabsProps> = ({
   showSuggestions = false,
   onSuggestionClick,
   searchRef,
-  filterOptions,
 }) => {
-  const tabs = filterOptions || DEFAULT_FILTERS;
   return (
     <div className="border-b border-zinc-800 pb-3 mb-5 flex flex-col gap-2">
-      {/* Row 1: Model Selector with cute icons */}
+      {/* Row 1: Model Selector + Sort */}
       <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1">
         {MODELS.map((model) => (
           <button
@@ -78,23 +61,6 @@ const ModelTabs: React.FC<ModelTabsProps> = ({
             }`}
           >
             {model.label}
-          </button>
-        ))}
-      </div>
-
-      {/* Row 2: Category Tabs + Sort */}
-      <div className="flex items-center gap-2 overflow-x-auto no-scrollbar">
-        {tabs.map((tab) => (
-          <button
-            key={tab.value}
-            onClick={() => onTabChange(tab.value)}
-            className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-all whitespace-nowrap ${
-              activeTab === tab.value
-                ? 'bg-zinc-800 text-white'
-                : 'text-zinc-500 hover:text-zinc-300 hover:bg-zinc-800/50'
-            }`}
-          >
-            {tab.label}
           </button>
         ))}
 
@@ -116,7 +82,7 @@ const ModelTabs: React.FC<ModelTabsProps> = ({
         </div>
       </div>
 
-      {/* Row 3: Search */}
+      {/* Row 2: Search */}
       <div className="relative flex items-center" ref={searchRef}>
         <svg
           className="absolute left-0 text-zinc-500"

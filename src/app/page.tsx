@@ -316,7 +316,14 @@ function GalleryContent() {
     setShowSuggestions(false);
   }, []);
 
-  // Mobile bottom nav items
+  const filterOpts = useMemo(
+    () => Object.entries(translations[locale].gallery.filters).map(([key, label]) => ({
+      value: key,
+      label: String(label),
+    })),
+    [locale]
+  );
+
   const mobileNavItems = [
     { href: '/', label: 'Home', icon: '⌂', active: true },
     { href: '/explore', label: 'Search', icon: '⌕', active: false },
@@ -334,7 +341,13 @@ function GalleryContent() {
       {/* ─── THREE-COLUMN LAYOUT ─── */}
       <div className="flex min-h-screen">
         {/* Left Sidebar (desktop only) */}
-        <Sidebar activePage="home" onGetStarted={() => setShowAuthModal(true)} />
+        <Sidebar
+          activePage="home"
+          onGetStarted={() => setShowAuthModal(true)}
+          activeFilter={activeFilter}
+          onFilterChange={setActiveFilter}
+          filterOptions={filterOpts}
+        />
 
         {/* Main Content */}
         <main id="main-content" className="flex-1 min-w-0 px-4 md:px-6 pb-24 md:pb-12 pt-0">
@@ -342,8 +355,6 @@ function GalleryContent() {
           <ModelTabs
             activeModel={activeModel}
             onModelChange={setActiveModel}
-            activeTab={activeFilter}
-            onTabChange={setActiveFilter}
             sortBy={sortBy}
             onSortChange={setSortBy}
             searchQuery={searchQuery}
@@ -353,10 +364,6 @@ function GalleryContent() {
             showSuggestions={showSuggestions}
             onSuggestionClick={handleSuggestionClick}
             searchRef={searchRef}
-            filterOptions={Object.entries(translations[locale].gallery.filters).map(([key, label]) => ({
-              value: key,
-              label: String(label),
-            }))}
           />
 
           {/* ─── GALLERY ─── */}
