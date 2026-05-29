@@ -1,14 +1,21 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
-import { supabase } from '@/lib/supabase';
+import { supabase, signOut } from '@/lib/supabase';
 import { useI18n } from '@/components/I18nProvider';
 import type { Locale } from '@/lib/i18n';
 
 interface SidebarProps {
   activePage?: 'home' | 'search' | 'history' | 'favorites';
   onGetStarted?: () => void;
+}
+
+interface SidebarUser {
+  id: string;
+  email?: string;
+  full_name?: string;
+  avatar_url?: string;
 }
 
 const LOCALES: { key: Locale; label: string }[] = [
@@ -20,14 +27,21 @@ const LOCALES: { key: Locale; label: string }[] = [
 
 export default function Sidebar({ activePage = 'home', onGetStarted }: SidebarProps) {
   const { t, locale, setLocale } = useI18n();
-  const [user, setUser] = useState<{ id: string } | null>(null);
+  const [user, setUser] = useState<SidebarUser | null>(null);
+
+  const makeUser = (u: any): SidebarUser => ({
+    id: u.id,
+    email: u.email,
+    full_name: u.user_metadata?.full_name || u.user_metadata?.name || 'User',
+    avatar_url: u.user_metadata?.avatar_url || u.user_metadata?.picture || '',
+  });
 
   // Restore session
   useEffect(() => {
     const restore = async () => {
       const { data } = await supabase.auth.getSession();
       if (data?.session?.user) {
-        setUser({ id: data.session.user.id });
+        setUser(makeUser(data.session.user));
       }
     };
     restore();
@@ -37,10 +51,15 @@ export default function Sidebar({ activePage = 'home', onGetStarted }: SidebarPr
   useEffect(() => {
     const handler = (e: Event) => {
       const detail = (e as CustomEvent).detail;
-      setUser(detail?.user ? { id: detail.user.id } : null);
+      setUser(detail?.user ? makeUser(detail.user) : null);
     };
     window.addEventListener('supabase-auth-change', handler);
     return () => window.removeEventListener('supabase-auth-change', handler);
+  }, []);
+
+  const handleSignOut = useCallback(async () => {
+    await signOut();
+    setUser(null);
   }, []);
 
   const baseNavItem = (href: string, icon: React.ReactNode, label: string, isActive: boolean, isExternal?: boolean) => {
@@ -214,15 +233,74 @@ export default function Sidebar({ activePage = 'home', onGetStarted }: SidebarPr
         ))}
       </div>
 
-      {/* Get Started Button — like MeiGen */}
       {user ? (
-        <Link
-          href="/submit"
-          className="mx-3 mb-4 w-[calc(100%-24px)] bg-white text-black rounded-lg py-2.5 text-xs font-semibold block text-center hover:bg-zinc-200 transition-colors"
-        >
-          + {t('sidebar.getStarted')}
-        </Link>
+        /* ── Logged In: MeiGen-style profile section ── */
+        <div className="px-3 mb-4">
+          {/* User Card */}
+          <div className="flex items-center gap-3 p-3 rounded-xl bg-zinc-800/40 border border-zinc-800 mb-2">
+            {/* Avatar */}
+            <div className="w-9 h-9 rounded-full overflow-hidden ring-1 ring-zinc-700 shrink-0">
+              {user.avatar_url ? (
+                <img
+                  src={user.avatar_url}
+                  alt={user.full_name || ''}
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+              ) : (
+                <div className="w-full h-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold">
+                  {(user.full_name || 'U').charAt(0).toUpperCase()}
+                </div>
+              )}
+            </div>
+            {/* Name + Email */}
+            <div className="min-w-0 flex-1">
+              <p className="text-xs font-semibold text-white truncate">{user.full_name || 'User'}</p>
+              {user.email && (
+                <p className="text-[10px] text-zinc-500 truncate">{user.email}</p>
+              )}
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div className="flex flex-col gap-0.5 mb-2">
+            <Link
+              href="/profile"
+              className="flex items-center gap-2.5 px-2 py-1.5 rounded-lg text-xs text-zinc-400 hover:text-white hover:bg-zinc-800/50 transition-colors"
+            >
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="8.5" cy="7" r="4" />
+              </svg>
+              {t('sidebar.profile') || 'Profile'}
+            </Link>
+            <Link
+              href="/submit"
+              className="flex items-center gap-2.5 px-2 py-1.5 rounded-lg text-xs text-zinc-400 hover:text-white hover:bg-zinc-800/50 transition-colors"
+            >
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+              {t('sidebar.submit') || 'Submit'}
+            </Link>
+          </div>
+
+          {/* Sign Out */}
+          <button
+            onClick={handleSignOut}
+            className="flex items-center gap-2.5 px-2 py-1.5 rounded-lg text-xs text-zinc-500 hover:text-red-400 hover:bg-red-500/10 transition-colors w-full text-left"
+          >
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+              <polyline points="16 17 21 12 16 7" />
+              <line x1="21" y1="12" x2="9" y2="12" />
+            </svg>
+            Sign Out
+          </button>
+        </div>
       ) : (
+        /* ── Logged Out: Get Started Button ── */
         <button
           onClick={onGetStarted}
           className="mx-3 mb-4 w-[calc(100%-24px)] bg-white text-black rounded-lg py-2.5 text-xs font-semibold block text-center hover:bg-zinc-200 transition-colors cursor-pointer"
