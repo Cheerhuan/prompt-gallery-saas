@@ -9,7 +9,7 @@ import { GallerySkeleton } from '@/components/Skeleton';
 import { useI18n } from '@/components/I18nProvider';
 import promptsData from '@/data/prompts.json';
 import type { SearchResult } from '@/lib/semantic-search';
-import { getCardTitle, getTranslations } from '@/lib/i18n';
+import { translations, getCardTitle } from '@/lib/i18n';
 
 const CARDS_PER_PAGE = 20;
 
@@ -108,6 +108,7 @@ function GalleryContent() {
   const [quickViewId, setQuickViewId] = useState<string | number | null>(null);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const searchRef = React.useRef<HTMLDivElement>(null);
+  const showMoreRef = React.useRef<HTMLDivElement>(null);
   const BASE_PATH = '/prompt-gallery-saas';
   const embeddingsRef = useRef<any>(null);
   const [embeddingsReady, setEmbeddingsReady] = useState(false);
@@ -295,7 +296,7 @@ function GalleryContent() {
             showSuggestions={showSuggestions}
             onSuggestionClick={handleSuggestionClick}
             searchRef={searchRef}
-            filterOptions={Object.entries(getTranslations(locale)?.gallery?.filters || {}).map(([key, label]) => ({
+            filterOptions={Object.entries(translations[locale].gallery.filters).map(([key, label]) => ({
               value: key,
               label: String(label),
             }))}
@@ -364,9 +365,14 @@ function GalleryContent() {
 
                 {/* ─── SHOW MORE ─── */}
                 {visibleCount < gridPrompts.length && (
-                  <div className="flex justify-center pt-6 pb-2">
+                  <div ref={showMoreRef} className="flex justify-center pt-6 pb-2">
                     <button
-                      onClick={() => setVisibleCount(prev => prev + ITEMS_PER_BATCH)}
+                      onClick={() => {
+                        setVisibleCount(prev => prev + ITEMS_PER_BATCH);
+                        requestAnimationFrame(() => {
+                          showMoreRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        });
+                      }}
                       className="px-8 py-3 rounded-xl bg-zinc-900 border border-zinc-800 text-sm text-zinc-400 hover:text-white hover:bg-zinc-800 hover:border-zinc-700 transition-all"
                     >
                       Show More ({gridPrompts.length - visibleCount} remaining)
