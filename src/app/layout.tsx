@@ -31,6 +31,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta name="deploy-verify" content="SAAS_20260513_V3" />
 
+        {/* ── Favicon ── */}
+        <link rel="icon" type="image/svg+xml" href="/prompt-gallery-saas/favicon.svg" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/prompt-gallery-saas/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="192x192" href="/prompt-gallery-saas/icons/icon-192.png" />
+
         {/* ── Font preloading (Inter + Plus Jakarta Sans) ── */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

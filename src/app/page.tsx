@@ -105,6 +105,8 @@ function GalleryContent() {
     return p ? parseInt(p, 10) || 1 : 1;
   }, []);
   const [currentPage, setCurrentPage] = useState(initialPage);
+  const [visibleCount, setVisibleCount] = useState(40);
+  const ITEMS_PER_BATCH = 40;
   const [quickViewId, setQuickViewId] = useState<string | number | null>(null);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const searchRef = React.useRef<HTMLDivElement>(null);
@@ -133,6 +135,7 @@ function GalleryContent() {
   // Reset page when filters change & clear URL page param
   useEffect(() => {
     setCurrentPage(1);
+    setVisibleCount(40);
     const params = new URLSearchParams(searchParams.toString());
     params.delete('page');
     router.replace(`?${params.toString()}`, { scroll: false });
@@ -307,7 +310,7 @@ function GalleryContent() {
               <>
                 {/* ─── MASONRY GRID ─── */}
                 <div className="columns-2 sm:columns-3 lg:columns-4 xl:columns-5 gap-4 [&>*]:break-inside-avoid space-y-4">
-                  {gridPrompts.map((item, idx) => (
+                  {gridPrompts.slice(0, visibleCount).map((item, idx) => (
                     <div key={item.id} className="break-inside-avoid">
                       <PromptCard
                         id={item.id}
@@ -323,7 +326,17 @@ function GalleryContent() {
                   ))}
                 </div>
 
-                {/* ─── NO PAGINATION — all cards shown ─── */}
+                {/* ─── SHOW MORE ─── */}
+                {visibleCount < gridPrompts.length && (
+                  <div className="flex justify-center pt-6 pb-2">
+                    <button
+                      onClick={() => setVisibleCount(prev => prev + ITEMS_PER_BATCH)}
+                      className="px-8 py-3 rounded-xl bg-zinc-900 border border-zinc-800 text-sm text-zinc-400 hover:text-white hover:bg-zinc-800 hover:border-zinc-700 transition-all"
+                    >
+                      Show More ({gridPrompts.length - visibleCount} remaining)
+                    </button>
+                  </div>
+                )}
               </>
             )}
           </section>
