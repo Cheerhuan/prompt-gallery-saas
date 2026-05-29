@@ -78,14 +78,6 @@ export default function Sidebar({ activePage = 'home' }: SidebarProps) {
     );
   };
 
-  const handlePublishClick = (e: React.MouseEvent) => {
-    if (!user) {
-      e.preventDefault();
-      setShowAuthModal(true);
-    }
-    // If logged in, let the Link navigate normally to /submit
-  };
-
   const navItems = [
     {
       href: '/', label: t('sidebar.home'), key: 'home' as const,
@@ -224,18 +216,30 @@ export default function Sidebar({ activePage = 'home' }: SidebarProps) {
         ))}
       </div>
 
-      {/* CTA Card — login gate */}
-      <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-4 mb-4">
-        <p className="text-sm font-semibold text-white mb-1">{t('sidebar.publishTitle')}</p>
-        <p className="text-xs text-zinc-500 mb-3">{t('sidebar.publishSub')}</p>
-        <a
-          href={user ? '/submit' : '#'}
-          onClick={handlePublishClick}
-          className="w-full bg-white text-black rounded-lg py-2 text-xs font-semibold block text-center hover:bg-zinc-200 transition-colors cursor-pointer"
-        >
-          {t('sidebar.getStarted')}
-        </a>
-      </div>
+      {/* CTA Card — login gated */}
+      {user ? (
+        <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-4 mb-4">
+          <p className="text-sm font-semibold text-white mb-1">{t('sidebar.publishTitle')}</p>
+          <p className="text-xs text-zinc-500 mb-3">{t('sidebar.publishSub')}</p>
+          <Link
+            href="/submit"
+            className="w-full bg-white text-black rounded-lg py-2 text-xs font-semibold block text-center hover:bg-zinc-200 transition-colors"
+          >
+            {t('sidebar.getStarted')}
+          </Link>
+        </div>
+      ) : (
+        <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-4 mb-4">
+          <p className="text-sm font-semibold text-white mb-1">🔒 {t('sidebar.publishTitle')}</p>
+          <p className="text-xs text-zinc-500 mb-3">Sign in to submit your own prompts.</p>
+          <button
+            onClick={() => setShowAuthModal(true)}
+            className="w-full bg-white text-black rounded-lg py-2 text-xs font-semibold block text-center hover:bg-zinc-200 transition-colors cursor-pointer"
+          >
+            Sign In to Publish
+          </button>
+        </div>
+      )}
 
       {/* Footer Links */}
       <div className="flex items-center gap-3 px-3">
