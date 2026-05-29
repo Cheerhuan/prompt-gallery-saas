@@ -114,6 +114,7 @@ function GalleryContent() {
   const searchRef = React.useRef<HTMLDivElement>(null);
   const showMoreRef = React.useRef<HTMLDivElement>(null);
   const galleryRef = React.useRef<HTMLDivElement>(null);
+  const sentinelRef = React.useRef<HTMLDivElement>(null);
   const BASE_PATH = '/prompt-gallery-saas';
   const embeddingsRef = useRef<any>(null);
   const [embeddingsReady, setEmbeddingsReady] = useState(false);
@@ -258,6 +259,25 @@ function GalleryContent() {
     });
     return cols;
   }, [visiblePrompts, colCount]);
+
+  const hasMore = visibleCount < gridPrompts.length;
+
+  // ─── Auto-load more on scroll (IntersectionObserver) ───
+  useEffect(() => {
+    if (!hasMore) return;
+    const sentinel = sentinelRef.current;
+    if (!sentinel) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisibleCount(prev => prev + ITEMS_PER_BATCH);
+        }
+      },
+      { rootMargin: '200px' }
+    );
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, [hasMore]);
 
   const quickViewPrompt = quickViewId
     ? promptsWithImages.find(p => p.id === quickViewId)
@@ -404,21 +424,9 @@ function GalleryContent() {
                   ))}
                 </div>
 
-                {/* ─── SHOW MORE ─── */}
-                {visibleCount < gridPrompts.length && (
-                  <div ref={showMoreRef} className="flex justify-center pt-6 pb-2 scroll-mt-32">
-                    <button
-                      onClick={() => {
-                        setVisibleCount(prev => prev + ITEMS_PER_BATCH);
-                        requestAnimationFrame(() => {
-                          showMoreRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                        });
-                      }}
-                      className="px-8 py-3 rounded-xl bg-zinc-900 border border-zinc-800 text-sm text-zinc-400 hover:text-white hover:bg-zinc-800 hover:border-zinc-700 transition-all"
-                    >
-                      Show More ({gridPrompts.length - visibleCount} remaining)
-                    </button>
-                  </div>
+                {/* ─── AUTO-LOAD SENTINEL (triggers more cards on scroll) ─── */}
+                {hasMore && (
+                  <div ref={sentinelRef} className="h-px" />
                 )}
               </>
             )}
