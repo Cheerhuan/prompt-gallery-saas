@@ -107,10 +107,10 @@ function GalleryContent() {
   const [currentPage, setCurrentPage] = useState(initialPage);
   const [visibleCount, setVisibleCount] = useState(40);
   const ITEMS_PER_BATCH = 40;
+  const [colCount, setColCount] = useState(4);
   const [quickViewId, setQuickViewId] = useState<string | number | null>(null);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [showAuthModal, setShowAuthModal] = useState(false);
-  const [colCount, setColCount] = useState(4); // default desktop
   const searchRef = React.useRef<HTMLDivElement>(null);
   const showMoreRef = React.useRef<HTMLDivElement>(null);
   const galleryRef = React.useRef<HTMLDivElement>(null);
@@ -382,8 +382,8 @@ function GalleryContent() {
               </div>
             ) : (
               <>
-                {/* ─── FLEX COLUMNS (JS-managed, no reflow on Show More) ─── */}
-                <div ref={galleryRef} className="hidden sm:flex gap-4">
+                {/* ─── JS FLEX COLUMNS (stable, no reflow on Show More) ─── */}
+                <div ref={galleryRef} className="flex gap-4">
                   {columns.map((col, ci) => (
                     <div key={ci} className="flex-1 flex flex-col gap-4 min-w-0">
                       {col.map((item) => (
@@ -400,23 +400,6 @@ function GalleryContent() {
                           />
                         </div>
                       ))}
-                    </div>
-                  ))}
-                </div>
-                {/* Mobile: CSS columns fallback (2 cols only) */}
-                <div className="sm:hidden columns-2 gap-4 [&>*]:break-inside-avoid space-y-4">
-                  {visiblePrompts.map((item) => (
-                    <div key={item.id} className="break-inside-avoid">
-                      <PromptCard
-                        id={item.id}
-                        image={item.image || ''}
-                        title={getCardTitle(item.id, item.title, locale)}
-                        tags={[]}
-                        index={0}
-                        creator={item.creator}
-                        model={item.model}
-                        onQuickView={setQuickViewId}
-                      />
                     </div>
                   ))}
                 </div>
