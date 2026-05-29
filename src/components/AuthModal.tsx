@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect, useCallback } from 'react';
-import { signInWithGoogle, signOut, isSupabaseConfigured } from '@/lib/supabase';
+import { supabase, signOut } from '@/lib/supabase';
 
 interface AuthModalProps {
   open: boolean;
@@ -18,7 +18,24 @@ export const AuthModal = ({ open, onClose }: AuthModalProps) => {
   const [user, setUser] = useState<UserInfo | null>(null);
   const [loading, setLoading] = useState(false);
 
-  // Listen for auth state changes (supports both real Supabase and mock mode)
+  // Restore session from Supabase on mount
+  useEffect(() => {
+    const restore = async () => {
+      const { data } = await supabase.auth.getSession();
+      if (data?.session?.user) {
+        const u = data.session.user;
+        setUser({
+          id: u.id,
+          email: u.email,
+          full_name: u.user_metadata?.full_name || u.user_metadata?.name || 'User',
+          avatar_url: u.user_metadata?.avatar_url || u.user_metadata?.picture || '',
+        });
+      }
+    };
+    restore();
+  }, []);
+
+  // Listen for auth state changes
   useEffect(() => {
     const handler = (e: Event) => {
       const detail = (e as CustomEvent).detail;
@@ -35,39 +52,25 @@ export const AuthModal = ({ open, onClose }: AuthModalProps) => {
     };
 
     window.addEventListener('supabase-auth-change', handler);
-
-    // Also try to restore user from localStorage for mock mode persistence
-    try {
-      const stored = localStorage.getItem('supabase-mock-user');
-      if (stored) {
-        const u = JSON.parse(stored);
-        setUser(u);
-      }
-    } catch {}
-
     return () => window.removeEventListener('supabase-auth-change', handler);
   }, []);
-
-  // Persist mock user state
-  useEffect(() => {
-    if (!isSupabaseConfigured && user) {
-      localStorage.setItem('supabase-mock-user', JSON.stringify(user));
-    } else if (!isSupabaseConfigured && !user) {
-      localStorage.removeItem('supabase-mock-user');
-    }
-  }, [user]);
 
   const handleSignIn = useCallback(async () => {
     setLoading(true);
     try {
-      const { data, error } = await signInWithGoogle();
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: 'https://cheerhuan.github.io/prompt-gallery-saas/auth/callback',
+        },
+      });
       if (error) {
-        console.error('Sign in error:', error);
+        console.error('Sign in error:', error.message);
+        setLoading(false);
       }
-      // In mock mode, signInWithGoogle dispatches the auth-change event itself
+      // OAuth redirects browser — no need to reset loading
     } catch (err) {
       console.error('Sign in error:', err);
-    } finally {
       setLoading(false);
     }
   }, []);
@@ -78,6 +81,10 @@ export const AuthModal = ({ open, onClose }: AuthModalProps) => {
     onClose();
   }, [onClose]);
 
+  const handleClose = useCallback(() => {
+    if (!loading) onClose();
+  }, [loading, onClose]);
+
   return (
     <>
       {open && (
@@ -85,7 +92,7 @@ export const AuthModal = ({ open, onClose }: AuthModalProps) => {
           {/* Backdrop */}
           <div
             className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm animate-fade-in"
-            onClick={onClose}
+            onClick={handleClose}
           />
 
           {/* Modal */}
@@ -96,7 +103,7 @@ export const AuthModal = ({ open, onClose }: AuthModalProps) => {
             >
               {/* Close button */}
               <button
-                onClick={onClose}
+                onClick={handleClose}
                 className="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-colors"
                 aria-label="Close"
               >
@@ -150,7 +157,7 @@ export const AuthModal = ({ open, onClose }: AuthModalProps) => {
                   </div>
                   <div className="text-center">
                     <h3 className="text-lg font-bold text-white">Welcome to Prompt Gallery</h3>
-                    <p className="text-sm text-zinc-400 mt-1">Sign in to like and save prompts</p>
+                    <p className="text-sm text-zinc-400 mt-1">Sign in to like, save, and submit prompts</p>
                   </div>
                   <button
                     onClick={handleSignIn}
@@ -171,11 +178,9 @@ export const AuthModal = ({ open, onClose }: AuthModalProps) => {
                       </>
                     )}
                   </button>
-                  {!isSupabaseConfigured && (
-                    <p className="text-[10px] text-zinc-600 text-center">
-                      ⚡ Demo mode — no real account required
-                    </p>
-                  )}
+                  <p className="text-xs text-zinc-500 bg-zinc-800/50 px-3 py-1.5 rounded-full">
+                    Secure sign-in via Supabase
+                  </p>
                 </div>
               )}
             </div>

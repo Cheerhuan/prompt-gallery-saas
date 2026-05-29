@@ -1,6 +1,7 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { supabase } from '@/lib/supabase';
 import { useI18n } from '@/components/I18nProvider';
 import { getSavedIds } from '@/lib/vault';
 import { AuthModal } from './AuthModal';
@@ -9,8 +10,11 @@ export const SaaSNavbar = ({ userTier = 'free' }) => {
   const { t, setLocale, locale } = useI18n();
   const [vaultCount, setVaultCount] = useState(0);
   const [showAuthModal, setShowAuthModal] = useState(false);
-  const [user, setUser] = useState<{ full_name?: string; avatar_url?: string } | null>(null);
+  const [user, setUser] = useState<{ id: string; full_name?: string; avatar_url?: string } | null>(null);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
+  // Vault count
   useEffect(() => {
     setVaultCount(getSavedIds().length);
     const handler = () => setVaultCount(getSavedIds().length);
@@ -18,35 +22,59 @@ export const SaaSNavbar = ({ userTier = 'free' }) => {
     return () => window.removeEventListener('vault-change', handler);
   }, []);
 
-  // Listen for auth changes (mock mode + real supabase)
+  // Restore session from Supabase on mount
+  useEffect(() => {
+    const restore = async () => {
+      const { data } = await supabase.auth.getSession();
+      if (data?.session?.user) {
+        const u = data.session.user;
+        setUser({
+          id: u.id,
+          full_name: u.user_metadata?.full_name || u.user_metadata?.name || 'User',
+          avatar_url: u.user_metadata?.avatar_url || u.user_metadata?.picture || '',
+        });
+      }
+    };
+    restore();
+  }, []);
+
+  // Listen for auth changes
   useEffect(() => {
     const handler = (e: Event) => {
       const detail = (e as CustomEvent).detail;
       if (detail?.user) {
         setUser({
+          id: detail.user.id,
           full_name: detail.user.user_metadata?.full_name || detail.user.user_metadata?.name || 'User',
           avatar_url: detail.user.user_metadata?.avatar_url || detail.user.user_metadata?.picture || '',
         });
       } else {
         setUser(null);
+        setDropdownOpen(false);
       }
     };
     window.addEventListener('supabase-auth-change', handler);
-
-    // Restore from localStorage on mount
-    try {
-      const stored = localStorage.getItem('supabase-mock-user');
-      if (stored) {
-        const u = JSON.parse(stored);
-        setUser({ full_name: u.full_name, avatar_url: u.avatar_url });
-      }
-    } catch {}
-
     return () => window.removeEventListener('supabase-auth-change', handler);
   }, []);
 
-  const handleLogin = () => {
-    setShowAuthModal(true);
+  // Close dropdown on click outside
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, []);
+
+  const handleSignOut = async () => {
+    await supabase.auth.signOut();
+    setUser(null);
+    setDropdownOpen(false);
+    window.dispatchEvent(
+      new CustomEvent('supabase-auth-change', { detail: { user: null } })
+    );
   };
 
   return (
@@ -95,22 +123,78 @@ export const SaaSNavbar = ({ userTier = 'free' }) => {
             </Link>
           )}
           {user ? (
-            <Link
-              href="/profile"
-              className="flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors"
-            >
-              {user.avatar_url ? (
-                <img src={user.avatar_url} alt="" className="w-7 h-7 rounded-full object-cover ring-1 ring-zinc-700" referrerPolicy="no-referrer" />
-              ) : (
-                <div className="w-7 h-7 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-[10px] font-bold text-white">
-                  {(user.full_name || 'U').charAt(0).toUpperCase()}
+            /* ── Logged in: avatar + dropdown ── */
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className="flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors"
+              >
+                {user.avatar_url ? (
+                  <img src={user.avatar_url} alt="" className="w-7 h-7 rounded-full object-cover ring-1 ring-zinc-700" referrerPolicy="no-referrer" />
+                ) : (
+                  <div className="w-7 h-7 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-[10px] font-bold text-white">
+                    {(user.full_name || 'U').charAt(0).toUpperCase()}
+                  </div>
+                )}
+                <svg className={`w-3 h-3 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </button>
+
+              {dropdownOpen && (
+                <div className="absolute right-0 mt-2 w-52 bg-zinc-900 border border-zinc-800 rounded-xl shadow-2xl py-2 animate-fade-in">
+                  <div className="px-4 py-2 border-b border-zinc-800">
+                    <p className="text-sm text-white font-medium truncate">{user.full_name || 'User'}</p>
+                    <p className="text-[10px] text-zinc-500">Signed in</p>
+                  </div>
+                  <Link
+                    href="/profile"
+                    onClick={() => setDropdownOpen(false)}
+                    className="flex items-center gap-2 px-4 py-2.5 text-sm text-zinc-300 hover:text-white hover:bg-zinc-800 transition-colors"
+                  >
+                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                      <circle cx="12" cy="7" r="4" />
+                    </svg>
+                    My Profile
+                  </Link>
+                  <Link
+                    href="/submit"
+                    onClick={() => setDropdownOpen(false)}
+                    className="flex items-center gap-2 px-4 py-2.5 text-sm text-zinc-300 hover:text-white hover:bg-zinc-800 transition-colors"
+                  >
+                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
+                      <path d="M12 5v14M5 12h14" />
+                    </svg>
+                    Submit Prompt
+                  </Link>
+                  <Link
+                    href="/saved"
+                    onClick={() => setDropdownOpen(false)}
+                    className="flex items-center gap-2 px-4 py-2.5 text-sm text-zinc-300 hover:text-white hover:bg-zinc-800 transition-colors"
+                  >
+                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
+                      <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+                    </svg>
+                    My Vault
+                  </Link>
+                  <div className="border-t border-zinc-800 mt-1 pt-1">
+                    <button
+                      onClick={handleSignOut}
+                      className="flex items-center gap-2 w-full px-4 py-2.5 text-sm text-red-400 hover:text-red-300 hover:bg-zinc-800 transition-colors"
+                    >
+                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" />
+                      </svg>
+                      Sign Out
+                    </button>
+                  </div>
                 </div>
               )}
-              <span className="hidden sm:inline text-xs">{user.full_name || 'User'}</span>
-            </Link>
+            </div>
           ) : (
             <button 
-              onClick={handleLogin}
+              onClick={() => setShowAuthModal(true)}
               className="flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors"
             >
               {t('nav.login')}

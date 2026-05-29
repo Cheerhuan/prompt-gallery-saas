@@ -1,12 +1,10 @@
 'use client';
 import React, { useState, useEffect, useCallback } from 'react';
+import { supabase } from '@/lib/supabase';
 import { SaaSNavbar } from '@/components/SaaSNavbar';
 import { AuthModal } from '@/components/AuthModal';
 import { SubmissionSuccess } from '@/components/SubmissionSuccess';
-
-const GH_OWNER = 'Cheerhuan';
-const GH_REPO = 'prompt-gallery-saas';
-const GH_API = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/issues`;
+import { submitCommunityPrompt } from '@/lib/supabase';
 
 const AI_MODELS = ['Midjourney', 'DALL-E', 'SDXL', 'GPT-Image', 'Other'] as const;
 
@@ -31,9 +29,26 @@ export default function SubmitPage() {
   // Submission state
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
-  const [success, setSuccess] = useState<{ issueNumber: number; issueUrl: string } | null>(null);
+  const [success, setSuccess] = useState<string | null>(null); // stores prompt title
 
-  // Listen for auth changes (same pattern as SaaSNavbar)
+  // Restore session from Supabase on mount
+  useEffect(() => {
+    const restore = async () => {
+      const { data } = await supabase.auth.getSession();
+      if (data?.session?.user) {
+        const u = data.session.user;
+        setUser({
+          id: u.id,
+          email: u.email,
+          full_name: u.user_metadata?.full_name || u.user_metadata?.name || 'User',
+          avatar_url: u.user_metadata?.avatar_url || u.user_metadata?.picture || '',
+        });
+      }
+    };
+    restore();
+  }, []);
+
+  // Listen for auth changes
   useEffect(() => {
     const handler = (e: Event) => {
       const detail = (e as CustomEvent).detail;
@@ -49,16 +64,6 @@ export default function SubmitPage() {
       }
     };
     window.addEventListener('supabase-auth-change', handler);
-
-    // Restore from localStorage on mount
-    try {
-      const stored = localStorage.getItem('supabase-mock-user');
-      if (stored) {
-        const u = JSON.parse(stored);
-        setUser(u);
-      }
-    } catch {}
-
     return () => window.removeEventListener('supabase-auth-change', handler);
   }, []);
 
@@ -85,41 +90,16 @@ export default function SubmitPage() {
     setSubmitting(true);
 
     try {
-      const bodyPayload = JSON.stringify({
-        prompt: {
-          title: title.trim(),
-          full_prompt: fullPrompt.trim(),
-          reference_image: referenceImage.trim() || '',
-          ai_model: aiModel,
-          tags: tags
-            .split(',')
-            .map(t => t.trim())
-            .filter(Boolean),
-        },
-        user: {
-          id: user.id,
-          name: user.full_name || 'Anonymous',
-          email: user.email || '',
-        },
-        submitted_at: new Date().toISOString(),
-      }, null, 2);
-
-      const response = await fetch(GH_API, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          title: `[Submission] ${title.trim()}`,
-          body: bodyPayload,
-          labels: ['submission', 'pending-review'],
-        }),
+      await submitCommunityPrompt({
+        title: title.trim(),
+        fullPrompt: fullPrompt.trim(),
+        referenceImage: referenceImage.trim(),
+        aiModel,
+        tags: tags
+          .split(',')
+          .map(t => t.trim())
+          .filter(Boolean),
       });
-
-      if (!response.ok) {
-        const errBody = await response.text();
-        throw new Error(`GitHub API error (${response.status}): ${errBody}`);
-      }
-
-      const issue = await response.json();
 
       // Reset form
       setTitle('');
@@ -129,10 +109,7 @@ export default function SubmitPage() {
       setTags('');
 
       // Show success
-      setSuccess({
-        issueNumber: issue.number,
-        issueUrl: issue.html_url,
-      });
+      setSuccess(title.trim());
     } catch (err: any) {
       console.error('Submit error:', err);
       setError(err.message || 'Failed to submit. Please try again.');
@@ -265,7 +242,7 @@ export default function SubmitPage() {
                   {user ? user.full_name : 'Not signed in'}
                 </div>
                 <div className="text-[10px] text-zinc-500">
-                  {user ? 'Signed in' : 'Sign in required to submit'}
+                  {user ? 'Signed in with Google' : 'Sign in required to submit'}
                 </div>
               </div>
               {!user && (
@@ -308,8 +285,7 @@ export default function SubmitPage() {
             </button>
 
             <p className="text-[10px] text-zinc-600 text-center">
-              Your prompt will be submitted as a GitHub Issue for review. 
-              Once approved, it will be added to the gallery. ⏳
+              Your prompt is stored securely in our database and will be reviewed by the team. ⏳
             </p>
           </form>
         </div>
@@ -318,9 +294,9 @@ export default function SubmitPage() {
       {/* Success modal */}
       {success && (
         <SubmissionSuccess
-          issueNumber={success.issueNumber}
-          issueUrl={success.issueUrl}
-          title={title || 'Untitled'}
+          issueNumber={0}
+          issueUrl=""
+          title={success || 'Untitled'}
           onClose={() => setSuccess(null)}
         />
       )}
