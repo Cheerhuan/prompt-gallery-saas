@@ -261,6 +261,7 @@ function GalleryContent() {
   }, [visiblePrompts, colCount]);
 
   const hasMore = visibleCount < gridPrompts.length;
+  const loadingRef = React.useRef(false);
 
   // ─── Auto-load more on scroll (IntersectionObserver) ───
   useEffect(() => {
@@ -269,7 +270,8 @@ function GalleryContent() {
     if (!sentinel) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !loadingRef.current) {
+          loadingRef.current = true;
           setVisibleCount(prev => prev + ITEMS_PER_BATCH);
         }
       },
@@ -278,6 +280,11 @@ function GalleryContent() {
     observer.observe(sentinel);
     return () => observer.disconnect();
   }, [hasMore]);
+
+  // Reset loading guard after DOM update
+  useEffect(() => {
+    loadingRef.current = false;
+  }, [visibleCount]);
 
   const quickViewPrompt = quickViewId
     ? promptsWithImages.find(p => p.id === quickViewId)
