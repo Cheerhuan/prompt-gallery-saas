@@ -1,6 +1,7 @@
 'use client';
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import { Locale, translations } from '@/lib/i18n';
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import type { Locale } from '@/lib/i18n';
+import { loadLocale, getTranslations } from '@/lib/i18n';
 
 interface I18nContextType {
   locale: Locale;
@@ -12,9 +13,15 @@ const I18nContext = createContext<I18nContextType | undefined>(undefined);
 
 export const I18nProvider = ({ children }: { children: React.ReactNode }) => {
   const [locale, setLocale] = useState<Locale>('en');
+  const [ready, setReady] = useState(false);
 
+  // Load translations for current locale
   useEffect(() => {
-    // Detect browser language
+    loadLocale(locale).then(() => setReady(true));
+  }, [locale]);
+
+  // Detect browser language on mount
+  useEffect(() => {
     const browserLang = navigator.language || (navigator as any).browserLanguage;
     if (browserLang.startsWith('zh')) {
       setLocale('zh');
@@ -27,18 +34,20 @@ export const I18nProvider = ({ children }: { children: React.ReactNode }) => {
     }
   }, []);
 
-  const t = (path: string) => {
+  const t = useCallback((path: string) => {
+    const data = getTranslations(locale);
+    if (!data) return path;
     const keys = path.split('.');
-    let result: any = translations[locale];
+    let result: any = data;
     for (const key of keys) {
-      if (result[key]) {
+      if (result && typeof result === 'object' && key in result) {
         result = result[key];
       } else {
         return path; // Fallback to path if not found
       }
     }
-    return result;
-  };
+    return typeof result === 'string' ? result : path;
+  }, [locale]);
 
   return (
     <I18nContext.Provider value={{ locale, setLocale, t }}>
