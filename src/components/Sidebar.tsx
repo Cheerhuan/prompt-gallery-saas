@@ -4,11 +4,11 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { supabase } from '@/lib/supabase';
 import { useI18n } from '@/components/I18nProvider';
-import { AuthModal } from '@/components/AuthModal';
 import type { Locale } from '@/lib/i18n';
 
 interface SidebarProps {
   activePage?: 'home' | 'search' | 'history' | 'favorites';
+  onGetStarted?: () => void;
 }
 
 const LOCALES: { key: Locale; label: string }[] = [
@@ -18,10 +18,9 @@ const LOCALES: { key: Locale; label: string }[] = [
   { key: 'ko', label: '한국어' },
 ];
 
-export default function Sidebar({ activePage = 'home' }: SidebarProps) {
+export default function Sidebar({ activePage = 'home', onGetStarted }: SidebarProps) {
   const { t, locale, setLocale } = useI18n();
   const [user, setUser] = useState<{ id: string } | null>(null);
-  const [showAuthModal, setShowAuthModal] = useState(false);
 
   // Restore session
   useEffect(() => {
@@ -118,7 +117,6 @@ export default function Sidebar({ activePage = 'home' }: SidebarProps) {
 
   return (
     <aside className="w-[240px] shrink-0 h-screen sticky top-0 bg-zinc-950 border-r border-zinc-800 flex flex-col py-6 px-4 overflow-y-auto hidden md:flex">
-      <AuthModal open={showAuthModal} onClose={() => setShowAuthModal(false)} />
 
       {/* Logo */}
       <Link href="/" className="flex items-center gap-3 px-3 mb-6">
@@ -226,7 +224,7 @@ export default function Sidebar({ activePage = 'home' }: SidebarProps) {
         </Link>
       ) : (
         <button
-          onClick={() => setShowAuthModal(true)}
+          onClick={onGetStarted}
           className="mx-3 mb-4 w-[calc(100%-24px)] bg-white text-black rounded-lg py-2.5 text-xs font-semibold block text-center hover:bg-zinc-200 transition-colors cursor-pointer"
         >
           Get Started

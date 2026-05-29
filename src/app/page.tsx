@@ -7,6 +7,7 @@ import ModelTabs from '@/components/ModelTabs';
 import { PromptCard } from '@/components/PromptCard';
 import { GallerySkeleton } from '@/components/Skeleton';
 import { useI18n } from '@/components/I18nProvider';
+import { AuthModal } from '@/components/AuthModal';
 import promptsData from '@/data/prompts.json';
 import type { SearchResult } from '@/lib/semantic-search';
 import { translations, getCardTitle } from '@/lib/i18n';
@@ -108,6 +109,7 @@ function GalleryContent() {
   const ITEMS_PER_BATCH = 40;
   const [quickViewId, setQuickViewId] = useState<string | number | null>(null);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [showAuthModal, setShowAuthModal] = useState(false);
   const searchRef = React.useRef<HTMLDivElement>(null);
   const showMoreRef = React.useRef<HTMLDivElement>(null);
   const BASE_PATH = '/prompt-gallery-saas';
@@ -286,7 +288,7 @@ function GalleryContent() {
       {/* ─── THREE-COLUMN LAYOUT ─── */}
       <div className="flex min-h-screen">
         {/* Left Sidebar (desktop only) */}
-        <Sidebar activePage="home" />
+        <Sidebar activePage="home" onGetStarted={() => setShowAuthModal(true)} />
 
         {/* Main Content */}
         <main id="main-content" className="flex-1 min-w-0 px-4 md:px-6 pb-24 md:pb-12 pt-0">
@@ -435,6 +437,9 @@ function GalleryContent() {
           ))}
         </div>
       </div>
+
+      {/* ─── AUTH MODAL (rendered at page level, outside Sidebar stacking context) ─── */}
+      <AuthModal open={showAuthModal} onClose={() => setShowAuthModal(false)} />
 
       {/* ─── QUICK VIEW MODAL ─── */}
       {quickViewPrompt && (
