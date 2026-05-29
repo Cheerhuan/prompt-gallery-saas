@@ -1,6 +1,5 @@
 'use client';
 import React, { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { signInWithGoogle, signOut, isSupabaseConfigured } from '@/lib/supabase';
 
 interface AuthModalProps {
@@ -80,29 +79,19 @@ export const AuthModal = ({ open, onClose }: AuthModalProps) => {
   }, [onClose]);
 
   return (
-    <AnimatePresence>
+    <>
       {open && (
         <>
           {/* Backdrop */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm"
+          <div
+            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm animate-fade-in"
             onClick={onClose}
           />
 
           {/* Modal */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4"
-          >
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
             <div
-              className="relative w-full max-w-sm bg-zinc-900 border border-zinc-800 rounded-2xl p-8 shadow-2xl"
+              className="animate-modal-in relative w-full max-w-sm bg-zinc-900 border border-zinc-800 rounded-2xl p-8 shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close button */}
@@ -190,9 +179,9 @@ export const AuthModal = ({ open, onClose }: AuthModalProps) => {
                 </div>
               )}
             </div>
-          </motion.div>
+          </div>
         </>
       )}
-    </AnimatePresence>
+    </>
   );
 };

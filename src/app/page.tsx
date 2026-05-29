@@ -8,8 +8,6 @@ import { PromptCard } from '@/components/PromptCard';
 import { GallerySkeleton } from '@/components/Skeleton';
 import { useI18n } from '@/components/I18nProvider';
 import promptsData from '@/data/prompts.json';
-import embeddingsData from '@/data/embeddings.json';
-import { searchPrompts } from '@/lib/semantic-search';
 import type { SearchResult } from '@/lib/semantic-search';
 import { translations, getCardTitle } from '@/lib/i18n';
 
@@ -110,6 +108,29 @@ function GalleryContent() {
   const [quickViewId, setQuickViewId] = useState<string | number | null>(null);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const searchRef = React.useRef<HTMLDivElement>(null);
+  const BASE_PATH = '/prompt-gallery-saas';
+  const embeddingsRef = useRef<any>(null);
+  const [embeddingsReady, setEmbeddingsReady] = useState(false);
+  const searchModuleRef = useRef<any>(null);
+
+  // Dynamically load embeddings + search module when user types
+  useEffect(() => {
+    if (searchQuery.trim().length >= 2 && !embeddingsRef.current) {
+      (async () => {
+        try {
+          const [emb, mod] = await Promise.all([
+            fetch(`${BASE_PATH}/embeddings.json`).then(r => r.json()),
+            import('@/lib/semantic-search'),
+          ]);
+          embeddingsRef.current = emb;
+          searchModuleRef.current = mod.searchPrompts;
+          setEmbeddingsReady(true);
+        } catch (e) {
+          console.warn('Semantic search unavailable, falling back to text filter');
+        }
+      })();
+    }
+  }, [searchQuery]);
 
   // Read collection param from URL
   useEffect(() => {
@@ -151,17 +172,32 @@ function GalleryContent() {
   const filteredPrompts = useMemo(() => {
     const q = searchQuery.trim();
     if (q) {
-      const results: SearchResult[] = searchPrompts(q, promptsWithImages, embeddingsData as any);
-      return results
-        .filter(r => {
-          if (activeFilter === 'all') return true;
-          const p = r.prompt;
-          return (
-            p.title.toLowerCase().includes(activeFilter.toLowerCase()) ||
-            p.full_prompt.toLowerCase().includes(activeFilter.toLowerCase())
-          );
-        })
-        .map(r => r.prompt);
+      // If semantic search module is loaded, use it
+      if (embeddingsRef.current && searchModuleRef.current) {
+        const results: SearchResult[] = searchModuleRef.current(q, promptsWithImages, embeddingsRef.current);
+        return results
+          .filter(r => {
+            if (activeFilter === 'all') return true;
+            const p = r.prompt;
+            return (
+              p.title.toLowerCase().includes(activeFilter.toLowerCase()) ||
+              p.full_prompt.toLowerCase().includes(activeFilter.toLowerCase())
+            );
+          })
+          .map(r => r.prompt);
+      }
+      // Fallback: text-only search (instant, no 10MB download)
+      return promptsWithImages.filter(prompt => {
+        const matchesQuery =
+          prompt.title.toLowerCase().includes(q) ||
+          prompt.full_prompt.toLowerCase().includes(q);
+        if (!matchesQuery) return false;
+        const matchesFilter =
+          activeFilter === 'all' ||
+          prompt.title.toLowerCase().includes(activeFilter.toLowerCase()) ||
+          prompt.full_prompt.toLowerCase().includes(activeFilter.toLowerCase());
+        return matchesFilter;
+      });
     } else {
       return promptsWithImages.filter(prompt => {
         const matchesFilter =
@@ -171,7 +207,7 @@ function GalleryContent() {
         return matchesFilter;
       });
     }
-  }, [promptsWithImages, searchQuery, activeFilter]);
+  }, [promptsWithImages, searchQuery, activeFilter, embeddingsReady]);
 
   // Sort logic
   const sortedPrompts = useMemo(() => {

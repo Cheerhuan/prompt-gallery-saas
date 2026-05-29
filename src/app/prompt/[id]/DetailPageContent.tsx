@@ -8,9 +8,7 @@ import { useI18n } from '@/components/I18nProvider';
 import { getCardTitle } from '@/lib/i18n';
 import { isSaved, toggleSave } from '@/lib/vault';
 import promptsData from '@/data/prompts.json';
-import embeddingsData from '@/data/embeddings.json';
-import { getRelatedPrompts } from '@/lib/semantic-search';
-import { motion } from 'framer-motion';
+import type { Prompt } from '@/lib/semantic-search';
 
 export default function DetailPageContent({ prompt, params }: { prompt: any, params: { id: string } }) {
   const { t, locale } = useI18n();
@@ -59,11 +57,31 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
     setSaved(!saved);
   };
 
-  // Related prompts: AI-powered semantic similarity recommender
-  const relatedPrompts = useMemo(
-    () => getRelatedPrompts(prompt.id, promptsData as any, embeddingsData as any, 4),
-    [prompt.id]
-  );
+  // ── Related prompts: dynamic semantic search ──
+  const [relatedPrompts, setRelatedPrompts] = useState<Prompt[]>([]);
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const emb = await fetch('/prompt-gallery-saas/embeddings.json').then(r => r.json());
+        if (cancelled) return;
+        const mod = await import('@/lib/semantic-search');
+        if (cancelled) return;
+        const results = mod.getRelatedPrompts(prompt.id, promptsData as any, emb, 4);
+        setRelatedPrompts(results);
+      } catch {
+        // Fallback: show prompts from same creator
+        if (!cancelled) {
+          const sameCreator = (promptsData as any[])
+            .filter((p: any) => p.id !== prompt.id && p.creator === prompt.creator)
+            .slice(0, 4);
+          setRelatedPrompts(sameCreator);
+        }
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [prompt.id, prompt.creator]);
+
 
   const deconstructPrompt = (promptText: string) => {
     const parts = promptText.split('|')[0].split(',');
@@ -132,14 +150,13 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
                 {shareCopied ? '✓ Copied' : 'Share on X'}
               </button>
               {/* Copy Prompt Button */}
-                <motion.button 
-                  whileTap={{ scale: 0.95 }}
+                <button
                   onClick={copyToClipboard}
                   aria-label="Copy full prompt"
-                  className="px-4 py-1.5 rounded-lg bg-white text-black text-xs font-bold hover:bg-zinc-200 transition-all"
+                  className="px-4 py-1.5 rounded-lg bg-white text-black text-xs font-bold hover:bg-zinc-200 active:scale-95 transition-all"
                 >
                   {copied ? '✓ Copied' : t('detail.copyPrompt')}
-                </motion.button>
+                </button>
             </div>
           </div>
         </div>

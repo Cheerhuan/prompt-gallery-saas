@@ -14,7 +14,7 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PROMPTS_PATH = path.resolve(__dirname, '../src/data/prompts.json');
-const OUTPUT_PATH = path.resolve(__dirname, '../src/data/embeddings.json');
+const OUTPUT_PATH = path.resolve(__dirname, '../public/embeddings.json');
 
 // ─── Tokenization ──────────────────────────────────────────────
 

@@ -1,6 +1,5 @@
 'use client';
-import React, { useState, useRef, useEffect } from 'react';
-import { motion, useMotionValue, useTransform } from 'framer-motion';
+import React, { useState, useRef } from 'react';
 
 interface BeforeAfterProps {
   beforeImage: string;
@@ -17,17 +16,12 @@ export const BeforeAfter = ({
 }: BeforeAfterProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [sliderPosition, setSliderPosition] = useState(50);
-  const mouseX = useMotionValue(50);
-  
-  // Transform the 0-100 slider value into a percentage string for the clip-path
-  const clipPath = useTransform(mouseX, (v) => `inset(0 ${100 - v}% 0 0)`);
 
   const handleMove = (clientX: number) => {
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
     const x = ((clientX - rect.left) / rect.width) * 100;
     const clampedX = Math.max(0, Math.min(100, x));
-    mouseX.set(clampedX);
     setSliderPosition(clampedX);
   };
 
@@ -50,8 +44,8 @@ export const BeforeAfter = ({
         </div>
 
         {/* Before Image (Clipped Layer) */}
-        <motion.div 
-          style={{ clipPath }}
+        <div
+          style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
           className="absolute inset-0 w-full h-full z-10"
         >
           <img 
@@ -60,7 +54,7 @@ export const BeforeAfter = ({
             className="w-full h-full object-cover grayscale-[0.3] contrast-75"
           />
           <div className="absolute inset-0 bg-black/20" />
-        </motion.div>
+        </div>
 
         {/* Labels */}
         <div className="absolute inset-0 z-20 pointer-events-none p-6 flex justify-between items-end">
@@ -73,10 +67,9 @@ export const BeforeAfter = ({
         </div>
 
         {/* Slider Handle */}
-        <motion.div 
+        <div
           style={{ left: `${sliderPosition}%` }}
           className="absolute top-0 bottom-0 z-30 w-1 bg-white shadow-[0_0_20px_rgba(255,255,255,0.5)]"
-          transition={{ type: 'spring', damping: 20, stiffness: 150 }}
         >
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-zinc-900 border-2 border-white/80 flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
             <div className="flex gap-1">
@@ -88,7 +81,7 @@ export const BeforeAfter = ({
           
           {/* Handle Glow Effect */}
           <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-transparent via-indigo-400 to-transparent opacity-50 blur-sm" />
-        </motion.div>
+        </div>
       </div>
     </div>
   );

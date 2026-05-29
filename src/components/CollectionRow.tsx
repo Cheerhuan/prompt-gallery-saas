@@ -1,6 +1,5 @@
 'use client';
 import React from 'react';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 const BASE_PATH = '/prompt-gallery-saas';
@@ -35,14 +34,10 @@ export const CollectionRow = ({ collections }: CollectionRowProps) => {
       <div className="max-w-7xl mx-auto px-2 md:px-0">
         <div className="flex gap-6 overflow-x-auto pb-8 no-scrollbar snap-x snap-mandatory">
         {collections.map((collection, index) => (
-          <motion.div
+          <div
             key={collection.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1, duration: 0.5 }}
-            whileHover={{ y: -8 }}
-            className="group relative flex-shrink-0 w-[85vw] sm:w-[300px] md:w-[450px] aspect-[16/9] rounded-2xl overflow-hidden snap-start cursor-pointer"
+            className="animate-fade-up group relative flex-shrink-0 w-[85vw] sm:w-[300px] md:w-[450px] aspect-[16/9] rounded-2xl overflow-hidden snap-start cursor-pointer hover:-translate-y-2 transition-transform duration-300"
+            style={{ animationDelay: `${index * 100}ms` }}
           >
             {/* Background Image with Glassmorphism Overlay */}
             <div className="absolute inset-0 z-0">
@@ -91,7 +86,7 @@ export const CollectionRow = ({ collections }: CollectionRowProps) => {
             {/* Industrial Border Glow */}
             <div className="absolute inset-0 pointer-events-none border border-white/0 group-hover:border-indigo-500/50 rounded-2xl transition-colors duration-500" />
             <div className="absolute -inset-px bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-20 blur-sm transition-opacity duration-500 rounded-2xl" />
-          </motion.div>
+          </div>
         ))}
       </div>
       </div>
