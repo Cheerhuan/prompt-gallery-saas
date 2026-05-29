@@ -33,9 +33,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="deploy-verify" content="SAAS_20260513_V3" />
 
         {/* ── Favicon ── */}
-        <link rel="icon" type="image/svg+xml" href="/prompt-gallery-saas/favicon.svg?v=2" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/prompt-gallery-saas/favicon.ico?v=2" />
-        <link rel="apple-touch-icon" sizes="192x192" href="/prompt-gallery-saas/icons/icon-192.png?v=2" />
+        <link rel="icon" type="image/svg+xml" href="/prompt-gallery-saas/favicon.svg?v=3" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/prompt-gallery-saas/favicon.ico?v=3" />
+        <link rel="apple-touch-icon" sizes="192x192" href="/prompt-gallery-saas/icons/icon-192.png?v=3" />
 
         {/* ── Font preloading (Inter + Plus Jakarta Sans) ── */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
