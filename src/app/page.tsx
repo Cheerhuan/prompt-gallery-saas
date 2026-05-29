@@ -110,8 +110,10 @@ function GalleryContent() {
   const [quickViewId, setQuickViewId] = useState<string | number | null>(null);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [showAuthModal, setShowAuthModal] = useState(false);
+  const [colCount, setColCount] = useState(4); // default desktop
   const searchRef = React.useRef<HTMLDivElement>(null);
   const showMoreRef = React.useRef<HTMLDivElement>(null);
+  const galleryRef = React.useRef<HTMLDivElement>(null);
   const BASE_PATH = '/prompt-gallery-saas';
   const embeddingsRef = useRef<any>(null);
   const [embeddingsReady, setEmbeddingsReady] = useState(false);
@@ -232,6 +234,30 @@ function GalleryContent() {
   }, [filteredPrompts, sortBy]);
 
   const gridPrompts = sortedPrompts;
+
+  // ─── Responsive column count ───
+  useEffect(() => {
+    const update = () => {
+      const w = window.innerWidth;
+      if (w >= 1280) setColCount(5);
+      else if (w >= 1024) setColCount(4);
+      else if (w >= 640) setColCount(3);
+      else setColCount(2);
+    };
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
+
+  // ─── JS-managed column distribution (no reflow on Show More) ───
+  const visiblePrompts = useMemo(() => gridPrompts.slice(0, visibleCount), [gridPrompts, visibleCount]);
+  const columns = useMemo(() => {
+    const cols: typeof visiblePrompts[] = Array.from({ length: colCount }, () => []);
+    visiblePrompts.forEach((item, i) => {
+      cols[i % colCount].push(item);
+    });
+    return cols;
+  }, [visiblePrompts, colCount]);
 
   const quickViewPrompt = quickViewId
     ? promptsWithImages.find(p => p.id === quickViewId)
@@ -356,16 +382,37 @@ function GalleryContent() {
               </div>
             ) : (
               <>
-                {/* ─── MASONRY COLUMNS (CSS columns for natural flow) ─── */}
-                <div className="columns-2 sm:columns-3 lg:columns-4 xl:columns-5 gap-4 [&>*]:break-inside-avoid space-y-4">
-                  {gridPrompts.slice(0, visibleCount).map((item, idx) => (
+                {/* ─── FLEX COLUMNS (JS-managed, no reflow on Show More) ─── */}
+                <div ref={galleryRef} className="hidden sm:flex gap-4">
+                  {columns.map((col, ci) => (
+                    <div key={ci} className="flex-1 flex flex-col gap-4 min-w-0">
+                      {col.map((item) => (
+                        <div key={item.id}>
+                          <PromptCard
+                            id={item.id}
+                            image={item.image || ''}
+                            title={getCardTitle(item.id, item.title, locale)}
+                            tags={[]}
+                            index={0}
+                            creator={item.creator}
+                            model={item.model}
+                            onQuickView={setQuickViewId}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+                {/* Mobile: CSS columns fallback (2 cols only) */}
+                <div className="sm:hidden columns-2 gap-4 [&>*]:break-inside-avoid space-y-4">
+                  {visiblePrompts.map((item) => (
                     <div key={item.id} className="break-inside-avoid">
                       <PromptCard
                         id={item.id}
                         image={item.image || ''}
                         title={getCardTitle(item.id, item.title, locale)}
                         tags={[]}
-                        index={idx}
+                        index={0}
                         creator={item.creator}
                         model={item.model}
                         onQuickView={setQuickViewId}
@@ -379,23 +426,9 @@ function GalleryContent() {
                   <div ref={showMoreRef} className="flex justify-center pt-6 pb-2 scroll-mt-32">
                     <button
                       onClick={() => {
-                        // Save scroll Y before columns reflow
-                        const savedY = window.scrollY;
-
                         setVisibleCount(prev => prev + ITEMS_PER_BATCH);
-
-                        // Restore scroll position after columns redistribute
                         requestAnimationFrame(() => {
-                          // Re-read scrollY after columns reflow
-                          const newY = window.scrollY;
-                          // If columns pushed content up/down, compensate
-                          if (Math.abs(newY - savedY) > 10) {
-                            window.scrollTo({ top: savedY, behavior: 'instant' });
-                          }
-                          // Then smooth-scroll button into view
-                          requestAnimationFrame(() => {
-                            showMoreRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                          });
+                          showMoreRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                         });
                       }}
                       className="px-8 py-3 rounded-xl bg-zinc-900 border border-zinc-800 text-sm text-zinc-400 hover:text-white hover:bg-zinc-800 hover:border-zinc-700 transition-all"
