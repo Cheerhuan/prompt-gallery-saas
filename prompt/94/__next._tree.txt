@@ -1,4 +1,4 @@
 :HL["/prompt-gallery-saas/_next/static/chunks/08k_zrohth-d..css","style"]
 :HL["https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap","style"]
 :HL["/prompt-gallery-saas/images/attack-on-titan.jpg","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"prompt","param":null,"prefetchHints":0,"slots":{"children":{"name":"id","param":{"type":"d","key":"94","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"ZYvzPEjNw2hgOWTFZ6EIB"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"prompt","param":null,"prefetchHints":0,"slots":{"children":{"name":"id","param":{"type":"d","key":"94","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"fwp6X2evoy6P-Qt3rxowp"}
