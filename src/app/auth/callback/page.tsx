@@ -6,77 +6,96 @@ import { supabase } from '@/lib/supabase';
 
 export default function AuthCallbackPage() {
   const router = useRouter();
-  const [status, setStatus] = useState('Processing sign in...');
+  const [status, setStatus] = useState('Completing sign in...');
 
   useEffect(() => {
     let cancelled = false;
 
     const handleCallback = async () => {
       try {
-        console.log('[AuthCallback] URL:', window.location.href);
+        const url = window.location.href;
+        console.log('[AuthCallback] URL:', url);
 
-        // ── Method 1: Try auto-detect (handles hash fragments) ──
-        const { data, error } = await supabase.auth.getSession();
-        console.log('[AuthCallback] getSession:', { data, error });
+        // Step 1: Check if session already exists (auto-detected from hash)
+        const { data: sessionData } = await supabase.auth.getSession();
+        console.log('[AuthCallback] getSession:', sessionData?.session ? 'HAS_SESSION' : 'NO_SESSION');
 
-        if (!cancelled && data?.session) {
+        if (!cancelled && sessionData?.session) {
           window.dispatchEvent(
             new CustomEvent('supabase-auth-change', {
-              detail: { user: data.session.user },
+              detail: { user: sessionData.session.user },
             })
           );
           router.replace('/');
           return;
         }
 
-        // ── Method 2: Exchange code from URL (PKCE) ──
-        setStatus('Exchanging authorization code...');
-        const { data: exchangeData, error: exchangeError } =
-          await supabase.auth.exchangeCodeForSession(window.location.href);
-        console.log('[AuthCallback] exchange:', { exchangeData, exchangeError });
+        // Step 2: Try exchanging code (PKCE flow)
+        // The code arrives as ?code=xxx in the URL after Supabase OAuth redirect
+        const params = new URLSearchParams(window.location.search);
+        const code = params.get('code');
+        console.log('[AuthCallback] code in URL:', code ? 'YES' : 'NO');
 
-        if (!cancelled && exchangeData?.session) {
-          window.dispatchEvent(
-            new CustomEvent('supabase-auth-change', {
-              detail: { user: exchangeData.session.user },
-            })
-          );
-          router.replace('/');
-          return;
-        }
+        if (code) {
+          setStatus('Exchanging authorization code...');
+          const { data: exchangeData, error: exchangeError } =
+            await supabase.auth.exchangeCodeForSession(url);
 
-        // ── Method 3: If there's an error but we have URL params, try to initialize session ──
-        if (!cancelled) {
-          setStatus('Retrying session setup...');
-          await supabase.auth.initialize();
-          const { data: retryData } = await supabase.auth.getSession();
-          if (retryData?.session) {
-            window.dispatchEvent(
-              new CustomEvent('supabase-auth-change', {
-                detail: { user: retryData.session.user },
-              })
-            );
-            router.replace('/');
-            return;
+          if (!cancelled) {
+            console.log('[AuthCallback] exchange result:', {
+              hasSession: !!exchangeData?.session,
+              error: exchangeError?.message,
+            });
+
+            if (exchangeData?.session) {
+              window.dispatchEvent(
+                new CustomEvent('supabase-auth-change', {
+                  detail: { user: exchangeData.session.user },
+                })
+              );
+              router.replace('/');
+              return;
+            }
+
+            if (exchangeError) {
+              setStatus(`Error: ${exchangeError.message}. Redirecting...`);
+              setTimeout(() => router.replace('/?auth=error'), 3000);
+              return;
+            }
           }
         }
 
-        // ── Failed ──
+        // Step 3: Fallback - try initialize
+        setStatus('Initializing session...');
+        await supabase.auth.initialize();
+        const { data: initData } = await supabase.auth.getSession();
+        if (!cancelled && initData?.session) {
+          window.dispatchEvent(
+            new CustomEvent('supabase-auth-change', {
+              detail: { user: initData.session.user },
+            })
+          );
+          router.replace('/');
+          return;
+        }
+
+        // All methods failed - redirect home
         if (!cancelled) {
-          console.error('[AuthCallback] All methods failed');
-          setStatus('Sign in failed. Redirecting...');
-          setTimeout(() => router.replace('/?auth=error'), 2000);
+          setStatus('Unable to complete sign in. Redirecting...');
+          setTimeout(() => router.replace('/'), 2000);
         }
       } catch (err) {
         console.error('[AuthCallback] Exception:', err);
         if (!cancelled) {
-          setStatus('An error occurred. Redirecting...');
+          setStatus('Connection error. Redirecting...');
           setTimeout(() => router.replace('/'), 2000);
         }
       }
     };
 
-    handleCallback();
+    // Small delay to ensure Supabase client is fully initialized
+    setTimeout(handleCallback, 100);
+
     return () => { cancelled = true; };
   }, [router]);
 
