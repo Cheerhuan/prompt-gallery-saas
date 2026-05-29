@@ -6,10 +6,10 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 
 export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
   auth: {
-    flowType: 'pkce',
     autoRefreshToken: true,
     persistSession: true,
     detectSessionInUrl: true,
+    storageKey: 'pg-supabase-auth',
   },
 });
 
@@ -22,11 +22,8 @@ export const signInWithGoogle = async () => {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'google',
     options: {
-      redirectTo: 'https://cheerhuan.github.io/prompt-gallery-saas/auth/callback',
-      queryParams: {
-        access_type: 'offline',
-        prompt: 'consent',
-      },
+      // Redirect to home page — session recovery happens there
+      redirectTo: 'https://cheerhuan.github.io/prompt-gallery-saas',
     },
   });
   return { data, error };

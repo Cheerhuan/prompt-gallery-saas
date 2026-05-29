@@ -1,5 +1,6 @@
 import React from 'react';
 import { I18nProvider } from '@/components/I18nProvider';
+import { SessionRecovery } from '@/components/SessionRecovery';
 
 import './globals.css';
 import type { Metadata } from 'next';
@@ -71,6 +72,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <script defer data-domain="cheerhuan.github.io" src="https://plausible.io/js/script.js" />
         )}
         <I18nProvider>
+          <SessionRecovery />
           {children}
         </I18nProvider>
       </body>

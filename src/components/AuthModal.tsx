@@ -61,7 +61,7 @@ export const AuthModal = ({ open, onClose }: AuthModalProps) => {
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          redirectTo: 'https://cheerhuan.github.io/prompt-gallery-saas/auth/callback',
+          redirectTo: 'https://cheerhuan.github.io/prompt-gallery-saas',
         },
       });
       if (error) {
