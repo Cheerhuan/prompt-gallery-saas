@@ -2934,5 +2934,38 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "comparison-76"
+  },
+  {
+    "id": "284",
+    "title": "A tiny astronaut hatching from an egg on the moon",
+    "full_prompt": "A tiny astronaut hatching from an egg on the moon",
+    "image": "https://image.lexica.art/full_jpg/f451e0ca-c1ce-43cd-b604-8d276585320a",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "60e77f26-f0ea-4307-9439-2e8ac634ee34"
+  },
+  {
+    "id": "285",
+    "title": "A cyborg eye",
+    "full_prompt": "A cyborg eye",
+    "image": "https://image.lexica.art/full_jpg/788f6ecc-8000-4823-8f95-88c26fa6e2ba",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "b4e11814-4929-4cf3-b935-a3ef67a15b23"
+  },
+  {
+    "id": "286",
+    "title": "Iron Man taking a selfie with Superman in the sky far above the clouds",
+    "full_prompt": "Iron Man taking a selfie with Superman in the sky far above the clouds",
+    "image": "https://image.lexica.art/full_jpg/7a61ccec-d669-46f2-82ad-278916840369",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "42ba27a6-c243-4268-b7b1-33fba8649360"
   }
 ]
