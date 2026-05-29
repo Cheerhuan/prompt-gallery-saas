@@ -1,4 +1,4 @@
-const CACHE_NAME = 'prompt-gallery-v4';
+const CACHE_NAME = 'prompt-gallery-v5';
 
 // Base path for GitHub Pages deployment
 const BASE_PATH = '/prompt-gallery-saas';
