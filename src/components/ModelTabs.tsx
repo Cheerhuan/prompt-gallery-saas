@@ -36,14 +36,14 @@ const DEFAULT_FILTERS: Array<{ value: string; label: string }> = [
   { value: 'realistic', label: 'Realistic' },
 ];
 
-const MODELS: Array<{ value: string; label: string; icon: string }> = [
-  { value: 'all', label: 'All Models', icon: '🧠' },
-  { value: 'GPT-Image-2', label: 'GPT Image 2', icon: '🎨' },
-  { value: 'GPT Image', label: 'GPT Image', icon: '✨' },
-  { value: 'Midjourney v6', label: 'Midjourney', icon: '🎭' },
-  { value: 'SDXL 1.0', label: 'SDXL', icon: '🖼️' },
-  { value: 'DALL-E 3', label: 'DALL·E 3', icon: '🎬' },
-  { value: 'Claude 3.5 Sonnet', label: 'Claude', icon: '🤖' },
+const MODELS: Array<{ value: string; label: string }> = [
+  { value: 'all', label: 'All Models' },
+  { value: 'GPT-Image-2', label: 'GPT Image 2' },
+  { value: 'GPT Image', label: 'GPT Image' },
+  { value: 'Midjourney v6', label: 'Midjourney' },
+  { value: 'SDXL 1.0', label: 'SDXL' },
+  { value: 'DALL-E 3', label: 'DALL·E 3' },
+  { value: 'Claude 3.5 Sonnet', label: 'Claude' },
 ];
 
 const ModelTabs: React.FC<ModelTabsProps> = ({
@@ -71,13 +71,12 @@ const ModelTabs: React.FC<ModelTabsProps> = ({
           <button
             key={model.value}
             onClick={() => onModelChange(model.value)}
-            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-full transition-all whitespace-nowrap ${
+            className={`px-3 py-1.5 text-xs font-medium rounded-full transition-all whitespace-nowrap ${
               activeModel === model.value
                 ? 'bg-zinc-800 text-white ring-1 ring-zinc-600'
                 : 'text-zinc-500 hover:text-zinc-300 hover:bg-zinc-800/50'
             }`}
           >
-            <span className="text-[11px]">{model.icon}</span>
             {model.label}
           </button>
         ))}
