@@ -3248,5 +3248,38 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "portrait-240"
+  },
+  {
+    "id": "316",
+    "title": "Detailed illustration of Punished Snake from Metal Gear Solid V",
+    "full_prompt": "Detailed illustration of punished snake from metal gear solid v, in the copper canyons of the sierra of chihuahua state, by herge, in the style of tintin comics. blues and purples, detailed, dusk, attention to detail, 8k. charactter study.",
+    "image": "https://image.lexica.art/full_jpg/84f894d6-302a-4170-baa1-796412b92fad",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "77cc0dc9-7bcf-474e-9929-a931bc3addf9"
+  },
+  {
+    "id": "317",
+    "title": "A stunning iridescent male marble bust",
+    "full_prompt": "A stunning iridescent male marble bust, unreal engine render 8k, vibrant colors, very reflective, perfect lighting, dark indigo background, zbrush",
+    "image": "https://image.lexica.art/full_jpg/aacd0f36-05f8-40c3-86e4-4a4b4c3511e4",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "3b0e46e0-8ade-4bbe-95b5-e9c4ab579035"
+  },
+  {
+    "id": "318",
+    "title": "A tiny astronaut hatching from an egg on the moon",
+    "full_prompt": "A tiny astronaut hatching from an egg on the moon",
+    "image": "https://image.lexica.art/full_jpg/f451e0ca-c1ce-43cd-b604-8d276585320a",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "60e77f26-f0ea-4307-9439-2e8ac634ee34"
   }
 ]
