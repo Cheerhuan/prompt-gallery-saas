@@ -266,8 +266,23 @@ async function main() {
   const prompts = loadPrompts();
   const maxId = getMaxId(prompts);
 
-  // 轉換為 prompt entries
-  const entries = selected.map((c, i) => toPromptEntry(c, maxId, i));
+  // 建立現有內容指紋集 (Image + Prompt)
+  const existingFingerprints = new Set(
+    prompts.map(p => `${p.image}|${p.full_prompt?.trim().toLowerCase()}`)
+  );
+
+  // 轉換為 prompt entries 並執行指紋過濾
+  const entries = [];
+  selected.forEach((c, i) => {
+    const entry = toPromptEntry(c, maxId, entries.length);
+    const fingerprint = `${entry.image}|${entry.full_prompt?.trim().toLowerCase()}`;
+    
+    if (!existingFingerprints.has(fingerprint)) {
+      entries.push(entry);
+    } else {
+      console.log(`  ⏩ Skipping duplicate: [${c.categoryLabel}] Case #${c.caseNum}`);
+    }
+  });
 
   if (dryRun) {
     console.log(`\n🏁 DRY RUN — would add ${entries.length} entries:`);
