@@ -3158,24 +3158,52 @@
   },
   {
     "id": "316",
-    "title": "Detailed illustration of Punished Snake from Metal Gear Solid V",
-    "full_prompt": "Detailed illustration of punished snake from metal gear solid v, in the copper canyons of the sierra of chihuahua state, by herge, in the style of tintin comics. blues and purples, detailed, dusk, attention to detail, 8k. charactter study.",
-    "image": "https://image.lexica.art/full_jpg/84f894d6-302a-4170-baa1-796412b92fad",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "77cc0dc9-7bcf-474e-9929-a931bc3addf9"
+    "title": "Golden Hour Street Side-Profile Portrait [人像攝影]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/portrait_case116/output.jpg",
+    "full_prompt": "- Cinematic golden hour street portrait of a young woman in side profile, walking through a busy city crowd, soft wind blowing through her long light-brown hair, individual strands glowing in backlight, warm sunlight flaring through her hair creating a natural halo effect, dreamy atmosphere, shallow depth of field, strong subject separation, background filled with softly blurred pedestrians and urban motion bokeh.\n\nShe has delicate facial features, natural skin texture, subtle makeup, calm introspective expression, slightly parted lips, looking off-frame. Wearing a minimal outfit (dark neutral tones), possibly a light jacket, modern casual style.\n\nLighting is rich golden hour sunlight, strong backlighting with lens flare, cinematic highlights, warm orange and amber tones, high dynamic range, soft shadows, volumetric light rays passing through hair and environment.\n\nShot on a telephoto lens (85mm–135mm look), f/1.8 aperture, ultra-realistic, high detail, film still quality, natural color grading, slight film grain, soft bloom, editorial photography style, Vogue aesthetic.\n\nComposition: rule of thirds, subject slightly off-center, crowd motion blur behind her, dynamic yet intimate framing.\n\nMood: nostalgic, dreamy, romantic, fleeting moment, poetic realism.\n\nStyle keywords: cinematic, photorealistic, golden hour glow, bokeh, volumetric lighting, shallow depth of field, editorial portrait, soft focus highlights, warm tones, natural skin texture\n\nNegative prompt: low quality, overexposed face, harsh shadows, distorted facial features, extra limbs, blur on subject, noise, oversharpening, artificial skin, cartoonish look\nGenerate image using uploaded image as reference",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "portrait-116"
   },
   {
     "id": "317",
-    "title": "A stunning iridescent male marble bust",
-    "full_prompt": "A stunning iridescent male marble bust, unreal engine render 8k, vibrant colors, very reflective, perfect lighting, dark indigo background, zbrush",
-    "image": "https://image.lexica.art/full_jpg/aacd0f36-05f8-40c3-86e4-4a4b4c3511e4",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "3b0e46e0-8ade-4bbe-95b5-e9c4ab579035"
+    "title": "E-commerce Live Stream UI Mockup [介面設計]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/ui_case89/output.jpg",
+    "full_prompt": "{\n  \"type\": \"live stream UI mockup\",\n  \"subject\": {\n    \"description\": \"portrait of {argument name=\\\"host name\\\" default=\\\"Elon Musk\\\"}, smiling, wearing a black t-shirt with a white technical schematic graphic\",\n    \"background\": \"left side shows a screen with '{argument name=\\\"left background logo\\\" default=\\\"SPACEX\\\"}' text, right side shows a red '{argument name=\\\"right background logo\\\" default=\\\"Tesla T logo\\\"}' and a dark car\"\n  },\n  \"ui_overlay\": {\n    \"top_header\": {\n      \"host_info\": \"avatar, name '{argument name=\\\"host name\\\" default=\\\"Elon Musk\\\"}', subtext '55.6万本场点赞', red '关注' button\",\n      \"rank_badge\": \"gold coin icon with '全站第1名'\",\n      \"viewer_stats\": \"3 top viewer avatars with '12.3w', '8.6w', '5.7w', total '68.7万', 'X' close button\",\n      \"right_links\": \"'更多直播 >', '礼物展馆 0/24' with blue '经典' tag\"\n    },\n    \"mid_left_gifts\": {\n      \"count\": 2,\n      \"items\": [\n        \"avatar '科技爱好者', '送小心心', heart icon x 1314\",\n        \"avatar '星辰大海', '送火箭', rocket icon x 666\"\n      ]\n    },\n    \"bottom_left_chat\": {\n      \"system_message\": \"level 37 badge '宇宙漫游者 加入了直播间'\",\n      \"message_count\": 7,\n      \"messages\": [\n        \"小火箭: 马斯克!未来可期!🚀\",\n        \"future: 特斯拉Model 2什么时候出?\",\n        \"星空梦想家: SpaceX今年能上火星吗?\",\n        \"AI探索者: Neuralink进展如何?\",\n        \"帅气的网友: 马总好!\",\n        \"Mars: 第一次来你的直播,超激动!\",\n        \"用户123: 讲讲AI吧,会取代人类吗?\"\n      ]\n    },\n    \"bottom_right_product_card\": {\n      \"hot_tag\": \"orange '热卖 x 1888'\",\n      \"image\": \"Tesla Cybertruck\",\n      \"title\": \"{argument name=\\\"product name\\\" default=\\\"特斯拉Cybertruck 电动皮卡\\\"}\",\n      \"price\": \"{argument name=\\\"product price\\\" default=\\\"¥ 1,618,000\\\"}\",\n      \"button\": \"red '抢' button\",\n      \"floating_animation\": \"translucent hearts floating up the right edge\"\n    },\n    \"bottom_bar\": {\n      \"input_field\": \"'说点什么...'\",\n      \"icons\": [\"smiley face\", \"three dots\", \"shopping cart\", \"gift box\", \"share\"]\n    }\n  }\n}",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "ui-89"
+  },
+  {
+    "id": "318",
+    "title": "Cloud shape doodle generation [介面設計]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/ui_case112/output.jpg",
+    "full_prompt": "Based on the shape of the {argument name=\"subject\" default=\"clouds\"} in the image, identify what object, animal, or person they most resemble. Do not change the original image; instead, draw that object, animal, or person over the original image in a {argument name=\"art style\" default=\"doodle\"} style.",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "ui-112"
+  },
+  {
+    "id": "319",
+    "title": "Wildlife Infographic Reference Poster [海報插畫]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case255/output.jpg",
+    "full_prompt": ".\n\nCreate a premium cinematic wildlife infographic poster centered around a rare or visually unique animal species such as (animal). The entire artwork must feel like a futuristic luxury wildlife dossier rather than a normal educational infographic.\nThe animal should dominate the composition with intense photorealistic detail: ultra-detailed fur/scales, realistic eyes, moisture textures, cinematic shadows, environmental interaction, dramatic posture, visible muscle definition, floating particles, and powerful eye contact.\nThe environment must fully match the chosen species: (environment).\nBuild dense layered infographic storytelling around the animal using: • anatomy callouts\n• adaptation systems\n• prey and diet visuals\n• ecosystem overlays\n• conservation status indicators\n• geographic range maps\n• hunting behavior graphics\n• climate danger visuals\n• detail inserts\n• tactical icon systems\n• scientific labels and compact data snippets\nThe layout should feel highly artistic and cinematic instead of educational. Use: • asymmetric editorial composition\n• layered transparent info panels\n• premium typography\n• subtle paper grain textures\n• contour-line overlays\n• holographic UI elements\n• cinematic infographic markers\n• museum-grade visual hierarchy\nBlend: (luxury editorial aesthetic) + (cinematic documentary realism) + (futuristic infographic design) + (collectible field-guide energy).\nColor Theme: (color theme)\nMood: (mood)\nLighting: dramatic cinematic lighting, volumetric fog, glowing rim light, atmospheric haze, realistic environmental reflections, high contrast shadows, ultra-premium editorial lighting.\nThe final artwork must look like a viral collectible wildlife poster people would instantly save, repost, print, and frame.\nUltra-realistic, 8K, cinematic infographic masterpiece, insanely detailed, premium art direction, tactile textures, layered storytelling, emotional visual impact, museum-quality composition, viral social-media-worthy aesthetic.",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "poster-255"
+  },
+  {
+    "id": "320",
+    "title": "Vintage Claude Shannon Infographic Poster [海報插畫]",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case121/output.jpg",
+    "full_prompt": "{\"type\":\"vintage editorial infographic poster\",\"subject\":\"Claude Shannon and information theory\",\"style\":{\"era\":\"1940s Bell Labs archival poster\",\"look\":\"aged cream paper, blueprint drafting grid, thin ink linework, muted navy and charcoal printing, subtle stains and paper wear, technical illustration mixed with newspaper editorial design\",\"rendering\":\"high-detail diagrammatic collage with engraved portrait, scientific charts, labeled panels, and hand-drawn signal graphics\"},\"poster\":{\"headline\":\"Claude Shannon — The Architecture of Information\",\"subheadline\":\"How uncertainty became measurable, and communication became engineering.\",\"topRightMeta\":{\"note\":\"NOTE TOSELF No. 6713–2\",\"date\":\"MAY 1948\",\"subject\":\"A Mathematical Theory of Communication\"}},\"layout\":{\"sections\":[{\"title\":\"left archival sidebar\",\"position\":\"far left vertical column\",\"count\":5,\"labels\":[\"BELL LABORATORIES MURRAY HILL, N.J.\",\"ENGINEERING THE INTANGIBLE\",\"CLAUDE E. SHANNON 1916–2001\",\"TOOLS OF THE INFORMATION AGE\",\"quote panel\"]},{\"title\":\"THE COMMUNICATION MODEL\",\"position\":\"upper middle wide panel\",\"count\":5,\"labels\":[\"1 INFORMATION SOURCE\",\"2 ENCODER\",\"3 CHANNEL\",\"4 DECODER\",\"5 DESTINATION\"]},{\"title\":\"ENTROPY: THE MEASURE OF UNCERTAINTY\",\"position\":\"upper right box\",\"count\":4,\"labels\":[\"H(X) = −Σ p(x) log2 p(x)\",\"PROBABILITY DISTRIBUTION p(x)\",\"MORE EVEN MORE MAXED UNCERTAINTY\",\"MORE LOPSIDED LESS UNCERTAINTY\"]},{\"title\":\"lower theory panels\",\"position\":\"middle to lower band\",\"count\":3,\"labels\":[\"A ENTROPY — uncertainty before a message is known\",\"B NOISE — randomness that corrupts transmission\",\"C Redundancy & Error Correction — structure added so signals can survive failure\"]},{\"title\":\"THEORY THAT TRANSFORMED CIVILIZATION\",\"position\":\"bottom horizontal timeline\",\"count\":8,\"labels\":[\"1840s TELEGRAPHY\",\"1876+ TELEPHONE NETWORKS\",\"1930s–40s DIGITAL COMPUTERS\",\"1950s–60s SATELLITE COMMUNICATION\",\"1970s INTERNET PROTOCOLS\",\"1980s–90s DATA COMPRESSION\",\"1990s–2000s CRYPTOGRAPHY\",\"2010s+ AI & INFORMATION SYSTEMS\"]}],\"centerpiece\":\"a large abstract cloud of blue and gray signal noise, dots, lines, and waveforms behind the communication model, with arrows moving left to right through the five stages\"},\"visualElements\":{\"portrait\":{\"subject\":\"{argument name=\\\"scientist name\\\" default=\\\"Claude Shannon\\\"}\",\"placement\":\"left-center\",\"style\":\"black-and-white archival seated portrait at a desk with the face intentionally obscured by a pale square censor block, wearing suit and tie, writing on paper\"},\"objectsLeft\":[\"rotary telephone on desk\",\"open notebook or papers\",\"technical console with CRT screen and knobs behind portrait\",\"small icon row of 4 tools: oscilloscope, signal meter, relay, punched tape\"],\"communicationModel\":[\"book and symbols under source\",\"binary digits under encoder\",\"large noisy channel cloud with wave overlays\",\"binary digits and interpretation under decoder\",\"light bulb icon under destination\"],\"chartsAndDiagrams\":[\"bar chart for entropy probabilities\",\"two low vs high entropy mini bar charts\",\"tree diagram and entropy notation\",\"signal distortion sketches labeled thermal noise, cross talk, distortion\",\"error-correction binary pipeline from original message to recovered message\"],\"bottomDecor\":[\"small waveform legend with sine wave, digital signal, and noise\",\"archival stamp or footer on lower right\"]},\"color\":{\"background\":\"warm ivory paper\",\"primaryInk\":\"dark navy\",\"secondaryInk\":\"charcoal gray\",\"accent\":\"faded steel blue\"},\"composition\":\"symmetrical wide poster with dense boxed annotations, fine border lines, and a museum-quality educational infographic feel\",\"textDensity\":\"very high, with many small labels, formulas, captions, and historical notes in a carefully organized grid\",\"aspectRatio\":\"16:9 landscape\"}",
+    "model": "GPT-Image-2",
+    "_version": "2026-05-09-imported",
+    "_source": "awesome-gpt-image-2",
+    "_case_id": "poster-121"
   }
 ]
