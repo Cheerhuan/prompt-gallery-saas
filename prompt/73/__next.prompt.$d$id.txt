@@ -1,3 +1,41 @@
 1:"$Sreact.fragment"
-2:I[75336,["/prompt-gallery-saas/_next/static/chunks/058vvvn3uko...js","/prompt-gallery-saas/_next/static/chunks/0-e~n81m2qsn9.js","/prompt-gallery-saas/_next/static/chunks/0d3shmwh5_nmn.js","/prompt-gallery-saas/_next/static/chunks/0p9-288.54py6.js","/prompt-gallery-saas/_next/static/chunks/0htel9f4ku-p8.js"],"default"]
-0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/0p9-288.54py6.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/0htel9f4ku-p8.js","async":true}]],["$","$L2",null,{"prompt":{"id":"73","title":"New York across two centuries cinematic poster [海報插畫]","image":"https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case174/output.jpg","full_prompt":"Create a cinematic 3:4 vertical poster of New York City that feels truly epic and unconventional, showing the passage from the 20th century to the 21st century in one seamless image. Place a lone figure at the center of the composition, standing in the middle of the street and looking forward as if witnessing New York across time. The left side should depict 20th-century New York with warm sepia atmosphere, vintage taxis, old newsstands, retro lamps, and landmarks like the Chrysler Building and Empire State Building. The right side should depict 21st-century New York with glass skyscrapers, One World Trade Center, digital billboards, and modern urban energy. Make the transition natural rather than split-screen, with coherent perspective, wet reflective pavement, realistic textures, atmospheric depth, and no text.","model":"GPT-Image-2","_version":"2026-05-09-imported","_source":"awesome-gpt-image-2","_case_id":"poster-174","creator":"David Kim"},"params":{"id":"73"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"ekJAcBf6458Z9rGJh6T_u"}
+2:I[75336,["/prompt-gallery-saas/_next/static/chunks/058vvvn3uko...js","/prompt-gallery-saas/_next/static/chunks/07iwvi7s-niqv.js","/prompt-gallery-saas/_next/static/chunks/0d3shmwh5_nmn.js","/prompt-gallery-saas/_next/static/chunks/0p9-288.54py6.js","/prompt-gallery-saas/_next/static/chunks/0lcr_8qr5rroo.js"],"default"]
+3:T691,I asked GPT Image 2 to spill the beans on alien life. 
+
+do this for alien disclosure: <instruction>
+Role: You are "The Declassification Officer," creating visually compelling intelligence dossiers.
+
+Goal: Produce a single vertical declassified case-file image about the chosen subject.
+
+Phase 1: Subject Classification
+- Analyze the input subject and reinterpret it as a high-priority intelligence target, anomaly, person of interest, secret invention, or unexplained event.
+- Assign:
+  - Case ID
+  - Threat level
+  - Classification level
+  - Status (active, missing, monitored, contained, unresolved)
+
+Phase 2: Document Structure
+Design the image as a realistic but stylized dossier page with the following sections:
+- Header: agency-style title, case number, classification stamp.
+- Mugshot or main visual of the subject.
+- Summary paragraph.
+- Notable traits or observed abilities.
+- Timeline of 3–5 incidents.
+- Redacted notes.
+- Location sightings or evidence callouts.
+- Bottom section with stamp marks, signatures, and warnings.
+
+Phase 3: Visual Style
+- The entire output must be a single image.
+- Style: aged paper, photocopy texture, ink stamps, mild wear, redactions, handwritten annotations, paperclip shadows.
+- Include visual evidence elements such as photo corners, sticky notes, fingerprints, circles, arrows, highlighted lines.
+- Use readable layout and believable bureaucratic typography.
+
+Phase 4: Tone
+- Tone should be suspenseful, intriguing, and slightly cinematic.
+- Can be serious or humorous depending on the input.
+- Keep all content fictionalized if needed.
+
+Output: One high-detail declassified dossier poster as a single finished image.
+</instruction>0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/0p9-288.54py6.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/0lcr_8qr5rroo.js","async":true}]],["$","$L2",null,{"prompt":{"id":"73","title":"Alien Disclosure Dossier [海報插畫]","image":"https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case186/output.jpg","full_prompt":"$3","model":"GPT-Image-2","_version":"2026-05-09-imported","_source":"awesome-gpt-image-2","_case_id":"poster-186","creator":"Sophie Laurent"},"params":{"id":"73"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"XLcr4zyByuhamv-B8Yd8z"}
