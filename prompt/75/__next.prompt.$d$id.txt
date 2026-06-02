@@ -1,3 +1,83 @@
 1:"$Sreact.fragment"
-2:I[75336,["/prompt-gallery-saas/_next/static/chunks/058vvvn3uko...js","/prompt-gallery-saas/_next/static/chunks/07iwvi7s-niqv.js","/prompt-gallery-saas/_next/static/chunks/0d3shmwh5_nmn.js","/prompt-gallery-saas/_next/static/chunks/0p9-288.54py6.js","/prompt-gallery-saas/_next/static/chunks/0lcr_8qr5rroo.js"],"default"]
-0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/0p9-288.54py6.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/0lcr_8qr5rroo.js","async":true}]],["$","$L2",null,{"prompt":{"id":"75","title":"E-commerce Main Image - Minimalist Product Ad: PURE CRUNCH [海報插畫]","image":"https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case158/output.jpg","full_prompt":"A minimalist product advertisement with a {argument name=\"product\" default=\"fried chicken bucket\"} placed on a clean white podium.\n\nBackground: soft gradient ({argument name=\"background gradient\" default=\"light cream to white\"}), clean studio.\n\nLighting: soft diffused, premium Apple-style.\n\nTypography (center): “{argument name=\"headline\" default=\"PURE CRUNCH\"}”\n\nSmall text below: “Nothing extra. Just perfection.”\n\nStyle: ultra clean, editorial minimal, high-end branding, 8K.","model":"GPT-Image-2","_version":"2026-05-09-imported","_source":"awesome-gpt-image-2","_case_id":"poster-158","creator":"Luna Martinez"},"params":{"id":"75"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"XLcr4zyByuhamv-B8Yd8z"}
+2:I[30264,["/prompt-gallery-saas/_next/static/chunks/0nfdlkigx25kx.js","/prompt-gallery-saas/_next/static/chunks/18e0rhaclymtb.js","/prompt-gallery-saas/_next/static/chunks/141mc1~_omzog.js","/prompt-gallery-saas/_next/static/chunks/00wul103p_ye~.js","/prompt-gallery-saas/_next/static/chunks/0sq19d0bxndpc.js"],"default"]
+3:T94c,Create a premium modern beverage promotional poster for We Drink.
+
+TOPIC:
+
+Watermelon Pink + Lime Green Refresh Campaign
+
+STYLE & ART DIRECTION:
+Modern energetic beverage advertising
+Youthful commercial branding
+Split-color background composition
+Bright refreshing summer aesthetic
+Minimal dynamic layout
+High-contrast drink advertisement style
+Instagram-ready beverage promotion
+Premium fast-moving commercial design
+
+MAIN SUBJECT:
+
+Two large ultra-realistic cold beverages positioned prominently in the center.
+
+Drink 1:
+
+A vibrant watermelon pink drink in a transparent plastic cup with visible ice cubes, condensation droplets, and a fresh watermelon garnish.
+
+Drink 2:
+
+A bright lime green drink in a matching transparent cup with visible ice cubes, condensation droplets, and a lime slice garnish.
+
+Additional elements:
+
+Floating ice cubes around the composition
+Dynamic water splash effects
+Soft realistic shadows beneath each cup
+Premium glossy liquid textures
+Tiny fruit slices suspended in motion
+
+LAYOUT & COMPOSITION:
+Diagonal split-color background
+Left side: watermelon pink gradient
+Right side: lime green gradient
+Large bold headline at the top center: "SIP THE FRESHNESS"
+Two hero drinks centered prominently
+Product descriptions placed beside each cup
+Promotional price section near the bottom-left
+We Drink logo and small branding elements at the bottom
+Floating ice cubes and splash effects around the drinks
+Spacious modern commercial hierarchy
+
+TEXT & TYPOGRAPHY:
+Bold oversized sans-serif typography
+Youthful rounded commercial fonts
+White typography accents
+Supporting text: "Watermelon Burst" and "Lime Rush"
+Promotional price: Only $3.99
+Tagline: "Freshness in Every Sip"
+
+DEPTH & LIGHTING:
+Soft glossy studio lighting
+Bright refreshing reflections
+Realistic beverage highlights
+Floating commercial depth
+Soft ambient shadows
+Premium condensation texture lighting
+
+EXTRA DESIGN DETAILS:
+Floating ice cubes
+Water splash particles
+Glossy gradients
+Modern promotional badges
+Fruit slices and droplets
+Minimal energetic decorative elements
+
+COLOR PALETTE:
+Watermelon Pink (#FF4F87)
+Lime Green (#A8FF2A)
+White typography
+Soft transparent highlights
+
+QUALITY:
+
+Ultra-realistic beverage photography, premium advertising composition, Behance-quality commercial poster, high-resolution, sharp focus, photorealistic textures, professional brand campaign aesthetic.0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/00wul103p_ye~.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/0sq19d0bxndpc.js","async":true}]],["$","$L2",null,{"prompt":{"id":"75","title":"Watermelon Lime Beverage Ad Poster [海報插畫]","image":"https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/ad_case172/output.jpg","full_prompt":"$3","model":"GPT-Image-2","_version":"2026-05-09-imported","_source":"awesome-gpt-image-2","_case_id":"poster-172","creator":"Hiro Nakamura"},"params":{"id":"75"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"wULmYbIZvQHRplzJxJMlJ"}
