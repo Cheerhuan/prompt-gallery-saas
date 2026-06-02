@@ -1,61 +1,32 @@
 1:"$Sreact.fragment"
-2:I[30264,["/prompt-gallery-saas/_next/static/chunks/0nfdlkigx25kx.js","/prompt-gallery-saas/_next/static/chunks/18e0rhaclymtb.js","/prompt-gallery-saas/_next/static/chunks/141mc1~_omzog.js","/prompt-gallery-saas/_next/static/chunks/00wul103p_ye~.js","/prompt-gallery-saas/_next/static/chunks/0sq19d0bxndpc.js"],"default"]
-3:Taa9,使用上传的第一张图作为【整体风格与版式参考】，使用上传的第二张图作为【人物身份参考】。
+2:I[30264,["/prompt-gallery-saas/_next/static/chunks/0nfdlkigx25kx.js","/prompt-gallery-saas/_next/static/chunks/18e0rhaclymtb.js","/prompt-gallery-saas/_next/static/chunks/141mc1~_omzog.js","/prompt-gallery-saas/_next/static/chunks/00wul103p_ye~.js","/prompt-gallery-saas/_next/static/chunks/0hplddmvemoq3.js"],"default"]
+3:T7e3,.
 
-请生成一张完整的 2026 年全年日历插画海报。
-
-画面风格：
-保留参考图一的手绘水彩插画风格，温暖米白纸张背景，细腻墨线勾勒，柔和水彩晕染，轻微纸张纹理，带有季节感的小装饰元素，如花草、雪花、爱心、纸飞机、星星、云朵、树叶、相机、书本、咖啡杯、礼物、圣诞树等。整体氛围温柔、治愈、干净、生活感强，像一本手账风全年日历。
-
-版式要求：
-采用 3 列 × 4 行的全年月历排版，共 12 个月份。
-顶部居中写大标题：“2026”，使用手写感黑色笔刷字体。
-每个月份标题格式为：
-“01 January”
-“02 February”
-“03 March”
-一直到
-“12 December”。
-
-每个月份区域都包含：
-1. 月份英文标题
-2. 小型日历日期表
-3. 一位人物插画
-4. 对应季节的小场景装饰
-
-人物要求：
-将参考图一中的男性人物全部替换为参考图二中的女性人物。
-保持参考图二人物的核心特征：
-年轻亚洲女性，长棕黑色头发，空气刘海，戴细框眼镜，五官精致，表情温柔自然，略带安静、微醺、慵懒感。
-
-人物服装参考：
-宽松白色衬衫，黑色内搭，黑色短裙，黑色丝袜，黑色鞋子，细项链或 choker。
-服装需要融入手绘水彩风，不要像照片硬贴上去。
-
-每个月人物动作不同：
-1 月：坐着捧热咖啡，冬日温暖感  
-2 月：托腮坐着，周围有爱心元素  
-3 月：低头写手账或笔记本  
-4 月：拿着复古相机  
-5 月：坐着看书，旁边有书堆和茶杯  
-6 月：休闲坐姿，旁边有相机和蓝色水彩装饰  
-7 月：坐在躺椅上喝冰饮，夏日感  
-8 月：坐在海边木栈道，远处有帆船  
-9 月：坐着写日记，旁边有背包和秋叶  
-10 月：喝咖啡，旁边有南瓜灯和万圣节元素  
-11 月：围着棕色围巾，手拿热咖啡，背景有城市街景  
-12 月：坐在圣诞树旁，手捧热饮，旁边有礼物盒  
-
-日历要求：
-年份必须是 2026。
-所有月份日期必须符合真实 2026 年日历。
-星期排列为：
-S M T W T F S
-星期日和部分日期可使用红色点缀，其余为黑色。
-日期尽量清晰可读，保持手写日历质感。
-
-整体要求：
-画面必须像一张完整的全年日历海报，而不是拼贴照片。
-人物与背景要统一成同一种手绘水彩风格。
-保持参考图一的原有构图、温柔季节感、手账插画质感和高级可爱氛围。
-不要出现真实照片感，不要过度写实，不要赛博风，不要厚重油画风。0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/00wul103p_ye~.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/0sq19d0bxndpc.js","async":true}]],["$","$L2",null,{"prompt":{"id":"308","title":"Watercolor 2026 Calendar Poster [海報插畫]","image":"https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case281/output.jpg","full_prompt":"$3","model":"GPT-Image-2","_version":"2026-05-09-imported","_source":"awesome-gpt-image-2","_case_id":"poster-281"},"params":{"id":"308"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"wULmYbIZvQHRplzJxJMlJ"}
+Create a premium cinematic wildlife infographic poster centered around a rare or visually unique animal species such as (animal). The entire artwork must feel like a futuristic luxury wildlife dossier rather than a normal educational infographic.
+The animal should dominate the composition with intense photorealistic detail: ultra-detailed fur/scales, realistic eyes, moisture textures, cinematic shadows, environmental interaction, dramatic posture, visible muscle definition, floating particles, and powerful eye contact.
+The environment must fully match the chosen species: (environment).
+Build dense layered infographic storytelling around the animal using: • anatomy callouts
+• adaptation systems
+• prey and diet visuals
+• ecosystem overlays
+• conservation status indicators
+• geographic range maps
+• hunting behavior graphics
+• climate danger visuals
+• detail inserts
+• tactical icon systems
+• scientific labels and compact data snippets
+The layout should feel highly artistic and cinematic instead of educational. Use: • asymmetric editorial composition
+• layered transparent info panels
+• premium typography
+• subtle paper grain textures
+• contour-line overlays
+• holographic UI elements
+• cinematic infographic markers
+• museum-grade visual hierarchy
+Blend: (luxury editorial aesthetic) + (cinematic documentary realism) + (futuristic infographic design) + (collectible field-guide energy).
+Color Theme: (color theme)
+Mood: (mood)
+Lighting: dramatic cinematic lighting, volumetric fog, glowing rim light, atmospheric haze, realistic environmental reflections, high contrast shadows, ultra-premium editorial lighting.
+The final artwork must look like a viral collectible wildlife poster people would instantly save, repost, print, and frame.
+Ultra-realistic, 8K, cinematic infographic masterpiece, insanely detailed, premium art direction, tactile textures, layered storytelling, emotional visual impact, museum-quality composition, viral social-media-worthy aesthetic.0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/00wul103p_ye~.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/0hplddmvemoq3.js","async":true}]],["$","$L2",null,{"prompt":{"id":"308","title":"Wildlife Infographic Reference Poster [海報插畫]","image":"https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case255/output.jpg","full_prompt":"$3","model":"GPT-Image-2","_version":"2026-05-09-imported","_source":"awesome-gpt-image-2","_case_id":"poster-255"},"params":{"id":"308"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"sV8eWxdhseHfkLvqVbgBb"}
