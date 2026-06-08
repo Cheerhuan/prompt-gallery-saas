@@ -3705,5 +3705,38 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-78"
+  },
+  {
+    "id": "360",
+    "title": "Venom Snake from Metal Gear Solid 5 receiving therapy from master chief",
+    "full_prompt": "Venom Snake from Metal Gear Solid 5 receiving therapy from master chief. realistic",
+    "image": "https://image.lexica.art/full_jpg/d83dc497-15b6-4407-8743-250394b4e852",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "530f7faa-151a-4061-967b-c52166deb0d8"
+  },
+  {
+    "id": "361",
+    "title": "Swinter: Spring and Winter",
+    "full_prompt": "Swinter. When it's spring and winter all at once, when things are in bloom but there is snow everywhere.",
+    "image": "https://image.lexica.art/full_jpg/7ed257d1-6c7e-41c6-bf5d-401de6d996c4",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "5470790d-98d6-42ef-8fad-fea86b861256"
+  },
+  {
+    "id": "362",
+    "title": "Mario and Luigi Mugshots",
+    "full_prompt": "Mario and luigi's mugshots",
+    "image": "https://image.lexica.art/full_jpg/71a91da1-86a4-4ec8-a0f0-53ab3931dae5",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "0bc0f0df-fd8a-4aa3-b9fe-78b5490b72c9"
   }
 ]
