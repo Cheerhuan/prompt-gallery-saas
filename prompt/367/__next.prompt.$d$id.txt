@@ -1,0 +1,29 @@
+1:"$Sreact.fragment"
+2:I[30264,["/prompt-gallery-saas/_next/static/chunks/0nfdlkigx25kx.js","/prompt-gallery-saas/_next/static/chunks/18e0rhaclymtb.js","/prompt-gallery-saas/_next/static/chunks/141mc1~_omzog.js","/prompt-gallery-saas/_next/static/chunks/00wul103p_ye~.js","/prompt-gallery-saas/_next/static/chunks/0f1n358mdcxis.js"],"default"]
+3:T916,Created by using GPT Image 2. 
+
+Prompt👇
+Ultra cinematic hyper-realistic premium dairy lifestyle advertisement, Milky Mist Greek Yogurt Natural cup placed as hero center foreground on glossy white marble counter, lid partially peeled revealing thick creamy yogurt with perfect spiral swirl texture, ultra-detailed micro highlights, condensation droplets on surface, branding ultra sharp
+
+Beautiful confident Indian woman (25–30), glowing natural skin with visible pores, soft blush tones, deep expressive brown eyes, long voluminous dark brown hair wind-blown with golden rim light, wearing minimal elegant light grey fitted t-shirt, leaning forward with both arms on counter framing the product, warm genuine smile, direct eye contact, friendly yet premium presence
+
+Dynamic motion (hero effect): stainless steel spoon lifting thick yogurt upward creating smooth elastic creamy stretch, dramatic milk splash frozen mid-air around cup with suspended droplets (high-speed photography look), ultra realistic fluid physics, cinematic freeze motion
+
+Foreground styling: fresh blueberries in white ceramic bowl, sliced strawberries with juice shine, crunchy granola scattered naturally, wooden spoon, mint leaves, premium editorial food styling (clean but rich composition)
+
+Background: bright modern luxury kitchen interior, large soft window light from left, indoor plants softly blurred, warm cream tones, depth-rich cinematic bokeh, subtle lifestyle realism
+
+Lighting: high-end commercial lighting setup, soft diffused key light from left, strong golden rim light on hair edges, product spotlight glow, deep soft shadows (not flat), HDR highlights on yogurt texture, magazine-level lighting
+
+Composition: 85mm lens, shallow depth of field f/1.8, subject slightly right, product perfectly centered and dominant, rule-of-thirds balance, luxury ad framing
+
+Color palette: pure white, sky blue, navy, fresh green, berry red, warm cream tones, ultra clean premium aesthetic
+
+Style: Vogue-level editorial + Indian dairy commercial campaign, hyper-detailed, photorealistic, 8K ultra HD, crisp textures, luxury brand advertisement
+
+Text overlay (optional, left side):
+“Thick. Creamy. Naturally Healthy.”
+subtext: “High in Protein. Made with Love.”
+elegant serif + modern script combination
+
+--ar 4:5 --style raw --v 6 --q 20:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/00wul103p_ye~.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/0f1n358mdcxis.js","async":true}]],["$","$L2",null,{"prompt":{"id":"367","title":"Greek Yogurt Lifestyle Ad [海報插畫]","image":"https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case188/output.jpg","full_prompt":"$3","model":"GPT-Image-2","_version":"2026-05-09-imported","_source":"awesome-gpt-image-2","_case_id":"poster-188"},"params":{"id":"367"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"EP3E_BUuWW5Mzgu_W82O1"}
