@@ -3838,5 +3838,38 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "ui-105"
+  },
+  {
+    "id": "373",
+    "title": "Elsa from Frozen in the sahara dessert camping in a tent",
+    "full_prompt": "Elsa from Frozen in the sahara dessert camping in a tent, golden hour, it's very hot. wide angle selfie, her hand is reaching towards the camera.",
+    "image": "https://image.lexica.art/full_jpg/eb271165-46d8-40f9-841b-83846ad578c8",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "596e8d9b-affd-4ff4-858b-ba51a57d3752"
+  },
+  {
+    "id": "374",
+    "title": "90s anime style portrait of donald trump as an evil anime villian",
+    "full_prompt": "90s anime style portrait of donald trump as an evil anime villian. he is the pilot of an EVA from evangelion",
+    "image": "https://image.lexica.art/full_jpg/1a5ee9d1-39d3-4217-9c8e-b838693c2021",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "e058be9a-9b46-4804-b779-92f00d7cf97f"
+  },
+  {
+    "id": "375",
+    "title": "Delorean from back to the future",
+    "full_prompt": "Delorean from back to the future, up on blocks in disrepair.",
+    "image": "https://image.lexica.art/full_jpg/c1af7df3-c937-46c3-b08d-e88634d4f7d7",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "11ca00c3-207a-4e9e-bb9a-19df74d94a28"
   }
 ]
