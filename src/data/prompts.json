@@ -4131,5 +4131,38 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-127"
+  },
+  {
+    "id": "402",
+    "title": "Blurry concert footage of Kirby in the mosh pit at a punk show",
+    "full_prompt": "Blurry concert footage of Kirby in the mosh pit at a punk show, motion blur, Kirby is MOSHING",
+    "image": "https://image.lexica.art/full_jpg/8d0ef4c2-e6a3-48a1-959e-20644c3d32ee",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "aef83655-dd78-47e9-ad46-9f64bf331f46"
+  },
+  {
+    "id": "403",
+    "title": "Transparent cat with electronics",
+    "full_prompt": "Transparent cat, we can see the inside made of electronics, wildlife photography, shallow depth of field",
+    "image": "https://image.lexica.art/full_jpg/417a2023-1505-4409-b792-c5f380d7829c",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "d38649c4-8bf4-4fbf-8705-2d6b3ee128bc"
+  },
+  {
+    "id": "404",
+    "title": "Retro game style Millennial Falcon",
+    "full_prompt": "Retro game style of the millennial falcon fleeing from X-wings in outer space",
+    "image": "https://image.lexica.art/full_jpg/6a1d5fec-7063-4b66-afaa-928526025d65",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "46c358e8-1a05-419e-ae96-4a9bfbab6048"
   }
 ]
