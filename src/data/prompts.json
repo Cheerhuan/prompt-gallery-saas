@@ -4164,5 +4164,15 @@
     "tags": [],
     "_source": "lexica.art",
     "_lexica_id": "46c358e8-1a05-419e-ae96-4a9bfbab6048"
+  },
+  {
+    "id": "405",
+    "title": "Crayon-style Childlike Illustration",
+    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2050013641861214518/0.jpg",
+    "full_prompt": "Rework the given image into a crayon-style illustration, transforming the entire scene into something that feels hand-drawn by a 10-year-old. Keep the forms simple and slightly imperfect, like a child’s drawing.\n\nAvoid using the original color palette—replace it with bright, playful crayon colors on a clean white paper background. Aim for a soft, cute, and innocent aesthetic.\n\nIncorporate fun, childlike details such as castles or towers, candy, stars, clouds, and other whimsical decorations to amplify the playful vibe.\n\nThe final result should feel charming, colorful, and full of childlike imagination.",
+    "model": "GPT Image",
+    "creator": "@mdmadeit",
+    "tier": "free",
+    "_source": "meigen.ai"
   }
 ]
