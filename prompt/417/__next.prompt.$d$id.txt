@@ -1,0 +1,101 @@
+1:"$Sreact.fragment"
+2:I[36221,["/prompt-gallery-saas/_next/static/chunks/093mxzthpq~g5.js","/prompt-gallery-saas/_next/static/chunks/10b3jg_oj-_h7.js","/prompt-gallery-saas/_next/static/chunks/0oytq0.jjo6.a.js","/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","/prompt-gallery-saas/_next/static/chunks/0ew5zme_ty~7~.js"],"default"]
+3:Ta99,FORMAT:
+4:5 vertical premium FMCG SMM poster
+hyper-realistic detergent advertising
+luxury commercial product photography
+Instagram + billboard hybrid composition
+8K ultra-detail
+
+CONCEPT:
+Tide adapts its own authentic global FMCG identity
+bold orange-and-yellow brand dominance
+clean energy-driven composition
+high-trust household advertising aesthetic
+performance-focused stain-removal storytelling
+
+SCENE:
+Modern Indian luxury laundry room flooded with warm morning sunlight
+young Indian mother holding perfectly clean white shirt confidently
+soft floating fabric movement across scene
+premium minimal household interior
+subtle laundry basket and washing machine in background
+freshness atmosphere with visible fabric softness
+dramatic before-and-after cleaning transformation integrated naturally
+
+COMPOSITION:
+Large Tide detergent pack hero placement foreground
+product positioned lower-center
+dynamic circular composition inspired by Tide logo geometry
+huge negative space upper-left for typography
+layered FMCG commercial depth
+clean premium visual hierarchy
+
+PRODUCT:
+ultra-realistic Tide detergent pack
+slightly angled toward camera
+water splash + detergent particle simulation surrounding pack
+subtle microfiber-clean graphics
+orange-yellow glow accents matching packaging identity
+premium reflective packaging detail
+realistic FMCG shelf-quality rendering
+
+UI ELEMENTS:
+premium Tide freshness indicator card
+“99% stain removal”
+fabric softness badge
+quick-wash icon system
+freshness meter UI
+sparkle cleanliness overlays
+minimal FMCG-style notification chips
+realistic detergent molecule graphics
+subtle floating cleaning-performance stats
+
+TYPOGRAPHY:
+Huge bold headline: “TOUGH ON STAINS.”
+secondary line: “GENTLE ON FABRIC.”
+subheading: “India’s trusted clean for everyday life.”
+CTA button: “SHOP NOW”
+
+TYPO STYLE:
+bold condensed FMCG typography
+high-end global detergent campaign layout
+clean spacing
+strong visual readability
+premium supermarket billboard aesthetic
+
+DESIGN DETAILS:
+orange and yellow kinetic gradients
+floating detergent particles
+subtle foam textures
+clean information layering
+minimal premium UI overlays
+micro-detail sparkle highlights
+realistic fabric fiber textures
+soft commercial depth-of-field
+modern FMCG composition system
+
+LIGHTING:
+warm natural sunlight
+commercial soft-box reflections
+ultra-clean product highlights
+high dynamic range realism
+soft cinematic shadows
+premium reflective whites
+fresh atmospheric glow
+
+CAMERA:
+Sony A1
+85mm commercial lens
+f/2.0
+high-detail FMCG photography
+advertising-grade sharpness
+
+STYLE:
+official Tide global campaign aesthetic
+premium
+clean
+trustworthy
+modern
+hyper-realistic
+high-conversion FMCG advertising0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/0ew5zme_ty~7~.js","async":true}]],["$","$L2",null,{"prompt":{"id":"417","title":"Premium FMCG SMM Poster: Tide Detergent","image":"https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2056987256020472057/0.jpg","full_prompt":"$3","model":"GPT Image 1","creator":"@Diplomeme","tier":"free","_source":"meigen.ai"},"params":{"id":"417"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"nemtUREoUv4enu8Ua3vec"}
