@@ -1,9 +1,9 @@
 1:"$Sreact.fragment"
-2:I[62608,["/prompt-gallery-saas/_next/static/chunks/093mxzthpq~g5.js","/prompt-gallery-saas/_next/static/chunks/10b3jg_oj-_h7.js","/prompt-gallery-saas/_next/static/chunks/0oytq0.jjo6.a.js"],"ClientPageRoot"]
-3:I[57716,["/prompt-gallery-saas/_next/static/chunks/093mxzthpq~g5.js","/prompt-gallery-saas/_next/static/chunks/10b3jg_oj-_h7.js","/prompt-gallery-saas/_next/static/chunks/0oytq0.jjo6.a.js","/prompt-gallery-saas/_next/static/chunks/0a74yr3pl-x9n.js"],"default"]
-6:I[26987,["/prompt-gallery-saas/_next/static/chunks/093mxzthpq~g5.js","/prompt-gallery-saas/_next/static/chunks/10b3jg_oj-_h7.js","/prompt-gallery-saas/_next/static/chunks/0oytq0.jjo6.a.js"],"OutletBoundary"]
+2:I[96896,["/prompt-gallery-saas/_next/static/chunks/0nfdlkigx25kx.js","/prompt-gallery-saas/_next/static/chunks/18e0rhaclymtb.js","/prompt-gallery-saas/_next/static/chunks/141mc1~_omzog.js"],"ClientPageRoot"]
+3:I[73512,["/prompt-gallery-saas/_next/static/chunks/0nfdlkigx25kx.js","/prompt-gallery-saas/_next/static/chunks/18e0rhaclymtb.js","/prompt-gallery-saas/_next/static/chunks/141mc1~_omzog.js","/prompt-gallery-saas/_next/static/chunks/16.5qcyehf8kt.js"],"default"]
+6:I[34863,["/prompt-gallery-saas/_next/static/chunks/0nfdlkigx25kx.js","/prompt-gallery-saas/_next/static/chunks/18e0rhaclymtb.js","/prompt-gallery-saas/_next/static/chunks/141mc1~_omzog.js"],"OutletBoundary"]
 7:"$Sreact.suspense"
-0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/0a74yr3pl-x9n.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"nemtUREoUv4enu8Ua3vec"}
+0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/16.5qcyehf8kt.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"BPm_03jjfd34YxJKh6gw0"}
 4:{}
 5:"$0:rsc:props:children:0:props:serverProvidedParams:params"
 8:null
