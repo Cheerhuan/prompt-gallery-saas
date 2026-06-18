@@ -4394,5 +4394,45 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "ui-108"
+  },
+  {
+    "id": "428",
+    "title": "Premium Smartphone Campaign Poster (Apple Style)",
+    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2050044222041124979/0.jpg",
+    "full_prompt": "4:5 vertical premium smartphone campaign poster, ultra-high resolution (8K), global OOH + digital + social ready Style: Apple-level minimalism and hyper-real commercial photography. Background: Pure matte white canvas featuring a dominant rounded rectangle block with an ultra-vibrant burnt orange gradient. Background Typography: The word 'PRO' in ultra-bold geometric sans-serif, stretched wide kerning, partially cropped, with a subtle emboss effect and deep orange color. Subject: Female, clean editorial look, neutral/confident expression, natural wind-touched hair, wearing muted tones (off-white and deep maroon jacket). Pose: Low-angle 'hero perspective,' one hand extending the phone toward the camera. Product: iPhone 17 Pro in Titanium Orange, extreme foreground (forced perspective), hyper-sharp triple camera system, physically accurate lens reflections, and brushed titanium edges. Lighting: Soft studio key light (front-left) for smooth skin and clean highlights, warm edge light (right) to enhance the phone's silhouette. Color Palette: Primary: Apple Orange, Secondary: Clean White, Accents: Warm highlights/skin tones. Camera: ARRI Alexa Mini LF, 50mm anamorphic lens, shallow depth of field, HDR rendering.",
+    "model": "GPT Image",
+    "creator": "@Diplomeme",
+    "tier": "free",
+    "_source": "meigen.ai"
+  },
+  {
+    "id": "429",
+    "title": "Ultra-Premium Automotive Editorial Poster (Porsche/BMW)",
+    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2047986905896427670/0.jpg",
+    "full_prompt": "4:5 vertical social poster, ultra high resolution, 8K. Composition: Top branding, giant central typography, car overlapping the type, and bottom editorial text and technical specs. Scene/Background: Flat racing yellow with subtle gradient (light to deep amber). Product: Porsche 911 GT3 RS, gloss yellow with carbon details, rear 3/4 angle, slightly elevated, wing dominant. Typography: 'PORSCHE', ultra tall, condensed, stretched, deep charcoal. Specs: 386 kW / 525 PS | 3.2 s | 296 km/h. Lighting: 50mm lens, slightly elevated rear 3/4 angle, clean studio lighting with sharp highlights. Texture: Subtle grain (2-3%) and faint rectangular overlays (2-4% opacity) for a graphic, non-realistic feel.",
+    "model": "GPT Image",
+    "creator": "@Diplomeme",
+    "tier": "free",
+    "_source": "meigen.ai"
+  },
+  {
+    "id": "430",
+    "title": "Childlike Crayon-Style Illustration Transformation",
+    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2050013641861214518/0.jpg",
+    "full_prompt": "Rework the given image into a crayon-style illustration, transforming the entire scene into something that feels hand-drawn by a 10-year-old. Keep the forms simple and slightly imperfect, like a child’s drawing. Avoid using the original color palette—replace it with bright, playful crayon colors on a clean white paper background. Aim for a soft, cute, and innocent aesthetic. Incorporate fun, childlike details such as castles or towers, candy, stars, clouds, and other whimsical decorations to amplify the playful vibe. The final result should feel charming, colorful, and full of childlike imagination.",
+    "model": "GPT Image",
+    "creator": "@mdmadeit",
+    "tier": "free",
+    "_source": "meigen.ai"
+  },
+  {
+    "id": "431",
+    "title": "Luxury Sportswear Campaign Poster: 'DESIRE THE WORK'",
+    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2061841134675173556/0.jpg",
+    "full_prompt": "Hyper-realistic, vertical premium poster. This should NOT look like a sportswear catalog. This should feel like the most expensive Nike campaign never made. Composition: Four dynamic zones: 1. Elite female sprinter exploding from blocks (low angle, muscle tension, sweat droplets). 2. Male basketball player at the apex of a dunk (rain, halo lighting, athletic physique). 3. Close-up of a female boxer wrapping hands (direct eye contact, focused breathing). 4. Male footballer striking a ball (wet jersey, exploding turf). Centerpiece: An abstract, fractured 'swoosh-inspired' shape created naturally from environmental debris (sweat, rain, chalk dust, turf, and motion trails). Typography: Massive condensed bold lettering 'DESIRE THE WORK' stretching across the poster. Lighting: Premium sports-fashion; deep blacks, hard highlights, rim lighting on skin. Textures: Hyper-realistic skin pores, fabric folds, chalk particles, and water droplets. Color Palette: Deep black, bright white, metallic silver, storm gray, subtle electric neon accents.",
+    "model": "GPT Image",
+    "creator": "@hemayxn",
+    "tier": "free",
+    "_source": "meigen.ai"
   }
 ]
