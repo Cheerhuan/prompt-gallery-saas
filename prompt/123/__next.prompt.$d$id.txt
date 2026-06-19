@@ -1,5 +1,5 @@
 1:"$Sreact.fragment"
-2:I[36221,["/prompt-gallery-saas/_next/static/chunks/093mxzthpq~g5.js","/prompt-gallery-saas/_next/static/chunks/10b3jg_oj-_h7.js","/prompt-gallery-saas/_next/static/chunks/0oytq0.jjo6.a.js","/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","/prompt-gallery-saas/_next/static/chunks/02oz1u6qsdd6x.js"],"default"]
+2:I[30264,["/prompt-gallery-saas/_next/static/chunks/0nfdlkigx25kx.js","/prompt-gallery-saas/_next/static/chunks/18e0rhaclymtb.js","/prompt-gallery-saas/_next/static/chunks/141mc1~_omzog.js","/prompt-gallery-saas/_next/static/chunks/00wul103p_ye~.js","/prompt-gallery-saas/_next/static/chunks/0b6_g2zf~o0kx.js"],"default"]
 3:T70a,{
   "type": "evolutionary timeline infographic",
   "instruction": "Using REFERENCE_0 as a structural base, transform the flat vector design into a highly realistic 3D infographic. Replace the smooth ramps with distinct stone steps and upgrade all organisms to photorealistic 3D models.",
@@ -40,4 +40,4 @@
       ]
     }
   }
-}0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/02oz1u6qsdd6x.js","async":true}]],["$","$L2",null,{"prompt":{"id":"123","title":"3D Stone Staircase Evolution Infographic [海報插畫]","image":"https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case111/output.jpg","full_prompt":"$3","model":"GPT-Image-2","_version":"2026-05-09-imported","_source":"awesome-gpt-image-2","_case_id":"poster-111"},"params":{"id":"123"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"hgyIHcbxCWN25cEJc12ub"}
+}0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/00wul103p_ye~.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/0b6_g2zf~o0kx.js","async":true}]],["$","$L2",null,{"prompt":{"id":"123","title":"3D Stone Staircase Evolution Infographic [海報插畫]","image":"https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case111/output.jpg","full_prompt":"$3","model":"GPT-Image-2","_version":"2026-05-09-imported","_source":"awesome-gpt-image-2","_case_id":"poster-111"},"params":{"id":"123"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"IpJ1P4mqc4HACpRhOXYiM"}
