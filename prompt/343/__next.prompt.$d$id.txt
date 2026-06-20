@@ -1,5 +1,5 @@
 1:"$Sreact.fragment"
-2:I[36221,["/prompt-gallery-saas/_next/static/chunks/093mxzthpq~g5.js","/prompt-gallery-saas/_next/static/chunks/10b3jg_oj-_h7.js","/prompt-gallery-saas/_next/static/chunks/0oytq0.jjo6.a.js","/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","/prompt-gallery-saas/_next/static/chunks/0e77-.fbtxnnh.js"],"default"]
+2:I[30264,["/prompt-gallery-saas/_next/static/chunks/0nfdlkigx25kx.js","/prompt-gallery-saas/_next/static/chunks/18e0rhaclymtb.js","/prompt-gallery-saas/_next/static/chunks/141mc1~_omzog.js","/prompt-gallery-saas/_next/static/chunks/00wul103p_ye~.js","/prompt-gallery-saas/_next/static/chunks/109-.dpzxydjf.js"],"default"]
 3:Ta00,GPT Image 2 室内设计情绪板生成器
 
 提示词：
@@ -53,4 +53,4 @@
 
 关键词：[Style Keywords], [Material Keywords], [Color Palette], [Mood Keywords]
 负面约束
-避免杂乱拼贴、避免廉价海报风、避免材质与空间不匹配、避免错误透视、避免低质字体、避免装饰元素过多、避免卡通感、避免过饱和色彩、避免信息层0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/0e77-.fbtxnnh.js","async":true}]],["$","$L2",null,{"prompt":{"id":"343","title":"Interior Design Mood Board Generator [對比展示]","image":"https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/comparison_case83/output.jpg","full_prompt":"$3","model":"GPT-Image-2","_version":"2026-05-09-imported","_source":"awesome-gpt-image-2","_case_id":"comparison-83"},"params":{"id":"343"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"NzBUmvKThzv66ndyUacdn"}
+避免杂乱拼贴、避免廉价海报风、避免材质与空间不匹配、避免错误透视、避免低质字体、避免装饰元素过多、避免卡通感、避免过饱和色彩、避免信息层0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/00wul103p_ye~.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/109-.dpzxydjf.js","async":true}]],["$","$L2",null,{"prompt":{"id":"343","title":"Interior Design Mood Board Generator [對比展示]","image":"https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/comparison_case83/output.jpg","full_prompt":"$3","model":"GPT-Image-2","_version":"2026-05-09-imported","_source":"awesome-gpt-image-2","_case_id":"comparison-83"},"params":{"id":"343"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"B4KHjxBo8yBreNIfVbw-G"}
