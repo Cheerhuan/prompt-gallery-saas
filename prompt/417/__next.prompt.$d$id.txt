@@ -1,5 +1,5 @@
 1:"$Sreact.fragment"
-2:I[30264,["/prompt-gallery-saas/_next/static/chunks/0nfdlkigx25kx.js","/prompt-gallery-saas/_next/static/chunks/18e0rhaclymtb.js","/prompt-gallery-saas/_next/static/chunks/141mc1~_omzog.js","/prompt-gallery-saas/_next/static/chunks/00wul103p_ye~.js","/prompt-gallery-saas/_next/static/chunks/18a6hm_s59bew.js"],"default"]
+2:I[30264,["/prompt-gallery-saas/_next/static/chunks/0nfdlkigx25kx.js","/prompt-gallery-saas/_next/static/chunks/18e0rhaclymtb.js","/prompt-gallery-saas/_next/static/chunks/141mc1~_omzog.js","/prompt-gallery-saas/_next/static/chunks/00wul103p_ye~.js","/prompt-gallery-saas/_next/static/chunks/132.x1c8e14d8.js"],"default"]
 3:Ta99,FORMAT:
 4:5 vertical premium FMCG SMM poster
 hyper-realistic detergent advertising
@@ -98,4 +98,4 @@ clean
 trustworthy
 modern
 hyper-realistic
-high-conversion FMCG advertising0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/00wul103p_ye~.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/18a6hm_s59bew.js","async":true}]],["$","$L2",null,{"prompt":{"id":"417","title":"Premium FMCG SMM Poster: Tide Detergent","image":"https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2056987256020472057/0.jpg","full_prompt":"$3","model":"GPT Image 1","creator":"@Diplomeme","tier":"free","_source":"meigen.ai"},"params":{"id":"417"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"XWIgwldu3jueihMgStEcm"}
+high-conversion FMCG advertising0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/00wul103p_ye~.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/132.x1c8e14d8.js","async":true}]],["$","$L2",null,{"prompt":{"id":"417","title":"Premium FMCG SMM Poster: Tide Detergent","image":"https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2056987256020472057/0.jpg","full_prompt":"$3","model":"GPT Image 1","creator":"@Diplomeme","tier":"free","_source":"meigen.ai"},"params":{"id":"417"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Nfbm4swcZewfLFyXTyY_U"}
