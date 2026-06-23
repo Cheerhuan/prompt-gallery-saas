@@ -4764,5 +4764,38 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-65"
+  },
+  {
+    "id": "465",
+    "title": "Realistic mechanical keyboard miniature construction",
+    "full_prompt": "A low-angle macro shot showing a full-size Realistic mechanical keyboard modeled after a Cherry G80-3000, with standard key layout and no visible logo. the keyboard is naturally aligned with a human hand resting above it: the wrist lightly touching the desk, fingers slightly curled, poised to type. a few random keycaps — especially the ones directly under the poised fingers — have already been removed, revealing intricate mechanical switches underneath. the scene shows tiny professional construction workers actively dismantling the keyboard: workers are prying off keycaps with small crowbars and tools. some are hauling removed keycaps away using forklifts, handcarts, and cranes. others are inspecting the exposed switches as if surveying demolished foundations. ropes, scaffolding, construction lights, and debris containers are scattered around the work zones. welding sparks and mechanical dust emphasize the feeling of an active demolition site. the mood is lively but slightly absurd, humorously suggesting that even lifting a finger to type now requires a full construction crew to first dismantle the terrain. the background is warm and neutral, enhancing the highly detailed miniature realism.",
+    "image": "https://image.lexica.art/full_jpg/3e8750d3-ddf6-493d-8cc0-a1e4123f2eb6",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "c1af57a8-7ea3-4e99-a815-b371ec3c26bc"
+  },
+  {
+    "id": "466",
+    "title": "2010s Kendrick Lamar style Nintendo album art",
+    "full_prompt": "2010s kendrick lamar tyler the creator style album art that goes hard but its for nintendo characters",
+    "image": "https://image.lexica.art/full_jpg/2e76c4a4-d48f-4bd2-b572-e588b43f70d8",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "b8fedb0e-19f4-4986-b018-0545f536bc52"
+  },
+  {
+    "id": "467",
+    "title": "Misato Katsuragi - Neon Genesis Evangelion",
+    "full_prompt": "Misato Katsuragi from Neon Genesis Evangelion. blow my mind.",
+    "image": "https://image.lexica.art/full_jpg/c1f38dfd-9020-4f4a-b1b8-0d2d052b684c",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "9f5232ee-17e2-413a-aa78-04261ef4bde7"
   }
 ]
