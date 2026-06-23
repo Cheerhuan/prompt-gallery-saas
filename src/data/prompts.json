@@ -4797,5 +4797,35 @@
     "tags": [],
     "_source": "lexica.art",
     "_lexica_id": "9f5232ee-17e2-413a-aa78-04261ef4bde7"
+  },
+  {
+    "id": "468",
+    "title": "GPT Image Prompt Series by @Diplomeme",
+    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2050597251966529663/0.jpg",
+    "full_prompt": "FORMAT: 4:5 vertical, 8K CORE IDEA: Mango energy overflowing. LAYOUT: BACKGROUND: Deep mango yellow → orange gradient block with paint splashes and organic textures. Typography: Thick, bold, stretched \"MANGO\" layered behind the subject. Product: Real Mango bottle, forward-facing. Surreal Elements: Mango pulp exploding outward, rotating whole mangoes/slices, thick juice drips forming waves, and splashes turning into mango-textured clouds. Accents: Dripping textures, liquid blobs, glossy highlights, and chaotic layering. Copy: Center: \"GO FULL MANGO.\" | Bottom: Real Fruit, Thick & Rich, No Preservatives. Feel: Rich, Dense, Indulgent chaos.",
+    "model": "GPT Image",
+    "creator": "@Diplomeme",
+    "tier": "free",
+    "_source": "meigen.ai"
+  },
+  {
+    "id": "469",
+    "title": "Consistent Character Storytelling by @GoogleAI",
+    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2027094912357761319/0.jpg",
+    "full_prompt": "Create a funny 4-part story featuring 3 fluffy creatures building a treehouse. The story has emotional highs and lows and ends in a happy moment. Maintain consistent identity across the 3 characters. Generate 4 images in 16:9 format, one at a time.",
+    "model": "NanoBanana Pro",
+    "creator": "@GoogleAI",
+    "tier": "free",
+    "_source": "meigen.ai"
+  },
+  {
+    "id": "470",
+    "title": "Midjourney Style Reference by @sergeantsref",
+    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2026586465631715366/0.jpg",
+    "full_prompt": "--sref 2999551659",
+    "model": "Midjourney",
+    "creator": "@sergeantsref",
+    "tier": "free",
+    "_source": "meigen.ai"
   }
 ]
