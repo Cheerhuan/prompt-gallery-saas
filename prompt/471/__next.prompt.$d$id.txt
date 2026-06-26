@@ -1,3 +1,26 @@
 1:"$Sreact.fragment"
-2:I[30264,["/prompt-gallery-saas/_next/static/chunks/0nfdlkigx25kx.js","/prompt-gallery-saas/_next/static/chunks/18e0rhaclymtb.js","/prompt-gallery-saas/_next/static/chunks/141mc1~_omzog.js","/prompt-gallery-saas/_next/static/chunks/00wul103p_ye~.js","/prompt-gallery-saas/_next/static/chunks/0sodd8~vp0u03.js"],"default"]
-0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/00wul103p_ye~.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/0sodd8~vp0u03.js","async":true}]],["$","$L2",null,{"prompt":{"id":"471","title":"Personal Color Analysis Graphic Board [介面設計]","image":"https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/ui_case128/output.jpg","full_prompt":"Create a personal color analysis graphic using this portrait. Point out which season colour suits the subject best. Show side-by-side clothing color comparisons to highlight which colors suit the subject best. List out what texture/accessories/hairstyle suit the subject best. Make it visual-first, with short labels only and no paragraphs.","model":"GPT-Image-2","_version":"2026-05-09-imported","_source":"awesome-gpt-image-2","_case_id":"ui-128"},"params":{"id":"471"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"MplBeFyLXtdj9YDMl9c6M"}
+2:I[36221,["/prompt-gallery-saas/_next/static/chunks/093mxzthpq~g5.js","/prompt-gallery-saas/_next/static/chunks/10b3jg_oj-_h7.js","/prompt-gallery-saas/_next/static/chunks/0oytq0.jjo6.a.js","/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","/prompt-gallery-saas/_next/static/chunks/15ggeopwp~d9..js"],"default"]
+3:T62e,Create a branded technical infographic of a [SNACK], combining a realistic photograph or photoreal render of the product with technical annotation overlays placed directly on top. Use black ink–style line drawings with strategic [BRAND COLOR] accents (architectural sketch look) on a pure white studio background, including:
+• Key component labels
+• Internal cross-section showing structure, layering, or internal design
+• Measurements, dimensions, and specifications
+• Material callouts with composition and quantities
+• Arrows indicating function for primary features and structural integrity
+• Simple schematic or sectional diagram showing key mechanical or design elements
+• Sustainability callouts
+
+Title placement: Inside a hand-drawn technical annotation box with accent border reading the product name in bold font, positioned in upper corner.
+
+Style & layout rules:
+• The realistic product remains clearly visible
+• Annotations feel sketched, technical, and architectural
+• Accents used for highlight (20-30% of linework), black for primary technical lines (70-80%)
+• Clean composition with balanced negative space
+• Educational, food-engineering vibe with premium branding
+• Include subtle brand logo mark in corner
+
+Visual style: Minimal technical illustration aesthetic, black linework with accents over realistic imagery, precise but slightly hand-drawn feel.
+
+Color palette: White background, black annotation lines/text, [BRAND COLOR] for accents and key callouts only.
+
+Output: 1080×1080, ultra-crisp, social-feed optimized, no watermark0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/15ggeopwp~d9..js","async":true}]],["$","$L2",null,{"prompt":{"id":"471","title":"Branded Technical Infographic: Food-Engineering Style","image":"https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2017669983916982605/0.jpg","full_prompt":"$3","model":"NanoBanana Pro","creator":"@TechieBySA","tier":"free","_source":"meigen.ai"},"params":{"id":"471"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"T1sgCTlAWfT1fO3L3vC-x"}

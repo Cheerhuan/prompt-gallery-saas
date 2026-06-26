@@ -4847,5 +4847,38 @@
     "creator": "@AmirMushich",
     "tier": "free",
     "_source": "meigen.ai"
+  },
+  {
+    "id": "473",
+    "title": "A 90's classroom with the following characters sitting on desks: blocky Minecraft Steve Yoshi, Sonic, Donald Trump, and Harry Potter.",
+    "full_prompt": "A 90's classroom with the following characters sitting on desks: blocky Minecraft Steve Yoshi, Sonic, Donald Trump, and Harry Potter.",
+    "image": "https://image.lexica.art/full_jpg/a51ae566-166a-495b-92db-52380c6251c8",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "c3a9108e-016b-469e-be4c-8788abe95d73"
+  },
+  {
+    "id": "474",
+    "title": "Ring doorbell video of three Minions in trench coat attempting to pose as one adult human",
+    "full_prompt": "Ring doorbell video of three Minions in trench coat attempting to pose as one adult human",
+    "image": "https://image.lexica.art/full_jpg/52aa40de-0eea-4d34-b3b0-1f099fe32993",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "7f938755-85e7-4914-8c55-c8e7d7765f57"
+  },
+  {
+    "id": "475",
+    "title": "A jacked anime girl competing in a CrossFit competition",
+    "full_prompt": "A jacked anime girl competing in a CrossFit competition",
+    "image": "https://image.lexica.art/full_jpg/39af192e-3ef5-4ef1-9e4d-2fee959713d3",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "4aaa3150-fcb4-41a1-93f1-4a10c655ebb2"
   }
 ]

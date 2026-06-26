@@ -4,9 +4,9 @@ import { Tracer } from './observability';
 export function withTracing(handler: (req: NextRequest, ...args: any[]) => Promise<NextResponse>) {
   return async (req: NextRequest, ...args: any[]) => {
     const trace = Tracer.startTrace(`API_REQUEST: ${req.nextUrl.pathname}`, {
-      method: req.method,
-      ip: req.ip,
-    });
+       method: req.method,
+       ip: (req as any).ip || req.headers.get('x-forwarded-for') || 'unknown',
+     });
 
     try {
       const response = await handler(req, ...args);
