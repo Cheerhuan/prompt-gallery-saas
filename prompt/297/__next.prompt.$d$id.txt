@@ -1,5 +1,5 @@
 1:"$Sreact.fragment"
-2:I[36221,["/prompt-gallery-saas/_next/static/chunks/093mxzthpq~g5.js","/prompt-gallery-saas/_next/static/chunks/10b3jg_oj-_h7.js","/prompt-gallery-saas/_next/static/chunks/0oytq0.jjo6.a.js","/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","/prompt-gallery-saas/_next/static/chunks/0g4sh4zv~e16o.js"],"default"]
+2:I[36221,["/prompt-gallery-saas/_next/static/chunks/093mxzthpq~g5.js","/prompt-gallery-saas/_next/static/chunks/10b3jg_oj-_h7.js","/prompt-gallery-saas/_next/static/chunks/0oytq0.jjo6.a.js","/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","/prompt-gallery-saas/_next/static/chunks/08no0pn~73u7m.js"],"default"]
 3:Taa9,使用上传的第一张图作为【整体风格与版式参考】，使用上传的第二张图作为【人物身份参考】。
 
 请生成一张完整的 2026 年全年日历插画海报。
@@ -58,4 +58,4 @@ S M T W T F S
 画面必须像一张完整的全年日历海报，而不是拼贴照片。
 人物与背景要统一成同一种手绘水彩风格。
 保持参考图一的原有构图、温柔季节感、手账插画质感和高级可爱氛围。
-不要出现真实照片感，不要过度写实，不要赛博风，不要厚重油画风。0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/0g4sh4zv~e16o.js","async":true}]],["$","$L2",null,{"prompt":{"id":"297","title":"Watercolor 2026 Calendar Poster [海報插畫]","image":"https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case281/output.jpg","full_prompt":"$3","model":"GPT-Image-2","_version":"2026-05-09-imported","_source":"awesome-gpt-image-2","_case_id":"poster-281"},"params":{"id":"297"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"K6jZBhDUuzgVVN87I6DCG"}
+不要出现真实照片感，不要过度写实，不要赛博风，不要厚重油画风。0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/08no0pn~73u7m.js","async":true}]],["$","$L2",null,{"prompt":{"id":"297","title":"Watercolor 2026 Calendar Poster [海報插畫]","image":"https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case281/output.jpg","full_prompt":"$3","model":"GPT-Image-2","_version":"2026-05-09-imported","_source":"awesome-gpt-image-2","_case_id":"poster-281"},"params":{"id":"297"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"mpgB2sraJM3vKAV3tHwQa"}
