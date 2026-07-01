@@ -1,42 +1,35 @@
 [
   {
-    "id": "376",
-    "title": "Cozy Aesthetic Scrapbook Composition",
-    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2050272100884340783/0.jpg",
-    "full_prompt": "Transform the provided reference image into a cozy aesthetic scrapbook-style composition while strictly preserving the original subject, identity, pose, lighting, and background. Add multiple small “mini version” characters of the same person (chibi / doll-like style), placed naturally around the scene (on objects, table, shoulder, etc.). These mini figures must match the subject’s face, hairstyle, outfit, and vibe consistently, styled as cute 3D collectible figurines. Show them doing different activities (reading, posing, taking photos, relaxing). Overlay handwritten-style doodles and annotations across the image: arrows, hearts, stars, sparkles, icons, and playful captions connected to elements in the scene. Use a soft pastel color palette (white base with pink, peach, blue accents). Keep the frame visually rich and filled but balanced and clean. Style: warm, cozy lighting, dreamy Instagram scrapbook aesthetic, soft depth of field, highly detailed, polished but playful. The final result must look like the SAME original image enhanced with mini alter-egos and aesthetic annotations — not a recreated or different scene.",
-    "model": "GPT Image",
-    "creator": "Kashberg_0",
-    "tier": "free",
-    "_source": "meigen.ai"
+    "id": "484",
+    "title": "Bob Ross in his art studio in 1994",
+    "full_prompt": "Bob ross is in his art studio in 1994, but he appears like he did from his 1970s tv art show. he is using his gateway desktop computer with its 20\\\" crt monitor to utilize the ai tool lexica as he creates happy little trees. the \\\"happy little trees\\\" float figuratively from his fingertips through the air as they find their place onto the screen with a halfway completed/sketched lakeside landscape image. the crt clearly shows some sort of lexica interface. aside from the image on the screen of the crt, the quality of the image is a candid one taken by a minolta 35mm slr camera with a 50mm lens. there's a bit of unevenness to the lighting of the image, as the primary light source is the camera's flash and the secondary light source is a bulb hanging from the ceiling in the art studio. the studio is cluttered with art stuff like brushes, easels, canvasses. bob's brow is furrowed as he's figuring out lexica.",
+    "image": "https://image.lexica.art/full_jpg/bdbfa5a7-b18a-4788-9fe7-0962689e3e38",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "5e1977b7-06e6-4457-8d13-35c70e4dde69"
   },
   {
-    "id": "377",
-    "title": "Football Match Day Poster - Cristiano Ronaldo",
-    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2056649217364672950/0.jpg",
-    "full_prompt": "Ultra-realistic football match day poster design, Cristiano Ronaldo seen from the back wearing Portugal red jersey number 7, fist raised in victory, walking forward confidently, giant bold typography “MATCH DAY” behind player, modern sports graphic design, Portugal vs Colombia logos at top, FIFA World Cup 2026 branding, cinematic stadium atmosphere, textured off-white background, national flag elements blended diagonally, dramatic lighting, dust particles, high-detail jersey fabric, centered composition, editorial sports poster style, minimal premium layout, green red yellow color palette, realistic shadows, sharp focus, Nike/Puma style campaign aesthetic, 4k.",
-    "model": "GPT Image",
-    "creator": "Sairah_0",
-    "tier": "free",
-    "_source": "meigen.ai"
+    "id": "485",
+    "title": "Lego version of the POPE",
+    "full_prompt": "Give me a lego version of the pope on a white backgroun",
+    "image": "https://image.lexica.art/full_jpg/1de768d4-334b-4d63-91c6-a10e29f096b7",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "16aeaf0f-9542-42bd-888c-89f4d6db33fd"
   },
   {
-    "id": "378",
-    "title": "Luxury Automotive Social Poster - Porsche 911",
-    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2047986905896427670/0.jpg",
-    "full_prompt": "4:5 vertical social poster, ultra high resolution, 8K SCENE / BACKGROUND: Flat racing yellow with subtle gradient (light → deep amber) Grain texture 2-3%; soft rectangular overlays (3% opacity). PRODUCT: Porsche 911 GT3 RS in gloss yellow with carbon details. Angle: Rear 3/4 angle, slightly elevated, wing dominant. Position: Right of center. TYPOGRAPHY: Primary: “PORSCHE” (Ultra tall, condensed, stretched, deep charcoal). Secondary: “PORSCHE 911 GT3 RS”. Editorial: “Porsche — Where Precision Meets Passion” (Focus: engineering, obsession, track DNA). Faded Text: “GT3 RS” at 3–5% opacity. Technical Specs: 386 kW / 525 PS, 3.2 s, 296 km/h.",
-    "model": "GPT Image",
-    "creator": "Diplomeme",
-    "tier": "free",
-    "_source": "meigen.ai"
-  },
-  {
-    "id": "379",
-    "title": "DESIRE THE WORK Sportswear Campaign",
-    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2061841134675173556/0.jpg",
-    "full_prompt": "Vertical premium poster. Luxury editorial sports photography. One image. Four athletes. One obsession. The image is divided into four dynamic, seamlessly blended zones: Top Left: Female Sprinter exploding from blocks; low angle; maximum muscle tension; illuminated sweat; hair flowing backward. Top Right: Male Basketball Player apex of a dunk; rain falling; open performance jacket; stadium light halo. Bottom Left: Female Boxer close-up wrapping hands; direct eye contact; slight bruise; focused breathing; \"dangerous\" feel. Bottom Right: Male Footballer striking ball at full power; wet jersey; exploding turf; visible forearm veins. Centerpiece: massive fractured swoosh-inspired shape formed naturally from flying sweat, rain particles, chalk dust, turf debris, motion trails. Main Text: Massive condensed bold lettering: \"DESIRE THE WORK\". Lighting: Premium sports-fashion lighting featuring deep blacks, hard highlights, rim lighting on skin, and luxury commercial contrast.",
-    "model": "GPT Image",
-    "creator": "hemayxn",
-    "tier": "free",
-    "_source": "meigen.ai"
+    "id": "486",
+    "title": "Pixelated futuristic human figure",
+    "full_prompt": "One pixelated futuristic human figure, inspired by michelangelo's , pixel art style, electronic glitch aesthetic, cybernetic texture, white glowing points forming the hands, digital pointillism, dark black background with subtle lcd glass panel texture and glossy reflections, faint holographic light leaks in cyan and violet, cinematic lens bloom, futuristic minimalism. cinematic studio lighting, ultra sharp, high contrast, cold atmosphere",
+    "image": "https://image.lexica.art/full_jpg/2561da5c-b4e4-48fe-898f-6fee873e6bb0",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "6f1f9e2b-2420-4c8e-837d-ffe9ec320950"
   }
 ]
