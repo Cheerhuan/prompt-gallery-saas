@@ -1,35 +1,35 @@
 [
   {
-    "id": "484",
-    "title": "Bob Ross in his art studio in 1994",
-    "full_prompt": "Bob ross is in his art studio in 1994, but he appears like he did from his 1970s tv art show. he is using his gateway desktop computer with its 20\\\" crt monitor to utilize the ai tool lexica as he creates happy little trees. the \\\"happy little trees\\\" float figuratively from his fingertips through the air as they find their place onto the screen with a halfway completed/sketched lakeside landscape image. the crt clearly shows some sort of lexica interface. aside from the image on the screen of the crt, the quality of the image is a candid one taken by a minolta 35mm slr camera with a 50mm lens. there's a bit of unevenness to the lighting of the image, as the primary light source is the camera's flash and the secondary light source is a bulb hanging from the ceiling in the art studio. the studio is cluttered with art stuff like brushes, easels, canvasses. bob's brow is furrowed as he's figuring out lexica.",
-    "image": "https://image.lexica.art/full_jpg/bdbfa5a7-b18a-4788-9fe7-0962689e3e38",
+    "id": "487",
+    "title": "Iron Man taking a selfie with Superman in the sky far above the clouds",
+    "full_prompt": "Iron Man taking a selfie with Superman in the sky far above the clouds",
+    "image": "https://image.lexica.art/full_jpg/7a61ccec-d669-46f2-82ad-278916840369",
     "creator": "",
     "model": "Aperture",
     "tags": [],
     "_source": "lexica.art",
-    "_lexica_id": "5e1977b7-06e6-4457-8d13-35c70e4dde69"
+    "_lexica_id": "42ba27a6-c243-4268-b7b1-33fba8649360"
   },
   {
-    "id": "485",
-    "title": "Lego version of the POPE",
-    "full_prompt": "Give me a lego version of the pope on a white backgroun",
-    "image": "https://image.lexica.art/full_jpg/1de768d4-334b-4d63-91c6-a10e29f096b7",
+    "id": "488",
+    "title": "Grungy photo of Luigi from mario broxshown during a tour of duty in Vietnam 1968",
+    "full_prompt": "Grungy photo of Luigi from mario broxshown during a tour of duty in Vietnam 1968",
+    "image": "https://image.lexica.art/full_jpg/6051093b-8ffe-45f4-91be-02ad432da8c9",
     "creator": "",
     "model": "Aperture",
     "tags": [],
     "_source": "lexica.art",
-    "_lexica_id": "16aeaf0f-9542-42bd-888c-89f4d6db33fd"
+    "_lexica_id": "d9a3b141-e38c-454b-b00d-45e30d1a0fdc"
   },
   {
-    "id": "486",
-    "title": "Pixelated futuristic human figure",
-    "full_prompt": "One pixelated futuristic human figure, inspired by michelangelo's , pixel art style, electronic glitch aesthetic, cybernetic texture, white glowing points forming the hands, digital pointillism, dark black background with subtle lcd glass panel texture and glossy reflections, faint holographic light leaks in cyan and violet, cinematic lens bloom, futuristic minimalism. cinematic studio lighting, ultra sharp, high contrast, cold atmosphere",
-    "image": "https://image.lexica.art/full_jpg/2561da5c-b4e4-48fe-898f-6fee873e6bb0",
+    "id": "489",
+    "title": "1990s anime poster for sf japanese style onsen, blow my mind",
+    "full_prompt": "1990s anime poster for sf japanese style onsen, blow my mind",
+    "image": "https://image.lexica.art/full_jpg/c3bf3f50-32fc-4459-a195-7dedb4e8768b",
     "creator": "",
     "model": "Aperture",
     "tags": [],
     "_source": "lexica.art",
-    "_lexica_id": "6f1f9e2b-2420-4c8e-837d-ffe9ec320950"
+    "_lexica_id": "731ed81e-34aa-4407-b5aa-64f386e0b0da"
   }
 ]
