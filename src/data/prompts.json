@@ -5020,14 +5020,33 @@
     "_lexica_id": "d9a3b141-e38c-454b-b00d-45e30d1a0fdc"
   },
   {
-    "id": "489",
-    "title": "1990s anime poster for sf japanese style onsen, blow my mind",
-    "full_prompt": "1990s anime poster for sf japanese style onsen, blow my mind",
-    "image": "https://image.lexica.art/full_jpg/c3bf3f50-32fc-4459-a195-7dedb4e8768b",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "731ed81e-34aa-4407-b5aa-64f386e0b0da"
+    "id": "492",
+    "title": "Y2K Japanese street-editorial collage poster",
+    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2052279857904550335/0.jpg",
+    "full_prompt": "Create a bold Y2K Japanese street-editorial collage poster with a clean high-fashion magazine aesthetic, gritty paper textures, torn magazine cutouts, distressed ink splashes, and urban Tokyo-inspired design.\n\nMain composition: one large cinematic close-up portrait at the top with intense eye focus, natural skin texture, glossy lips, messy tied-up hair, no glasses, soft dramatic lighting, confident innocent expression, ultra-realistic fashion photography style.\n\nBottom composition: only 2 smaller portrait collage frames showing different facial expressions and angles, styled like ripped polaroids taped onto the poster.\n\nDesign elements: oversized bold Japanese typography, minimal English text, subtle Japanese street signs, barcode stickers, newspaper scraps, vintage grunge textures, paint strokes, film grain, tape pieces, layered paper collage effects, and premium editorial magazine layout aesthetics.\n\nStyle: edgy yet clean, modern Japanese fashion zine, cinematic shadows, sharp eye detail, RAW DSLR realism, editorial streetwear moodboard, premium graphic design, ultra detailed, 8K, balanced neutral tones, no pink aesthetic, no bubbles, no cartoon vibe.",
+    "model": "GPT Image",
+    "creator": "@miratechtool",
+    "tier": "free",
+    "_source": "meigen.ai"
+  },
+  {
+    "id": "493",
+    "title": "Minimalist futuristic representations",
+    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2063558873697714376/0.jpg",
+    "full_prompt": "This prompt generates highly stylized, minimalist representations of futuristic subjects, focusing on bold contrasts and streamlined designs. The overall style emphasizes simplicity, and a striking visual impact.",
+    "model": "GPT Image",
+    "creator": "@Aiwithkami",
+    "tier": "free",
+    "_source": "meigen.ai"
+  },
+  {
+    "id": "494",
+    "title": "Mixed-Media Campaign Art Direction",
+    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2038319037248114957/0.jpg",
+    "full_prompt": "Act as a Mixed-Media Campaign Art Director. Create a visual where a real human model physically interacts (touches, holds, leans on) with a 2D illustrated object, making the drawing feel as if it exists in the physical space. Aesthetic: Y2K comic energy, Japanese streetwear magazine, brush marker style. Color Palette: Maximum of 3 colors: [HERO COLOR] (light), [HERO COLOR] (dark blobs), and White (#FFFFFF) for illustrations. Composition: Asymmetric, dynamic, 1:1 square canvas. Lighting: Studio strobe, high-key, 5500K neutral, minimal soft contact shadows. The model is not posing WITH the object — the model is IN THE MIDDLE of using it. Caught mid-action. Alive.",
+    "model": "NanoBanana Pro",
+    "creator": "@AmirMushich",
+    "tier": "free",
+    "_source": "meigen.ai"
   }
 ]
