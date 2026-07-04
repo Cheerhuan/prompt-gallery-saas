@@ -5020,7 +5020,7 @@
     "_lexica_id": "d9a3b141-e38c-454b-b00d-45e30d1a0fdc"
   },
   {
-    "id": "492",
+    "id": "489",
     "title": "Y2K Japanese street-editorial collage poster",
     "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2052279857904550335/0.jpg",
     "full_prompt": "Create a bold Y2K Japanese street-editorial collage poster with a clean high-fashion magazine aesthetic, gritty paper textures, torn magazine cutouts, distressed ink splashes, and urban Tokyo-inspired design.\n\nMain composition: one large cinematic close-up portrait at the top with intense eye focus, natural skin texture, glossy lips, messy tied-up hair, no glasses, soft dramatic lighting, confident innocent expression, ultra-realistic fashion photography style.\n\nBottom composition: only 2 smaller portrait collage frames showing different facial expressions and angles, styled like ripped polaroids taped onto the poster.\n\nDesign elements: oversized bold Japanese typography, minimal English text, subtle Japanese street signs, barcode stickers, newspaper scraps, vintage grunge textures, paint strokes, film grain, tape pieces, layered paper collage effects, and premium editorial magazine layout aesthetics.\n\nStyle: edgy yet clean, modern Japanese fashion zine, cinematic shadows, sharp eye detail, RAW DSLR realism, editorial streetwear moodboard, premium graphic design, ultra detailed, 8K, balanced neutral tones, no pink aesthetic, no bubbles, no cartoon vibe.",
@@ -5030,7 +5030,7 @@
     "_source": "meigen.ai"
   },
   {
-    "id": "493",
+    "id": "490",
     "title": "Minimalist futuristic representations",
     "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2063558873697714376/0.jpg",
     "full_prompt": "This prompt generates highly stylized, minimalist representations of futuristic subjects, focusing on bold contrasts and streamlined designs. The overall style emphasizes simplicity, and a striking visual impact.",
@@ -5040,7 +5040,7 @@
     "_source": "meigen.ai"
   },
   {
-    "id": "494",
+    "id": "491",
     "title": "Mixed-Media Campaign Art Direction",
     "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2038319037248114957/0.jpg",
     "full_prompt": "Act as a Mixed-Media Campaign Art Director. Create a visual where a real human model physically interacts (touches, holds, leans on) with a 2D illustrated object, making the drawing feel as if it exists in the physical space. Aesthetic: Y2K comic energy, Japanese streetwear magazine, brush marker style. Color Palette: Maximum of 3 colors: [HERO COLOR] (light), [HERO COLOR] (dark blobs), and White (#FFFFFF) for illustrations. Composition: Asymmetric, dynamic, 1:1 square canvas. Lighting: Studio strobe, high-key, 5500K neutral, minimal soft contact shadows. The model is not posing WITH the object — the model is IN THE MIDDLE of using it. Caught mid-action. Alive.",
@@ -5048,5 +5048,38 @@
     "creator": "@AmirMushich",
     "tier": "free",
     "_source": "meigen.ai"
+  },
+  {
+    "id": "492",
+    "title": "Footage of a panda driving a sports car erratically on a highway at night (live action style)",
+    "full_prompt": "Footage of a panda driving a sports car erratically on a highway at night (live action style)",
+    "image": "https://image.lexica.art/full_jpg/d7a20b00-8a57-46e0-ad1d-e6ce9f5fed9a",
+    "creator": "",
+    "model": "Aperture Max",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "911d44b3-e4c4-4e18-8952-f9bf89bbeb13"
+  },
+  {
+    "id": "493",
+    "title": "An extremely ordinary iPhone photo taken from a low angle",
+    "full_prompt": "An extremely ordinary iphone photo taken from a low angle, with no clear subject or composition, looking like a careless snapshot. the overall effect is very mediocre, as if it were an accidental photo. this is a 22-year-old chinese girl with striking black hair styled in a beautiful ponytail that moves slightly as she moves, tied with a bright blue ribbon. her fair skin is dotted with light freckles on her cheeks, adding to her fresh, youthful charm. her smile is gentle and sincere, lighting up her face with a quiet warmth. her eyes are round and expressive, sparkling with a hint of mischief and kindness. she wears a blue-and-white gingham checkered dress with short, puffy sleeves and a low square neckline, paired with a white apron that has a lace trim tied over it. she accessorizes with red-and-white striped arm warmers and matching thigh-high stockings, adding a playful, whimsical touch to her look. her overall presence is vibrant, yet naturally graceful, nostalgic yet lively. she sits on top of a red table at an outdoor seating area of a fast-food restaurant, with the wendy's sign visible beside the building. she leans slightly, knees bent, hugging her legs. she is barefoot, with pale blue-painted nails resting on the bench seat. a fast food bag sits next to her on the table.",
+    "image": "https://image.lexica.art/full_jpg/5a010a3d-93cb-4fd0-a011-2a8f65b9dc3a",
+    "creator": "",
+    "model": "Aperture Max",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "3c822263-790c-4bac-a099-046ed2c182cd"
+  },
+  {
+    "id": "494",
+    "title": "A realistic gray cat taking a selfie in front of Big Ben in London",
+    "full_prompt": "A realistic gray cat taking a selfie in front of big ben in london, raindrops on its fur, wearing a miniature raincoat",
+    "image": "https://image.lexica.art/full_jpg/193a933d-a40a-4efd-ad45-8aa44e02a960",
+    "creator": "",
+    "model": "Aperture Max",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "645541a6-752a-4747-ae0d-05fb7a960793"
   }
 ]
