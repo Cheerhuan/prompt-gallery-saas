@@ -1,0 +1,44 @@
+1:"$Sreact.fragment"
+2:I[36221,["/prompt-gallery-saas/_next/static/chunks/093mxzthpq~g5.js","/prompt-gallery-saas/_next/static/chunks/10b3jg_oj-_h7.js","/prompt-gallery-saas/_next/static/chunks/0oytq0.jjo6.a.js","/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","/prompt-gallery-saas/_next/static/chunks/15-2fs5j~dc4r.js"],"default"]
+3:T5c6,{
+"meta": {
+"aspect_ratio": "9:16",
+"quality": "photorealistic, raw, unedited smartphone photograph",
+"resolution": "8k",
+"camera": "Smartphone camera (e.g., iPhone 14 Pro)",
+"lens": "Wide-angle smartphone lens",
+"style": "Candid mirror selfie, natural indoor evening light, warm tone",
+"composition": "Full-body mirror shot of a woman sitting on a rug, holding a smartphone to take the photo."
+},
+"scene": {
+"location": "Indoor living room",
+"environment": [
+"Large grey shag rug on wooden floor",
+"Dark grey sofa in background",
+"White double doors",
+"Warm ambient lighting from a lamp"
+],
+"time": "Evening",
+"atmosphere": "Casual, relaxed, intimate"
+},
+"lighting": {
+"type": "Warm, dim indoor light",
+"source": "Lamp light from the side and smartphone screen light",
+"effect": "Soft, warm glow with shadows, highlighting wet hair and fishnet texture."
+},
+"subject": {
+"identity": "The woman from image_0.png with wet platinum blonde hair.",
+"body": {
+"pose": "Sitting cross-legged on the grey rug, looking at the smartphone in her hand, holding it up for a mirror selfie.",
+"physique": "Slim build."
+},
+"outfit": {
+"clothing": "Black short-sleeved mini-dress, black fishnet tights.",
+"accessories": "None visible besides the smartphone."
+}
+},
+"realism_focus": {
+"textures": "Wet hair strands, detailed mesh of the fishnet tights, texture of the grey shag rug, fabric of the black dress.",
+"imperfections": "Natural skin texture, realistic phone reflection in the mirror."
+}
+}0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/15-2fs5j~dc4r.js","async":true}]],["$","$L2",null,{"prompt":{"id":"500","title":"Candid Smartphone Mirror Selfie","image":"https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2011435742375948739/0.jpg","full_prompt":"$3","model":"Nanobanana Pro","creator":"@Passionai0","tier":"free","_source":"meigen.ai"},"params":{"id":"500"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"ScLP0K0DQuST9yzVv4w21"}
