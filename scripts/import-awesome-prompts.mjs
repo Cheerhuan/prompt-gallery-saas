@@ -24,17 +24,17 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PROJECT_ROOT = path.resolve(__dirname, '..');
 const DATA_FILE = path.join(PROJECT_ROOT, 'src/data/prompts.json');
 const TRACK_FILE = path.join(PROJECT_ROOT, 'scripts/.used-cases.json');
-const BASE_IMG = 'https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images';
+const BASE_IMG = 'https://raw.githubusercontent.com/YouMind-OpenLab/awesome-gpt-image-2/main/images';
 
 // 7 大分類的 raw URL
 const CASE_FILES = {
-  'portrait':   'https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/cases/portrait.md',
-  'character':  'https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/cases/character.md',
+  'portrait':   'https://raw.githubusercontent.com/YouMind-OpenLab/awesome-gpt-image-2/main/cases/portrait.md',
+  'character':  'https://raw.githubusercontent.com/YouMind-OpenLab/awesome-gpt-image-2/main/cases/character.md',
   'ad-creative':'https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/cases/ad-creative.md',
-  'ecommerce':  'https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/cases/ecommerce.md',
-  'poster':     'https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/cases/poster.md',
-  'comparison': 'https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/cases/comparison.md',
-  'ui':         'https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/cases/ui.md',
+  'ecommerce':  'https://raw.githubusercontent.com/YouMind-OpenLab/awesome-gpt-image-2/main/cases/ecommerce.md',
+  'poster':     'https://raw.githubusercontent.com/YouMind-OpenLab/awesome-gpt-image-2/main/cases/poster.md',
+  'comparison': 'https://raw.githubusercontent.com/YouMind-OpenLab/awesome-gpt-image-2/main/cases/comparison.md',
+  'ui':         'https://raw.githubusercontent.com/YouMind-OpenLab/awesome-gpt-image-2/main/cases/ui.md',
 };
 
 // 類別中文標籤映射
