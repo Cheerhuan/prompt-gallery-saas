@@ -5197,5 +5197,38 @@
     "creator": "@AmirMushich",
     "tier": "free",
     "_source": "meigen.ai"
+  },
+  {
+    "id": "506",
+    "title": "Realistic portrait of Yor Forger from Spy Family as a high-fashion model on the cover of VOGUE magazine",
+    "full_prompt": "Realistic portrait of Yor Forger from Spy Family as a high-fashion model on the cover of VOGUE magazine. Elegant black assassin outfit that she wears, confident and mysterious expression, sleek hairstyle, cinematic lighting. vogue logo at the top, fashion magazine layout, minimalist background, professional photography style",
+    "image": "https://image.lexica.art/full_jpg/28cce130-764c-44a8-9768-02c93f019cda",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "b229d3fa-bf5c-4081-918d-06c8024f43ae"
+  },
+  {
+    "id": "507",
+    "title": "Anthropomorphized Tabby Cat in Dutch Street Market",
+    "full_prompt": "A photorealistic, ultra detailed, humorous scene on a bustling dutch street market. A tabby cat anthropomorphized, running on two legs while tightly hugging a large shiny silver fish. the cat has a determined dramatic facial expression with wide eyes and an open mouth as if mid-shout. behind the cat a shocked fish vendor in an apron is chasing after it yelling. fresh fishes are laid out on a market stall to the right displayed on ice. the background features open stalls market signs and a few bystanders reacting in surprise. dynamic lighting rich details cinematic composition freeze-frame action shot expressive motion blur aspect ratio 916",
+    "image": "https://image.lexica.art/full_jpg/75525dfb-99c2-4194-8ff1-e22f7217e68a",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "639ad200-ec09-42d4-9979-32cadf1424d0"
+  },
+  {
+    "id": "508",
+    "title": "Cats Taking a Selfie",
+    "full_prompt": "A lot of cats take a selfie, photography very realist",
+    "image": "https://image.lexica.art/full_jpg/c66b0326-eb75-4a21-8bbb-c27b634dc81a",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "326dcf19-e48e-4e9a-9077-2d0bce83d4ac"
   }
 ]
