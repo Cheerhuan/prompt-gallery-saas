@@ -639,28 +639,6 @@
     "creator": "Alex Chen"
   },
   {
-    "id": "61",
-    "title": "Ring camera footage of Kirby as food delivery driver who has clearly sampled every order in the bag Receipt shows 8 items but bag visibly contains only 3.",
-    "full_prompt": "Ring camera footage of Kirby as food delivery driver who has clearly sampled every order in the bag Receipt shows 8 items but bag visibly contains only 3.",
-    "image": "https://image.lexica.art/full_jpg/452c9684-3e85-4bce-bb13-fb2d9ba74440",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "85d22ea7-9840-4428-8de9-7be6c9249ac3"
-  },
-  {
-    "id": "62",
-    "title": "A low-angle Cinematic portrait of a porcelain-skinned young woman perched on...",
-    "full_prompt": "A low-angle Cinematic portrait of a porcelain-skinned young woman perched on...",
-    "image": "https://image.lexica.art/full_jpg/e82dea5d-34c0-440a-95bb-f79908b21e57",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "2f364179-4762-4691-b4f6-ebe1a0fdf6fb"
-  },
-  {
     "id": "63",
     "title": "Surreal Baroque Painting Reality Fracture [海報插畫]",
     "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case138/output.jpg",
@@ -2928,39 +2906,6 @@
     "_case_id": "comparison-76"
   },
   {
-    "id": "283",
-    "title": "A tiny astronaut hatching from an egg on the moon",
-    "full_prompt": "A tiny astronaut hatching from an egg on the moon",
-    "image": "https://image.lexica.art/full_jpg/f451e0ca-c1ce-43cd-b604-8d276585320a",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "60e77f26-f0ea-4307-9439-2e8ac634ee34"
-  },
-  {
-    "id": "284",
-    "title": "A cyborg eye",
-    "full_prompt": "A cyborg eye",
-    "image": "https://image.lexica.art/full_jpg/788f6ecc-8000-4823-8f95-88c26fa6e2ba",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "b4e11814-4929-4cf3-b935-a3ef67a15b23"
-  },
-  {
-    "id": "285",
-    "title": "Iron Man taking a selfie with Superman in the sky far above the clouds",
-    "full_prompt": "Iron Man taking a selfie with Superman in the sky far above the clouds",
-    "image": "https://image.lexica.art/full_jpg/7a61ccec-d669-46f2-82ad-278916840369",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "42ba27a6-c243-4268-b7b1-33fba8649360"
-  },
-  {
     "id": "286",
     "title": "Cinematic Floral Elegance",
     "full_prompt": "Ultra-realistic high-fidelity portrait of a stunningly beautiful East Asian woman in her mid-20s, intense and slightly melancholic gaze, looking directly into the camera, sharp delicate features, refined jawline, almond-shaped dark brown eyes, slightly parted full lips, long voluminous wavy dark brown hair cascading over shoulder. Wearing a semi-sheer beige-toned bodycon midi dress with spaghetti straps, intricate blue and sage green floral patterns, plunging neckline. Dramatic Chiaroscuro lighting, strong key light from left, deep moody shadows on right, 85mm lens, professional fashion photography, shallow depth of field, dark void background, 8k resolution, cinematic atmosphere, highly detailed skin texture.",
@@ -2974,17 +2919,6 @@
       "Fashion",
       "High-Fidelity"
     ]
-  },
-  {
-    "id": "287",
-    "title": "Analog portrait photo of Rei Ayanami Detailed environment, inside the LAB. fucking cool ass photo.",
-    "full_prompt": "Analog portrait photo of Rei Ayanami Detailed environment, inside the LAB. fucking cool ass photo.",
-    "image": "https://image.lexica.art/full_jpg/85d0e02c-dba5-40cc-9981-820382192800",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "8dd410ba-5df3-4dac-85fe-07df279f813f"
   },
   {
     "id": "288",
@@ -3707,39 +3641,6 @@
     "_case_id": "poster-78"
   },
   {
-    "id": "360",
-    "title": "Venom Snake from Metal Gear Solid 5 receiving therapy from master chief",
-    "full_prompt": "Venom Snake from Metal Gear Solid 5 receiving therapy from master chief. realistic",
-    "image": "https://image.lexica.art/full_jpg/d83dc497-15b6-4407-8743-250394b4e852",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "530f7faa-151a-4061-967b-c52166deb0d8"
-  },
-  {
-    "id": "361",
-    "title": "Swinter: Spring and Winter",
-    "full_prompt": "Swinter. When it's spring and winter all at once, when things are in bloom but there is snow everywhere.",
-    "image": "https://image.lexica.art/full_jpg/7ed257d1-6c7e-41c6-bf5d-401de6d996c4",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "5470790d-98d6-42ef-8fad-fea86b861256"
-  },
-  {
-    "id": "362",
-    "title": "Mario and Luigi Mugshots",
-    "full_prompt": "Mario and luigi's mugshots",
-    "image": "https://image.lexica.art/full_jpg/71a91da1-86a4-4ec8-a0f0-53ab3931dae5",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "0bc0f0df-fd8a-4aa3-b9fe-78b5490b72c9"
-  },
-  {
     "id": "363",
     "title": "Avant-Garde Tokyo Fashion Zine Poster [人像攝影]",
     "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/portrait_case212/output.jpg",
@@ -3838,39 +3739,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "ui-105"
-  },
-  {
-    "id": "373",
-    "title": "Elsa from Frozen in the sahara dessert camping in a tent",
-    "full_prompt": "Elsa from Frozen in the sahara dessert camping in a tent, golden hour, it's very hot. wide angle selfie, her hand is reaching towards the camera.",
-    "image": "https://image.lexica.art/full_jpg/eb271165-46d8-40f9-841b-83846ad578c8",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "596e8d9b-affd-4ff4-858b-ba51a57d3752"
-  },
-  {
-    "id": "374",
-    "title": "90s anime style portrait of donald trump as an evil anime villian",
-    "full_prompt": "90s anime style portrait of donald trump as an evil anime villian. he is the pilot of an EVA from evangelion",
-    "image": "https://image.lexica.art/full_jpg/1a5ee9d1-39d3-4217-9c8e-b838693c2021",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "e058be9a-9b46-4804-b779-92f00d7cf97f"
-  },
-  {
-    "id": "375",
-    "title": "Delorean from back to the future",
-    "full_prompt": "Delorean from back to the future, up on blocks in disrepair.",
-    "image": "https://image.lexica.art/full_jpg/c1af7df3-c937-46c3-b08d-e88634d4f7d7",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "11ca00c3-207a-4e9e-bb9a-19df74d94a28"
   },
   {
     "id": "376",
@@ -4131,39 +3999,6 @@
     "_version": "2026-05-09-imported",
     "_source": "awesome-gpt-image-2",
     "_case_id": "poster-127"
-  },
-  {
-    "id": "402",
-    "title": "Blurry concert footage of Kirby in the mosh pit at a punk show",
-    "full_prompt": "Blurry concert footage of Kirby in the mosh pit at a punk show, motion blur, Kirby is MOSHING",
-    "image": "https://image.lexica.art/full_jpg/8d0ef4c2-e6a3-48a1-959e-20644c3d32ee",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "aef83655-dd78-47e9-ad46-9f64bf331f46"
-  },
-  {
-    "id": "403",
-    "title": "Transparent cat with electronics",
-    "full_prompt": "Transparent cat, we can see the inside made of electronics, wildlife photography, shallow depth of field",
-    "image": "https://image.lexica.art/full_jpg/417a2023-1505-4409-b792-c5f380d7829c",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "d38649c4-8bf4-4fbf-8705-2d6b3ee128bc"
-  },
-  {
-    "id": "404",
-    "title": "Retro game style Millennial Falcon",
-    "full_prompt": "Retro game style of the millennial falcon fleeing from X-wings in outer space",
-    "image": "https://image.lexica.art/full_jpg/6a1d5fec-7063-4b66-afaa-928526025d65",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "46c358e8-1a05-419e-ae96-4a9bfbab6048"
   },
   {
     "id": "405",
@@ -4766,39 +4601,6 @@
     "_case_id": "poster-65"
   },
   {
-    "id": "465",
-    "title": "Realistic mechanical keyboard miniature construction",
-    "full_prompt": "A low-angle macro shot showing a full-size Realistic mechanical keyboard modeled after a Cherry G80-3000, with standard key layout and no visible logo. the keyboard is naturally aligned with a human hand resting above it: the wrist lightly touching the desk, fingers slightly curled, poised to type. a few random keycaps — especially the ones directly under the poised fingers — have already been removed, revealing intricate mechanical switches underneath. the scene shows tiny professional construction workers actively dismantling the keyboard: workers are prying off keycaps with small crowbars and tools. some are hauling removed keycaps away using forklifts, handcarts, and cranes. others are inspecting the exposed switches as if surveying demolished foundations. ropes, scaffolding, construction lights, and debris containers are scattered around the work zones. welding sparks and mechanical dust emphasize the feeling of an active demolition site. the mood is lively but slightly absurd, humorously suggesting that even lifting a finger to type now requires a full construction crew to first dismantle the terrain. the background is warm and neutral, enhancing the highly detailed miniature realism.",
-    "image": "https://image.lexica.art/full_jpg/3e8750d3-ddf6-493d-8cc0-a1e4123f2eb6",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "c1af57a8-7ea3-4e99-a815-b371ec3c26bc"
-  },
-  {
-    "id": "466",
-    "title": "2010s Kendrick Lamar style Nintendo album art",
-    "full_prompt": "2010s kendrick lamar tyler the creator style album art that goes hard but its for nintendo characters",
-    "image": "https://image.lexica.art/full_jpg/2e76c4a4-d48f-4bd2-b572-e588b43f70d8",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "b8fedb0e-19f4-4986-b018-0545f536bc52"
-  },
-  {
-    "id": "467",
-    "title": "Misato Katsuragi - Neon Genesis Evangelion",
-    "full_prompt": "Misato Katsuragi from Neon Genesis Evangelion. blow my mind.",
-    "image": "https://image.lexica.art/full_jpg/c1f38dfd-9020-4f4a-b1b8-0d2d052b684c",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "9f5232ee-17e2-413a-aa78-04261ef4bde7"
-  },
-  {
     "id": "468",
     "title": "GPT Image Prompt Series by @Diplomeme",
     "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2050597251966529663/0.jpg",
@@ -4847,72 +4649,6 @@
     "creator": "@AmirMushich",
     "tier": "free",
     "_source": "meigen.ai"
-  },
-  {
-    "id": "473",
-    "title": "A 90's classroom with the following characters sitting on desks: blocky Minecraft Steve Yoshi, Sonic, Donald Trump, and Harry Potter.",
-    "full_prompt": "A 90's classroom with the following characters sitting on desks: blocky Minecraft Steve Yoshi, Sonic, Donald Trump, and Harry Potter.",
-    "image": "https://image.lexica.art/full_jpg/a51ae566-166a-495b-92db-52380c6251c8",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "c3a9108e-016b-469e-be4c-8788abe95d73"
-  },
-  {
-    "id": "474",
-    "title": "Ring doorbell video of three Minions in trench coat attempting to pose as one adult human",
-    "full_prompt": "Ring doorbell video of three Minions in trench coat attempting to pose as one adult human",
-    "image": "https://image.lexica.art/full_jpg/52aa40de-0eea-4d34-b3b0-1f099fe32993",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "7f938755-85e7-4914-8c55-c8e7d7765f57"
-  },
-  {
-    "id": "475",
-    "title": "A jacked anime girl competing in a CrossFit competition",
-    "full_prompt": "A jacked anime girl competing in a CrossFit competition",
-    "image": "https://image.lexica.art/full_jpg/39af192e-3ef5-4ef1-9e4d-2fee959713d3",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "4aaa3150-fcb4-41a1-93f1-4a10c655ebb2"
-  },
-  {
-    "id": "476",
-    "title": "Grungy analog photo Late 90s/early 2000s style, of the 'Arctic Avenger' Terrorist ch...",
-    "image": "https://image.lexica.art/full_jpg/41df0c49-e1e9-490e-b2c9-9a0dd4567771",
-    "full_prompt": "Grungy analog photo Late 90s/early 2000s style, of the 'Arctic Avenger' Terrorist character model from Counter-Strike 1.6. He's sitting hunched in an old office chair behind a cluttered desk dominated by a bulky glowing crt monitor in a dimly lit messy room.",
-    "model": "Aperture",
-    "creator": "",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "f6b338a7-e5a3-4188-beb8-a00a5ab95497"
-  },
-  {
-    "id": "477",
-    "title": "Cinematic film still of an adult beautiful woman. Please ensure this is a mind blowing artwork.",
-    "image": "https://image.lexica.art/full_jpg/ccb1b914-a29a-40ec-a462-6c96aeb0c0a5",
-    "full_prompt": "Cinematic film still of an adult beautiful woman. Please ensure this is a mind blowing artwork.",
-    "model": "Aperture",
-    "creator": "",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "5a81ac2c-5d93-454d-a7b2-566ffacd579f"
-  },
-  {
-    "id": "478",
-    "title": "A portrait of a Minion (from Despicable Me & Minions) as Donald Trump",
-    "image": "https://image.lexica.art/full_jpg/fb5823b2-ff8f-4ab5-a35a-0585395fca9a",
-    "full_prompt": "A portrait of a Minion (from Despicable Me & Minions) as Donald Trump",
-    "model": "Aperture",
-    "creator": "",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "b9578678-c9db-4c5d-9d0d-afdfc79646ae"
   },
   {
     "id": "479",
@@ -4965,61 +4701,6 @@
     "_source": "meigen.ai"
   },
   {
-    "id": "484",
-    "title": "Bob Ross in his art studio in 1994",
-    "full_prompt": "Bob ross is in his art studio in 1994, but he appears like he did from his 1970s tv art show. he is using his gateway desktop computer with its 20\\\" crt monitor to utilize the ai tool lexica as he creates happy little trees. the \\\"happy little trees\\\" float figuratively from his fingertips through the air as they find their place onto the screen with a halfway completed/sketched lakeside landscape image. the crt clearly shows some sort of lexica interface. aside from the image on the screen of the crt, the quality of the image is a candid one taken by a minolta 35mm slr camera with a 50mm lens. there's a bit of unevenness to the lighting of the image, as the primary light source is the camera's flash and the secondary light source is a bulb hanging from the ceiling in the art studio. the studio is cluttered with art stuff like brushes, easels, canvasses. bob's brow is furrowed as he's figuring out lexica.",
-    "image": "https://image.lexica.art/full_jpg/bdbfa5a7-b18a-4788-9fe7-0962689e3e38",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "5e1977b7-06e6-4457-8d13-35c70e4dde69"
-  },
-  {
-    "id": "485",
-    "title": "Lego version of the POPE",
-    "full_prompt": "Give me a lego version of the pope on a white backgroun",
-    "image": "https://image.lexica.art/full_jpg/1de768d4-334b-4d63-91c6-a10e29f096b7",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "16aeaf0f-9542-42bd-888c-89f4d6db33fd"
-  },
-  {
-    "id": "486",
-    "title": "Pixelated futuristic human figure",
-    "full_prompt": "One pixelated futuristic human figure, inspired by michelangelo's , pixel art style, electronic glitch aesthetic, cybernetic texture, white glowing points forming the hands, digital pointillism, dark black background with subtle lcd glass panel texture and glossy reflections, faint holographic light leaks in cyan and violet, cinematic lens bloom, futuristic minimalism. cinematic studio lighting, ultra sharp, high contrast, cold atmosphere",
-    "image": "https://image.lexica.art/full_jpg/2561da5c-b4e4-48fe-898f-6fee873e6bb0",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "6f1f9e2b-2420-4c8e-837d-ffe9ec320950"
-  },
-  {
-    "id": "487",
-    "title": "Iron Man taking a selfie with Superman in the sky far above the clouds",
-    "full_prompt": "Iron Man taking a selfie with Superman in the sky far above the clouds",
-    "image": "https://image.lexica.art/full_jpg/7a61ccec-d669-46f2-82ad-278916840369",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "42ba27a6-c243-4268-b7b1-33fba8649360"
-  },
-  {
-    "id": "488",
-    "title": "Grungy photo of Luigi from mario broxshown during a tour of duty in Vietnam 1968",
-    "full_prompt": "Grungy photo of Luigi from mario broxshown during a tour of duty in Vietnam 1968",
-    "image": "https://image.lexica.art/full_jpg/6051093b-8ffe-45f4-91be-02ad432da8c9",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "d9a3b141-e38c-454b-b00d-45e30d1a0fdc"
-  },
-  {
     "id": "489",
     "title": "Y2K Japanese street-editorial collage poster",
     "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2052279857904550335/0.jpg",
@@ -5048,72 +4729,6 @@
     "creator": "@AmirMushich",
     "tier": "free",
     "_source": "meigen.ai"
-  },
-  {
-    "id": "492",
-    "title": "Footage of a panda driving a sports car erratically on a highway at night (live action style)",
-    "full_prompt": "Footage of a panda driving a sports car erratically on a highway at night (live action style)",
-    "image": "https://image.lexica.art/full_jpg/d7a20b00-8a57-46e0-ad1d-e6ce9f5fed9a",
-    "creator": "",
-    "model": "Aperture Max",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "911d44b3-e4c4-4e18-8952-f9bf89bbeb13"
-  },
-  {
-    "id": "493",
-    "title": "An extremely ordinary iPhone photo taken from a low angle",
-    "full_prompt": "An extremely ordinary iphone photo taken from a low angle, with no clear subject or composition, looking like a careless snapshot. the overall effect is very mediocre, as if it were an accidental photo. this is a 22-year-old chinese girl with striking black hair styled in a beautiful ponytail that moves slightly as she moves, tied with a bright blue ribbon. her fair skin is dotted with light freckles on her cheeks, adding to her fresh, youthful charm. her smile is gentle and sincere, lighting up her face with a quiet warmth. her eyes are round and expressive, sparkling with a hint of mischief and kindness. she wears a blue-and-white gingham checkered dress with short, puffy sleeves and a low square neckline, paired with a white apron that has a lace trim tied over it. she accessorizes with red-and-white striped arm warmers and matching thigh-high stockings, adding a playful, whimsical touch to her look. her overall presence is vibrant, yet naturally graceful, nostalgic yet lively. she sits on top of a red table at an outdoor seating area of a fast-food restaurant, with the wendy's sign visible beside the building. she leans slightly, knees bent, hugging her legs. she is barefoot, with pale blue-painted nails resting on the bench seat. a fast food bag sits next to her on the table.",
-    "image": "https://image.lexica.art/full_jpg/5a010a3d-93cb-4fd0-a011-2a8f65b9dc3a",
-    "creator": "",
-    "model": "Aperture Max",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "3c822263-790c-4bac-a099-046ed2c182cd"
-  },
-  {
-    "id": "494",
-    "title": "A realistic gray cat taking a selfie in front of Big Ben in London",
-    "full_prompt": "A realistic gray cat taking a selfie in front of big ben in london, raindrops on its fur, wearing a miniature raincoat",
-    "image": "https://image.lexica.art/full_jpg/193a933d-a40a-4efd-ad45-8aa44e02a960",
-    "creator": "",
-    "model": "Aperture Max",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "645541a6-752a-4747-ae0d-05fb7a960793"
-  },
-  {
-    "id": "495",
-    "title": "Misato Katsuragi from Neon Genesis Evangelion",
-    "full_prompt": "Misato Katsuragi from Neon Genesis Evangelion, Please ensure this is a mind blowing artwork.",
-    "image": "https://image.lexica.art/full_jpg/8aa85f97-42ed-4f92-b2cc-d008fafca863",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "a9731797-d8da-490b-9848-cbe73b26766d"
-  },
-  {
-    "id": "496",
-    "title": "Bauhaus swiss typography minimaist style poster about the super smash bros video game and nintendo characters",
-    "full_prompt": "Bauhaus swiss typography minimaist style poster about the super smash bros video game and nintendo characters",
-    "image": "https://image.lexica.art/full_jpg/8371918e-7ace-4f75-a04f-272ff9eff32b",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "b1d89ff5-bfd9-40d8-a21d-9353408f8a00"
-  },
-  {
-    "id": "497",
-    "title": "Cinematic scene, raining a sad little white kitten is falling from the super-high city bridge",
-    "full_prompt": "Cinematic scene, raining a sad little white kitten is falling from the super-high city bridge, screaming. Moody lighting, emotional atmosphere, capturing a kitten falling",
-    "image": "https://image.lexica.art/full_jpg/df3036b2-80ab-4404-aa09-1ba216560bc5",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "caeb1457-2d44-48ee-b675-d7d3714dc714"
   },
   {
     "id": "498",
@@ -5146,39 +4761,6 @@
     "_source": "meigen.ai"
   },
   {
-    "id": "501",
-    "title": "An old man sitting on the curb in tokyo",
-    "full_prompt": "An old man sitting on the curb in tokyo, illustration by miyazaki, perfect coloring, 8k",
-    "image": "https://image.lexica.art/full_jpg/89c1b7df-75d9-4908-8189-37fef5219f1d",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "aacb4ae7-b9da-4015-b62f-095865f07cf2"
-  },
-  {
-    "id": "502",
-    "title": "Lara Croft lego figure",
-    "full_prompt": "A professional production photo of a Lara Croft lego figure, white background and subtle reflection from the surface the figure is on",
-    "image": "https://image.lexica.art/full_jpg/a45bc3e5-a82a-4183-824a-26dd3c4faede",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "c8138c55-9703-446e-9557-c69cb787fd17"
-  },
-  {
-    "id": "503",
-    "title": "Personification of Coffee",
-    "full_prompt": "Canon EOS DSLR, 85mm f1.4, extremely handsome young white man in his early 20s, personification of coffee, soft wavy dark brown hair, deep espresso-colored eyes, flawless warm skin, holding a steaming ceramic coffee cup in one hand, wearing a relaxed linen shirt slightly unbuttoned, sitting by a cafe window bathed in golden morning sunlight, subtle steam rising around his face, gentle smile with a touch of mystery, cinematic lighting, romantic",
-    "image": "https://image.lexica.art/full_jpg/1b2880d6-99b1-4a18-b474-3b6346fa2c71",
-    "creator": "",
-    "model": "Aperture",
-    "tags": [],
-    "_source": "lexica.art",
-    "_lexica_id": "856e3c00-58a2-4954-ae47-fbce1c43a704"
-  },
-  {
     "id": "504",
     "title": "Stylized 3D Character Identity Preservation",
     "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2020837883549298730/0.jpg",
@@ -5200,6 +4782,424 @@
   },
   {
     "id": "506",
+    "title": "Ring camera footage of Kirby as food delivery driver who has clearly sampled every order in the bag Receipt shows 8 items but bag visibly contains only 3.",
+    "full_prompt": "Ring camera footage of Kirby as food delivery driver who has clearly sampled every order in the bag Receipt shows 8 items but bag visibly contains only 3.",
+    "image": "https://image.lexica.art/full_jpg/452c9684-3e85-4bce-bb13-fb2d9ba74440",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "85d22ea7-9840-4428-8de9-7be6c9249ac3"
+  },
+  {
+    "id": "507",
+    "title": "A low-angle Cinematic portrait of a porcelain-skinned young woman perched on...",
+    "full_prompt": "A low-angle Cinematic portrait of a porcelain-skinned young woman perched on...",
+    "image": "https://image.lexica.art/full_jpg/e82dea5d-34c0-440a-95bb-f79908b21e57",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "2f364179-4762-4691-b4f6-ebe1a0fdf6fb"
+  },
+  {
+    "id": "508",
+    "title": "A tiny astronaut hatching from an egg on the moon",
+    "full_prompt": "A tiny astronaut hatching from an egg on the moon",
+    "image": "https://image.lexica.art/full_jpg/f451e0ca-c1ce-43cd-b604-8d276585320a",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "60e77f26-f0ea-4307-9439-2e8ac634ee34"
+  },
+  {
+    "id": "509",
+    "title": "A cyborg eye",
+    "full_prompt": "A cyborg eye",
+    "image": "https://image.lexica.art/full_jpg/788f6ecc-8000-4823-8f95-88c26fa6e2ba",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "b4e11814-4929-4cf3-b935-a3ef67a15b23"
+  },
+  {
+    "id": "510",
+    "title": "Iron Man taking a selfie with Superman in the sky far above the clouds",
+    "full_prompt": "Iron Man taking a selfie with Superman in the sky far above the clouds",
+    "image": "https://image.lexica.art/full_jpg/7a61ccec-d669-46f2-82ad-278916840369",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "42ba27a6-c243-4268-b7b1-33fba8649360"
+  },
+  {
+    "id": "511",
+    "title": "Analog portrait photo of Rei Ayanami Detailed environment, inside the LAB. fucking cool ass photo.",
+    "full_prompt": "Analog portrait photo of Rei Ayanami Detailed environment, inside the LAB. fucking cool ass photo.",
+    "image": "https://image.lexica.art/full_jpg/85d0e02c-dba5-40cc-9981-820382192800",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "8dd410ba-5df3-4dac-85fe-07df279f813f"
+  },
+  {
+    "id": "512",
+    "title": "Venom Snake from Metal Gear Solid 5 receiving therapy from master chief",
+    "full_prompt": "Venom Snake from Metal Gear Solid 5 receiving therapy from master chief. realistic",
+    "image": "https://image.lexica.art/full_jpg/d83dc497-15b6-4407-8743-250394b4e852",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "530f7faa-151a-4061-967b-c52166deb0d8"
+  },
+  {
+    "id": "513",
+    "title": "Swinter: Spring and Winter",
+    "full_prompt": "Swinter. When it's spring and winter all at once, when things are in bloom but there is snow everywhere.",
+    "image": "https://image.lexica.art/full_jpg/7ed257d1-6c7e-41c6-bf5d-401de6d996c4",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "5470790d-98d6-42ef-8fad-fea86b861256"
+  },
+  {
+    "id": "514",
+    "title": "Mario and Luigi Mugshots",
+    "full_prompt": "Mario and luigi's mugshots",
+    "image": "https://image.lexica.art/full_jpg/71a91da1-86a4-4ec8-a0f0-53ab3931dae5",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "0bc0f0df-fd8a-4aa3-b9fe-78b5490b72c9"
+  },
+  {
+    "id": "515",
+    "title": "Elsa from Frozen in the sahara dessert camping in a tent",
+    "full_prompt": "Elsa from Frozen in the sahara dessert camping in a tent, golden hour, it's very hot. wide angle selfie, her hand is reaching towards the camera.",
+    "image": "https://image.lexica.art/full_jpg/eb271165-46d8-40f9-841b-83846ad578c8",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "596e8d9b-affd-4ff4-858b-ba51a57d3752"
+  },
+  {
+    "id": "516",
+    "title": "90s anime style portrait of donald trump as an evil anime villian",
+    "full_prompt": "90s anime style portrait of donald trump as an evil anime villian. he is the pilot of an EVA from evangelion",
+    "image": "https://image.lexica.art/full_jpg/1a5ee9d1-39d3-4217-9c8e-b838693c2021",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "e058be9a-9b46-4804-b779-92f00d7cf97f"
+  },
+  {
+    "id": "517",
+    "title": "Delorean from back to the future",
+    "full_prompt": "Delorean from back to the future, up on blocks in disrepair.",
+    "image": "https://image.lexica.art/full_jpg/c1af7df3-c937-46c3-b08d-e88634d4f7d7",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "11ca00c3-207a-4e9e-bb9a-19df74d94a28"
+  },
+  {
+    "id": "518",
+    "title": "Blurry concert footage of Kirby in the mosh pit at a punk show",
+    "full_prompt": "Blurry concert footage of Kirby in the mosh pit at a punk show, motion blur, Kirby is MOSHING",
+    "image": "https://image.lexica.art/full_jpg/8d0ef4c2-e6a3-48a1-959e-20644c3d32ee",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "aef83655-dd78-47e9-ad46-9f64bf331f46"
+  },
+  {
+    "id": "519",
+    "title": "Transparent cat with electronics",
+    "full_prompt": "Transparent cat, we can see the inside made of electronics, wildlife photography, shallow depth of field",
+    "image": "https://image.lexica.art/full_jpg/417a2023-1505-4409-b792-c5f380d7829c",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "d38649c4-8bf4-4fbf-8705-2d6b3ee128bc"
+  },
+  {
+    "id": "520",
+    "title": "Retro game style Millennial Falcon",
+    "full_prompt": "Retro game style of the millennial falcon fleeing from X-wings in outer space",
+    "image": "https://image.lexica.art/full_jpg/6a1d5fec-7063-4b66-afaa-928526025d65",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "46c358e8-1a05-419e-ae96-4a9bfbab6048"
+  },
+  {
+    "id": "521",
+    "title": "Realistic mechanical keyboard miniature construction",
+    "full_prompt": "A low-angle macro shot showing a full-size Realistic mechanical keyboard modeled after a Cherry G80-3000, with standard key layout and no visible logo. the keyboard is naturally aligned with a human hand resting above it: the wrist lightly touching the desk, fingers slightly curled, poised to type. a few random keycaps — especially the ones directly under the poised fingers — have already been removed, revealing intricate mechanical switches underneath. the scene shows tiny professional construction workers actively dismantling the keyboard: workers are prying off keycaps with small crowbars and tools. some are hauling removed keycaps away using forklifts, handcarts, and cranes. others are inspecting the exposed switches as if surveying demolished foundations. ropes, scaffolding, construction lights, and debris containers are scattered around the work zones. welding sparks and mechanical dust emphasize the feeling of an active demolition site. the mood is lively but slightly absurd, humorously suggesting that even lifting a finger to type now requires a full construction crew to first dismantle the terrain. the background is warm and neutral, enhancing the highly detailed miniature realism.",
+    "image": "https://image.lexica.art/full_jpg/3e8750d3-ddf6-493d-8cc0-a1e4123f2eb6",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "c1af57a8-7ea3-4e99-a815-b371ec3c26bc"
+  },
+  {
+    "id": "522",
+    "title": "2010s Kendrick Lamar style Nintendo album art",
+    "full_prompt": "2010s kendrick lamar tyler the creator style album art that goes hard but its for nintendo characters",
+    "image": "https://image.lexica.art/full_jpg/2e76c4a4-d48f-4bd2-b572-e588b43f70d8",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "b8fedb0e-19f4-4986-b018-0545f536bc52"
+  },
+  {
+    "id": "523",
+    "title": "Misato Katsuragi - Neon Genesis Evangelion",
+    "full_prompt": "Misato Katsuragi from Neon Genesis Evangelion. blow my mind.",
+    "image": "https://image.lexica.art/full_jpg/c1f38dfd-9020-4f4a-b1b8-0d2d052b684c",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "9f5232ee-17e2-413a-aa78-04261ef4bde7"
+  },
+  {
+    "id": "524",
+    "title": "A 90's classroom with the following characters sitting on desks: blocky Minecraft Steve Yoshi, Sonic, Donald Trump, and Harry Potter.",
+    "full_prompt": "A 90's classroom with the following characters sitting on desks: blocky Minecraft Steve Yoshi, Sonic, Donald Trump, and Harry Potter.",
+    "image": "https://image.lexica.art/full_jpg/a51ae566-166a-495b-92db-52380c6251c8",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "c3a9108e-016b-469e-be4c-8788abe95d73"
+  },
+  {
+    "id": "525",
+    "title": "Ring doorbell video of three Minions in trench coat attempting to pose as one adult human",
+    "full_prompt": "Ring doorbell video of three Minions in trench coat attempting to pose as one adult human",
+    "image": "https://image.lexica.art/full_jpg/52aa40de-0eea-4d34-b3b0-1f099fe32993",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "7f938755-85e7-4914-8c55-c8e7d7765f57"
+  },
+  {
+    "id": "526",
+    "title": "A jacked anime girl competing in a CrossFit competition",
+    "full_prompt": "A jacked anime girl competing in a CrossFit competition",
+    "image": "https://image.lexica.art/full_jpg/39af192e-3ef5-4ef1-9e4d-2fee959713d3",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "4aaa3150-fcb4-41a1-93f1-4a10c655ebb2"
+  },
+  {
+    "id": "527",
+    "title": "Grungy analog photo Late 90s/early 2000s style, of the 'Arctic Avenger' Terrorist ch...",
+    "image": "https://image.lexica.art/full_jpg/41df0c49-e1e9-490e-b2c9-9a0dd4567771",
+    "full_prompt": "Grungy analog photo Late 90s/early 2000s style, of the 'Arctic Avenger' Terrorist character model from Counter-Strike 1.6. He's sitting hunched in an old office chair behind a cluttered desk dominated by a bulky glowing crt monitor in a dimly lit messy room.",
+    "model": "Aperture",
+    "creator": "",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "f6b338a7-e5a3-4188-beb8-a00a5ab95497"
+  },
+  {
+    "id": "528",
+    "title": "Cinematic film still of an adult beautiful woman. Please ensure this is a mind blowing artwork.",
+    "image": "https://image.lexica.art/full_jpg/ccb1b914-a29a-40ec-a462-6c96aeb0c0a5",
+    "full_prompt": "Cinematic film still of an adult beautiful woman. Please ensure this is a mind blowing artwork.",
+    "model": "Aperture",
+    "creator": "",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "5a81ac2c-5d93-454d-a7b2-566ffacd579f"
+  },
+  {
+    "id": "529",
+    "title": "A portrait of a Minion (from Despicable Me & Minions) as Donald Trump",
+    "image": "https://image.lexica.art/full_jpg/fb5823b2-ff8f-4ab5-a35a-0585395fca9a",
+    "full_prompt": "A portrait of a Minion (from Despicable Me & Minions) as Donald Trump",
+    "model": "Aperture",
+    "creator": "",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "b9578678-c9db-4c5d-9d0d-afdfc79646ae"
+  },
+  {
+    "id": "530",
+    "title": "Bob Ross in his art studio in 1994",
+    "full_prompt": "Bob ross is in his art studio in 1994, but he appears like he did from his 1970s tv art show. he is using his gateway desktop computer with its 20\\\" crt monitor to utilize the ai tool lexica as he creates happy little trees. the \\\"happy little trees\\\" float figuratively from his fingertips through the air as they find their place onto the screen with a halfway completed/sketched lakeside landscape image. the crt clearly shows some sort of lexica interface. aside from the image on the screen of the crt, the quality of the image is a candid one taken by a minolta 35mm slr camera with a 50mm lens. there's a bit of unevenness to the lighting of the image, as the primary light source is the camera's flash and the secondary light source is a bulb hanging from the ceiling in the art studio. the studio is cluttered with art stuff like brushes, easels, canvasses. bob's brow is furrowed as he's figuring out lexica.",
+    "image": "https://image.lexica.art/full_jpg/bdbfa5a7-b18a-4788-9fe7-0962689e3e38",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "5e1977b7-06e6-4457-8d13-35c70e4dde69"
+  },
+  {
+    "id": "531",
+    "title": "Lego version of the POPE",
+    "full_prompt": "Give me a lego version of the pope on a white backgroun",
+    "image": "https://image.lexica.art/full_jpg/1de768d4-334b-4d63-91c6-a10e29f096b7",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "16aeaf0f-9542-42bd-888c-89f4d6db33fd"
+  },
+  {
+    "id": "532",
+    "title": "Pixelated futuristic human figure",
+    "full_prompt": "One pixelated futuristic human figure, inspired by michelangelo's , pixel art style, electronic glitch aesthetic, cybernetic texture, white glowing points forming the hands, digital pointillism, dark black background with subtle lcd glass panel texture and glossy reflections, faint holographic light leaks in cyan and violet, cinematic lens bloom, futuristic minimalism. cinematic studio lighting, ultra sharp, high contrast, cold atmosphere",
+    "image": "https://image.lexica.art/full_jpg/2561da5c-b4e4-48fe-898f-6fee873e6bb0",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "6f1f9e2b-2420-4c8e-837d-ffe9ec320950"
+  },
+  {
+    "id": "533",
+    "title": "Iron Man taking a selfie with Superman in the sky far above the clouds",
+    "full_prompt": "Iron Man taking a selfie with Superman in the sky far above the clouds",
+    "image": "https://image.lexica.art/full_jpg/7a61ccec-d669-46f2-82ad-278916840369",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "42ba27a6-c243-4268-b7b1-33fba8649360"
+  },
+  {
+    "id": "534",
+    "title": "Grungy photo of Luigi from mario broxshown during a tour of duty in Vietnam 1968",
+    "full_prompt": "Grungy photo of Luigi from mario broxshown during a tour of duty in Vietnam 1968",
+    "image": "https://image.lexica.art/full_jpg/6051093b-8ffe-45f4-91be-02ad432da8c9",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "d9a3b141-e38c-454b-b00d-45e30d1a0fdc"
+  },
+  {
+    "id": "535",
+    "title": "Footage of a panda driving a sports car erratically on a highway at night (live action style)",
+    "full_prompt": "Footage of a panda driving a sports car erratically on a highway at night (live action style)",
+    "image": "https://image.lexica.art/full_jpg/d7a20b00-8a57-46e0-ad1d-e6ce9f5fed9a",
+    "creator": "",
+    "model": "Aperture Max",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "911d44b3-e4c4-4e18-8952-f9bf89bbeb13"
+  },
+  {
+    "id": "536",
+    "title": "An extremely ordinary iPhone photo taken from a low angle",
+    "full_prompt": "An extremely ordinary iphone photo taken from a low angle, with no clear subject or composition, looking like a careless snapshot. the overall effect is very mediocre, as if it were an accidental photo. this is a 22-year-old chinese girl with striking black hair styled in a beautiful ponytail that moves slightly as she moves, tied with a bright blue ribbon. her fair skin is dotted with light freckles on her cheeks, adding to her fresh, youthful charm. her smile is gentle and sincere, lighting up her face with a quiet warmth. her eyes are round and expressive, sparkling with a hint of mischief and kindness. she wears a blue-and-white gingham checkered dress with short, puffy sleeves and a low square neckline, paired with a white apron that has a lace trim tied over it. she accessorizes with red-and-white striped arm warmers and matching thigh-high stockings, adding a playful, whimsical touch to her look. her overall presence is vibrant, yet naturally graceful, nostalgic yet lively. she sits on top of a red table at an outdoor seating area of a fast-food restaurant, with the wendy's sign visible beside the building. she leans slightly, knees bent, hugging her legs. she is barefoot, with pale blue-painted nails resting on the bench seat. a fast food bag sits next to her on the table.",
+    "image": "https://image.lexica.art/full_jpg/5a010a3d-93cb-4fd0-a011-2a8f65b9dc3a",
+    "creator": "",
+    "model": "Aperture Max",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "3c822263-790c-4bac-a099-046ed2c182cd"
+  },
+  {
+    "id": "537",
+    "title": "A realistic gray cat taking a selfie in front of Big Ben in London",
+    "full_prompt": "A realistic gray cat taking a selfie in front of big ben in london, raindrops on its fur, wearing a miniature raincoat",
+    "image": "https://image.lexica.art/full_jpg/193a933d-a40a-4efd-ad45-8aa44e02a960",
+    "creator": "",
+    "model": "Aperture Max",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "645541a6-752a-4747-ae0d-05fb7a960793"
+  },
+  {
+    "id": "538",
+    "title": "Misato Katsuragi from Neon Genesis Evangelion",
+    "full_prompt": "Misato Katsuragi from Neon Genesis Evangelion, Please ensure this is a mind blowing artwork.",
+    "image": "https://image.lexica.art/full_jpg/8aa85f97-42ed-4f92-b2cc-d008fafca863",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "a9731797-d8da-490b-9848-cbe73b26766d"
+  },
+  {
+    "id": "539",
+    "title": "Bauhaus swiss typography minimaist style poster about the super smash bros video game and nintendo characters",
+    "full_prompt": "Bauhaus swiss typography minimaist style poster about the super smash bros video game and nintendo characters",
+    "image": "https://image.lexica.art/full_jpg/8371918e-7ace-4f75-a04f-272ff9eff32b",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "b1d89ff5-bfd9-40d8-a21d-9353408f8a00"
+  },
+  {
+    "id": "540",
+    "title": "Cinematic scene, raining a sad little white kitten is falling from the super-high city bridge",
+    "full_prompt": "Cinematic scene, raining a sad little white kitten is falling from the super-high city bridge, screaming. Moody lighting, emotional atmosphere, capturing a kitten falling",
+    "image": "https://image.lexica.art/full_jpg/df3036b2-80ab-4404-aa09-1ba216560bc5",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "caeb1457-2d44-48ee-b675-d7d3714dc714"
+  },
+  {
+    "id": "541",
+    "title": "An old man sitting on the curb in tokyo",
+    "full_prompt": "An old man sitting on the curb in tokyo, illustration by miyazaki, perfect coloring, 8k",
+    "image": "https://image.lexica.art/full_jpg/89c1b7df-75d9-4908-8189-37fef5219f1d",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "aacb4ae7-b9da-4015-b62f-095865f07cf2"
+  },
+  {
+    "id": "542",
+    "title": "Lara Croft lego figure",
+    "full_prompt": "A professional production photo of a Lara Croft lego figure, white background and subtle reflection from the surface the figure is on",
+    "image": "https://image.lexica.art/full_jpg/a45bc3e5-a82a-4183-824a-26dd3c4faede",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "c8138c55-9703-446e-9557-c69cb787fd17"
+  },
+  {
+    "id": "543",
+    "title": "Personification of Coffee",
+    "full_prompt": "Canon EOS DSLR, 85mm f1.4, extremely handsome young white man in his early 20s, personification of coffee, soft wavy dark brown hair, deep espresso-colored eyes, flawless warm skin, holding a steaming ceramic coffee cup in one hand, wearing a relaxed linen shirt slightly unbuttoned, sitting by a cafe window bathed in golden morning sunlight, subtle steam rising around his face, gentle smile with a touch of mystery, cinematic lighting, romantic",
+    "image": "https://image.lexica.art/full_jpg/1b2880d6-99b1-4a18-b474-3b6346fa2c71",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "856e3c00-58a2-4954-ae47-fbce1c43a704"
+  },
+  {
+    "id": "544",
     "title": "Realistic portrait of Yor Forger from Spy Family as a high-fashion model on the cover of VOGUE magazine",
     "full_prompt": "Realistic portrait of Yor Forger from Spy Family as a high-fashion model on the cover of VOGUE magazine. Elegant black assassin outfit that she wears, confident and mysterious expression, sleek hairstyle, cinematic lighting. vogue logo at the top, fashion magazine layout, minimalist background, professional photography style",
     "image": "https://image.lexica.art/full_jpg/28cce130-764c-44a8-9768-02c93f019cda",
@@ -5210,7 +5210,7 @@
     "_lexica_id": "b229d3fa-bf5c-4081-918d-06c8024f43ae"
   },
   {
-    "id": "507",
+    "id": "545",
     "title": "Anthropomorphized Tabby Cat in Dutch Street Market",
     "full_prompt": "A photorealistic, ultra detailed, humorous scene on a bustling dutch street market. A tabby cat anthropomorphized, running on two legs while tightly hugging a large shiny silver fish. the cat has a determined dramatic facial expression with wide eyes and an open mouth as if mid-shout. behind the cat a shocked fish vendor in an apron is chasing after it yelling. fresh fishes are laid out on a market stall to the right displayed on ice. the background features open stalls market signs and a few bystanders reacting in surprise. dynamic lighting rich details cinematic composition freeze-frame action shot expressive motion blur aspect ratio 916",
     "image": "https://image.lexica.art/full_jpg/75525dfb-99c2-4194-8ff1-e22f7217e68a",
@@ -5221,7 +5221,7 @@
     "_lexica_id": "639ad200-ec09-42d4-9979-32cadf1424d0"
   },
   {
-    "id": "508",
+    "id": "546",
     "title": "Cats Taking a Selfie",
     "full_prompt": "A lot of cats take a selfie, photography very realist",
     "image": "https://image.lexica.art/full_jpg/c66b0326-eb75-4a21-8bbb-c27b634dc81a",
@@ -5230,5 +5230,38 @@
     "tags": [],
     "_source": "lexica.art",
     "_lexica_id": "326dcf19-e48e-4e9a-9077-2d0bce83d4ac"
+  },
+  {
+    "id": "547",
+    "title": "Awkward family holiday photo with Mario",
+    "full_prompt": "Awkward family holiday photo with Mario clearly uncomfortable in formal wear, Bowser included as \"mom's new boyfriend,\" Princess Peach forcing everyone to smile",
+    "image": "https://image.lexica.art/full_jpg/9f1bd0c6-1ef0-4c0b-861c-eace06aff823",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "072acec5-be2c-4942-b52f-bd3044373ed1"
+  },
+  {
+    "id": "548",
+    "title": "Superman flying alongside a plane",
+    "full_prompt": "Superman flying alongside a plane, this is a selfie, his arm reaching towards the camera, you can see the pilot inside the plane.",
+    "image": "https://image.lexica.art/full_jpg/5a89ef3f-e8cd-4bc3-a75f-d4f3ff6ee222",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "64689ea5-f255-4576-8cc6-6fc9f11f65af"
+  },
+  {
+    "id": "549",
+    "title": "Breathtakingly beautiful scene from a first-person perspective",
+    "full_prompt": "Breathtakingly beautiful scene from a first-person perspective the girl rides a bicycle with her hands so tightly gripped on the handlebars that only the handlebars can be seen, and the basket is filled with glowing moonflowers, silver edelweiss and deep blue gentian, colourful against the night sky. the bikes travelled along a winding gravel road beside a crystal-clear alpine lake, its still waters reflecting the constellations and crescent moons twinkling in the starry sky. black pine forests loomed on either side, mountain peaks were jagged and hazy, and snowflakes gently drifted down from the tops of the mountains. under the soft starlight, the air shimmers with a cool glow. the mysterious and serene atmosphere hinted at a different flavour. 80s anime illustration. focus on conveyinh immense speed",
+    "image": "https://image.lexica.art/full_jpg/c693c950-f570-4eb6-b927-0a998aed045f",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "a6561049-8fb9-4262-bc01-84a44ae34291"
   }
 ]
