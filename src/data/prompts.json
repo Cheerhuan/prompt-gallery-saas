@@ -5313,5 +5313,58 @@
     "creator": "@xiaoxiaodong01",
     "tier": "free",
     "_source": "meigen.ai"
+  },
+  {
+    "id": "555",
+    "title": "A cat taking a selfie with the chicago bean",
+    "full_prompt": "A cat taking a selfie with the chicago bean",
+    "image": "https://image.lexica.art/full_jpg/1f708d27-d478-4178-9115-23f3d38b9d0b",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "f64143c3-9acb-4000-bb58-e36da11cf4ec"
+  },
+  {
+    "id": "556",
+    "title": "Design an astronaut in Katsuhiro Otomo style flying in dark space.",
+    "full_prompt": "Design an astronaut in Katsuhiro Otomo style flying in dark space.",
+    "image": "https://image.lexica.art/full_jpg/8012fc24-3206-4895-aac5-e4f56725aed1",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "05ffa3ce-d4c8-4763-8a0c-6a761a5e4620"
+  },
+  {
+    "id": "557",
+    "title": "A video of a nuclear mushroom cloud while influencers film themselves for social media and pose in front of it, selfie POV",
+    "full_prompt": "A video of a nuclear mushroom cloud while influencers film themselves for social media and pose in front of it, selfie POV",
+    "image": "https://image.lexica.art/full_jpg/dbbcf17d-3057-4c30-b375-a1bc450aba91",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "396a81d6-75d4-4b31-8870-86e1a50f6a56"
+  },
+  {
+    "id": "558",
+    "title": "Ultra-realistic Monochrome Editorial Portrait",
+    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2075786938326639006/0.jpg",
+    "full_prompt": "Create an ultra-realistic black-and-white editorial portrait of the uploaded person. Preserve the exact face, hairstyle, facial proportions, skin tone, expression, and identity with 100% consistency. The subject wears a premium national football jersey (minimal branding), posed in a thoughtful, contemplative stance with one hand resting against the chin and the wrist slightly raised to showcase a minimalist luxury black leather watch with a clean analog dial. Eyes looking downward, calm and focused expression. Shot in a professional photography studio against a seamless charcoal-gray background. Dramatic Rembrandt lighting with soft directional light from camera left, deep cinematic shadows, high contrast, subtle rim light defining the jawline and shoulders, beautiful skin texture, razor-sharp focus. Fashion editorial aesthetic, luxury sports campaign, monochrome fine-art photography, medium close-up portrait, 85mm lens, f/1.8, shallow depth of field, natural film grain, HDR, ultra-detailed, photorealistic, premium watch advertisement quality, Vogue x GQ x Nike campaign style, 8K resolution, masterpiece.",
+    "model": "GPT Image",
+    "creator": "@Taaruk_",
+    "tier": "free",
+    "_source": "meigen.ai"
+  },
+  {
+    "id": "559",
+    "title": "Cinematic Portrait of East Asian Woman in Hanbok",
+    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2019094555501686847/0.jpg",
+    "full_prompt": "Ultra-realistic cinematic portrait of a young East Asian woman standing alone in a vast wildflower meadow. She is centered in the frame, facing the camera directly with a calm, introspective expression. She wears a traditional Korean hanbok in muted charcoal gray and soft blue tones, with natural fabric texture and subtle folds. Her dark hair is loosely tied back with a few strands gently blown across her face by the wind. She holds a small hand-picked bouquet of wildflowers—white daisies, blue cornflowers, and dry grass stems—clasped softly in both hands at waist level. The meadow is filled with colorful wildflowers (reds, whites, blues, purples) stretching into the distance. In the background, a large mist-covered mountain rises softly out of focus, partially obscured by low clouds and fog, creating a moody, atmospheric depth. Overcast sky with soft diffused natural light, cool color palette, muted contrast, cinematic realism. Shallow depth of field, sharp focus on subject, creamy background bokeh. Natural skin texture, realistic facial details, no makeup look. Fine art photography style, emotional, poetic, timeless. Shot on a full-frame camera, 85mm lens, f/1.8, ultra-high resolution, photorealistic, no text, no watermark.",
+    "model": "Nanobanana Pro",
+    "creator": "@oggii_0",
+    "tier": "free",
+    "_source": "meigen.ai"
   }
 ]

@@ -1,52 +1,35 @@
 [
   {
-    "id": "479",
-    "title": "Modern Comic Book World Cup 2026 Poster",
-    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2066083810035257521/0.jpg",
-    "full_prompt": "Create a high-impact portrait poster in a modern Comic Book World Cup 2026 Style, designed with a contemporary sports-comic aesthetic that feels energetic, premium, and visually engaging... The primary visual focus must be the [Country Name] National Team identity, incorporating visual elements inspired by the nation's football culture, colors, symbols, and competitive spirit. Visual Style: Combines international football excitement with bold comic-book language. Comic Elements: Halftone dot textures, dynamic typography, motion lines, speed effects, action streaks, and layered graphic shapes. Subject Details: Must wear an authentic [Country Name] jersey with realistic fabric simulation and stitching. Pose: Must be dynamic, expressive, and athletic. Expression: Confident, charismatic, and determined. Typography: Large-scale, premium display fonts featuring the country name, player name, or slogans, integrated into the composition. Technical Quality: 8K resolution, ultra-realistic rendering, professional sports marketing aesthetics, and high visual depth.",
-    "model": "GPT Image 1",
-    "creator": "@Zyrellix",
-    "tier": "free",
-    "_source": "meigen.ai"
+    "id": "1",
+    "title": "A cat taking a selfie with the chicago bean",
+    "full_prompt": "A cat taking a selfie with the chicago bean",
+    "image": "https://image.lexica.art/full_jpg/1f708d27-d478-4178-9115-23f3d38b9d0b",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "f64143c3-9acb-4000-bb58-e36da11cf4ec"
   },
   {
-    "id": "480",
-    "title": "Luxury SMM Promotional Poster - ZARA New Uniform",
-    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2063456679401058367/0.jpg",
-    "full_prompt": "Create a branded technical infographic of a [SNACK], combining a realistic photograph or photoreal render of the product with technical annotation. Concept: A fashion statement disguised as a promotional poster. It sells an identity ('the uniform of modern taste') rather than just clothes. Format: Vertical 4:5, Instagram Hero Creative, 8K UHD, Hyper-Realistic. Visual Hierarchy: ZARA (70%) -> Model (20%) -> Promotion (10%) -> CTA. Color Palette: Ivory, Cream, Off-White, Soft Beige, Black; Accent: Muted Gold. Camera/Gear: ARRI Alexa Mini LF, 85mm Lens, shallow depth of field. Typography: Massive 'ZARA' text occupying 75% of the canvas; letters are cropped or hidden behind the model to create a monumental feel. Subject: Female model with an editorial face, strong jawline, minimal makeup, wearing an oversized ivory blazer and wide-leg tailored trousers.",
-    "model": "GPT Image 1",
-    "creator": "@Diplomeme",
-    "tier": "free",
-    "_source": "meigen.ai"
+    "id": "",
+    "title": "Design an astronaut in Katsuhiro Otomo style flying in dark space.",
+    "full_prompt": "Design an astronaut in Katsuhiro Otomo style flying in dark space.",
+    "image": "https://image.lexica.art/full_jpg/8012fc24-3206-4895-aac5-e4f56725aed1",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "05ffa3ce-d4c8-4763-8a0c-6a761a5e4620"
   },
   {
-    "id": "481",
-    "title": "Photorealistic Character Fashion Cover - Belly Dance",
-    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2064569665402417501/0.jpg",
-    "full_prompt": "High-end belly dance themed fashion magazine cover / promotional poster in a photorealistic photography style. Perspective: Ultra-low camera angle, ground-level wide-angle fashion photography... 24mm–28mm wide-angle close-up. Subject Scale: The character must occupy approximately 78%–88% of the height and 60%–75% of the width of the frame. Styling: Reconstruct original character settings into high-end belly dance performance wear, blending gauze, jewelry, waist chains, armlets, and translucent layered fabrics. Lighting: Warm gold main light + cold ambient light + slight rim light. Magazine Layout Elements: Main Title: 'Belly Dance Life' (Large, top area). Details: Volume/Season (e.g., Vol.45 / 2024 Summer), side copy/text, and a circular special feature tag.",
-    "model": "GPT Image 1",
-    "creator": "@drmrzhong",
-    "tier": "free",
-    "_source": "meigen.ai"
-  },
-  {
-    "id": "482",
-    "title": "Commercial Catering Poster - Explosive Suspension",
-    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2065096379824005129/0.jpg",
-    "full_prompt": "Generate a high-end commercial catering poster... 9:16 vertical composition, main food centered and enlarged... Ingredients should be deployed in an 'explosive suspension' manner, naturally separating along the layers of the dish to create spatial depth, dynamic movement, and appetite appeal. Text needs to look like a real catering brand poster layout... not a manual-style layout. Fonts should match the style: bold/impactful for burgers, Japanese calligraphy for ramen, warm/soft for milk tea, and refined/minimalist for sushi. Food Texture: Focus on 'real and tempting' textures. Includes dynamic elements like splashing sauces, stretching cheese, steam, swirling soup, ice cubes, water droplets, or floating spices.",
-    "model": "GPT Image 1",
-    "creator": "@MrLarus",
-    "tier": "free",
-    "_source": "meigen.ai"
-  },
-  {
-    "id": "483",
-    "title": "IMAX Cinematic Romantic Portrait",
-    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2064898089522282885/0.jpg",
-    "full_prompt": "Ultra-realistic IMAX-level Netflix-style cinematic romantic portrait of a young couple sharing a heartfelt moment from two vintage windows of a beautiful matte grey brick heritage building, the handsome young man leaning casually from the left window wearing a premium white linen shirt with delicate floral embroidery, sleeves casually rolled up, tailored beige trousers, styled dark textured hair swept backward, facial expression: warm affectionate smile with a gentle romantic gaze fixed on the woman, the beautiful young woman sitting gracefully on the opposite window ledge wearing an elegant flowing white embroidered chiffon Anarkali dress with intricate floral lace detailing and sheer full sleeves, long silky jet-black hair cascading naturally over her shoulders, facial expression: soft genuine smile filled with warmth and admiration, eyes locked lovingly with the man, luxurious cascading floral garlands and hanging flower vines connecting both windows, delicate white roses, jasmine strings, baby's breath flowers, floating flower petals drifting through the air, soft breeze creating natural movement in hair and fabric, warm golden sunlit rays filtering through the flowers, creating magical highlights and cinematic depth, ultra-rich cinematic color grading, premium Hollywood color science, deep luxurious shadows, rich neutral grey tones, vibrant floral colors, golden highlights, HDR-quality dynamic range, intense color depth, enhanced contrast, realistic skin texture, volumetric lighting, creamy bokeh, atmospheric depth, luxury editorial photography, emotional storytelling, masterpiece composition, ultra-sharp focus, highly detailed fabric textures, realistic embroidery details, 85mm lens, f/1.8, award-winning romantic photography, cinematic poster quality, 9:16 vertical composition.",
-    "model": "GPT Image 1",
-    "creator": "@imGopalTiwari",
-    "tier": "free",
-    "_source": "meigen.ai"
+    "id": "",
+    "title": "A video of a nuclear mushroom cloud while influencers film themselves for social media and pose in front of it, selfie POV",
+    "full_prompt": "A video of a nuclear mushroom cloud while influencers film themselves for social media and pose in front of it, selfie POV",
+    "image": "https://image.lexica.art/full_jpg/dbbcf17d-3057-4c30-b375-a1bc450aba91",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "396a81d6-75d4-4b31-8870-86e1a50f6a56"
   }
 ]
