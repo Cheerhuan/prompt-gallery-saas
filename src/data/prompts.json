@@ -5366,5 +5366,35 @@
     "creator": "@oggii_0",
     "tier": "free",
     "_source": "meigen.ai"
+  },
+  {
+    "id": "560",
+    "title": "Y2K Japanese Street-Editorial Collage Poster",
+    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2052279857904550335/0.jpg",
+    "full_prompt": "Create a bold Y2K Japanese street-editorial collage poster with a clean high-fashion magazine aesthetic, gritty paper textures, torn magazine cutouts, distressed ink splashes, and urban Tokyo-inspired design.\\n\\n**Main composition:** one large cinematic close-up portrait at the top with intense eye focus, natural skin texture, glossy lips, messy tied-up hair, no glasses, soft dramatic lighting, confident innocent expression, ultra-realistic fashion photography style.\\n\\n**Bottom composition:** only 2 smaller portrait collage frames showing different facial expressions and angles, styled like ripped polaroids taped onto the poster.\\n\\n**Design elements:** oversized bold Japanese typography, minimal English text, subtle Japanese street signs, barcode stickers, newspaper scraps, vintage grunge textures, paint strokes, film grain, tape pieces, layered paper collage effects, and premium editorial magazine layout aesthetics.\\n\\n**Style:** edgy yet clean, modern Japanese fashion zine, cinematic shadows, sharp eye detail, RAW DSLR realism, editorial streetwear moodboard, premium graphic design, ultra detailed, 8K, balanced neutral tones, no pink aesthetic, no bubbles, no cartoon vibe.",
+    "model": "GPT Image",
+    "creator": "@miratechtool",
+    "tier": "free",
+    "_source": "meigen.ai"
+  },
+  {
+    "id": "561",
+    "title": "Graphic Designed Shoe Advertisement Poster",
+    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2054219105956495361/0.jpg",
+    "full_prompt": "Generate a perfectly graphic designed poster of Shoe advertisement, The character should be in the Air with a pose that shows the Big joggers with green strips same as the shirt color. The outfit should be modern baggie cool outfit and a Big text in beautiful font perfectly merged in the background and the some other texts about the shoes and the company.",
+    "model": "GPT Image",
+    "creator": "@Ozayrr_irl",
+    "tier": "free",
+    "_source": "meigen.ai"
+  },
+  {
+    "id": "562",
+    "title": "Hyper-realistic Materialized Brand Logos (Bas-relief)",
+    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2045580765136920938/0.jpg",
+    "full_prompt": "Your reference aesthetic: a logo mark that appears to have been pushed outward from behind a metallic or matte surface — like a relief stamp pressed from the reverse side of a metal sheet, a hallmark embossed on luxury packaging, or a raised seal on official documents. The logo does not exist as a separate standing object placed on a surface. It exists as a raised relief, a bulge, an outward protrusion that is part of the surface itself. The prompt uses a variable-based system: [BRAND NAME] + [METAL COLOR]. It instructs the AI to act as a Senior CGI Artist and Brand Identity Director. The image must be one continuous material filling the canvas with a subtle radial gradient and ISO 800 equivalent fine grain. The entire filled silhouette rises as one solid mass (like a coin), with a slightly convex/domed top face and smooth beveled walls. Soft area light from the upper-left (10 to 11 o'clock) with a subtle lower-right fill light.",
+    "model": "Nanobanana Pro",
+    "creator": "@AmirMushich",
+    "tier": "free",
+    "_source": "meigen.ai"
   }
 ]
