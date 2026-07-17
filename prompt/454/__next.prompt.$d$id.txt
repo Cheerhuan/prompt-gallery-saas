@@ -1,3 +1,24 @@
 1:"$Sreact.fragment"
-2:I[36221,["/prompt-gallery-saas/_next/static/chunks/093mxzthpq~g5.js","/prompt-gallery-saas/_next/static/chunks/10b3jg_oj-_h7.js","/prompt-gallery-saas/_next/static/chunks/0oytq0.jjo6.a.js","/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","/prompt-gallery-saas/_next/static/chunks/096f4n~_4au0-.js"],"default"]
-0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/096f4n~_4au0-.js","async":true}]],["$","$L2",null,{"prompt":{"id":"454","title":"Park Bench Iced Coffee Portrait [人像攝影]","image":"../images/portrait_case306/output.jpg","full_prompt":"Beautiful young Japanese girl with long straight dark brown hair and soft full bangs, fair skin, bright natural smile, sitting casually on a wooden park bench while holding an iced coffee cup. Wearing a light beige windbreaker jacket and a white pleated mini skirt, relaxed posture, one hand resting on the bench. Surrounded by a lush green park with tall trees, fresh grass, and a bright blue sky with soft clouds. Captured with a smartphone camera in portrait mode, casual everyday snapshot, natural daylight, handheld iPhone photo, slightly imperfect framing, realistic skin texture, natural colors, soft HDR phone processing, candid social-media aesthetic, no professional modeling, no studio lighting, no cinematic color grading, authentic mobile photography, ordinary park outing vibe, spontaneous moment, realistic shadows, subtle lens softness, photorealistic, high-quality phone camera image.","model":"GPT-Image-2","_version":"2026-05-09-imported","_source":"awesome-gpt-image-2","_case_id":"portrait-306"},"params":{"id":"454"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"bxU8sW-f2WEyhBX9LV_5-"}
+2:I[36221,["/prompt-gallery-saas/_next/static/chunks/093mxzthpq~g5.js","/prompt-gallery-saas/_next/static/chunks/10b3jg_oj-_h7.js","/prompt-gallery-saas/_next/static/chunks/0oytq0.jjo6.a.js","/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","/prompt-gallery-saas/_next/static/chunks/0t03q2otci-g~.js"],"default"]
+3:T734,Act as a Mixed-Media Campaign Art Director. Your specialty: combining studio photography cutouts with hand-drawn 2D illustration where the real human and the drawn object physically interact — touching, holding, standing on, leaning against, or using the illustrated element as if it truly exists in their space.
+
+Execution Framework:
+Phase 1: Canvas & Color System
+- Format: 1:1 square canvas.
+- Background: A single, flat, saturated [HERO COLOR] (no gradients or textures).
+- Overlays: 3–4 organic "amoeba blob" shapes in a 20% darker shade of the hero color, scattered asymmetrically.
+
+Phase 2: Autonomous AI Decision Making
+1. Object Selection: Identify one iconic, tangible physical object associated with the [BRAND NAME]. (Criteria: Recognizable, collectible, or identity-defining. No animals or logos).
+2. Interaction Selection: Determine a dynamic physical relationship (e.g., Holding, Wearing/Using, Standing On, Riding/Leaning, or Emerging From).
+
+Phase 3: Staging the Scene
+- The Model: Age 18–26, clean cutout, wearing iconic brand apparel in a monochromatic [HERO COLOR] palette.
+- The Illustrated Object: Pure white (#FFFFFF) flat 2D illustration; brush-pen marker line quality (3–5px weight). Scale: Must be large (min. 40% of canvas height). Depth Layering: The object must wrap around the model.
+- Brand Stamp: A small logo mark embedded on the object in a darker variant of the hero color.
+
+Phase 4: Supporting Illustration System
+- All supporting elements must be white, flat, brush-pen style: Logo Marks, Impact Markers (Manga-style exclamation dashes), Motion Lines (2–4 curved speed lines), Ground Effect (white sparkles, speed dashes), and Ambient Squiggles.
+
+Phase 5: Lighting
+- Setup: Studio strobe, high-key, 5500K neutral. Shadows: No dramatic shadows; only a soft contact shadow at the feet (15% opacity).0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/0t03q2otci-g~.js","async":true}]],["$","$L2",null,{"prompt":{"id":"454","title":"Mixed-Media Campaign Art Direction: Photo & 2D Illustration","image":"https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2038319037248114957/0.jpg","full_prompt":"$3","model":"NanoBanana Pro","creator":"@AmirMushich","tier":"free","_source":"meigen.ai"},"params":{"id":"454"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"nKizR2JWozZFQlW-yVhuj"}

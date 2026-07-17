@@ -49,7 +49,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]
 
   // Dynamic prompt pages — all 92 prompts
-  const promptPages: MetadataRoute.Sitemap = promptsData.map((prompt: { id: string; _version?: string }) => {
+  const promptPages: MetadataRoute.Sitemap = promptsData.map((prompt: { id: number | string; _version?: string }) => {
     const entry: MetadataRoute.Sitemap[number] = {
       url: `${BASE_URL}/prompt/${prompt.id}`,
       changeFrequency: 'weekly',

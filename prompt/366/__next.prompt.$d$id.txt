@@ -1,22 +1,3 @@
 1:"$Sreact.fragment"
-2:I[36221,["/prompt-gallery-saas/_next/static/chunks/093mxzthpq~g5.js","/prompt-gallery-saas/_next/static/chunks/10b3jg_oj-_h7.js","/prompt-gallery-saas/_next/static/chunks/0oytq0.jjo6.a.js","/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","/prompt-gallery-saas/_next/static/chunks/096f4n~_4au0-.js"],"default"]
-3:T622,A high-end café-style product photograph of a transparent glass filled with iced coffee, centered against a soft beige and cream seamless studio background. The drink shows a rich dark coffee base blending with creamy milk swirls, creating a smooth gradient effect. Several clear ice cubes are visible with realistic transparency and light refraction. The glass has subtle condensation droplets, adding freshness. Soft natural studio lighting creates delicate highlights and a clean shadow beneath the glass. Ultra-sharp focus, premium beverage advertisement style, DSLR macro photography, hyper realistic, 8K.
-
-PROMPT 2 - Create a hyper-realistic exploded vertical infographic composition of an iced coffee.
-
-Top → Bottom structure:
-Foam Layer (light creamy foam with soft airy texture)
-→ Coffee Liquid (rich dark espresso layer with smooth gradient)
-→ Ice Cubes (transparent cubes with sharp edges and reflections)
-→ Milk Layer (soft creamy white layer with smooth blend effect)
-→ Glass Base (clear minimal glass structure)
-
-All elements must be perfectly centered, evenly spaced, and aligned vertically. Use a soft beige seamless background with clean café-style lighting and subtle realistic shadows beneath each floating element. The composition should feel like a premium beverage ad combined with a clean infographic layout.
-
-Add clean minimalist text labels with thin pointer lines using these exact labels:
-“Foam”
-“Coffee”
-“Ice”
-“Milk”
-“Glass”
-Ultra-realistic liquid detail, sharp reflections, premium commercial photography, 8K.0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/096f4n~_4au0-.js","async":true}]],["$","$L2",null,{"prompt":{"id":"366","title":"Iced Coffee Product Infographic [海報插畫]","image":"https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case170/output.jpg","full_prompt":"$3","model":"GPT-Image-2","_version":"2026-05-09-imported","_source":"awesome-gpt-image-2","_case_id":"poster-170"},"params":{"id":"366"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"bxU8sW-f2WEyhBX9LV_5-"}
+2:I[36221,["/prompt-gallery-saas/_next/static/chunks/093mxzthpq~g5.js","/prompt-gallery-saas/_next/static/chunks/10b3jg_oj-_h7.js","/prompt-gallery-saas/_next/static/chunks/0oytq0.jjo6.a.js","/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","/prompt-gallery-saas/_next/static/chunks/0t03q2otci-g~.js"],"default"]
+0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/0t03q2otci-g~.js","async":true}]],["$","$L2",null,{"prompt":{"id":"366","title":"Luxury Automotive Social Poster - Porsche 911","image":"https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2047986905896427670/0.jpg","full_prompt":"4:5 vertical social poster, ultra high resolution, 8K SCENE / BACKGROUND: Flat racing yellow with subtle gradient (light → deep amber) Grain texture 2-3%; soft rectangular overlays (3% opacity). PRODUCT: Porsche 911 GT3 RS in gloss yellow with carbon details. Angle: Rear 3/4 angle, slightly elevated, wing dominant. Position: Right of center. TYPOGRAPHY: Primary: “PORSCHE” (Ultra tall, condensed, stretched, deep charcoal). Secondary: “PORSCHE 911 GT3 RS”. Editorial: “Porsche — Where Precision Meets Passion” (Focus: engineering, obsession, track DNA). Faded Text: “GT3 RS” at 3–5% opacity. Technical Specs: 386 kW / 525 PS, 3.2 s, 296 km/h.","model":"GPT Image","creator":"Diplomeme","tier":"free","_source":"meigen.ai"},"params":{"id":"366"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"nKizR2JWozZFQlW-yVhuj"}

@@ -7,7 +7,7 @@ const GH_RAW = 'https://raw.githubusercontent.com/Cheerhuan/prompt-gallery-saas/
 const PROJ = '/Users/xiebinghuan/rescue_build';
 
 interface PromptEntry {
-  id: string; title: string; image: string; full_prompt: string; model: string;
+  id: number | string; title: string; image: string; full_prompt: string; model: string;
   _version?: string; _source?: string; _case_id?: string;
 }
 type TabKey = 'overview' | 'upload' | 'evoimport' | 'ghimport' | 'mobile';
@@ -58,8 +58,8 @@ export default function AdminPanel() {
   const [copied, setCopied] = useState(false);
 
   const showToast = (msg: string) => { setToast(msg); setTimeout(() => setToast(''), 3000); };
-  const maxId = Math.max(...prompts.map(p => parseInt(p.id) || 0), 0);
-  const promptFromStore = (id: string) => prompts.find(p => p.id === id);
+  const maxId = Math.max(...prompts.map(p => parseInt(String(p.id)) || 0), 0);
+  const promptFromStore = (id: string | number) => prompts.find(p => String(p.id) === String(id));
 
   const withImage = prompts.filter(p => p.image && p.image.trim() !== '');
   const withoutImage = prompts.filter(p => !p.image || p.image.trim() === '');
@@ -91,9 +91,9 @@ export default function AdminPanel() {
   const [editForm, setEditForm] = useState<PromptEntry | null>(null);
   const [editImageB64, setEditImageB64] = useState<string | null>(null);
 
-  const openEdit = (id: string) => {
+  const openEdit = (id: string | number) => {
     const p = promptFromStore(id);
-    if (p) { setEditForm({ ...p }); setEditingId(id); setEditImageB64(null); }
+    if (p) { setEditForm({ ...p }); setEditingId(String(id)); setEditImageB64(null); }
   };
   const closeEdit = () => { setEditingId(null); setEditForm(null); setEditImageB64(null); };
 
@@ -126,10 +126,10 @@ export default function AdminPanel() {
     closeEdit();
   };
 
-  const confirmDelete = (id: string) => {
+  const confirmDelete = (id: string | number) => {
     const p = promptFromStore(id);
     if (!p || !window.confirm(`Delete "${p.title.slice(0, 50)}"?`)) return;
-    showCommand(genDeleteScript([id], `feat: delete prompt #${id}`));
+    showCommand(genDeleteScript([String(id)], `feat: delete prompt #${id}`));
   };
 
   // ══════ TAB 2: MANUAL UPLOAD (file + paste) ══════

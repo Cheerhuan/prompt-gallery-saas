@@ -304,7 +304,7 @@ function GalleryContent() {
     return promptsWithImages
       .filter(p => p.title.toLowerCase().includes(searchQuery.toLowerCase()))
       .slice(0, 5)
-      .map(p => ({ id: p.id, title: p.title }));
+      .map(p => ({ id: String(p.id), title: p.title }));
   }, [searchQuery, promptsWithImages]);
 
   React.useEffect(() => {

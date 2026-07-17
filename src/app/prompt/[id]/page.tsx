@@ -5,13 +5,13 @@ import type { Metadata } from 'next';
 
 export async function generateStaticParams() {
   return promptsData.map((prompt) => ({
-    id: prompt.id,
+    id: String(prompt.id),
   }));
 }
 
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
   const { id } = params;
-  const prompt = promptsData.find(p => p.id === id);
+  const prompt = promptsData.find(p => String(p.id) === id);
   if (!prompt) return { title: 'Not Found' };
 
   const imageUrl = prompt.image?.startsWith('/')
@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
 
 export default async function DetailPage({ params }: { params: { id: string } }) {
   const { id } = params;
-  const prompt = promptsData.find(p => p.id === id);
+  const prompt = promptsData.find(p => String(p.id) === id);
 
   if (!prompt) {
     notFound();

@@ -1,29 +1,3 @@
 1:"$Sreact.fragment"
-2:I[36221,["/prompt-gallery-saas/_next/static/chunks/093mxzthpq~g5.js","/prompt-gallery-saas/_next/static/chunks/10b3jg_oj-_h7.js","/prompt-gallery-saas/_next/static/chunks/0oytq0.jjo6.a.js","/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","/prompt-gallery-saas/_next/static/chunks/096f4n~_4au0-.js"],"default"]
-3:T916,Created by using GPT Image 2. 
-
-Prompt👇
-Ultra cinematic hyper-realistic premium dairy lifestyle advertisement, Milky Mist Greek Yogurt Natural cup placed as hero center foreground on glossy white marble counter, lid partially peeled revealing thick creamy yogurt with perfect spiral swirl texture, ultra-detailed micro highlights, condensation droplets on surface, branding ultra sharp
-
-Beautiful confident Indian woman (25–30), glowing natural skin with visible pores, soft blush tones, deep expressive brown eyes, long voluminous dark brown hair wind-blown with golden rim light, wearing minimal elegant light grey fitted t-shirt, leaning forward with both arms on counter framing the product, warm genuine smile, direct eye contact, friendly yet premium presence
-
-Dynamic motion (hero effect): stainless steel spoon lifting thick yogurt upward creating smooth elastic creamy stretch, dramatic milk splash frozen mid-air around cup with suspended droplets (high-speed photography look), ultra realistic fluid physics, cinematic freeze motion
-
-Foreground styling: fresh blueberries in white ceramic bowl, sliced strawberries with juice shine, crunchy granola scattered naturally, wooden spoon, mint leaves, premium editorial food styling (clean but rich composition)
-
-Background: bright modern luxury kitchen interior, large soft window light from left, indoor plants softly blurred, warm cream tones, depth-rich cinematic bokeh, subtle lifestyle realism
-
-Lighting: high-end commercial lighting setup, soft diffused key light from left, strong golden rim light on hair edges, product spotlight glow, deep soft shadows (not flat), HDR highlights on yogurt texture, magazine-level lighting
-
-Composition: 85mm lens, shallow depth of field f/1.8, subject slightly right, product perfectly centered and dominant, rule-of-thirds balance, luxury ad framing
-
-Color palette: pure white, sky blue, navy, fresh green, berry red, warm cream tones, ultra clean premium aesthetic
-
-Style: Vogue-level editorial + Indian dairy commercial campaign, hyper-detailed, photorealistic, 8K ultra HD, crisp textures, luxury brand advertisement
-
-Text overlay (optional, left side):
-“Thick. Creamy. Naturally Healthy.”
-subtext: “High in Protein. Made with Love.”
-elegant serif + modern script combination
-
---ar 4:5 --style raw --v 6 --q 20:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/096f4n~_4au0-.js","async":true}]],["$","$L2",null,{"prompt":{"id":"367","title":"Greek Yogurt Lifestyle Ad [海報插畫]","image":"https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case188/output.jpg","full_prompt":"$3","model":"GPT-Image-2","_version":"2026-05-09-imported","_source":"awesome-gpt-image-2","_case_id":"poster-188"},"params":{"id":"367"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"bxU8sW-f2WEyhBX9LV_5-"}
+2:I[36221,["/prompt-gallery-saas/_next/static/chunks/093mxzthpq~g5.js","/prompt-gallery-saas/_next/static/chunks/10b3jg_oj-_h7.js","/prompt-gallery-saas/_next/static/chunks/0oytq0.jjo6.a.js","/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","/prompt-gallery-saas/_next/static/chunks/0t03q2otci-g~.js"],"default"]
+0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/0t03q2otci-g~.js","async":true}]],["$","$L2",null,{"prompt":{"id":"367","title":"DESIRE THE WORK Sportswear Campaign","image":"https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2061841134675173556/0.jpg","full_prompt":"Vertical premium poster. Luxury editorial sports photography. One image. Four athletes. One obsession. The image is divided into four dynamic, seamlessly blended zones: Top Left: Female Sprinter exploding from blocks; low angle; maximum muscle tension; illuminated sweat; hair flowing backward. Top Right: Male Basketball Player apex of a dunk; rain falling; open performance jacket; stadium light halo. Bottom Left: Female Boxer close-up wrapping hands; direct eye contact; slight bruise; focused breathing; \"dangerous\" feel. Bottom Right: Male Footballer striking ball at full power; wet jersey; exploding turf; visible forearm veins. Centerpiece: massive fractured swoosh-inspired shape formed naturally from flying sweat, rain particles, chalk dust, turf debris, motion trails. Main Text: Massive condensed bold lettering: \"DESIRE THE WORK\". Lighting: Premium sports-fashion lighting featuring deep blacks, hard highlights, rim lighting on skin, and luxury commercial contrast.","model":"GPT Image","creator":"hemayxn","tier":"free","_source":"meigen.ai"},"params":{"id":"367"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"nKizR2JWozZFQlW-yVhuj"}
