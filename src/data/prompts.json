@@ -5522,5 +5522,15 @@
     "tags": [],
     "_source": "lexica.art",
     "_lexica_id": "7a3af5fa-cf46-4070-b831-b2671f0ef2c6"
+  },
+  {
+    "id": "537",
+    "title": "Cyberpunk Sci-Fi Side Profile Portrait",
+    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2047882171336253928/0.jpg",
+    "full_prompt": "A cinematic side-profile portrait of a rugged man with a tied-back bun and full beard, wearing round dark sunglasses and a textured leather jacket. His skin is detailed and slightly weathered. The background is a futuristic sci-fi interface filled with glowing orange and red data streams, star maps, celestial navigation diagrams, grids, and holographic UI elements. Fiery particle effects and ember-like energy swirl around him, creating a cosmic, high-tech atmosphere. Dark color palette with strong contrast, dramatic lighting, ultra-detailed, sharp focus, 8K, cyberpunk aesthetic, cinematic composition, depth of field.",
+    "model": "GPT Image",
+    "creator": "@iamsofiaijaz",
+    "tier": "free",
+    "_source": "meigen.ai"
   }
 ]
