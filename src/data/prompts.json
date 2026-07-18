@@ -5489,5 +5489,38 @@
     "creator": "@MANISH1027512",
     "tier": "free",
     "_source": "meigen.ai"
+  },
+  {
+    "id": "534",
+    "title": "Black and white line drawing Portrait of a skull wearing chainmail armor with a crown on his head",
+    "full_prompt": "Black and white line drawing, portrait of a skull wearing chainmail armor with a crown on his head, simple, clean lines, in the style of medieval woodcut illustrations, an ink illustration artist. isolated background, no shadows, white border around the whole design. black background.",
+    "image": "https://image.lexica.art/full_jpg/4b724aa1-b2fb-49b1-a500-0e01072d4ce4",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "daf9d73a-c38e-4299-b859-0b3654cab20d"
+  },
+  {
+    "id": "535",
+    "title": "Dark Bugatti PC Wallpaper",
+    "full_prompt": "Please create me a good wallpaer for my pc. it should be dark and include bugatti",
+    "image": "https://image.lexica.art/full_jpg/4f8cd652-2ab9-444f-8cfc-4b3f5a89439e",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "9b8e3233-9fd4-42c9-b5db-43d935be3e7d"
+  },
+  {
+    "id": "536",
+    "title": "Pikachu Road Raging Dashcam",
+    "full_prompt": "Dashcam footage of pikachu road raging in traffic, tiny arms extended from car window, electricity visibly sparking from cheeks, other drivers looking concerned.",
+    "image": "https://image.lexica.art/full_jpg/cca1a5d4-0916-44cb-b72b-cb8cc64c5b09",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "7a3af5fa-cf46-4070-b831-b2671f0ef2c6"
   }
 ]
