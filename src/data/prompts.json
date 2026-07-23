@@ -5532,5 +5532,98 @@
     "creator": "@iamsofiaijaz",
     "tier": "free",
     "_source": "meigen.ai"
+  },
+  {
+    "id": "538",
+    "title": "Ultra-Premium Commercial Fashion Advertising (ZARA)",
+    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2072163077739712778/0.jpg",
+    "full_prompt": "Ultra-premium commercial fashion advertising posters for the brand ZARA. Visual Hierarchy: The jacket must hold 70-75% of the visual importance, while the model holds only 25-30%. Reference Lock: Strict instructions to preserve the exact model identity (facial structure, hair, skin tone) and the exact garment details (colors, patches, stitching, materials). Intent: The output should look like a \"Behance front-page\" global brand campaign, not a catalog photo. Focus: High-contrast luxury street luxury. Format: Vertical 4:5, 8K UHD. Color Palette: Deep cobalt blue (#0B2D89), Rich varsity yellow (#F3B51A), Pure white, rich black, metallic silver. Composition: Aggressive crop from waist upward; large negative space for typography. Pose: Dynamic torso twist, head turned away, face de-emphasized to highlight garment structure. Lighting: High-end commercial lighting with sharp rim lights tracing the jacket outline and hard specular highlights on sleeves.",
+    "model": "GPT Image",
+    "creator": "@Diplomeme",
+    "tier": "free",
+    "_source": "meigen.ai"
+  },
+  {
+    "id": "539",
+    "title": "Oriental Music Visual Poster (东方音乐视觉海报)",
+    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2071973321839677513/0.jpg",
+    "full_prompt": "请生成一张 9:16 竖版、原创高级东方音乐视觉海报。主题乐器：[古琴 / 琵琶 / 竹笛 / 箜篌 / 古筝 / 编钟 / 二胡] 主题方向：[古琴水纹 / 琵琶金音 / 笛音青岚 / 箜篌星音] 主色调：[月白、墨青、淡金 / 朱砂红、暖金、米白 / 青绿、玉白、雾灰 / 月白、淡紫、冷金] 声音视觉化元素：[水纹 / 金色音轨 / 青色风线 / 星轨弦光 / 回响圆环 / 墨色音波] 整体风格为东方水墨时装插画，结合东方乐器、新中式幻想高定、宣纸质感、水墨留白、半透明纱层、细金线描绘与现代东方审美。画面主体是一位修长优雅的东方女性，气质高级、空灵、安静或灵动。人物姿态必须服务于乐器演奏，例如坐姿抚琴、抱琵琶拨弦、侧身吹笛、静坐拂箜篌弦。乐器必须清晰可见，是画面的视觉锚点。请强化乐器器形、弦线、木质感、装饰细节 and 东方美感。把声音画出来：让音波变成书法线条、水墨气流、金色音轨、水纹涟漪、青色风线或星轨弦光，并与人物衣袖、发丝、披帛和裙摆自然融合。服装为原创东方幻想高定礼服，带半透明纱层、柔和垂坠、水墨晕染、细腻褶皱和局部细金线。背景白而不空，带轻宣纸纹理、浅雾层和淡水墨气层。整体画面要高级、干净、空灵、东方、音乐感强，有品牌海报感。不要文字、不要书法字、不要标题、不要签名、不要 logo、不要水印、不要拼图。每次只生成一张独立图片。",
+    "model": "Midjourney",
+    "creator": "@MrLarus",
+    "tier": "free",
+    "_source": "meigen.ai"
+  },
+  {
+    "id": "540",
+    "title": "Studio Archive Animation Visual Development",
+    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2070842498130301163/0.jpg",
+    "full_prompt": "Create an image that looks like a hand-painted animation development plate from an old studio archive. Composition & Shape: Dominant Silhouette must be readable as a B&W shape before color. Exaggerated Proportion using design logic (e.g., swollen masses, pinched transitions, awkward imbalance). Vertical Rhythm: Subjects should rise, slump, or stretch; maintain strong negative space. Color Palette: Desaturated blue-gray, green-gray, smoke teal, bone white, ink black, dirty cream, and cold shadow. Black for structure, white for light, blue-gray for silence. Value & Rendering: Pale light, muted atmospheric midtone, and heavy ink shadow. Mediums: Ink, dry brush, digital gouache, and worn print texture. Surface Detail: Must show drag, pressure, scrape, grain, rubbed edges, and uneven pigment. Line Work: Variable Weight, thick at weight, thin at tension, broken at lost edges. Emotional Edges: Sharp protrusions for bite, drooping curves/sagging fabric for fatigue, age, or defeat.",
+    "model": "GPT Image",
+    "creator": "@IamEmily2050",
+    "tier": "free",
+    "_source": "meigen.ai"
+  },
+  {
+    "id": "541",
+    "title": "Character Consistency & Product Placement",
+    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2001428766921208194/0.jpg",
+    "full_prompt": "Use the attached reference sheet as the absolute ground truth for the subject's facial features, skin texture, and body proportions. The output must be a 1:1 match of the character provided.\n\nThe subject is the woman from the reference image. She is wearing a white ribbed tank top and the delicate silver necklace with a small dark pendant.\n\nPhotorealistic medium close-up portrait. She is holding the attached product in her hand, positioned near her cheek. Her fingers are visible, showing rings. The focus is sharp on the subject and the held object.\n\nThe scene is illuminated by intense, warm golden hour sunlight striking from the left, creating strong highlights and shadows on her skin and clothing. A prominent rainbow prism lens flare effect streaks horizontally across the upper section of the textured white wall background.",
+    "model": "GPT Image",
+    "creator": "@369labsx",
+    "tier": "free",
+    "_source": "meigen.ai"
+  },
+  {
+    "id": "542",
+    "title": "Luxury Glamour Portrait",
+    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2003418636795674903/0.jpg",
+    "full_prompt": "{\n\"canvas\": {\n\"width\": 1200,\n\"height\": 1200\n},\n\"subject\": {\n\"gender\": \"female\",\n\"age_range\": \"early to mid 20s\",\n\"ethnicity\": \"fair-skinned, European appearance\",\n\"hair\": {\n\"color\": \"golden blonde\",\n\"length\": \"long\",\n\"style\": \"loose, soft waves\",\n\"parting\": \"center part\"\n},\n\"face\": {\n\"shape\": \"oval\",\n\"skin_tone\": \"warm fair\",\n\"makeup\": {\n\"foundation\": \"smooth, natural finish\",\n\"eyes\": \"defined lashes, subtle smoky eyeliner\",\n\"eyebrows\": \"well-shaped, medium thickness\",\n\"lips\": \"nude peach matte lipstick\",\n\"blush\": \"soft warm pink\"\n},\n\"expression\": \"soft confident smile\",\n\"eye_color\": \"light blue\"\n},\n\"pose\": {\n\"body_position\": \"standing upright\",\n\"orientation\": \"facing the camera\",\n\"shoulders\": \"relaxed\",\n\"arms\": \"left arm holding clutch, right arm relaxed\"\n}\n},\n\"outfit\": {\n\"top\": {\n\"type\": \"metallic chainmail halter top\",\n\"color\": \"silver\",\n\"design\": \"deep plunging V neckline\",\n\"details\": [\n\"thin chain straps\",\n\"horizontal chain strap wrapped across midriff\"\n]\n},\n\"outerwear\": {\n\"type\": \"faux fur coat\",\n\"color\": \"white\",\n\"texture\": \"plush and fluffy\",\n\"wear_style\": \"draped off shoulders, resting around elbows\"\n},\n\"bottoms\": {\n\"type\": \"high-waisted trousers\",\n\"color\": \"black\",\n\"material\": \"sequined fabric\",\n\"fit\": \"slim fit\"\n},\n\"accessories\": {\n\"handbag\": {\n\"type\": \"small clutch\",\n\"color\": \"silver metallic\",\n\"finish\": \"glittered\"\n}\n},\n\"jewelry\": {\n\"neck\": \"wide silver choker collar\",\n\"connection\": \"choker attached to halter top chain\"\n}\n},\n\"environment\": {\n\"location\": \"luxury city street at night\",\n\"city_vibe\": \"London-inspired\",\n\"background_elements\": [\n\"grand stone building with tall columns\",\n\"Union Jack flags mounted on building facade\",\n\"ornate black metal fencing\",\n\"large green hedge wrapped in warm fairy lights\",\n\"parked black luxury car resembling Rolls-Royce\",\n\"street lamps\",\n\"blurred pedestrians and traffic lights in distance\"\n],\n\"ground\": \"clean stone pavement\"\n},\n\"lighting\": {\n\"time\": \"night\",\n\"sources\": [\n\"warm decorative fairy lights\",\n\"soft street lighting\",\n\"ambient building lights\"\n],\n\"effect_on_subject\": \"even illumination on face and outfit\",\n\"color_temperature\": \"warm foreground with cool background highlights\"\n},\n\"camera\": {\n\"shot_type\": \"medium shot\",\n\"angle\": \"eye-level\",\n\"focus\": \"sharp focus on subject\",\n\"depth_of_field\": \"shallow\",\n\"background\": \"cinematic bokeh\"\n},\n\"style\": {\n\"aesthetic\": \"luxury glamour\",\n\"mood\": \"confident, elegant, upscale nightlife\",\n\"photography_type\": \"high-end smartphone or mirrorless camera\",\n\"realism_level\": \"photorealistic\",\n\"grain\": \"very subtle night grain\"\n},\n\"color_palette\": {\n\"primary_colors\": [\"silver\", \"white\", \"black\"],\n\"accent_colors\": [\"warm gold lights\", \"deep night blues\"]\n}\n}",
+    "model": "GPT Image",
+    "creator": "@meng_dagg695",
+    "tier": "free",
+    "_source": "meigen.ai"
+  },
+  {
+    "id": "543",
+    "title": "Surreal Commercial Beverage Poster",
+    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2050138429699313813/0.jpg",
+    "full_prompt": "Format: 4:5 vertical premium poster, 8K, bold commercial layout × surreal realism. Core Idea: “YOUR COFFEE IS A WORLD”. \n\nVisuals: Deep Starbucks green background; giant \"STAR\" typography. Surreal Element: Inside the cup: miniature forest ecosystem, tiny waterfall of coffee flowing, mist rising into sky. Steam morphs into clouds above subject. Text Elements: Top pill \"Starbucks Coffee\"; Bottom strip: \"Ethically Sourced, Fresh Brewed, Rich Aroma, Crafted Daily.\"",
+    "model": "GPT Image",
+    "creator": "@Diplomeme",
+    "tier": "free",
+    "_source": "meigen.ai"
+  },
+  {
+    "id": "544",
+    "title": "Selfie of D.Va from Overwatch. She smiles brightly or strikes a playful expression",
+    "full_prompt": "Selfie of D.Va from Overwatch. She smiles brightly or strikes a playful expression",
+    "image": "https://image.lexica.art/full_jpg/1f81f89b-7954-4ba1-870c-c573ef462fe9",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "a2cf3f36-cc43-40a8-9ce0-3bfbceb281aa"
+  },
+  {
+    "id": "545",
+    "title": "Vintage blue haze smokey bar room with kirby playing billiards",
+    "full_prompt": "Vintage blue haze smokey bar room with kirby playing billiards",
+    "image": "https://image.lexica.art/full_jpg/4c90ad43-ec49-4b57-9e82-aa342c4cd9f6",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "b3744604-cc90-4336-8dde-c851146fb9b6"
+  },
+  {
+    "id": "546",
+    "title": "A matte black sports car tears through a dense autumn forest",
+    "full_prompt": "A matte black sports car tears through a dense autumn forest, leaves exploding into the air behind it in a vibrant storm of gold, orange, and red. the camera chases tightly from just behind, weaving through trees at impossible speeds, dipping low with every sharp drift. sunlight filters through the canopy in golden shafts, briefly lighting up the windshield like a spark of fire. the road is narrow, winding, slick with fallen leaves. tires screech, birds scatter. the car blurs briefly with motion, then snaps into focus as it bursts around corners. shot in ultra-realistic, high-frame-rate slow motion with rich cinematic depth and hyper-saturated fall colors.",
+    "image": "https://image.lexica.art/full_jpg/b9e80b96-7f76-423a-821f-65f68e1bfc42",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "3e02d84e-f667-4f65-871c-c8e29f9c8522"
   }
 ]

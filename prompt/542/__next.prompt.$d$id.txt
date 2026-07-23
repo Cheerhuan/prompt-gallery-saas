@@ -1,3 +1,114 @@
 1:"$Sreact.fragment"
-2:I[36221,["/prompt-gallery-saas/_next/static/chunks/093mxzthpq~g5.js","/prompt-gallery-saas/_next/static/chunks/10b3jg_oj-_h7.js","/prompt-gallery-saas/_next/static/chunks/0oytq0.jjo6.a.js","/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","/prompt-gallery-saas/_next/static/chunks/13di6zn6z8k0z.js"],"default"]
-0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/13di6zn6z8k0z.js","async":true}]],["$","$L2",null,{"prompt":{"id":"542","title":"Lara Croft lego figure","full_prompt":"A professional production photo of a Lara Croft lego figure, white background and subtle reflection from the surface the figure is on","image":"https://image.lexica.art/full_jpg/a45bc3e5-a82a-4183-824a-26dd3c4faede","creator":"","model":"Aperture","tags":[],"_source":"lexica.art","_lexica_id":"c8138c55-9703-446e-9557-c69cb787fd17"},"params":{"id":"542"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"HLbEOgRElyHZZlUKswx6J"}
+2:I[36221,["/prompt-gallery-saas/_next/static/chunks/093mxzthpq~g5.js","/prompt-gallery-saas/_next/static/chunks/10b3jg_oj-_h7.js","/prompt-gallery-saas/_next/static/chunks/0oytq0.jjo6.a.js","/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","/prompt-gallery-saas/_next/static/chunks/01rv0ebe2g6q-.js"],"default"]
+3:Ta7f,{
+"canvas": {
+"width": 1200,
+"height": 1200
+},
+"subject": {
+"gender": "female",
+"age_range": "early to mid 20s",
+"ethnicity": "fair-skinned, European appearance",
+"hair": {
+"color": "golden blonde",
+"length": "long",
+"style": "loose, soft waves",
+"parting": "center part"
+},
+"face": {
+"shape": "oval",
+"skin_tone": "warm fair",
+"makeup": {
+"foundation": "smooth, natural finish",
+"eyes": "defined lashes, subtle smoky eyeliner",
+"eyebrows": "well-shaped, medium thickness",
+"lips": "nude peach matte lipstick",
+"blush": "soft warm pink"
+},
+"expression": "soft confident smile",
+"eye_color": "light blue"
+},
+"pose": {
+"body_position": "standing upright",
+"orientation": "facing the camera",
+"shoulders": "relaxed",
+"arms": "left arm holding clutch, right arm relaxed"
+}
+},
+"outfit": {
+"top": {
+"type": "metallic chainmail halter top",
+"color": "silver",
+"design": "deep plunging V neckline",
+"details": [
+"thin chain straps",
+"horizontal chain strap wrapped across midriff"
+]
+},
+"outerwear": {
+"type": "faux fur coat",
+"color": "white",
+"texture": "plush and fluffy",
+"wear_style": "draped off shoulders, resting around elbows"
+},
+"bottoms": {
+"type": "high-waisted trousers",
+"color": "black",
+"material": "sequined fabric",
+"fit": "slim fit"
+},
+"accessories": {
+"handbag": {
+"type": "small clutch",
+"color": "silver metallic",
+"finish": "glittered"
+}
+},
+"jewelry": {
+"neck": "wide silver choker collar",
+"connection": "choker attached to halter top chain"
+}
+},
+"environment": {
+"location": "luxury city street at night",
+"city_vibe": "London-inspired",
+"background_elements": [
+"grand stone building with tall columns",
+"Union Jack flags mounted on building facade",
+"ornate black metal fencing",
+"large green hedge wrapped in warm fairy lights",
+"parked black luxury car resembling Rolls-Royce",
+"street lamps",
+"blurred pedestrians and traffic lights in distance"
+],
+"ground": "clean stone pavement"
+},
+"lighting": {
+"time": "night",
+"sources": [
+"warm decorative fairy lights",
+"soft street lighting",
+"ambient building lights"
+],
+"effect_on_subject": "even illumination on face and outfit",
+"color_temperature": "warm foreground with cool background highlights"
+},
+"camera": {
+"shot_type": "medium shot",
+"angle": "eye-level",
+"focus": "sharp focus on subject",
+"depth_of_field": "shallow",
+"background": "cinematic bokeh"
+},
+"style": {
+"aesthetic": "luxury glamour",
+"mood": "confident, elegant, upscale nightlife",
+"photography_type": "high-end smartphone or mirrorless camera",
+"realism_level": "photorealistic",
+"grain": "very subtle night grain"
+},
+"color_palette": {
+"primary_colors": ["silver", "white", "black"],
+"accent_colors": ["warm gold lights", "deep night blues"]
+}
+}0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/01rv0ebe2g6q-.js","async":true}]],["$","$L2",null,{"prompt":{"id":"542","title":"Luxury Glamour Portrait","image":"https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2003418636795674903/0.jpg","full_prompt":"$3","model":"GPT Image","creator":"@meng_dagg695","tier":"free","_source":"meigen.ai"},"params":{"id":"542"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"YYq11uhuRxRti_NnqC3V8"}

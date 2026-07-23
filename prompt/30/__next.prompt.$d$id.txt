@@ -1,5 +1,5 @@
 1:"$Sreact.fragment"
-2:I[36221,["/prompt-gallery-saas/_next/static/chunks/093mxzthpq~g5.js","/prompt-gallery-saas/_next/static/chunks/10b3jg_oj-_h7.js","/prompt-gallery-saas/_next/static/chunks/0oytq0.jjo6.a.js","/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","/prompt-gallery-saas/_next/static/chunks/0t03q2otci-g~.js"],"default"]
+2:I[36221,["/prompt-gallery-saas/_next/static/chunks/093mxzthpq~g5.js","/prompt-gallery-saas/_next/static/chunks/10b3jg_oj-_h7.js","/prompt-gallery-saas/_next/static/chunks/0oytq0.jjo6.a.js","/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","/prompt-gallery-saas/_next/static/chunks/01rv0ebe2g6q-.js"],"default"]
 3:T4c1,[STYLE]
 monochromatic grayscale illustration, 3D rendered character, clean instructional reference sheet, 
 white background, comic-style cell grid layout, technical diagram aesthetic
@@ -27,4 +27,4 @@ no color, grayscale shading, clean linework, game concept art quality
 
 [NEGATIVE]
 no background scenery, no color tones, no extra characters, 
-no cluttered backgrounds0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/0t03q2otci-g~.js","async":true}]],["$","$L2",null,{"prompt":{"id":"30","title":"Dance Movement Reference Sheet [海報插畫]","image":"https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case130/output.jpg","full_prompt":"$3","model":"GPT-Image-2","_version":"2026-05-09-imported","_source":"awesome-gpt-image-2","_case_id":"poster-130","creator":"Hiro Nakamura"},"params":{"id":"30"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"nKizR2JWozZFQlW-yVhuj"}
+no cluttered backgrounds0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/01rv0ebe2g6q-.js","async":true}]],["$","$L2",null,{"prompt":{"id":"30","title":"Dance Movement Reference Sheet [海報插畫]","image":"https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/poster_case130/output.jpg","full_prompt":"$3","model":"GPT-Image-2","_version":"2026-05-09-imported","_source":"awesome-gpt-image-2","_case_id":"poster-130","creator":"Hiro Nakamura"},"params":{"id":"30"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"YYq11uhuRxRti_NnqC3V8"}

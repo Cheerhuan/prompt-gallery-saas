@@ -1,3 +1,75 @@
 1:"$Sreact.fragment"
-2:I[36221,["/prompt-gallery-saas/_next/static/chunks/093mxzthpq~g5.js","/prompt-gallery-saas/_next/static/chunks/10b3jg_oj-_h7.js","/prompt-gallery-saas/_next/static/chunks/0oytq0.jjo6.a.js","/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","/prompt-gallery-saas/_next/static/chunks/13di6zn6z8k0z.js"],"default"]
-0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/13di6zn6z8k0z.js","async":true}]],["$","$L2",null,{"prompt":{"id":"548","title":"Superman flying alongside a plane","full_prompt":"Superman flying alongside a plane, this is a selfie, his arm reaching towards the camera, you can see the pilot inside the plane.","image":"https://image.lexica.art/full_jpg/5a89ef3f-e8cd-4bc3-a75f-d4f3ff6ee222","creator":"","model":"Aperture","tags":[],"_source":"lexica.art","_lexica_id":"64689ea5-f255-4576-8cc6-6fc9f11f65af"},"params":{"id":"548"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"HLbEOgRElyHZZlUKswx6J"}
+2:I[36221,["/prompt-gallery-saas/_next/static/chunks/093mxzthpq~g5.js","/prompt-gallery-saas/_next/static/chunks/10b3jg_oj-_h7.js","/prompt-gallery-saas/_next/static/chunks/0oytq0.jjo6.a.js","/prompt-gallery-saas/_next/static/chunks/0dp64rjf4~-bq.js"],"default"]
+3:T7f5,{
+"type": "image_generation_prompt",
+"style": "Polaroid-style candid photography",
+"camera_style": {
+"camera": "Polaroid instant camera",
+"look": "ordinary snapshot",
+"effects": [
+"slight blur",
+"soft focus",
+"flash-lit dark room glow",
+"light scattering from on-camera flash",
+"subtle film grain",
+"slight exposure falloff"
+]
+},
+"identity_preservation": {
+"use_reference_images": true,
+"strict_identity_lock": true,
+"alter_face": false,
+"notes": "Do not change or distort either person’s facial features, expressions, or proportions."
+},
+"subjects": [
+{
+"gender": "female",
+"identity": "user",
+"pose": "cute, casual pose standing close to the boy",
+"prop": "holding a burger",
+"expression": "natural, playful, candid"
+},
+{
+"gender": "male",
+"identity": "boy from reference",
+"pose": "cute, relaxed pose next to the girl",
+"prop": "holding a red Coca-Cola can",
+"expression": "natural, playful, candid"
+}
+],
+"interaction": {
+"relationship": "friendly and cute",
+"body_language": "standing close together, relaxed, slightly leaning toward each other"
+},
+"environment": {
+"background": "plain white curtains",
+"location": "indoor room",
+"lighting": {
+"type": "single on-camera flash",
+"quality": "consistent, frontal flash lighting",
+"mood": "cozy, intimate, nostalgic"
+}
+},
+"composition": {
+"framing": "medium shot",
+"angle": "eye-level",
+"balance": "centered, casual snapshot composition"
+},
+"aesthetic": {
+"vibe": "cute, nostalgic, intimate",
+"era_feel": "classic instant film look",
+"imperfections": [
+"minor blur",
+"soft edges",
+"natural exposure inconsistencies"
+]
+},
+"constraints": [
+"No change to faces",
+"No dramatic posing",
+"No artificial glamour or studio look",
+"No text or watermarks",
+"Must look like a real Polaroid photo"
+],
+"output_goal": "Create a realistic Polaroid-style instant photo of a boy and girl posing cutely together indoors, with white curtains behind them, flash-lit from a dark room, the boy holding a red Coca-Cola can and the girl holding a burger, maintaining an authentic, nostalgic snapshot feel."
+}0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/0dp64rjf4~-bq.js","async":true}]],["$","$L2",null,{"prompt":{"id":"548","title":"Polaroid Candid Photography","image":"https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2006946255709340062/0.jpg","full_prompt":"$3","model":"GPT Image","creator":"@saniaspeaks_","tier":"free","_source":"meigen.ai"},"params":{"id":"548"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"RdGnood1ESKXI3ji0NLwl"}

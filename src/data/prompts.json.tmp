@@ -1,31 +1,31 @@
 [
   {
-    "id": "498",
-    "title": "Ultra-realistic Premium Beauty Commercial",
-    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2029019321364824452/0.jpg",
-    "full_prompt": "Use the uploaded image as the exact visual reference for jar design, label, strawberries, raspberries, flowers, leaves, condensation droplets, red gradient background, and reflective surface. Camera Settings: Locked front-facing camera. Restrictions: No zoom, no rotation, no angle changes. Composition: Studio composition remains centered. Style Guidelines: Premium beauty commercial, ultra-realistic. Motion: Slow motion (not dramatic), smooth and controlled movements. Lighting: Consistent deep red background glow with soft reflections on a glossy surface. Animation Sequence: 0. Start: Empty red gradient background and glossy reflective surface. 1. Jar Base: Slides into frame from below; settles centered. 2. Lid: Lowers from above; aligns perfectly on the jar. 3. Condensation: Droplets subtly appear on the glass surface. 4. Raspberries: Roll in softly from left and right to the base. 5. Strawberry Halves: Slide into position at the front. 6. Whole Strawberries: Drop from above into the open jar top. 7. Flowers: Small white flowers fall into place between strawberries. 8. Leaves: Green leaves slide in behind the jar for framing. 9. Final Touch: Micro water droplets appear on fruits for freshness. Final Frame: A hold for 1–2 seconds of the fully assembled composition, matching the reference image exactly.",
-    "model": "Nanobanana Pro",
-    "creator": "@ChillaiKalan__",
-    "tier": "free",
-    "_source": "meigen.ai"
-  },
-  {
-    "id": "499",
-    "title": "Notion-style Minimalist Editorial Illustration",
-    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2051603007109054865/0.jpg",
-    "full_prompt": "A simple black-and-white illustration of a [subject] in [outfit], [doing action], with a [facial expression] expression, in a Notion-style minimalist editorial aesthetic, clean line art, flat monochrome design, simple shapes, subtle hand-drawn feel, minimal detail, expressive posture, clean white background, neat modern layout, soft playful character style",
+    "id": "49",
+    "title": "Character Consistency & Product Placement",
+    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2001428766921208194/0.jpg",
+    "full_prompt": "Use the attached reference sheet as the absolute ground truth for the subject's facial features, skin texture, and body proportions. The output must be a 1:1 match of the character provided.\n\nThe subject is the woman from the reference image. She is wearing a white ribbed tank top and the delicate silver necklace with a small dark pendant.\n\nPhotorealistic medium close-up portrait. She is holding the attached product in her hand, positioned near her cheek. Her fingers are visible, showing rings. The focus is sharp on the subject and the held object.\n\nThe scene is illuminated by intense, warm golden hour sunlight striking from the left, creating strong highlights and shadows on her skin and clothing. A prominent rainbow prism lens flare effect streaks horizontally across the upper section of the textured white wall background.",
     "model": "GPT Image",
-    "creator": "@azed_ai",
+    "creator": "@369labsx",
     "tier": "free",
     "_source": "meigen.ai"
   },
   {
-    "id": "500",
-    "title": "Candid Smartphone Mirror Selfie",
-    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2011435742375948739/0.jpg",
-    "full_prompt": "{\n\"meta\": {\n\"aspect_ratio\": \"9:16\",\n\"quality\": \"photorealistic, raw, unedited smartphone photograph\",\n\"resolution\": \"8k\",\n\"camera\": \"Smartphone camera (e.g., iPhone 14 Pro)\",\n\"lens\": \"Wide-angle smartphone lens\",\n\"style\": \"Candid mirror selfie, natural indoor evening light, warm tone\",\n\"composition\": \"Full-body mirror shot of a woman sitting on a rug, holding a smartphone to take the photo.\"\n},\n\"scene\": {\n\"location\": \"Indoor living room\",\n\"environment\": [\n\"Large grey shag rug on wooden floor\",\n\"Dark grey sofa in background\",\n\"White double doors\",\n\"Warm ambient lighting from a lamp\"\n],\n\"time\": \"Evening\",\n\"atmosphere\": \"Casual, relaxed, intimate\"\n},\n\"lighting\": {\n\"type\": \"Warm, dim indoor light\",\n\"source\": \"Lamp light from the side and smartphone screen light\",\n\"effect\": \"Soft, warm glow with shadows, highlighting wet hair and fishnet texture.\"\n},\n\"subject\": {\n\"identity\": \"The woman from image_0.png with wet platinum blonde hair.\",\n\"body\": {\n\"pose\": \"Sitting cross-legged on the grey rug, looking at the smartphone in her hand, holding it up for a mirror selfie.\",\n\"physique\": \"Slim build.\"\n},\n\"outfit\": {\n\"clothing\": \"Black short-sleeved mini-dress, black fishnet tights.\",\n\"accessories\": \"None visible besides the smartphone.\"\n}\n},\n\"realism_focus\": {\n\"textures\": \"Wet hair strands, detailed mesh of the fishnet tights, texture of the grey shag rug, fabric of the black dress.\",\n\"imperfections\": \"Natural skin texture, realistic phone reflection in the mirror.\"\n}\n}",
-    "model": "Nanobanana Pro",
-    "creator": "@Passionai0",
+    "id": "10",
+    "title": "Luxury Glamour Portrait",
+    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2003418636795674903/0.jpg",
+    "full_prompt": "{\n\"canvas\": {\n\"width\": 1200,\n\"height\": 1200\n},\n\"subject\": {\n\"gender\": \"female\",\n\"age_range\": \"early to mid 20s\",\n\"ethnicity\": \"fair-skinned, European appearance\",\n\"hair\": {\n\"color\": \"golden blonde\",\n\"length\": \"long\",\n\"style\": \"loose, soft waves\",\n\"parting\": \"center part\"\n},\n\"face\": {\n\"shape\": \"oval\",\n\"skin_tone\": \"warm fair\",\n\"makeup\": {\n\"foundation\": \"smooth, natural finish\",\n\"eyes\": \"defined lashes, subtle smoky eyeliner\",\n\"eyebrows\": \"well-shaped, medium thickness\",\n\"lips\": \"nude peach matte lipstick\",\n\"blush\": \"soft warm pink\"\n},\n\"expression\": \"soft confident smile\",\n\"eye_color\": \"light blue\"\n},\n\"pose\": {\n\"body_position\": \"standing upright\",\n\"orientation\": \"facing the camera\",\n\"shoulders\": \"relaxed\",\n\"arms\": \"left arm holding clutch, right arm relaxed\"\n}\n},\n\"outfit\": {\n\"top\": {\n\"type\": \"metallic chainmail halter top\",\n\"color\": \"silver\",\n\"design\": \"deep plunging V neckline\",\n\"details\": [\n\"thin chain straps\",\n\"horizontal chain strap wrapped across midriff\"\n]\n},\n\"outerwear\": {\n\"type\": \"faux fur coat\",\n\"color\": \"white\",\n\"texture\": \"plush and fluffy\",\n\"wear_style\": \"draped off shoulders, resting around elbows\"\n},\n\"bottoms\": {\n\"type\": \"high-waisted trousers\",\n\"color\": \"black\",\n\"material\": \"sequined fabric\",\n\"fit\": \"slim fit\"\n},\n\"accessories\": {\n\"handbag\": {\n\"type\": \"small clutch\",\n\"color\": \"silver metallic\",\n\"finish\": \"glittered\"\n}\n},\n\"jewelry\": {\n\"neck\": \"wide silver choker collar\",\n\"connection\": \"choker attached to halter top chain\"\n}\n},\n\"environment\": {\n\"location\": \"luxury city street at night\",\n\"city_vibe\": \"London-inspired\",\n\"background_elements\": [\n\"grand stone building with tall columns\",\n\"Union Jack flags mounted on building facade\",\n\"ornate black metal fencing\",\n\"large green hedge wrapped in warm fairy lights\",\n\"parked black luxury car resembling Rolls-Royce\",\n\"street lamps\",\n\"blurred pedestrians and traffic lights in distance\"\n],\n\"ground\": \"clean stone pavement\"\n},\n\"lighting\": {\n\"time\": \"night\",\n\"sources\": [\n\"warm decorative fairy lights\",\n\"soft street lighting\",\n\"ambient building lights\"\n],\n\"effect_on_subject\": \"even illumination on face and outfit\",\n\"color_temperature\": \"warm foreground with cool background highlights\"\n},\n\"camera\": {\n\"shot_type\": \"medium shot\",\n\"angle\": \"eye-level\",\n\"focus\": \"sharp focus on subject\",\n\"depth_of_field\": \"shallow\",\n\"background\": \"cinematic bokeh\"\n},\n\"style\": {\n\"aesthetic\": \"luxury glamour\",\n\"mood\": \"confident, elegant, upscale nightlife\",\n\"photography_type\": \"high-end smartphone or mirrorless camera\",\n\"realism_level\": \"photorealistic\",\n\"grain\": \"very subtle night grain\"\n},\n\"color_palette\": {\n\"primary_colors\": [\"silver\", \"white\", \"black\"],\n\"accent_colors\": [\"warm gold lights\", \"deep night blues\"]\n}\n}",
+    "model": "GPT Image",
+    "creator": "@meng_dagg695",
+    "tier": "free",
+    "_source": "meigen.ai"
+  },
+  {
+    "id": "11",
+    "title": "Surreal Commercial Beverage Poster",
+    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2050138429699313813/0.jpg",
+    "full_prompt": "Format: 4:5 vertical premium poster, 8K, bold commercial layout × surreal realism. Core Idea: “YOUR COFFEE IS A WORLD”. \n\nVisuals: Deep Starbucks green background; giant \"STAR\" typography. Surreal Element: Inside the cup: miniature forest ecosystem, tiny waterfall of coffee flowing, mist rising into sky. Steam morphs into clouds above subject. Text Elements: Top pill \"Starbucks Coffee\"; Bottom strip: \"Ethically Sourced, Fresh Brewed, Rich Aroma, Crafted Daily.\"",
+    "model": "GPT Image",
+    "creator": "@Diplomeme",
     "tier": "free",
     "_source": "meigen.ai"
   }
