@@ -5625,5 +5625,55 @@
     "tags": [],
     "_source": "lexica.art",
     "_lexica_id": "3e02d84e-f667-4f65-871c-c8e29f9c8522"
+  },
+  {
+    "title": "Kjeldsens Danish Butter Cookies Campaign",
+    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2080306983379628245/0.jpg",
+    "full_prompt": "Create an ultra-premium commercial poster for Kjeldsens Danish Butter Cookies in a strict 2x2 four-panel layout, designed as a world-class global luxury cookie campaign... The backgrounds in all four panels must be pulled further open with more negative space, cleaner gradients, and fewer visual distractions. Rendering Style Keywords: ultra-premium Kjeldsens Danish Butter Cookies campaign, strict 2x2 four-panel poster, hyper-real cookie photography realism, four original cute 3D cartoon animals, more open saturated minimalist backgrounds, restrained premium typography, subtle official logo placement, cinematic commercial lighting, world-class food advertising aesthetic, top-tier animation character rendering, 8k, collector-grade image quality",
+    "model": "GPT Image",
+    "creator": "@ou_zhen599",
+    "tier": "free",
+    "_source": "meigen.ai",
+    "id": "547"
+  },
+  {
+    "title": "Dreamy Low-Angle Selfie with Doodles",
+    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2080303309739675712/0.jpg",
+    "full_prompt": "Dreamy low-angle selfie portrait of a young woman with long flowing chestnut-brown hair and soft wispy bangs, wearing a cozy oversized cream knit sweater, looking gently into the camera with a calm expression. Captured outdoors beneath a deep cobalt-blue sky filled with dramatic fluffy cumulus clouds. The scene blends photorealism with whimsical hand-drawn doodle art: the clouds are transformed into playful cartoon illustrations with smiling sun, cute stars, fluffy outlined clouds, tiny hearts, sparkles, and colorful manga-style doodles seamlessly integrated into the sky. Bright natural daylight, soft breeze moving the hair, vibrant yet pastel color palette, joyful and nostalgic aesthetic, Studio Ghibli × modern kawaii illustration, watercolor marker textures mixed with clean black ink outlines, minimal composition, cozy slice-of-life mood, ultra-detailed face, natural lighting, premium editorial illustration, highly detailed, whimsical storytelling, 8K, masterpiece.",
+    "model": "GPT Image",
+    "creator": "@Taaruk_",
+    "tier": "free",
+    "_source": "meigen.ai",
+    "id": "548"
+  },
+  {
+    "title": "Avant-Garde Home Brand Campaign",
+    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2080300653016940859/0.jpg",
+    "full_prompt": "2x2 grid, 16:9, do this for 4 avant garde home brand:: premium luxury advertising campaign for [Product]::5 Hero Object: AI_INFER(PRODUCT redesigned or staged as a sculptural desirable object, center-weighted, material-rich)::5 Brand Identity: AI_INFER(elegant brand name, minimal logo mark, 2-5 word tagline, 3-5 color palette, typography style)::4 Packaging System: AI_INFER(matching box, sleeve, label, product card, instruction insert, or display case)::4 Layout: clean editorial composition, generous negative space, tasteful product copy, spec card or UI overlay if relevant::4 Material Atmosphere: AI_INFER(surface, backdrop, props, mist, fabric, stone, light, curtain, reflections based on PRODUCT category)::5 Aesthetic: high-end product photography, quiet luxury, pitch deck quality, museum object, premium DTC brand launch::5 generic ad, clutter, cheap typography, random props, unreadable text, inconsistent brand system::-4",
+    "model": "GPT Image",
+    "creator": "@Gdgtify",
+    "tier": "free",
+    "_source": "meigen.ai",
+    "id": "549"
+  },
+  {
+    "title": "Cinematic Lifestyle Portrait with Anime Shadows",
+    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2080289951518953757/0.jpg",
+    "full_prompt": "A warm, cinematic lifestyle portrait of a young woman and her chubby gray-and-white British Shorthair cat standing against a minimalist beige concrete wall during golden hour. Soft sunlight enters diagonally from the upper left, creating long, crisp shadows on the wall. The woman has a short pastel pink bob haircut with bangs, wearing an oversized red plaid flannel shirt, loose blue denim jeans, and casual sneakers. The cat wears a cute gingham bandana around its neck. The shadows transform into playful hand-drawn anime doodles: the woman’s shadow becomes a lively manga-style girl with exaggerated expressions (peace signs, playful pose, tongue out, energetic movement), while the cat’s shadow becomes a funny cartoon cat waving its paws, smiling with oversized eyes and expressive motion lines. The illustrations appear naturally integrated into the shadows, drawn with rough charcoal/pencil strokes directly on the wall, including sketch lines, hearts, sparkles, butterflies, and motion effects. Composition: One version shows the woman crouching face-to-face with the cat, making gentle eye contact. Another version shows her standing casually with hands behind her back while the cat sits beside her looking at the camera. Clean editorial framing with plenty of negative space. Lighting: Soft golden-hour sunlight, warm neutral tones, realistic shadow depth, subtle ambient bounce light, high dynamic range. Style: Whimsical, cozy, heartwarming, slice-of-life, Japanese editorial photography mixed with manga aesthetics, photorealistic, ultra-detailed, natural skin texture, realistic fur, cinematic storytelling, magazine-quality composition. Camera: Full-frame mirrorless camera, 50mm prime lens, f/2.8, ISO 100, natural depth of field, crisp focus, ultra-high resolution, 8K, realistic color grading, premium lifestyle photography.",
+    "model": "GPT Image",
+    "creator": "@Sairah_0",
+    "tier": "free",
+    "_source": "meigen.ai",
+    "id": "550"
+  },
+  {
+    "title": "Nike Lumina Futuristic Advertisement",
+    "image": "https://images.meigen.ai/cdn-cgi/image/format=auto,quality=85/tweets/2080212481402896518/0.jpg",
+    "full_prompt": "A dynamic fashion advertisement for Nike showing a hyper-realistic model mid-twist jump, light trails following her limbs. Background: prism-shifting gradient (hot magenta to sapphire) with refracted lens flares. The model wears iridescent Nike runner tights and a cropped tech hoodie in holographic white. Bold serif \"NIKE\" and motion-glitched \"LUMINA\" in layered text behind. High-energy, futuristic aesthetic with fashion gloss. --ar 3:4 --raw --stylize 750",
+    "model": "GPT Image",
+    "creator": "@iamsofiaijaz",
+    "tier": "free",
+    "_source": "meigen.ai",
+    "id": "551"
   }
 ]
