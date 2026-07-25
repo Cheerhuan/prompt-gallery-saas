@@ -5675,5 +5675,38 @@
     "tier": "free",
     "_source": "meigen.ai",
     "id": "551"
+  },
+  {
+    "id": "552",
+    "title": "A cat taking a selfie with the chicago bean",
+    "full_prompt": "A cat taking a selfie with the chicago bean",
+    "image": "https://image.lexica.art/full_jpg/1f708d27-d478-4178-9115-23f3d38b9d0b",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "f64143c3-9acb-4000-bb58-e36da11cf4ec"
+  },
+  {
+    "id": "553",
+    "title": "Design an astronaut in Katsuhiro Otomo style flying in dark space.",
+    "full_prompt": "Design an astronaut in Katsuhiro Otomo style flying in dark space.",
+    "image": "https://image.lexica.art/full_jpg/8012fc24-3206-4895-aac5-e4f56725aed1",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "05ffa3ce-d4c8-4763-8a0c-6a761a5e4620"
+  },
+  {
+    "id": "554",
+    "title": "A video of a nuclear mushroom cloud while influencers film themselves for social media and pose in front of it, selfie POV",
+    "full_prompt": "A video of a nuclear mushroom cloud while influencers film themselves for social media and pose in front of it, selfie POV",
+    "image": "https://image.lexica.art/full_jpg/dbbcf17d-3057-4c30-b375-a1bc450aba91",
+    "creator": "",
+    "model": "Aperture",
+    "tags": [],
+    "_source": "lexica.art",
+    "_lexica_id": "396a81d6-75d4-4b31-8870-86e1a50f6a56"
   }
 ]
