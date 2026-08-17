@@ -5791,5 +5791,19 @@
     "creator": "@Taaruk_",
     "tier": "free",
     "_source": "meigen.ai"
+  },
+  {
+    "title": "Industrial Smoke Test #1",
+    "full_prompt": "A high-tech industrial laboratory, hyper-realistic, 8k, cinematic lighting, architectural photography",
+    "image": "https://picsum.photos/seed/smoke-test-1/800/600",
+    "category": "hyperRealistic",
+    "id": "563"
+  },
+  {
+    "title": "Industrial Smoke Test #2",
+    "full_prompt": "Cyberpunk city street at night, neon rain, depth of field, unreal engine 5 render",
+    "image": "https://picsum.photos/seed/smoke-test-2/800/600",
+    "category": "digitalArt",
+    "id": "564"
   }
 ]

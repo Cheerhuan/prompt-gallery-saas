@@ -1,5 +1,5 @@
 1:"$Sreact.fragment"
-2:I[36221,["/prompt-gallery-saas/_next/static/chunks/093mxzthpq~g5.js","/prompt-gallery-saas/_next/static/chunks/10b3jg_oj-_h7.js","/prompt-gallery-saas/_next/static/chunks/0oytq0.jjo6.a.js","/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","/prompt-gallery-saas/_next/static/chunks/133nxqtziyv45.js"],"default"]
+2:I[36221,["/prompt-gallery-saas/_next/static/chunks/093mxzthpq~g5.js","/prompt-gallery-saas/_next/static/chunks/10b3jg_oj-_h7.js","/prompt-gallery-saas/_next/static/chunks/0oytq0.jjo6.a.js","/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","/prompt-gallery-saas/_next/static/chunks/01.4qvbs7.hzf.js"],"default"]
 3:Tcb1,{
   "type": "2x2 grid of Japanese digital advertisement banners",
   "layout": {
@@ -95,4 +95,4 @@
       }
     ]
   }
-}0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/133nxqtziyv45.js","async":true}]],["$","$L2",null,{"prompt":{"id":"417","title":"4-Panel Japanese Digital Ad Banner Grid [介面設計]","image":"https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/ui_case90/output.jpg","full_prompt":"$3","model":"GPT-Image-2","_version":"2026-05-09-imported","_source":"awesome-gpt-image-2","_case_id":"ui-90"},"params":{"id":"417"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"EcKW1vYZq4_1Y8MwHwzcw"}
+}0:{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/prompt-gallery-saas/_next/static/chunks/13g9i24j91s.-.js","async":true}],["$","script","script-1",{"src":"/prompt-gallery-saas/_next/static/chunks/01.4qvbs7.hzf.js","async":true}]],["$","$L2",null,{"prompt":{"id":"417","title":"4-Panel Japanese Digital Ad Banner Grid [介面設計]","image":"https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/ui_case90/output.jpg","full_prompt":"$3","model":"GPT-Image-2","_version":"2026-05-09-imported","_source":"awesome-gpt-image-2","_case_id":"ui-90"},"params":{"id":"417"}}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"XyTdcSwL_nA-rxnOv7FiJ"}
