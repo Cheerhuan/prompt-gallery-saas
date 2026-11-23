@@ -1,0 +1,7 @@
+{
+  "id": "industrial_core_01",
+  "title": "Cyber-Industrial Architecture",
+  "prompt": "Architectural photography of a monolithic data center in a rainy neon cityscape, Cyber-Industrial style, brutalist concrete slabs integrated with translucent holographic circuitry, rain-slicked obsidian floors, volumetric fog, cinematic teal and orange lighting, shot on Phase One XF, 8k resolution, highly detailed mechanical joints, metallic textures.",
+  "negative": "organic shapes, soft edges, low contrast, blurry, cartoon, painting, bright daylight, nature, trees",
+  "expected_visual": "A cold, powerful image of high-tech brutalism with sharp metallic contrasts and atmospheric lighting."
+}
