@@ -1,0 +1,109 @@
+{
+  "audit_date": "2026-11-27",
+  "trigger": "cron: curation visual audit",
+  "delivery_log_state": {
+    "last_entry": "2026-08-17T14:50:38",
+    "ids_last_logged": [
+      "563",
+      "564"
+    ],
+    "deployed_last_7_days": 0,
+    "note": "delivery_log.json not appended since 2026-08-17 although a deploy occurred 2026-11-24 (commit 48f057f5). Log is stale."
+  },
+  "sample": [
+    {
+      "id": "563",
+      "title": "Industrial Smoke Test #1",
+      "source": "picsum.photos",
+      "result": "FAIL",
+      "reason": "placeholder image, 0% prompt match"
+    },
+    {
+      "id": "564",
+      "title": "Industrial Smoke Test #2",
+      "source": "picsum.photos",
+      "result": "FAIL",
+      "reason": "placeholder image, 0% prompt match"
+    },
+    {
+      "id": "546",
+      "title": "Matte black sports car / autumn forest",
+      "source": "lexica.art",
+      "result": "PASS",
+      "score": 8,
+      "reason": "strong prompt fidelity, valid 1664x2496 JPEG"
+    },
+    {
+      "id": "549",
+      "title": "Avant-Garde Home Brand Campaign",
+      "source": "meigen.ai",
+      "result": "PASS",
+      "score": 8.5,
+      "reason": "premium editorial layout, minor small-text artifacts"
+    },
+    {
+      "id": "553",
+      "title": "Astronaut in Katsuhiro Otomo style",
+      "source": "lexica.art",
+      "result": "PASS_WITH_WARNING",
+      "score": 8,
+      "reason": "subject matches but style is photoreal 3D, not Otomo cel-shading"
+    },
+    {
+      "id": "555",
+      "title": "80s anime protagonist lighting a cigarette",
+      "source": "lexica.art",
+      "result": "PASS",
+      "score": 9,
+      "reason": "excellent 80s cel-shaded anime fidelity"
+    },
+    {
+      "id": "559",
+      "title": "Midjourney Style Reference",
+      "source": "meigen.ai",
+      "result": "PASS_WITH_WARNING",
+      "score": 8,
+      "reason": "high-quality geometric vector set but not 'cinematic'; carries artist watermark 'michael rabone' (attribution risk)"
+    },
+    {
+      "id": "561",
+      "title": "Vibrant Expressive Portrait",
+      "source": "meigen.ai",
+      "result": "PASS",
+      "score": 8,
+      "reason": "striking ink+watercolour portrait, garbled newspaper text only"
+    }
+  ],
+  "metrics": {
+    "sampled": 8,
+    "pass": 4,
+    "pass_with_warning": 2,
+    "fail": 2,
+    "strict_pass_rate": "50%",
+    "effective_pass_rate": "75%",
+    "image_render_ok": "8/8 (HTTP 200, valid JPEG)"
+  },
+  "actions": {
+    "blacklisted_sources_added": [
+      "picsum.photos"
+    ],
+    "blacklisted_keywords_added": [
+      "smoke test",
+      "smoke-test",
+      "picsum",
+      "dummy image",
+      "lorem ipsum image"
+    ],
+    "preferred_sources_added": [
+      "lexica.art",
+      "meigen.ai"
+    ]
+  },
+  "open_findings": [
+    "IDs 563/564 are live 'Industrial Smoke Test' cards with picsum placeholders visible on the homepage - need deletion from prompts.json + rebuild + deploy.",
+    "delivery_log.json stale since 2026-08-17 - deploy pipeline does not append entries.",
+    "All detail pages ship <title>Not Found</title> (Next 16.2.4 async params not awaited in generateMetadata at src/app/prompt/[id]/page.tsx:12) - SEO defect, site-wide.",
+    "src/data/staging/pending_prompts.json: 5/5 entries use picsum.photos placeholders - must not be promoted to production without real assets.",
+    "discovery-config.json was malformed (array of 2 objects) and no script currently reads it - normalized to a single object; pipeline consumer still needs wiring."
+  ]
+}

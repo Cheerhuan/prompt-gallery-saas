@@ -9,8 +9,12 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const { id } = params;
+// Next 16 passes `params` as a Promise; layout.tsx also renders this component
+// directly with already-resolved params, so accept both shapes.
+type RouteParams = { params: { id: string } | Promise<{ id: string }> };
+
+export async function generateMetadata({ params }: RouteParams): Promise<Metadata> {
+  const { id } = await params;
   const prompt = promptsData.find(p => String(p.id) === id);
   if (!prompt) return { title: 'Not Found' };
 
@@ -33,13 +37,13 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
   };
 }
 
-export default async function DetailPage({ params }: { params: { id: string } }) {
-  const { id } = params;
+export default async function DetailPage({ params }: RouteParams) {
+  const { id } = await params;
   const prompt = promptsData.find(p => String(p.id) === id);
 
   if (!prompt) {
     notFound();
   }
 
-  return <DetailPageContent prompt={prompt} params={params} />;
+  return <DetailPageContent prompt={prompt} params={{ id }} />;
 }

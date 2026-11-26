@@ -1,1 +1,19 @@
-[{"blacklisted_sources": [], "blacklisted_keywords": []}, {"preferred_sources": []}]
+{
+  "blacklisted_sources": [
+    "picsum.photos"
+  ],
+  "blacklisted_keywords": [
+    "smoke test",
+    "smoke-test",
+    "picsum",
+    "dummy image",
+    "lorem ipsum image"
+  ],
+  "preferred_sources": [
+    "lexica.art",
+    "meigen.ai"
+  ],
+  "updated_at": "2026-11-27",
+  "updated_by": "curation-visual-audit-cron",
+  "rationale": "Visual audit 2026-11-27: IDs 563/564 shipped with picsum.photos placeholder images (0% prompt match) -> source/keyword blacklisted. lexica.art and meigen.ai delivered 100% renderable, high-fidelity assets (6/6) -> preferred."
+}
