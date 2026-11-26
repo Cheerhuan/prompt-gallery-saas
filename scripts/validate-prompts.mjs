@@ -121,7 +121,9 @@ if (duplicates.length > 0) {
 let missingImages = 0;
 for (const entry of data) {
   if (entry.image && entry.image.startsWith('/images/')) {
-    const imgPath = path.join(root, 'public', entry.image);
+    // Strip cache-busting query/hash (e.g. "/images/x.jpg?v=2") before touching disk
+    const cleanImage = entry.image.replace(/[?#].*$/, '');
+    const imgPath = path.join(root, 'public', cleanImage);
     if (!fs.existsSync(imgPath)) {
       if (missingImages < 5) { // 只報前 5 個
         warnings.push(`Image not found: ${entry.image} (id=${entry.id})`);

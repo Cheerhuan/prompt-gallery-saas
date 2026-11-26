@@ -81,7 +81,8 @@
     "fail": 2,
     "strict_pass_rate": "50%",
     "effective_pass_rate": "75%",
-    "image_render_ok": "8/8 (HTTP 200, valid JPEG)"
+    "image_render_ok": "8/8 (HTTP 200, valid JPEG)",
+    "note": "563/564 are non-curated smoke tests; excluding them, curated sample = 6 cards -> 4 PASS, 2 PASS_WITH_WARNING, 0 FAIL (100% commercially usable, 67% strict)."
   },
   "actions": {
     "blacklisted_sources_added": [
@@ -100,10 +101,32 @@
     ]
   },
   "open_findings": [
-    "IDs 563/564 are live 'Industrial Smoke Test' cards with picsum placeholders visible on the homepage - need deletion from prompts.json + rebuild + deploy.",
-    "delivery_log.json stale since 2026-08-17 - deploy pipeline does not append entries.",
-    "All detail pages ship <title>Not Found</title> (Next 16.2.4 async params not awaited in generateMetadata at src/app/prompt/[id]/page.tsx:12) - SEO defect, site-wide.",
-    "src/data/staging/pending_prompts.json: 5/5 entries use picsum.photos placeholders - must not be promoted to production without real assets.",
-    "discovery-config.json was malformed (array of 2 objects) and no script currently reads it - normalized to a single object; pipeline consumer still needs wiring."
+    "IDs 563/564 ('Industrial Smoke Test') are still live with picsum.photos placeholders — removal blocked by the entry-count guard; needs an approved override (e.g. ALLOW_REMOVE document) rather than a silent edit.",
+    "delivery_log.json stale since 2026-08-17: the deploy pipeline never appends entries, so 'last 7 days' sampling is impossible; the audit fell back to most-recent IDs.",
+    "src/data/staging/pending_prompts.json: 5/5 pending entries still point at picsum.photos — must not be promoted without real assets.",
+    "discovery-config.json still has no consumer script; blacklist/preferred lists are inert until the discovery pipeline reads them.",
+    "Attribution risk: ID 559 carries an artist-marked image ('michael rabone')."
+  ],
+  "remediation_applied": [
+    {
+      "action": "Fixed site-wide <title>Not Found</title> on all 562+ detail pages",
+      "file": "src/app/prompt/[id]/page.tsx",
+      "change": "generateMetadata/DetailPage now `await params` (Next 16 async params); DetailPageContent receives resolved {id}",
+      "verified": "local build: /prompt/546,555,563,1 titles correct; live: /prompt/555 title correct after GitHub Pages deploy",
+      "commit": "019dba85f6"
+    },
+    {
+      "action": "Normalized discovery-config.json into a single object + blacklist/preferred lists",
+      "file": "src/data/staging/discovery-config.json"
+    },
+    {
+      "action": "Fixed false-negative in image existence check (?v= query string caused valid local images to be flagged missing and blocked deploys)",
+      "file": "scripts/validate-prompts.mjs",
+      "verified": "node scripts/validate-prompts.mjs -> All checks passed"
+    },
+    {
+      "action": "Removed picsum smoke-test cards 563/564 from production",
+      "result": "BLOCKED by design: validate-prompts.mjs anti-regression guard forbids entry-count decrease (564 -> 562). Reverted; left for human-approved cleanup or an explicit override flag."
+    }
   ]
 }
