@@ -11,6 +11,7 @@ import { AuthModal } from '@/components/AuthModal';
 import promptsData from '@/data/prompts.json';
 import type { SearchResult } from '@/lib/semantic-search';
 import { translations, getCardTitle } from '@/lib/i18n';
+import { isBadCardImage, resolvePromptImage } from '@/lib/image-url';
 
 const CARDS_PER_PAGE = 20;
 
@@ -105,8 +106,8 @@ function GalleryContent() {
     return p ? parseInt(p, 10) || 1 : 1;
   }, []);
   const [currentPage, setCurrentPage] = useState(initialPage);
-  const [visibleCount, setVisibleCount] = useState(40);
-  const ITEMS_PER_BATCH = 40;
+  const [visibleCount, setVisibleCount] = useState(20);
+  const ITEMS_PER_BATCH = 24;
   const [colCount, setColCount] = useState(4);
   const [quickViewId, setQuickViewId] = useState<string | number | null>(null);
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -163,7 +164,7 @@ function GalleryContent() {
   // Reset page when filters change & clear URL page param
   useEffect(() => {
     setCurrentPage(1);
-    setVisibleCount(40);
+    setVisibleCount(20);
     const params = new URLSearchParams(searchParams.toString());
     params.delete('page');
     router.replace(`?${params.toString()}`, { scroll: false });
@@ -172,7 +173,7 @@ function GalleryContent() {
 
   const promptsWithImages = useMemo(() =>
     promptsData
-      .filter(p => p.image && p.image.trim() !== '')
+      .filter(p => !isBadCardImage(p.id, p.image))
       .reverse(),
   []);
 
@@ -253,9 +254,12 @@ function GalleryContent() {
   // ─── JS-managed column distribution (no reflow on Show More) ───
   const visiblePrompts = useMemo(() => gridPrompts.slice(0, visibleCount), [gridPrompts, visibleCount]);
   const columns = useMemo(() => {
-    const cols: typeof visiblePrompts[] = Array.from({ length: colCount }, () => []);
+    const cols: { item: (typeof visiblePrompts)[number]; index: number }[][] = Array.from(
+      { length: colCount },
+      () => []
+    );
     visiblePrompts.forEach((item, i) => {
-      cols[i % colCount].push(item);
+      cols[i % colCount].push({ item, index: i });
     });
     return cols;
   }, [visiblePrompts, colCount]);
@@ -420,14 +424,14 @@ function GalleryContent() {
                 <div ref={galleryRef} className="flex gap-4">
                   {columns.map((col, ci) => (
                     <div key={ci} className="flex-1 flex flex-col gap-4 min-w-0">
-                      {col.map((item) => (
+                      {col.map(({ item, index }) => (
                         <div key={item.id}>
                           <PromptCard
                             id={item.id}
                             image={item.image || ''}
                             title={getCardTitle(item.id, item.title, locale)}
                             tags={[]}
-                            index={0}
+                            index={index}
                             creator={item.creator}
                             model={item.model}
                             onQuickView={setQuickViewId}
@@ -491,7 +495,7 @@ function GalleryContent() {
           >
             <div className="md:w-1/2 bg-zinc-800">
               <img
-                src={quickViewPrompt.image}
+                src={resolvePromptImage(quickViewPrompt.id, quickViewPrompt.image || '', 'detail').src}
                 alt={quickViewPrompt.title}
                 className="w-full h-full object-cover max-h-[50vh] md:max-h-[70vh]"
               />

@@ -260,13 +260,14 @@ export default function ProfilePage() {
             </div>
           ) : (
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-              {likedPrompts.slice(0, 8).map((item) => (
+              {likedPrompts.slice(0, 8).map((item, idx) => (
                 <PromptCard
                   key={item.id}
                   id={item.id}
                   image={item.image}
                   title={getCardTitle(item.id, item.title, locale)}
                   tags={['High-Fidelity', 'Industrial']}
+                  index={idx}
                   creator={item.creator}
                   model={item.model}
                 />

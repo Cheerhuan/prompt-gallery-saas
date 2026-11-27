@@ -47,8 +47,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
         </noscript>
 
-        {/* ── Critical image preload (OG image) ── */}
-        <link rel="preload" href="/prompt-gallery-saas/images/attack-on-titan.jpg" as="image" />
+        {/* ── Resource hints for fallback external image hosts & detail views ── */}
+        <link rel="preconnect" href="https://images.meigen.ai" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://images.meigen.ai" />
+        <link rel="dns-prefetch" href="https://image.lexica.art" />
+        <link rel="dns-prefetch" href="https://raw.githubusercontent.com" />
+        <link rel="dns-prefetch" href="https://images.pexels.com" />
 
         {/* ── PWA Support ── */}
         <link rel="manifest" href="/prompt-gallery-saas/manifest.json" />

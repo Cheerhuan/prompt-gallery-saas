@@ -5,6 +5,7 @@ import { SaaSNavbar } from '@/components/SaaSNavbar';
 import { useI18n } from '@/components/I18nProvider';
 import { getLikes } from '@/lib/likes';
 import { getCardTitle } from '@/lib/i18n';
+import { isBadCardImage, resolvePromptImage } from '@/lib/image-url';
 import promptsData from '@/data/prompts.json';
 
 interface PromptItem {
@@ -26,11 +27,11 @@ export default function LeaderboardPage() {
 
     // Build ranked list: liked prompts first (sorted naturally), then unliked
     const all: PromptItem[] = promptsData
-      .filter((p: any) => p.image && p.image.trim() !== '')
+      .filter((p: any) => !isBadCardImage(p.id, p.image))
       .map((p: any) => ({
         id: String(p.id),
         title: getCardTitle(p.id, p.title, locale),
-        image: p.image,
+        image: resolvePromptImage(p.id, p.image, 'card').src,
         liked: likedIds.has(String(p.id)),
       }));
 
@@ -80,6 +81,7 @@ export default function LeaderboardPage() {
   };
 
   const getResolvedSrc = (image: string) => {
+    if (image.startsWith(BASE_PATH)) return image;
     return image.startsWith('/') ? `${BASE_PATH}${image}` : image;
   };
 
@@ -131,8 +133,11 @@ export default function LeaderboardPage() {
                     <img
                       src={getResolvedSrc(item.image)}
                       alt={item.title}
+                      width={64}
+                      height={64}
                       className="w-full h-full object-cover"
                       loading="lazy"
+                      decoding="async"
                       onError={(e) => {
                         (e.target as HTMLImageElement).style.display = 'none';
                       }}

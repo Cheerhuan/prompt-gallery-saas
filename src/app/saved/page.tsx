@@ -129,13 +129,14 @@ export default function SavedPage() {
           </div>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            {savedPrompts.map((item) => (
+            {savedPrompts.map((item, idx) => (
               <PromptCard
                 key={item.id}
                 id={item.id}
                 image={item.image}
                 title={getCardTitle(item.id, item.title, locale)}
                 tags={['High-Fidelity', 'Industrial']}
+                index={idx}
                 creator={item.creator}
                 model={item.model}
               />
