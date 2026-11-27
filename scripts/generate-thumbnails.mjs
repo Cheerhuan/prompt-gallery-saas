@@ -11,6 +11,7 @@
 
 import fs from 'fs';
 import path from 'path';
+import crypto from 'crypto';
 import { fileURLToPath } from 'url';
 import sharp from 'sharp';
 
@@ -123,10 +124,12 @@ async function processEntry(entry, manifest) {
       .toBuffer({ resolveWithObject: true });
 
     fs.writeFileSync(thumbAbs, data);
+    const hash = crypto.createHash('md5').update(data).digest('hex').slice(0, 16);
     manifest[id] = {
       w: info.width,
       h: info.height,
       bytes: data.length,
+      hash,
       thumb: thumbRel,
     };
     return 'generated';
@@ -172,6 +175,66 @@ async function main() {
 
   await Promise.all(Array.from({ length: CONCURRENCY }, () => worker()));
 
+  // Ensure hash exists for cached thumbnails and reset stale duplicate flags
+  for (const [id, val] of Object.entries(manifest)) {
+    if (!val || val.bad) continue;
+    delete val.duplicateOf;
+    if (!val.hash && val.thumb) {
+      const thumbAbs = path.join(ROOT, 'public', val.thumb.replace(/^\/+/, ''));
+      if (fs.existsSync(thumbAbs)) {
+        val.hash = crypto.createHash('md5').update(fs.readFileSync(thumbAbs)).digest('hex').slice(0, 16);
+      }
+    }
+  }
+
+  // Deduplicate keeping the best/richest entry (longest full_prompt, tie -> highest numeric ID)
+  const canonImg = (u) =>
+    String(u || '')
+      .trim()
+      .split('?')[0]
+      .replace(/^https?:\/\/images\.meigen\.ai\/cdn-cgi\/image\/[^/]+\//, 'https://images.meigen.ai/');
+  const normPrompt = (t) => String(t || '').toLowerCase().replace(/\s+/g, ' ').trim();
+  const baseTitle = (t) => String(t || '').replace(/\s*\[[^\]]+\]\s*$/g, '').toLowerCase().replace(/\s+/g, ' ').trim();
+
+  const ranked = prompts
+    .filter((p) => {
+      const m = manifest[String(p.id)];
+      return m && !m.bad;
+    })
+    .slice()
+    .sort((a, b) => {
+      const lenDiff = String(b.full_prompt || '').length - String(a.full_prompt || '').length;
+      if (lenDiff !== 0) return lenDiff;
+      return Number(b.id) - Number(a.id);
+    });
+
+  const seenImg = new Map();
+  const seenHash = new Map();
+  const seenTitlePrompt = new Map();
+  let dupCount = 0;
+
+  for (const p of ranked) {
+    const id = String(p.id);
+    const m = manifest[id];
+    const imgKey = canonImg(p.image);
+    const hashKey = m?.hash || '';
+    const tpKey = `${baseTitle(p.title)}||${normPrompt(p.full_prompt)}`;
+
+    const dupOf =
+      (imgKey && seenImg.get(imgKey)) ||
+      (hashKey && seenHash.get(hashKey)) ||
+      (normPrompt(p.full_prompt) && seenTitlePrompt.get(tpKey));
+
+    if (dupOf) {
+      m.duplicateOf = dupOf;
+      dupCount++;
+    } else {
+      if (imgKey) seenImg.set(imgKey, id);
+      if (hashKey) seenHash.set(hashKey, id);
+      if (normPrompt(p.full_prompt)) seenTitlePrompt.set(tpKey, id);
+    }
+  }
+
   // Sort manifest keys deterministically
   const sortedManifest = {};
   for (const k of Object.keys(manifest).sort((a, b) => Number(a) - Number(b) || a.localeCompare(b))) {
@@ -183,7 +246,7 @@ async function main() {
   for (const val of Object.values(sortedManifest)) {
     if (val && typeof val.bytes === 'number') totalBytes += val.bytes;
   }
-  console.log(`\nDone. Total thumb size: ${(totalBytes / (1024 * 1024)).toFixed(2)} MB`);
+  console.log(`\nDone. Total thumb size: ${(totalBytes / (1024 * 1024)).toFixed(2)} MB (duplicates tagged: ${dupCount})`);
   if (failures.length > 0) {
     console.log(`Failures (${failures.length}):`);
     failures.slice(0, 15).forEach((f) => console.log(`  id=${f.id} ${f.reason} -> ${f.image}`));

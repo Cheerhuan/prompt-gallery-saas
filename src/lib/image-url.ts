@@ -4,8 +4,10 @@ export interface ThumbEntry {
   w?: number;
   h?: number;
   bytes?: number;
+  hash?: string;
   thumb?: string;
   bad?: boolean;
+  duplicateOf?: string;
   reason?: string;
 }
 
@@ -20,6 +22,48 @@ export function isBadCardImage(id: string | number, image?: string | null): bool
   if (BAD_IMAGE_HOSTS.some((h) => raw.includes(h))) return true;
   const entry = thumbManifest[String(id)];
   return Boolean(entry?.bad);
+}
+
+export function isDuplicateCard(id: string | number): boolean {
+  return Boolean(thumbManifest[String(id)]?.duplicateOf);
+}
+
+export function canonicalImageKey(image?: string | null): string {
+  return String(image || '')
+    .trim()
+    .split('?')[0]
+    .replace(/^https?:\/\/images\.meigen\.ai\/cdn-cgi\/image\/[^/]+\//, 'https://images.meigen.ai/');
+}
+
+/**
+ * Filters out bad/placeholder images and removes duplicate cards using both
+ * precomputed manifest duplicate links (`duplicateOf` via MD5/URL/title+prompt)
+ * and runtime canonical image URL deduplication (for newly ingested prompts).
+ */
+export function deduplicateGalleryPrompts<
+  T extends { id: string | number; image?: string | null; title?: string; full_prompt?: string }
+>(items: T[]): T[] {
+  const seenImg = new Set<string>();
+  const seenHash = new Set<string>();
+  const out: T[] = [];
+
+  for (const item of items) {
+    if (isBadCardImage(item.id, item.image)) continue;
+    const entry = thumbManifest[String(item.id)];
+    if (entry?.duplicateOf) continue;
+
+    const imgKey = canonicalImageKey(item.image);
+    const hashKey = entry?.hash || '';
+
+    if (imgKey && seenImg.has(imgKey)) continue;
+    if (hashKey && seenHash.has(hashKey)) continue;
+
+    if (imgKey) seenImg.add(imgKey);
+    if (hashKey) seenHash.add(hashKey);
+    out.push(item);
+  }
+
+  return out;
 }
 
 /**

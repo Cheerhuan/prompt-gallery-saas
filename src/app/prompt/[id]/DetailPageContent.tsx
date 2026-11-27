@@ -7,7 +7,7 @@ import { ResilientImage } from '@/components/ResilientImage';
 import { PromptPlayground } from '@/components/PromptPlayground';
 import { useI18n } from '@/components/I18nProvider';
 import { getCardTitle } from '@/lib/i18n';
-import { isBadCardImage, resolvePromptImage } from '@/lib/image-url';
+import { deduplicateGalleryPrompts, resolvePromptImage } from '@/lib/image-url';
 import { isSaved, toggleSave } from '@/lib/vault';
 import promptsData from '@/data/prompts.json';
 import type { Prompt } from '@/lib/semantic-search';
@@ -69,14 +69,17 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
         if (cancelled) return;
         const mod = await import('@/lib/semantic-search');
         if (cancelled) return;
-        const results = mod.getRelatedPrompts(prompt.id, promptsData as any, emb, 8);
-        setRelatedPrompts(results.filter((p: Prompt) => !isBadCardImage(p.id, p.image)).slice(0, 4));
+        const results = mod.getRelatedPrompts(prompt.id, promptsData as any, emb, 12);
+        const deduped = deduplicateGalleryPrompts(results.map((r: Prompt) => r)).filter(
+          (p: Prompt) => String(p.id) !== String(prompt.id)
+        );
+        setRelatedPrompts(deduped.slice(0, 4));
       } catch {
         // Fallback: show prompts from same creator
         if (!cancelled) {
-          const sameCreator = (promptsData as any[])
-            .filter((p: any) => p.id !== prompt.id && p.creator === prompt.creator && !isBadCardImage(p.id, p.image))
-            .slice(0, 4);
+          const sameCreator = deduplicateGalleryPrompts(
+            (promptsData as any[]).filter((p: any) => p.id !== prompt.id && p.creator === prompt.creator)
+          ).slice(0, 4);
           setRelatedPrompts(sameCreator);
         }
       }

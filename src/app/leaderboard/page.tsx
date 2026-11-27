@@ -5,7 +5,7 @@ import { SaaSNavbar } from '@/components/SaaSNavbar';
 import { useI18n } from '@/components/I18nProvider';
 import { getLikes } from '@/lib/likes';
 import { getCardTitle } from '@/lib/i18n';
-import { isBadCardImage, resolvePromptImage } from '@/lib/image-url';
+import { deduplicateGalleryPrompts, resolvePromptImage } from '@/lib/image-url';
 import promptsData from '@/data/prompts.json';
 
 interface PromptItem {
@@ -26,8 +26,7 @@ export default function LeaderboardPage() {
     const likedIds = new Set(getLikes().map(String));
 
     // Build ranked list: liked prompts first (sorted naturally), then unliked
-    const all: PromptItem[] = promptsData
-      .filter((p: any) => !isBadCardImage(p.id, p.image))
+    const all: PromptItem[] = deduplicateGalleryPrompts(promptsData as any[])
       .map((p: any) => ({
         id: String(p.id),
         title: getCardTitle(p.id, p.title, locale),

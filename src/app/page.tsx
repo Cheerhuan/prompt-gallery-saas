@@ -12,7 +12,7 @@ import { AuthModal } from '@/components/AuthModal';
 import promptsData from '@/data/prompts.json';
 import type { SearchResult } from '@/lib/semantic-search';
 import { translations, getCardTitle } from '@/lib/i18n';
-import { isBadCardImage } from '@/lib/image-url';
+import { deduplicateGalleryPrompts } from '@/lib/image-url';
 
 const CARDS_PER_PAGE = 20;
 
@@ -173,9 +173,7 @@ function GalleryContent() {
   }, [searchQuery, activeFilter]);
 
   const promptsWithImages = useMemo(() =>
-    promptsData
-      .filter(p => !isBadCardImage(p.id, p.image))
-      .reverse(),
+    deduplicateGalleryPrompts([...promptsData].reverse()),
   []);
 
   const filteredPrompts = useMemo(() => {
