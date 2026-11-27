@@ -411,6 +411,12 @@
     "bytes": 71228,
     "thumb": "/images/thumbs/69.webp"
   },
+  "70": {
+    "w": 480,
+    "h": 436,
+    "bytes": 23454,
+    "thumb": "/images/thumbs/70.webp"
+  },
   "71": {
     "w": 480,
     "h": 791,
@@ -2530,8 +2536,10 @@
     "thumb": "/images/thumbs/426.webp"
   },
   "427": {
-    "bad": true,
-    "reason": "unsupported url"
+    "w": 480,
+    "h": 480,
+    "bytes": 16524,
+    "thumb": "/images/thumbs/427.webp"
   },
   "428": {
     "w": 480,
@@ -2552,8 +2560,10 @@
     "thumb": "/images/thumbs/430.webp"
   },
   "431": {
-    "bad": true,
-    "reason": "unsupported url"
+    "w": 480,
+    "h": 270,
+    "bytes": 25724,
+    "thumb": "/images/thumbs/431.webp"
   },
   "432": {
     "w": 480,
@@ -2568,8 +2578,10 @@
     "thumb": "/images/thumbs/433.webp"
   },
   "434": {
-    "bad": true,
-    "reason": "unsupported url"
+    "w": 480,
+    "h": 853,
+    "bytes": 42844,
+    "thumb": "/images/thumbs/434.webp"
   },
   "435": {
     "w": 480,
@@ -2578,12 +2590,16 @@
     "thumb": "/images/thumbs/435.webp"
   },
   "436": {
-    "bad": true,
-    "reason": "unsupported url"
+    "w": 480,
+    "h": 600,
+    "bytes": 20628,
+    "thumb": "/images/thumbs/436.webp"
   },
   "437": {
-    "bad": true,
-    "reason": "unsupported url"
+    "w": 480,
+    "h": 643,
+    "bytes": 16878,
+    "thumb": "/images/thumbs/437.webp"
   },
   "438": {
     "w": 480,
@@ -2592,16 +2608,22 @@
     "thumb": "/images/thumbs/438.webp"
   },
   "439": {
-    "bad": true,
-    "reason": "unsupported url"
+    "w": 480,
+    "h": 640,
+    "bytes": 78136,
+    "thumb": "/images/thumbs/439.webp"
   },
   "440": {
-    "bad": true,
-    "reason": "unsupported url"
+    "w": 480,
+    "h": 853,
+    "bytes": 29774,
+    "thumb": "/images/thumbs/440.webp"
   },
   "441": {
-    "bad": true,
-    "reason": "unsupported url"
+    "w": 480,
+    "h": 600,
+    "bytes": 33164,
+    "thumb": "/images/thumbs/441.webp"
   },
   "442": {
     "w": 480,
@@ -2634,8 +2656,10 @@
     "thumb": "/images/thumbs/446.webp"
   },
   "447": {
-    "bad": true,
-    "reason": "unsupported url"
+    "w": 480,
+    "h": 640,
+    "bytes": 15056,
+    "thumb": "/images/thumbs/447.webp"
   },
   "448": {
     "w": 480,

@@ -135,6 +135,7 @@ export default function LeaderboardPage() {
                       alt={item.title}
                       width={64}
                       height={64}
+                      referrerPolicy="no-referrer"
                       className="w-full h-full object-cover"
                       loading="lazy"
                       decoding="async"

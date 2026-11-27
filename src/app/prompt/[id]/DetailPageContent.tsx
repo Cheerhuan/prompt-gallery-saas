@@ -3,9 +3,11 @@ import React, { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { SaaSNavbar } from '@/components/SaaSNavbar';
 import { PromptCard } from '@/components/PromptCard';
+import { ResilientImage } from '@/components/ResilientImage';
 import { PromptPlayground } from '@/components/PromptPlayground';
 import { useI18n } from '@/components/I18nProvider';
 import { getCardTitle } from '@/lib/i18n';
+import { isBadCardImage, resolvePromptImage } from '@/lib/image-url';
 import { isSaved, toggleSave } from '@/lib/vault';
 import promptsData from '@/data/prompts.json';
 import type { Prompt } from '@/lib/semantic-search';
@@ -67,13 +69,13 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
         if (cancelled) return;
         const mod = await import('@/lib/semantic-search');
         if (cancelled) return;
-        const results = mod.getRelatedPrompts(prompt.id, promptsData as any, emb, 4);
-        setRelatedPrompts(results);
+        const results = mod.getRelatedPrompts(prompt.id, promptsData as any, emb, 8);
+        setRelatedPrompts(results.filter((p: Prompt) => !isBadCardImage(p.id, p.image)).slice(0, 4));
       } catch {
         // Fallback: show prompts from same creator
         if (!cancelled) {
           const sameCreator = (promptsData as any[])
-            .filter((p: any) => p.id !== prompt.id && p.creator === prompt.creator)
+            .filter((p: any) => p.id !== prompt.id && p.creator === prompt.creator && !isBadCardImage(p.id, p.image))
             .slice(0, 4);
           setRelatedPrompts(sameCreator);
         }
@@ -107,7 +109,10 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
               "@type": "CreativeWork",
               "name": prompt.title,
               "description": prompt.full_prompt?.slice(0, 200),
-              "image": prompt.image?.startsWith('/') ? `https://cheerhuan.github.io/prompt-gallery-saas${prompt.image}` : prompt.image,
+              "image": (() => {
+                const resolved = resolvePromptImage(prompt.id, prompt.image || '', 'detail').src;
+                return resolved.startsWith('/') ? `https://cheerhuan.github.io${resolved}` : resolved;
+              })(),
               "keywords": `AI prompt, ${prompt.model || 'GPT-Image'}, prompt engineering`,
               "creator": { "@type": "Person", "name": prompt.creator || "Prompt Gallery" },
             })
@@ -165,11 +170,14 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
           {/* ─── LEFT COLUMN: Image ─── */}
           <div className="lg:col-span-7 space-y-10">
             <div className={`relative group rounded-3xl overflow-hidden bg-zinc-900 border border-zinc-800 shadow-2xl`}>
-              <img 
-                src={prompt.image?.startsWith('/') ? '/prompt-gallery-saas' + prompt.image : prompt.image} 
+              <ResilientImage
+                promptId={prompt.id}
+                image={prompt.image || ''}
                 alt={prompt.title}
+                loading="eager"
+                decoding="sync"
+                fetchPriority="high"
                 className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
-                loading="lazy"
               />
               <div className="absolute top-6 left-6 flex gap-2">
                 <span className="px-3 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-[10px] uppercase tracking-widest text-white font-medium">
@@ -190,7 +198,15 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
                   <div className="space-y-3">
                     <span className="text-[10px] text-indigo-400 uppercase tracking-tighter">{t('detail.refinedArchitecture')}</span>
                     <div className="aspect-square rounded-2xl bg-zinc-900 border-2 border-indigo-500/50 overflow-hidden">
-                      <img src={prompt.image?.startsWith('/') ? '/prompt-gallery-saas' + prompt.image : prompt.image} alt={prompt.title} className="w-full h-full object-cover" />
+                      <ResilientImage
+                        promptId={prompt.id}
+                        image={prompt.image || ''}
+                        alt={prompt.title}
+                        loading="lazy"
+                        decoding="async"
+                        fetchPriority="low"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                   </div>
                 </div>
@@ -287,13 +303,14 @@ export default function DetailPageContent({ prompt, params }: { prompt: any, par
               </p>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-              {relatedPrompts.map((item) => (
+              {relatedPrompts.map((item, idx) => (
                 <PromptCard
                   key={item.id}
                   id={item.id}
                   image={item.image || ''}
                   title={getCardTitle(item.id, item.title, locale)}
                   tags={['High-Fidelity', 'Industrial']}
+                  index={idx}
                   creator={item.creator}
                   model={item.model}
                   onQuickView={() => {}}

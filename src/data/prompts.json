@@ -4373,7 +4373,7 @@
   {
     "id": "427",
     "title": "Floral Serum Product Shot [電商產品]",
-    "image": "../images/ecommerce_case173/output.jpg",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/ecommerce_case173/output.jpg",
     "full_prompt": "Minimalist studio product photography, a small transparent glass facial oil dropper bottle with a black rubber pipette cap, containing pale pink serum with suspended dried pink floral elements, centered on a natural raw wooden block with visible grain and split texture. Tall matte white skincare box on the left labeled \"HUILE ÉCLAT VISAGE\" with clean black typography and subtle logo near the bottom. Clear cylindrical glass vase on the right filled with water and thin stems of dried pink gypsophila extending upward. Composition rests on a smooth matte pastel pink surface against a matching seamless pink studio background. Strong directional soft light from the left casts long natural-style shadows of the flowers onto the background, with gentle highlights on the glass, subtle reflections on the serum bottle, and soft texture on the wooden block. Straight-on tabletop camera angle, all objects in sharp focus. Color palette: blush pink, soft rose, warm light wood, clean white, transparent glass. Premium Scandinavian minimalist skincare aesthetic, ultra-realistic, studio-grade.\n\nfull prompt:",
     "model": "GPT-Image-2",
     "_version": "2026-05-09-imported",
@@ -4413,7 +4413,7 @@
   {
     "id": "431",
     "title": "Medieval Alchemist Character Sheet [角色設計]",
-    "image": "../images/character_case27/output.jpg",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/character_case27/output.jpg",
     "full_prompt": "Create a high-end, asymmetric editorial CHARACTER CONCEPT SHOWCASE from these inputs:\n\n[STYLE]: stylized 3D stop-motion claymation style with rich tactile textures of clay, felt, and leather, and warm cinematic studio lighting\n[SUBJECT_DESCRIPTION]: A charming and slightly eccentric traveling medieval alchemist and cartographer. He wears a heavy, oversized patched wool coat over a worn leather tunic, multiple small glowing potion vials and rolled-up parchment scrolls strapped to his utility belt, a wide-brimmed traveler's hat, and thick round brass spectacles. He has a messy, hand-sculpted ginger beard, warm curious eyes, and a friendly smile. He carries an ancient, brass-trimmed leather satchel. His design features exaggerated, whimsical proportions and a cozy, rustic medieval aesthetic.\n\nCreate the layout in a clean 16:9 widescreen format on a neutral studio gray or warm off-white background with a minimal technical border. The design must look like a premium production visual bible, using clean typography, no clutter, no watermarks, and no logos. Apply [STYLE] only to the character and visual elements, keeping the presentation layout clean, structured, and minimal.\n\nInfer all missing details from the subject description, including name, role, brief background specs, and a cohesive color palette.\n\nUse this tri-fold layout:\n\n1. HERO SPOTLIGHT (Left 40% of the board)\n- Show one large, highly detailed full-body dynamic action pose of the subject.\n- This pose should showcase the character's primary personality, attitude, and silhouette.\n\n2. TECHNICAL TURNAROUND (Center 35% of the board)\n- Show exactly two clean full-body views: Front View and Back View.\n- The subject should be in a relaxed, neutral stance.\n- Place these views over very subtle vertical and horizontal grid lines resembling a technical schematic blueprint.\n\n3. KEY DETAILS (Right 25% of the board)\n- EXPRESSION TRIO: Exactly 3 large, highly expressive close-up headshots showing core emotional states: Calm/Neutral, Highly Focused/Intense, and a Dynamic/Expressive emotion (like a smirk or fierce grin).\n- GEAR CALLOUTS: Exactly 2 clean, isolated close-up panels showing primary wardrobe textures, signature accessories, or weapons/gear.\n\n4. SPECS & COLOR BANNER (Bottom Edge)\n- A minimalist, horizontal typography block listing Name, Role, Age, and Core Theme.\n- Adjacent to the text, display 5 to 6 clean geometric color swatches showing the character's primary color palette with no labels.\n\nEnsure complete character and costume consistency across all sections. The Hero Spotlight must visually anchor the sheet, offering a clean, open, and professional layout that avoids dense, repetitive, or cluttered grids.",
     "model": "GPT-Image-2",
     "_version": "2026-05-09-imported",
@@ -4443,7 +4443,7 @@
   {
     "id": "434",
     "title": "Douyin Livestream Screenshot [介面設計]",
-    "image": "../images/ui_case188/output.jpg",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/ui_case188/output.jpg",
     "full_prompt": "Vertical 9:16 aspect ratio. Create a realistic Douyin (TikTok China) live broadcast screenshot. The scene shows Liu Yifei hosting a live stream, holding up a sign that reads: \"Streaming live tonight, join the chat with Yifei!\" Capture the authentic look of a Chinese mobile livestreaming interface.",
     "model": "GPT-Image-2",
     "_version": "2026-05-09-imported",
@@ -4463,7 +4463,7 @@
   {
     "id": "436",
     "title": "Ray-Ban Giant Aviator Ad [廣告創意]",
-    "image": "../images/ad-creative_case198/output.jpg",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/ad-creative_case198/output.jpg",
     "full_prompt": "Minimalist commercial ad featuring oversized Ray-Ban Aviator sunglasses, ultra-clean design. A young woman in all-white outfit leans casually against the giant sunglasses, relaxed confident pose, eyes closed, also holding a regular-sized pair in her hand. Soft gradient golden background with large bold white “RAY-BAN” text behind. Glossy reflective floor, soft studio lighting, modern high-end product photography. Small top-right text “Designed by Mr Das”. Bottom center tagline in small white font: “Iconic vision, every look.”",
     "model": "GPT-Image-2",
     "_version": "2026-05-09-imported",
@@ -4473,7 +4473,7 @@
   {
     "id": "437",
     "title": "Pixar Banana Hero Character [角色設計]",
-    "image": "../images/character_case28/output.jpg",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/character_case28/output.jpg",
     "full_prompt": "Pixar-style 3D animated banana character, single fruit brought to life. A charismatic male figure with bold confident eyes, thick expressive brows, and a wide grin full of gleaming white teeth with sparkle accents. Smooth, slightly glossy yellow peel with soft highlights. Stubby cartoon arms and legs, posed upright with arms crossed in a heroic stance. Background features a blurred bunch of bananas. Standing on a wooden dining table beside a sun-filled window in a cozy modern home interior. Rich vibrant colors, cinematic lighting, soft natural shadows, ultra-detailed high-fidelity textures.",
     "model": "GPT-Image-2",
     "_version": "2026-05-09-imported",
@@ -4493,7 +4493,7 @@
   {
     "id": "439",
     "title": "Park Bench Iced Coffee Portrait [人像攝影]",
-    "image": "../images/portrait_case306/output.jpg",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/portrait_case306/output.jpg",
     "full_prompt": "Beautiful young Japanese girl with long straight dark brown hair and soft full bangs, fair skin, bright natural smile, sitting casually on a wooden park bench while holding an iced coffee cup. Wearing a light beige windbreaker jacket and a white pleated mini skirt, relaxed posture, one hand resting on the bench. Surrounded by a lush green park with tall trees, fresh grass, and a bright blue sky with soft clouds. Captured with a smartphone camera in portrait mode, casual everyday snapshot, natural daylight, handheld iPhone photo, slightly imperfect framing, realistic skin texture, natural colors, soft HDR phone processing, candid social-media aesthetic, no professional modeling, no studio lighting, no cinematic color grading, authentic mobile photography, ordinary park outing vibe, spontaneous moment, realistic shadows, subtle lens softness, photorealistic, high-quality phone camera image.",
     "model": "GPT-Image-2",
     "_version": "2026-05-09-imported",
@@ -4503,7 +4503,7 @@
   {
     "id": "440",
     "title": "Late-Night Office Flash Portrait [人像攝影]",
-    "image": "../images/portrait_case312/output.jpg",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/portrait_case312/output.jpg",
     "full_prompt": "CCD flash photography style, late-night office setting, whiteboard covered in mathematical formulas in the background, black-rimmed glasses, white high-neck top, black high-waisted mini skirt, semi-matte cool-white porcelain skin with realistic skin texture, subject seated at desk, whiteboard marker held close to the lips, slight dutch angle composition, nuyoah aesthetic",
     "model": "GPT-Image-2",
     "_version": "2026-05-09-imported",
@@ -4513,7 +4513,7 @@
   {
     "id": "441",
     "title": "Pastel Kawaii Animal Companions [角色設計]",
-    "image": "../images/character_case29/output.jpg",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/character_case29/output.jpg",
     "full_prompt": "Cute minimalist pastel doodle illustration, kawaii character standing side-by-side with their adorable animal companion, inspired by modern Japanese stationery art and children's picture books, clean vector linework, soft cream background, muted pastel color palette (pink, blue, mint, lavender, yellow), simple geometric shapes, tiny confetti dots and floating decorative elements, rounded character design with oversized sweater, wide pants, sneakers, glasses, calm expression, animal companion variations including llama, bear, axolotl, rabbit, cat, fox, turtle or fantasy creature, cozy scenic background with seaside boardwalk, lakeside village, mountain town or whimsical nature landscape, flat design, thick outlines, charming and playful aesthetic, symmetrical composition, full body pose, cute friendship theme, highly detailed vector illustration, sticker-like appearance, children's book art style, soft shadows, clean negative space, vibrant yet gentle colors, trending on Pinterest, adorable wholesome atmosphere, 4k, masterpiece.",
     "model": "GPT-Image-2",
     "_version": "2026-05-09-imported",
@@ -4573,7 +4573,7 @@
   {
     "id": "447",
     "title": "LEGO Football Collectible Figure [角色設計]",
-    "image": "../images/character_case30/output.jpg",
+    "image": "https://raw.githubusercontent.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts/main/images/character_case30/output.jpg",
     "full_prompt": "A highly detailed collectible toy figure inspired by a LEGO-style minifigure, standing in a professional studio. The figure has a realistic young woman’s face with porcelain skin, straight jet-black hair, blunt bangs, and a single striking white streak running through the hair. She wears small silver earrings and maintains a calm, confident expression. The body is a glossy plastic brick-toy minifigure wearing a soccer jersey with the number 10, matching shorts, and national-team-inspired colors. Full-body composition, centered framing, shallow depth of field, premium product photography, ultra-clean lighting, reflective plastic surfaces, realistic shadows, sharp focus, luxury collectible aesthetic, high-end commercial advertising style, photorealistic face blended seamlessly with toy body, 8K resolution, vibrant color grading, studio backdrop matching the jersey color theme.",
     "model": "GPT-Image-2",
     "_version": "2026-05-09-imported",

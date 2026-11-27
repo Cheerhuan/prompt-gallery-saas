@@ -23,26 +23,24 @@ export function isBadCardImage(id: string | number, image?: string | null): bool
 }
 
 /**
- * Resolves the optimal image URL + intrinsic dimensions for gallery cards (`variant='card'`)
- * or full-resolution previews (`variant='detail'`).
- * - Stage 3: Uses pre-generated local 480px WebP thumbnails (`/images/thumbs/<id>.webp`)
- *   cached CacheFirst by sw.js when available.
- * - Stage 2: Rewrites external CDN URLs (`images.meigen.ai`, `images.pexels.com`) to compact
- *   480px widths when a local thumbnail isn't present yet (e.g. newly curated prompts).
+ * Resolves the optimal image URL + fallback thumbnail + intrinsic dimensions
+ * for gallery cards (`variant='card'`) or full-resolution previews (`variant='detail'`).
  */
 export function resolvePromptImage(
   id: string | number,
   image: string,
   variant: 'card' | 'detail' = 'card'
-): { src: string; fallbackSrc: string; width?: number; height?: number } {
+): { src: string; fallbackSrc: string; thumbSrc?: string; width?: number; height?: number } {
   const raw = (image || '').trim();
   const fallbackSrc = raw.startsWith('/') ? `${BASE_PATH}${raw}` : raw;
   const entry = thumbManifest[String(id)];
+  const thumbSrc = entry && !entry.bad && entry.thumb ? `${BASE_PATH}${entry.thumb}` : undefined;
 
-  if (variant === 'card' && entry && !entry.bad && entry.thumb) {
+  if (variant === 'card' && thumbSrc) {
     return {
-      src: `${BASE_PATH}${entry.thumb}`,
+      src: thumbSrc,
       fallbackSrc,
+      thumbSrc,
       width: entry.w,
       height: entry.h,
     };
@@ -63,6 +61,7 @@ export function resolvePromptImage(
   return {
     src: optimized,
     fallbackSrc,
+    thumbSrc,
     width: entry?.w,
     height: entry?.h,
   };

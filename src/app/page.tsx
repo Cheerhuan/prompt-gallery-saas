@@ -5,13 +5,14 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import Sidebar from '@/components/Sidebar';
 import ModelTabs from '@/components/ModelTabs';
 import { PromptCard } from '@/components/PromptCard';
+import { ResilientImage } from '@/components/ResilientImage';
 import { GallerySkeleton } from '@/components/Skeleton';
 import { useI18n } from '@/components/I18nProvider';
 import { AuthModal } from '@/components/AuthModal';
 import promptsData from '@/data/prompts.json';
 import type { SearchResult } from '@/lib/semantic-search';
 import { translations, getCardTitle } from '@/lib/i18n';
-import { isBadCardImage, resolvePromptImage } from '@/lib/image-url';
+import { isBadCardImage } from '@/lib/image-url';
 
 const CARDS_PER_PAGE = 20;
 
@@ -494,9 +495,14 @@ function GalleryContent() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="md:w-1/2 bg-zinc-800">
-              <img
-                src={resolvePromptImage(quickViewPrompt.id, quickViewPrompt.image || '', 'detail').src}
+              <ResilientImage
+                key={quickViewPrompt.id}
+                promptId={quickViewPrompt.id}
+                image={quickViewPrompt.image || ''}
                 alt={quickViewPrompt.title}
+                loading="eager"
+                decoding="sync"
+                fetchPriority="high"
                 className="w-full h-full object-cover max-h-[50vh] md:max-h-[70vh]"
               />
             </div>
